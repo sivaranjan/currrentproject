@@ -1,0 +1,168 @@
+/* Header */
+
+.header-text {
+    display: inline-block;
+    padding-top: 0;
+    line-height: 31px;
+    position: relative;
+    top: 1px;
+}
+
+
+/* for form Label */
+
+label {
+    font-size: 12px;
+}
+
+
+/* Fixed Nav 0n Scroll*/
+
+.navfixedbtn {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 1140px;
+    background: #fff;
+    padding-top: 15px;
+}
+
+
+/* Accordion */
+
+.panel-default > .panel-heading {
+    background-color: #E6E6E6;
+    color: #333;
+}
+
+.panel-title {
+    font-weight: normal;
+    font-size: 16px;
+}
+
+
+/* Button spacing */
+
+#createorder-section button+button,
+#navbar-2 button+button {
+    margin-left: 4px;
+}
+
+
+/* text overflow */
+
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* Table Component */
+
+#component-table .table thead tr th,
+#component-table .table tbody tr td {
+    font-size: 12px;
+}
+
+
+/* Data Table Component for pagenation*/
+
+.dataTables_paginate ul.pagination li {
+    display: none;
+}
+
+.dataTables_paginate ul.pagination li.previous,
+.dataTables_paginate ul.pagination li.next {
+    display: inline-block;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button a,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled a {
+    padding: 7px 8px 9px;
+    background-color: #fff !important;
+    border: 1px solid #dddddd !important;
+    margin-left: -1px;
+    font-size: 0;
+}
+
+.dataTables_paginate ul.pagination li.next a::before,
+.dataTables_paginate ul.pagination li.next a::before {
+    content: "\e080";
+}
+
+.dataTables_paginate ul.pagination li.previous a::before,
+.dataTables_paginate ul.pagination li.previous a::before {
+    content: "\e079";
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button a::before,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled a::before {
+    font-size: 14px;
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Voice box */
+.status-voicebox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 101;
+}
+.status-voicebox .voicebox-content {
+    display: inline-block;
+    padding: 5px 10px;
+    color: #000000;
+    font-weight: 200;
+    background-color: #FFF09D;
+    border: 1px solid #FFDE2F;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.loading {
+    display: inline-block;
+    float: left;
+    margin-top: 1px;
+    margin-right: 5px;
+    border-radius: 50%;
+       width: 16px;
+    height: 16px;
+    border: 0.25rem solid rgba(111, 111, 111, 0.2);
+    border-top-color: #A7A7A7;
+    -webkit-animation: spin 1s infinite linear;
+    animation: spin 1s infinite linear;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+

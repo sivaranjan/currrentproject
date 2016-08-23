@@ -1,0 +1,101 @@
+.header [class*="col-"]
+{
+    margin-bottom: 15px;
+}
+
+.header .header-logo{
+    margin-top: 20px;
+}
+.home-sections table{
+  font-size: 1px;
+}
+
+.header-search{
+    border-right: 0;
+    height: 40px;
+}
+
+.header-settings {
+    padding-top: 5px;
+}
+
+.header-settings .input-group{
+    width: 60%;
+}
+
+.header [class*="col-"] .header-text
+{
+    padding-right: 18px;
+}
+
+.modal {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.empty_icon{
+    font-size: 15px;
+    color: #C00000;
+    text-align: center;
+}
+
+.download_icon {
+  font-size: 15px;
+  text-align: center;
+}
+
+small {
+  font-size: 90%;
+}
+
+.server_error{
+  font-size: 13px;
+  color: #a94442;
+}
+
+.dataTables_info, .dataTables_paginate{
+  display: inline;
+}
+
+.dataTables_paginate{
+  float: right;
+}
+
+.paginate_button{
+  padding: 0 4px;
+  cursor: pointer;
+}
+
+.dataTables_paginate .current{
+  color: #000;
+  cursor: default;
+  text-decoration: none;
+}
+
+.dataTables_paginate .disabled{
+  pointer-events: none;
+  cursor: default;
+  color: #DDD;
+}
+div.scroll {
+	border:2px solid #ccc;
+    width: 550px;
+    height: 500px;
+    overflow-y: scroll;
+}
+
+

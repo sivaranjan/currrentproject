@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/guava-10.0.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jackson-annotations-2.5.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jackson-core-2.5.3.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jackson-databind-2.5.3.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/javax.servlet-api-3.1.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/json-simple-1.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/objectify-5.0.5.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/org-apache-commons-codec.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/SoyToJsSrcCompiler.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-aop-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-beans-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-context-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-core-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-expression-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-security-config-4.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-security-core-4.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-security-web-4.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-tx-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-web-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-webmvc-4.2.0.RELEASE.jar"/>
+	<classpathentry kind="output" path="war/WEB-INF/classes"/>
+</classpath>
