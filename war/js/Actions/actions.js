@@ -24,7 +24,7 @@ $(document).ready(function() {
     });
 });
 $(window).scroll(function(event) {
-    if ($(window).width() > 768) {
+    if ($(window).width() > 992) {
         if ($(window).scrollTop() >= 205) {
             //      $('#panelwell-details').addClass('fixedposition');
             $('#navbar-2').addClass('navfixedbtn');

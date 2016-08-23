@@ -165,4 +165,20 @@ label {
   }
 }
 
+@media (min-width: 768px){
+.navfixedbtn {
+    width: 720px;
+}
+}
+@media (min-width: 992px) {
+  .navfixedbtn {
+    width: 940px;
+  }
+}
+@media (min-width: 1200px){
+	.navfixedbtn {
+	    width: 1140px;
+	}
+}
+
 

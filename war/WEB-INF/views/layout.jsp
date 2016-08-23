@@ -52,10 +52,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2 col-xs-4 text-center">
+            <div class="col-md-2 col-xs-12 text-center">
                 <a href="/"><img src="../statics/images/logo-valeo.png"></a>
             </div>
-            <div class="col-md-6 col-xs-8">
+            <div class="col-md-6 col-xs-12">
                 <h2 id="headtitle" class="valeo-app-title">THS France Prototype Database</h2>
             </div>
         </header>
@@ -91,7 +91,7 @@
 					<div class="panel panel-default" id="actordetailview">
 						<!--  actordetail-view.soy will be rendereed -->
 					</div>
-					<div class="panel panel-default" id="componentgdetailview">
+					<div class="panel panel-default hide" id="componentgdetailview">
 						<!--  componentgrid-view.soy will be rendereed -->
 					</div>
                 </div>
@@ -104,7 +104,77 @@
 		<section class="container hide" id="component-section">
 			
 		</section>
-
+		<section class="container hide" id="orderlist-section">
+			<div class="col-md-12">
+				<div class="panel-group" role="tablist">
+                	<div class="panel panel-default">
+						<div class="panel-heading" role="tab">
+					      <h4 class="panel-title">
+					        Order List
+					      </h4>
+					    </div>
+					    <div class="panel-collapse collapse in" role="tabpanel">
+					      <div class="panel-body">
+						      <table class="table table-hover responsive nowrap" id="orderlist-table">
+								<thead>
+									<tr>
+										<th><input type="checkbox"></th>
+										<th>Site</th>
+										<th>Number</th>
+										<th>Status</th>
+										<th>Branch Code</th>
+										<th>N<sup>&#8728;</sup> Customer order</th>
+										<th>Project Manager</th>
+										<th>Proto Type</th>
+										<th>type</th>
+										<th>Cde Ouverte</th>
+										<th>Added By</th>
+										<th>Added On</th>
+										<th>CommandeID</th>
+										<th>&nbsp;</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><input type="checkbox"></td>
+										<td>La Suze</td>
+										<td>LAS0000220-P0V</td>
+										<td>EN COURS</td>
+										<td>BMW</td>
+										<td></td>
+										<td>teste.valeo005@app-test.valeo.com</td>
+										<td>p1</td>
+										<td>vendu</td>
+										<td><input type="checkbox"></td>
+										<td>18/08/2016</td>
+										<td>sivaranjan.venkatachalam@test.com</td>
+										<td>CMD0000220</td>
+										<td>&nbsp;</td>
+									</tr>
+									<tr>
+										<td><input type="checkbox"></td>
+										<td>La Suze</td>
+										<td>LAS0000221-P0V</td>
+										<td>EN COURS</td>
+										<td>Valeo</td>
+										<td>Test affctation CA / CdP</td>
+										<td>teste.valeo005@app-test.valeo.com</td>
+										<td>p0</td>
+										<td>vendu</td>
+										<td><input type="checkbox"></td>
+										<td>19/08/2016</td>
+										<td>sivaranjan.venkatachalam@test.com</td>
+										<td>CMD0000221</td>
+										<td>&nbsp;</td>
+									</tr>
+								</tbody>
+							  </table>
+							</div>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</section>
         <!-- Footer -->
         <footer>
 		    <div class="col-md-12 col-xs-12 logo">

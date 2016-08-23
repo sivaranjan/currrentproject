@@ -14,7 +14,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
 		}	
 		ref.$el.html(adminDetailHTML);
 		$('#admin-section').removeClass('hide');
-    	$('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper').addClass('hide');
+    	$('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper,#orderlist-section').addClass('hide');
     	$('#bs-example-navbar-collapse-1 ul li').removeClass('active');
     	$('#adminsetting-tab').addClass('active');
     	$('#admin-table').DataTable({

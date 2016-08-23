@@ -4,7 +4,8 @@ var Router = Backbone.Router.extend({
         'home': 'home',
         'createorder': 'order',
         'adminsetting': 'admin',
-        'componentdetails': 'component'
+        'componentdetails': 'component',
+        'orderlisting': 'orderlist'
     }
 });
 var routerTHS = new Router();
@@ -40,6 +41,26 @@ routerTHS.on('route:admin', function(action) {
 routerTHS.on('route:component', function(action) {
     var componentDetailHTMl = new BackboneData.Views.ComponentDetailView();
     componentDetailHTMl.render();
+
+});
+routerTHS.on('route:orderlist', function(action) {
+	$('#orderlist-section').removeClass('hide');
+	$('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper,#admin-section').addClass('hide');
+	$('#bs-example-navbar-collapse-1 ul li').removeClass('active');
+	$('#orderlist-tab').addClass('active');
+	$('#orderlist-table').DataTable({
+        responsive: {
+            details: {
+                type: 'column',
+                target: -1
+            }
+        },
+        columnDefs: [{
+            className: 'control',
+            orderable: false,
+            targets: -1
+        }]
+    });
 
 });
 if (Backbone.history != undefined && Backbone.history != null && Backbone.history != '') {

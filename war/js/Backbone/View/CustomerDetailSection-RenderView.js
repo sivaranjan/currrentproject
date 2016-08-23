@@ -57,10 +57,14 @@ BackboneData.Views.CustomerDetailView = Backbone.View.extend({
     },
     events: {
         'click #customernextbtn': 'validatecustomerdetail',
-        'click #backcustomerbtn': 'validatecustomerdetail',
+        'click #backcustomerbtn': 'backtoorderdetail',
     },
     validatecustomerdetail: function() {
-        alert("you clicked it dude");
+    	$('#collapseThree').collapse('show');
+    	$("html, body").animate({ scrollTop: 1295 }, "slow");
+    },
+    backtoorderdetail: function() {
+    	$("html, body").animate({ scrollTop: 205 }, "slow");
     }
 
 });

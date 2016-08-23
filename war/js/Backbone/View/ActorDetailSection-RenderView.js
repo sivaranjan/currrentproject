@@ -12,9 +12,12 @@ BackboneData.Views.ActorDetailview = Backbone.View.extend({
     },
     events: {
         'click #saveorderbtn': 'validateactordetail',
-        'click #backactorbtn': 'validateactordetail',
+        'click #backactorbtn': 'backtocustomerdetail',
     },
     validateactordetail: function() {
         alert("you clicked it dude");
+    },
+    backtocustomerdetail: function() {
+    	$("html, body").animate({ scrollTop: 595 }, "slow");
     }
 });
