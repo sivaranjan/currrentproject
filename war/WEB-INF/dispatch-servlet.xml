@@ -11,11 +11,8 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 	<context:component-scan base-package="com.ths.controller" />
-	<context:component-scan base-package="com.ths.configuration" />
-	<context:component-scan base-package="com.ths.dao" />
-	<context:component-scan base-package="com.ths.helper" />
-	<context:component-scan base-package="com.ths.initialization" />
-	<context:component-scan base-package="com.ths.jdo" />
+	<context:component-scan base-package="com.ths.DAO" />
+	<context:component-scan base-package="com.ths.JDO" />
 	<mvc:annotation-driven />
 	<bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -26,13 +23,13 @@
             <value>.jsp</value>
         </property>
     </bean>
-    <bean id="bootStrap" class="com.ths.controller.Bootstrap" init-method="init"/>
-    <!--Start-->
-	<!--     <bean id="bootStrap" class="de.whitebit.boot.Bootstrap" init-method="init"/> -->
-
-    <!--Service-->
+    
+    <bean id="registerEntity" class="com.ths.service.Entity" init-method="init"/>
     
 
     <!--Persistence-->
-    <bean id="eventDao" class="com.ths.service.ExampleDao"/>
+    <bean id="eventDao" class="com.ths.DAO.ExampleDao"/>
+    <bean id="orderDao" class="com.ths.DAO.OrderDAO"/>
+    <bean id="actorsDao" class="com.ths.DAO.ActorsDAO"/>
+    <bean id="customerDao" class="com.ths.DAO.CustomerDAO"/>
   </beans>

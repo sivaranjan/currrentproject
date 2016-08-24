@@ -21,6 +21,9 @@
   <servlet-name>SystemServiceServlet</servlet-name>
   <url-pattern>/_ah/spi/*</url-pattern>
  </servlet-mapping>
+ 
+ 
+ 
  <security-constraint>
         <web-resource-collection>
             <web-resource-name>profile</web-resource-name>
@@ -29,32 +32,8 @@
         <user-data-constraint>
             <transport-guarantee>CONFIDENTIAL</transport-guarantee>
         </user-data-constraint>
-    </security-constraint>
-<listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/dispatch-servlet.xml</param-value>
-    </context-param>
-    <filter>
-      <filter-name>ObjectifyFilter</filter-name>
-      <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
-    </filter>
-    <filter-mapping>
-      <filter-name>ObjectifyFilter</filter-name>
-      <url-pattern>/*</url-pattern>
-    </filter-mapping>
-    <filter>
-      <filter-name>AuthFilter</filter-name>
-      <filter-class>com.ths.service.AuthFilter</filter-class>
-    </filter>
-    <filter-mapping>
-      <filter-name>AuthFilter</filter-name>
-      <url-pattern>/example/create</url-pattern>
-    </filter-mapping>
-    <security-constraint>
+ </security-constraint>
+ <security-constraint>
        <web-resource-collection>
            
            <url-pattern>/</url-pattern>
@@ -63,8 +42,25 @@
            <role-name>*</role-name>
        </auth-constraint>
    </security-constraint>
-    <listener>
-      <listener-class>com.ths.service.OfyHelper</listener-class>
+   
+ 
+<listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/dispatch-servlet.xml</param-value>
+    </context-param>
+    
+    <filter>
+      <filter-name>AuthFilter</filter-name>
+      <filter-class>com.ths.service.AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+      <filter-name>AuthFilter</filter-name>
+      <url-pattern>/example/create</url-pattern>
+    </filter-mapping>
+   
    
 </web-app>

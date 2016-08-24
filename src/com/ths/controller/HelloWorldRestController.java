@@ -1,4 +1,4 @@
-package com.ths.controller;
+/*package com.ths.controller;
   
 import java.util.List;
   
@@ -121,4 +121,4 @@ public class HelloWorldRestController {
         return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
     }
   
-}
+}*/
