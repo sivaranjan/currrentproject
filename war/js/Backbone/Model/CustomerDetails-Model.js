@@ -1,24 +1,21 @@
-/**
- * 
- */
-var CustomerDetails = Backbone.Model.extend({
+var CustomerModel = Backbone.Model.extend({
     defaults: {
-        order_Status: "",
-        total_Order_Amount: "",
-        customer_Name: "",
-        customer_Code: "",
-        branch_Code: "",
-        provider_Code: "",
-        final_Delivery_Address: "",
-        additional_Address: "",
-        plateform: "",
-        incoterms: "",
-        place: "",
-        allocation_of_turnover: "",
-        customer_Receiver_Telephone: "",
-        customer_Receiver_Name: "",
-        site_Address: "",
-        customerOrderAttachment: "",
+    	order_Order_ID:"",
+    	no_customerOrder:"",
+    	customerOrderAttachment:"",
+    	customer_Name:"",
+    	customer_Code:"",
+    	branch_Code:"",
+    	provider_Code:"",
+    	final_Delivery_Address:"",
+    	additional_Address:"",
+    	site_Address:"",
+    	plateform:"",
+    	incoterms:"",
+    	place:"",
+    	customer_Receiver_Name:"",
+    	customer_Receiver_Telephone:"",
+    	allocation_of_turnover:""
     },
     initialize: function() {
         console.log('Book has been initialized');
@@ -31,9 +28,9 @@ var CustomerDetails = Backbone.Model.extend({
         Backbone.Model.apply(this, arguments);
     },
     validate: function(attr) {
-        if (!attr.name) {
+        if (!attr.no_customerOrder) {
             return "Invalid BookName supplied."
         }
     },
-    urlRoot: 'http://localhost:8888/example/create'
+    urlRoot: 'http://localhost:8888/customer/create'
 });
