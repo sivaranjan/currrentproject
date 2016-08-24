@@ -2,6 +2,7 @@ package com.ths.DAO;
 
 import com.googlecode.objectify.Key;
 import com.ths.JDO.Example;
+import com.ths.JDO.OrderJDO;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -26,12 +27,12 @@ public class OrderDAO extends AbstractDao {
         return ofy.load().type(Example.class).list();
     }
 
-    public Example save(Example user) {
-        log.log(FINER, "Saving example '{0}'", user.getName());
-        ofy.save().entities(user).now();
-        return user;
+    public OrderJDO save(OrderJDO order) {
+        log.log(FINER, "Saving example '{0}'");
+        ofy.save().entities(order).now();
+        return order;
     }
-
+    
     public void deleteAll() {
         List<Key<Example>> keys = ofy.load().type(Example.class).keys().list();
         ofy.delete().entities(keys).now();
