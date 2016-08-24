@@ -23,9 +23,9 @@ var ActorDetails = Backbone.Model.extend({
         Backbone.Model.apply(this, arguments);
     },
     validate: function(attr) {
-        if (!attr.name) {
+        if (!attr.requester) {
             return "Invalid BookName supplied."
         }
     },
-    urlRoot: 'http://localhost:8888/example/create'
+    urlRoot: 'http://localhost:8888/actor/create'
 });

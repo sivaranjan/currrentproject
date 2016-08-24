@@ -1,18 +1,21 @@
 /**
  * 
  */
-var OrderDetails = Backbone.Model.extend({
+var OrderDetails=Backbone.Model.extend({
     defaults: {
-        geoSite: "",
-        proto_Type: "",
-        pcc: "",
-        open_Order: "",
-        frittage: "",
-        e52: "",
-        intraLE: "",
-        type_of_the_Prototype_Order: "",
-        date_of_the_Order: "",
-        site_Workshop_Prototype: "",
+        geoSite:"",
+        proto_Type:"",
+        pcc:"",
+        open_Order:"",
+        frittage:"",
+        e52:"",
+        intraLE:"",
+        type_of_the_Prototype_Order:"",
+        date_of_the_Order:"",
+        site_Workshop_Prototype:"",
+        order_Status:"",
+        total_Order_Amount:"",
+        no_prototype_order:"",
     },
     initialize: function() {
         console.log('Book has been initialized');
@@ -25,9 +28,9 @@ var OrderDetails = Backbone.Model.extend({
         Backbone.Model.apply(this, arguments);
     },
     validate: function(attr) {
-        if (!attr.name) {
+        if (!attr.geoSite) {
             return "Invalid BookName supplied."
         }
     },
-    urlRoot: 'http://localhost:8888/example/create'
+    urlRoot: 'http://localhost:8888/order/create'
 });
