@@ -1,6 +1,7 @@
 package com.ths.DAO;
 
 import com.googlecode.objectify.Key;
+import com.ths.JDO.CustomerJDO;
 import com.ths.JDO.Example;
 
 import java.util.List;
@@ -26,10 +27,10 @@ public class CustomerDAO extends AbstractDao {
         return ofy.load().type(Example.class).list();
     }
 
-    public Example save(Example user) {
-        log.log(FINER, "Saving example '{0}'", user.getName());
-        ofy.save().entities(user).now();
-        return user;
+    public CustomerJDO save(CustomerJDO customer) {
+        log.log(FINER, "Saving example '{0}'", customer.getCustomer_Name());
+        ofy.save().entities(customer).now();
+        return customer;
     }
 
     public void deleteAll() {
