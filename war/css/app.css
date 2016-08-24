@@ -1,5 +1,11 @@
 /* Header */
-
+header.header {
+    height: 70px;
+    margin-bottom: 20px;
+    padding: 10px 0px;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0px 0px 2px #ddd;
+}
 .header-text {
     display: inline-block;
     padding-top: 0;
@@ -7,7 +13,15 @@
     position: relative;
     top: 1px;
 }
-
+.valeo-app-title {
+    margin: 0px;
+    color: #4D6B7D;
+    line-height: 31px;
+    padding: 5px 0;
+}
+.form-control:focus {
+    outline: -webkit-focus-ring-color auto 5px;
+}
 
 /* for form Label */
 
@@ -108,6 +122,26 @@ label {
     line-height: 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* create order css */
+ul.orderstabcol > li > a {
+    padding: 5px 15px;
+}
+.attachcustomer > li {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+.attachcustomer > li > i {
+    margin-right: 5px;
+}
+.attachcustomer > li > a.fa {
+    padding: 5px;
+    margin-top: -2px;
+    color: #333;
+}
+.attachcustomer > li > a {
+    cursor: pointer;
 }
 
 /* Voice box */

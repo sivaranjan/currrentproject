@@ -13,5 +13,27 @@ BackboneData.Views.ComponentGridDetailView = Backbone.View.extend({
 			componentGridDetailHTML	 =  component.manager.ComponentGridView({'paramValue':window.component_frenchLabelList});
 		}
 		ref.$el.html(componentGridDetailHTML);
+		$('#example').DataTable({
+            dom: 'Bfrtip',
+            responsive: {
+                details: {
+                    type: 'column',
+                    target: -1
+                }
+            },
+            columnDefs: [{
+                className: 'control',
+                orderable: false,
+                targets: -1
+            }],
+            buttons: [{
+                text: '<i class="fa fa-plus" aria-hidden="true"></i> Add new component',
+                className: 'btn btn-default btn-sm',
+                action: function() {
+                    window.location.href = "/#componentdetails";
+                }
+            }]
+        });
 	}
+
 });

@@ -13,7 +13,7 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
         $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
         $('#createorder-tab').addClass('active');
         ref.$el.html(orderDetailHTML);
-        loadComponentTable();
+        
     },
     events: {
         'click #ordernextbtn': 'validateorderdetail',

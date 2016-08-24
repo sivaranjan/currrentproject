@@ -22,14 +22,21 @@
 	</head>
 
 <body>
-	<div class="status-voicebox">
+	<div class="status-voicebox hide">
 		<div class="voicebox-content fade in">
 			<span class="loading"></span>
 			<span>loading...</span>
 		</div>
 	</div>
-    <header class="header col-md-12 col-xs-12">
-            <div class="col-md-5 col-md-offset-7 col-xs-12">
+    <header class="header">
+            
+            <div class="col-md-2 col-sm-2 col-xs-12">
+                <a href="/"><img src="../statics/images/logo-valeo.png"></a>
+            </div>
+            <div class="col-md-6 col-sm-10 col-xs-12">
+                <h3 id="headtitle" class="valeo-app-title"><b>THS France Prototype Database</b></h3>
+            </div>
+            <div class="col-md-4 col-xs-12">
                 
                 <div class="col-md-10 hidden-xs hidden-sm">
                     <div class="btn-group pull-right" style="margin-left: 30px;">
@@ -52,16 +59,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2 col-xs-12 text-center">
-                <a href="/"><img src="../statics/images/logo-valeo.png"></a>
-            </div>
-            <div class="col-md-6 col-xs-12">
-                <h2 id="headtitle" class="valeo-app-title">THS France Prototype Database</h2>
-            </div>
         </header>
 
         <!-- Tab Menus -->
-        <nav class="navbar navbar-default" id="navbar-1">
+        <nav class="navbar navbar-default" id="navbar-1" style="margin-bottom: 0px;">
            
         </nav>
 
@@ -81,17 +82,22 @@
 			
             
             <div class="col-md-12">
+            	<ul class="nav nav-tabs orderstabcol">
+				  <li role="presentation" class="active"><a href="#">Order</a></li>
+				  <li role="presentation"><a href="#">Component</a></li>
+				  <li role="presentation"><a href="#">Execution</a></li>
+				</ul>
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                	<div class="panel panel-default" id="orderdetailview">
+                	<div class="panel panel-default" id="orderdetailview" style="border-top: 0;">
 						<!--  orderdetail-view.soy will be rendereed -->
 					</div>
-					<div class="panel panel-default" id="customerdetailview">
+					<div class="panel panel-default hide" id="customerdetailview">
 						<!--  customerdetail-view.soy will be rendereed -->
 					</div>
-					<div class="panel panel-default" id="actordetailview">
+					<div class="panel panel-default hide" id="actordetailview">
 						<!--  actordetail-view.soy will be rendereed -->
 					</div>
-					<div class="panel panel-default hide" id="componentgdetailview">
+					<div class="panel panel-default" id="componentgdetailview">
 						<!--  componentgrid-view.soy will be rendereed -->
 					</div>
                 </div>
