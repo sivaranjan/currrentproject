@@ -17,7 +17,7 @@
 							  			</div>
 						  	  			<div class="form-group col-md-6">
 										    <label>{$paramValue['Site/Workshop Prototype']}<span class="text-danger">*</span></label>
-										    <select class="form-control input-sm" id="Site_Workshop_Prototype">
+										    <select class="selectpicker" id="Site_Workshop_Prototype" data-width="100%" data-live-search="true">
 										        <option>1</option>
 										        <option>2</option>
 										        <option>3</option>
@@ -26,21 +26,15 @@
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label for="name">{$paramValue['Geosite']}<span class="text-danger">*</span></label>
-									    <div class="input-group">
-										  <input type="text" id="Geosite" class="form-control input-sm" disabled readonly>
-										  <span class="input-group-addon" style="cursor: pointer;"><i class="glyphicon glyphicon-search"></i></span>
-										</div>
+									    <input type="text" id="Geosite" class="form-control input-sm" disabled readonly>
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label for="name">N<sup>&#8728;</sup>  {$paramValue['Prototype Order']}<span class="text-danger">*</span></label>
-									    <div class="input-group">
-										  <input type="text" class="form-control input-sm" disabled id="No_Prototype_Order" readonly>
-										  <span class="input-group-addon" style="cursor: pointer;"><i class="glyphicon glyphicon-search"></i></span>
-										</div>
+									    <input type="text" class="form-control input-sm" disabled id="No_Prototype_Order" readonly>
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>{$paramValue['Proto Type']}<span class="text-danger">*</span></label>
-									    <select class="form-control input-sm" id="Proto_Type">
+									    <select class="selectpicker" id="Proto_Type" data-width="100%">
 									        <option>P0</option>
 									        <option>P1</option>
 									        <option>P2</option>
@@ -48,7 +42,7 @@
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>{$paramValue['Type of the prototype order']}<span class="text-danger">*</span></label>
-									    <select class="form-control input-sm" id="Type_of_the_Prototype_Order">
+									    <select class="selectpicker" id="Type_of_the_Prototype_Order" data-width="100%">
 									        <option>VENDU / SOLD</option>
 									        <option>NON VENDU / NOT SOLD</option>
 									    </select>
@@ -61,17 +55,11 @@
 									  </div>
 									  <div class="form-group col-md-6">
 										    <label for="name">Total order amount(&#x20AC;)</label>
-										    <div class="input-group">
-											  <input type="text" class="form-control input-sm" disabled id="Total_Order_Amount" readonly aria-describedby="basic-addon2">
-											  <span class="input-group-addon" id="basic-addon2"><i class="glyphicon glyphicon-search"></i></span>
-											</div>
+										    <input type="text" class="form-control input-sm" disabled id="Total_Order_Amount" readonly>
 									  	</div>
 									  	<div class="form-group col-md-6">
 										    <label for="name">Order Status</label>
-										    <div class="input-group">
-											  <input type="text" class="form-control input-sm" disabled id="Order_Status" readonly aria-describedby="basic-addon2">
-											  <span class="input-group-addon"  id="basic-addon2"><i class="glyphicon glyphicon-search"></i></span>
-											</div>
+										    <input type="text" class="form-control input-sm" disabled id="Order_Status" readonly aria-describedby="basic-addon2">
 										</div>
 									  <div class="form-group col-md-12" style="display: flex;margin-top: 15px;">
 									  	<label class="checkbox-inline" style="flex-grow: 1;"><input type="checkbox" name="optradio" style="margin-top: 1px;">{$paramValue['PCC']}</label>
@@ -84,15 +72,12 @@
 									  	<h2 style="color: #97D045;margin-top: 0px;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">Actor</h2>
 									  </div>
 									  <div class="form-group col-md-6">
-									    <label for="name">{$paramValue['Requester']}</label>
-									    <div class="input-group">
-										  <input type="text" class="form-control input-sm disabled" readonly aria-describedby="basic-addon2">
-										  <span class="input-group-addon" id="basic-addon2"><i class="glyphicon glyphicon-search"></i></span>
-										</div>
+									    <label for="name">Requester</label>
+									    <input type="text" class="form-control input-sm disabled" readonly>
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>MEP Study <span class="text-danger">*</span></label>
-									    <select class="form-control input-sm">
+									    <select class="selectpicker" data-width="100%" data-live-search="true">
 									        <option>1</option>
 									        <option>2</option>
 									        <option>3</option>
@@ -101,7 +86,7 @@
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>Quality <span class="text-danger">*</span></label>
-									    <select class="form-control input-sm">
+									    <select class="selectpicker" data-width="100%" data-live-search="true">
 									        <option>1</option>
 									        <option>2</option>
 									        <option>3</option>
@@ -110,7 +95,7 @@
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>Proto workshop<span class="text-danger">*</span></label>
-									    <select class="form-control input-sm">
+									    <select class="selectpicker" data-width="100%" data-live-search="true">
 									        <option>1</option>
 									        <option>2</option>
 									        <option>3</option>
@@ -119,7 +104,7 @@
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>Control management<span class="text-danger">*</span></label>
-									    <select class="form-control input-sm">
+									    <select class="selectpicker" data-width="100%" data-live-search="true">
 									        <option>1</option>
 									        <option>2</option>
 									        <option>3</option>
@@ -128,7 +113,7 @@
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>FO Trade<span class="text-danger">*</span></label>
-									    <select class="form-control input-sm">
+									    <select class="selectpicker" data-width="100%" data-live-search="true">
 									        <option>1</option>
 									        <option>2</option>
 									        <option>3</option>
@@ -137,7 +122,7 @@
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>ADV<span class="text-danger">*</span></label>
-									    <select class="form-control input-sm">
+									    <select class="selectpicker" data-width="100%" data-live-search="true">
 									        <option>1</option>
 									        <option>2</option>
 									        <option>3</option>
@@ -146,7 +131,7 @@
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>Project manager<span class="text-danger">*</span></label>
-									    <select class="form-control input-sm">
+									    <select class="selectpicker" data-width="100%" data-live-search="true">
 									        <option>1</option>
 									        <option>2</option>
 									        <option>3</option>
@@ -163,14 +148,11 @@
 										
 										<div class="form-group col-md-6">
 									    	<label for="name">N<sup>&#8728;</sup> Customer Order<span class="text-danger">*</span></label>
-										    <div class="input-group">
-											  <input type="text" class="form-control input-sm">
-											  <span class="input-group-addon" style="cursor: pointer;"><i class="glyphicon glyphicon-search"></i></span>
-											</div>
+									    	<input type="text" class="form-control input-sm">
 									  	</div>
 						        		<div class="form-group col-md-6">
 										    <label for="name">Customer name <span class="text-danger">*</span></label>
-										    <select class="form-control input-sm" id="Customer_Name">
+										    <select class="selectpicker" id="Customer_Name" data-width="100%" data-live-search="true">
 										        <option>1</option>
 										        <option>2</option>
 										        <option>3</option>
@@ -179,29 +161,20 @@
 										</div>
 										<div class="form-group col-md-6">
 										    <label for="name">Customer code</label>
-										    <div class="input-group">
-											  <input type="text" class="form-control input-sm" id="Customer_Code" aria-describedby="basic-addon2">
-											  <span class="input-group-addon" id="basic-addon2"><i class="glyphicon glyphicon-search"></i></span>
-											</div>
+										    <input type="text" class="form-control input-sm" id="Customer_Code">
 							  			</div>
 									  	<div class="form-group col-md-6">
 										    <label for="name">Branch code</label>
-										    <div class="input-group">
-											  <input type="text" class="form-control input-sm" id="Branch_Code" aria-describedby="basic-addon2">
-											  <span class="input-group-addon" id="basic-addon2"><i class="glyphicon glyphicon-search"></i></span>
-											</div>
+										    <input type="text" class="form-control input-sm" id="Branch_Code">
 									  	</div>
 									  	<div class="form-group col-md-6">
 										    <label for="name">Provider code</label>
-										    <div class="input-group">
-											  <input type="text" class="form-control input-sm" id="Provider_Code" aria-describedby="basic-addon2">
-											  <span class="input-group-addon" id="basic-addon2"><i class="glyphicon glyphicon-search"></i></span>
-											</div>
+										    <input type="text" class="form-control input-sm" id="Provider_Code">
 									  	</div>
 							  
 									  	<div class="form-group col-md-6">
 										    <label for="name">Plateform <span class="text-danger">*</span></label>
-										    <select class="form-control input-sm" id="Plateform">
+										    <select class="selectpicker" id="Plateform" data-width="100%" data-live-search="true">
 										        <option>1</option>
 										        <option>2</option>
 										        <option>3</option>
@@ -210,7 +183,7 @@
 										</div>
 										<div class="form-group col-md-3" style="padding-right: 5px;">
 										    <label for="name">Incoterms</label>
-										    <select class="form-control input-sm" id="Incoterms">
+										    <select class="selectpicker" id="Incoterms" data-width="100%" data-live-search="true">
 										        <option>1</option>
 										        <option>2</option>
 										        <option>3</option>
@@ -219,7 +192,7 @@
 										</div>
 										<div class="form-group col-md-3" style="padding-left: 5px;">
 										    <label for="name">Place</label>
-										    <select class="form-control input-sm" id="Place">
+										    <select class="selectpicker" id="Place" data-width="100%" data-live-search="true">
 										        <option>1</option>
 										        <option>2</option>
 										        <option>3</option>
@@ -237,7 +210,7 @@
 										</div>
 									  	<div class="form-group col-md-6">
 										    <label for="name">Allocation of turnover</label>
-										    <select class="form-control input-sm" id="Allocation_of_turnover">
+										    <select class="selectpicker" id="Allocation_of_turnover" data-width="100%" data-live-search="true">
 										        <option>1</option>
 										        <option>2</option>
 										        <option>3</option>
@@ -246,20 +219,20 @@
 										</div>
 										<div class="form-group col-md-6">
 										    <label for="name">Final delivery Address</label>
-										    <textarea class="form-control" id="Final_Delivery_Address" style="height: 65px;" rows="5" id="comment"></textarea>
+										    <textarea class="form-control" id="Final_Delivery_Address" style="height: 65px;resize: none;" id="comment"></textarea>
 										</div>
 									  	<div class="form-group col-md-6">
 									    	<label for="name">Additional address</label>
-									    	<textarea class="form-control" id="Additional_Address" style="height: 65px;" rows="5" id="comment"></textarea>
+									    	<textarea class="form-control" id="Additional_Address" style="height: 65px;resize: none;" id="comment"></textarea>
 									  	</div>
 									  	<div class="form-group col-md-6">
 									    	<label for="name">Site address</label>
-									    	<textarea class="form-control" id="Site_Address" style="height: 65px;" rows="5" id="comment"></textarea>
+									    	<textarea class="form-control" id="Site_Address" style="height: 65px;resize: none;" id="comment"></textarea>
 									  	</div>
 									  	<div class="form-group col-md-6">
 											<div class="panel panel-default">
 												<div class="panel-heading" style="background: #fff;">
-													<h4 class="panel-title"><label style="margin-bottom: 0;">Customer Order</label> <button class="btn btn-default btn-sm pull-right" style="margin-top: -5px;padding: 3px 5px;"><i class="fa fa-paperclip" aria-hidden="true"></i> Add Attach</button></h4>
+													<h4 class="panel-title"><label style="margin-bottom: 0;">Customer Order</label> <button type="button" class="btn btn-default btn-sm pull-right" style="margin-top: -5px;padding: 3px 5px;" data-toggle="modal" data-target="#orderattach-modal"><i class="fa fa-paperclip"></i> Add Attach</button></h4>
 												</div>
 												<div class="panel-collapse collapse in">
 													<div class="panel-body" style="min-height: 40px;padding: 5px;max-height: 115px;overflow: auto;">

@@ -173,6 +173,19 @@ select.input-sm {
 .table > tfoot > tr > td {
     font-size: 12px;
 }
+button.btn.dropdown-toggle.btn-default.btn-sm {
+    padding-top: 1.5px;
+    padding-bottom: 1.5px;
+    background-color: #fff;
+    box-shadow: none;
+}
+.error .bootstrap-select .dropdown-toggle, .has-error .bootstrap-select .dropdown-toggle {
+    border-color: #b94a48;
+    background-color: rgba(255,0,0,0.1) !important;
+}
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    background-color: #97D045;
+}
 
 /* Voice box */
 .status-voicebox {

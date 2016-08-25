@@ -43,6 +43,9 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
         });
         
         $('.refreshbtn,.newcompbtn').removeClass('dt-button');
+        $('.selectpicker').selectpicker();
+        $('.selectpicker').selectpicker('setStyle', 'btn-sm', 'add');
+        $('.bs-searchbox input').addClass('input-sm');
         
     },
     events: {

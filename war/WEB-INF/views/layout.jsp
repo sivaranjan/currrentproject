@@ -17,6 +17,7 @@
 		<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.bootstrap.min.css">
 		<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
 		<link rel="stylesheet" href="http://storage.googleapis.com/valeo-design/css/datepicker3.css">
+		<link rel="stylesheet" href="../css/bootstrap-select.min.css">
 		<link rel="stylesheet" href="../css/valeo-graphics.css">
 		<link rel="stylesheet" href="../css/app.css">
 	</head>
@@ -297,6 +298,41 @@
 		    </div>
 		  </div>
 		</div>
+		
+		
+		<!-- Order Attachment Modal -->
+		<div class="modal fade" id="orderattach-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">Add Attach</h4>
+		      </div>
+		      <div class="modal-body">
+		      	<form role="form">
+		      		<div class="form-group">
+						    <label for="name">Quantity</label>
+						    <input type="text" class="form-control" placeholder="Quantity">
+						</div>
+						<div class="form-group">
+						    <label for="name">Date</label>
+						    <div class="input-group date">
+							    <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+							</div>
+						</div>
+						<div class="form-group">
+						    <label for="name">Comment</label>
+						    <textarea class="form-control" rows="3"></textarea>
+						</div>
+		      	</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-success">Save changes</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 
 		<!-- JavaScript -->
 		<script src="../js/Actions/language.js"></script>
@@ -313,6 +349,7 @@
 		<script type="text/javascript" src="http://storage.googleapis.com/valeo-design/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="http://storage.googleapis.com/valeo-design/js/bootstrap-datepicker.js"></script>
 		<script type="text/javascript" src="http://storage.googleapis.com/valeo-design/js/valeo-graphics.js"></script>
+		<script type="text/javascript" src="../js/Library/bootstrap-select.min.js"></script>
         <script src="../js/Library/BackboneData.js"></script>
         <script src="../Soy/SoyUtils/soyutils.js"></script>
 
@@ -320,9 +357,6 @@
  		 <script src="../Soy/SoyViewJs/welcomesection-view.js"></script>
  		  <script src="../Soy/SoyViewJs/orderdetail-view.js"></script>
         <script src="../Soy/SoyViewJs/navbtn-view.js"></script>
-        <script src="../Soy/SoyViewJs/customerdetail-view.js"></script>
-        <script src="../Soy/SoyViewJs/actordetail-view.js"></script>
-        <script src="../Soy/SoyViewJs/componentgrid-view.js"></script>
          <script src="../Soy/SoyViewJs/componentdetail-view.js"></script>
           <script src="../Soy/SoyViewJs/admindetail-view.js"></script>
 
@@ -331,12 +365,8 @@
 		<script src="../js/Backbone/View/Welcome-RenderView.js"></script>
 		<script src="../js/Backbone/View/NavBtnSection-RenderView.js"></script>
 		<script src="../js/Backbone/View/OrderDetail-RenderView.js"></script>
-		<script src="../js/Backbone/View/CustomerDetailSection-RenderView.js"></script>
-		<script src="../js/Backbone/View/ActorDetailSection-RenderView.js"></script>
-		<script src="../js/Backbone/View/ComponentGridDetailSection-RenderView.js"></script>
 		<script src="../js/Backbone/View/ComponentDetailView-RenderView.js"></script>
 		<script src="../js/Backbone/View/AdminDetailView-RenderView.js"></script>
-		<script src="../js/Backbone/View/ComponentGridDetailSection-RenderView.js"></script>
 		<script src="../js/Loader/initializer.js"></script>
         <script src="../js/Routers/router.js"></script>
         <script src="../js/Actions/actions.js"></script>

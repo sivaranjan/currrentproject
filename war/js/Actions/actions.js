@@ -22,6 +22,12 @@ $(document).ready(function() {
             }
         }]
     });
+    
+    
+
+});
+$(window).load(function() {
+	
 });
 $(window).scroll(function(event) {
 //    if ($(window).width() > 992) {
