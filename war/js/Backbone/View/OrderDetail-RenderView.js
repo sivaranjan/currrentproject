@@ -13,6 +13,36 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
         $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
         $('#createorder-tab').addClass('active');
         ref.$el.html(orderDetailHTML);
+        $('#example').DataTable({
+            dom: 'Bfrtip',
+            responsive: {
+                details: {
+                    type: 'column',
+                    target: -1
+                }
+            },
+            columnDefs: [{
+                className: 'control',
+                orderable: false,
+                targets: -1
+            }],
+            buttons: [{
+                text: '<i class="fa fa-refresh" aria-hidden="true"></i> Refresh',
+                className: 'btn btn-default btn-sm refreshbtn',
+                action: function() {
+                    
+                }
+            },
+                {
+                text: '<i class="fa fa-plus" aria-hidden="true"></i> New component',
+                className: 'btn btn-default btn-sm newcompbtn',
+                action: function() {
+                    window.location.href = "/#componentdetails";
+                }
+            }]
+        });
+        
+        $('.refreshbtn,.newcompbtn').removeClass('dt-button');
         
     },
     events: {

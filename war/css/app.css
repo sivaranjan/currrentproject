@@ -137,11 +137,41 @@ ul.orderstabcol > li > a {
 }
 .attachcustomer > li > a.fa {
     padding: 5px;
-    margin-top: -2px;
+    margin-top: -1px;
     color: #333;
 }
 .attachcustomer > li > a {
     cursor: pointer;
+	font-size: 12px;
+}
+select.input-sm {
+    height: 23px;
+    padding-top: 0px;
+    padding-bottom: 0;
+}
+.input-sm {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    height: auto;
+    font-size: 13px;
+}
+.input-group-addon {
+    padding: 0px 10px;
+    font-size: 12px;
+}
+.form-group {
+    margin-bottom: 5px;
+}
+.dt-buttons a.btn + a.btn {
+    margin-left: 5px;
+}
+.table > thead > tr > th, 
+.table > tbody > tr > th, 
+.table > tfoot > tr > th, 
+.table > thead > tr > td, 
+.table > tbody > tr > td, 
+.table > tfoot > tr > td {
+    font-size: 12px;
 }
 
 /* Voice box */

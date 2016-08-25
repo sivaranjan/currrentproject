@@ -108,7 +108,23 @@ orderDetails_englishLabelList = {
     'E52': 'E52',
     'IntraLE': 'IntraLE',
     'Draft': 'Draft',
-    'Next': 'Next'
+    'Next': 'Next',
+    'Component': 'Component',
+    'Show': 'Show',
+    'Entries': 'Entries',
+    'Link': 'Link',
+    'Customer ref': 'Customer ref',
+    'Product Designation': 'Product Designation',
+    'Product Type': 'Product Type',
+    'USP': 'USP',
+    'Total Quantity': 'Total Quantity',
+    'Total amount': 'Total amount',
+    'Component status': 'Component status',
+    'Quantity produced': 'Quantity produced',
+    'Quantity App. Quality': 'Quantity App. Quality',
+    'Quantity Dfi': 'Quantity Dfi',
+    'Quantity Delivered  to the customer': 'Quantity Delivered  to the customer',
+    'Invoiced amount': 'Invoiced amount'
 };
 customerDetails_frenchLabelList = {
     'Customer Details': 'D\xE9tails du client',

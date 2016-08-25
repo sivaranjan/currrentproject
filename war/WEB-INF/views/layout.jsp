@@ -34,7 +34,7 @@
                 <a href="/"><img src="../statics/images/logo-valeo.png"></a>
             </div>
             <div class="col-md-6 col-sm-10 col-xs-12">
-                <h3 id="headtitle" class="valeo-app-title"><b>THS France Prototype Database</b></h3>
+                <h3 id="headtitle" class="valeo-app-title">THS France Prototype Database</h3>
             </div>
             <div class="col-md-4 col-xs-12">
                 
@@ -90,15 +90,6 @@
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 	<div class="panel panel-default" id="orderdetailview" style="border-top: 0;">
 						<!--  orderdetail-view.soy will be rendereed -->
-					</div>
-					<div class="panel panel-default hide" id="customerdetailview">
-						<!--  customerdetail-view.soy will be rendereed -->
-					</div>
-					<div class="panel panel-default hide" id="actordetailview">
-						<!--  actordetail-view.soy will be rendereed -->
-					</div>
-					<div class="panel panel-default" id="componentgdetailview">
-						<!--  componentgrid-view.soy will be rendereed -->
 					</div>
                 </div>
             </div>

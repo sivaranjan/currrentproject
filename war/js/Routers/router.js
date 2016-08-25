@@ -24,14 +24,6 @@ routerTHS.on('route:order', function(action) {
     var orderDetailSectionHTML = new BackboneData.Views.OrderDetailView();
     orderDetailSectionHTML.render();
 
-    var customerDetailSectionHTML = new BackboneData.Views.CustomerDetailView();
-    customerDetailSectionHTML.render();
-
-    var actorDetailSectionHTML = new BackboneData.Views.ActorDetailview();
-    actorDetailSectionHTML.render();
-
-    var componentGridDetailSectionHTML = new BackboneData.Views.ComponentGridDetailView();
-    componentGridDetailSectionHTML.render();
 });
 routerTHS.on('route:admin', function(action) {
     var adminSettingsHTMl = new BackboneData.Views.AdminDetailView();
