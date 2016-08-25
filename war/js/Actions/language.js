@@ -113,18 +113,18 @@ orderDetails_englishLabelList = {
     'Show': 'Show',
     'Entries': 'Entries',
     'Link': 'Link',
-    'Customer ref': 'Customer ref',
-    'Product Designation': 'Product Designation',
-    'Product Type': 'Product Type',
+    'Customer ref': 'Cus ref',
+    'Product Designation': 'P Designation',
+    'Product Type': 'P Type',
     'USP': 'USP',
-    'Total Quantity': 'Total Quantity',
-    'Total amount': 'Total amount',
+    'Total Quantity': 'T Qty',
+    'Total amount': 'T amt',
     'Component status': 'Component status',
-    'Quantity produced': 'Quantity produced',
-    'Quantity App. Quality': 'Quantity App. Quality',
-    'Quantity Dfi': 'Quantity Dfi',
-    'Quantity Delivered  to the customer': 'Quantity Delivered  to the customer',
-    'Invoiced amount': 'Invoiced amount'
+    'Quantity produced': 'Qty produced',
+    'Quantity App. Quality': 'Qty App. Quality',
+    'Quantity Dfi': 'Qty Dfi',
+    'Quantity Delivered  to the customer': 'Qty Delivered',
+    'Invoiced amount': 'Invoiced amt'
 };
 customerDetails_frenchLabelList = {
     'Customer Details': 'D\xE9tails du client',
