@@ -30,10 +30,9 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
                 text: '<i class="fa fa-refresh" aria-hidden="true"></i> Refresh',
                 className: 'btn btn-default btn-sm refreshbtn',
                 action: function() {
-                    
+
                 }
-            },
-                {
+            }, {
                 text: '<i class="fa fa-plus" aria-hidden="true"></i> New component',
                 className: 'btn btn-default btn-sm newcompbtn',
                 action: function() {
@@ -41,12 +40,12 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
                 }
             }]
         });
-        
+
         $('.refreshbtn,.newcompbtn').removeClass('dt-button');
         $('.selectpicker').selectpicker();
         $('.selectpicker').selectpicker('setStyle', 'btn-sm', 'add');
         $('.bs-searchbox input').addClass('input-sm');
-        
+
     },
     events: {
         "change #Type_of_the_Prototype_Order": "populateDependencies",
@@ -54,76 +53,51 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
         "change #Proto_Type": "populateDependencies",
         "change #intralecheckbox": "populateDependencies",
     },
-    populateDependencies: function() 
-    {
-    	var Type_of_the_Prototype_Order = $.trim($('#Type_of_the_Prototype_Order').val()); 
-    	var Site_Workshop_Prototype = $.trim($('#Site_Workshop_Prototype').val());
-    	var Proto_Type = $.trim($('#Proto_Type').val());
-    	if(Type_of_the_Prototype_Order == 'VENDU / SOLD')
-    	{
-    		if(Site_Workshop_Prototype == 'La Verriere (LVR)' && Proto_Type == 'P0')
-    		{
-    			$('#frittagelabel,#frittagecheckbox').removeClass('hide');
-    		}
-    		else
-    		{
-    			$('#frittagelabel,#frittagecheckbox').addClass('hide');
-    		}	
-    		
-    		if($('#intralecheckbox').is(":not(:checked)"))
-    		{
-    			$('#advdiv').removeClass('hide');
-    		}
-    		else
-    		{
-    			$('#advdiv').addClass('hide');
-    		}
-    		
-    		if(Site_Workshop_Prototype == 'La Suze (LAS)')
-    		{
-    			$('#intralelabel,#intralecheckbox').removeClass('hide');
-    		}
-    		else
-    		{
-    			$('#intralelabel,#intralecheckbox').addClass('hide');
-    		}	
-    		if(Proto_Type == 'P2')
-    		{
-    			$('#pcclabel,#pcccheckbox').removeClass('hide');
-    		}
-    		else
-    		{
-    			$('#pcclabel,#pcccheckbox').addClass('hide');
-    		}
-    		if(Site_Workshop_Prototype == 'Nogent (NOG)')
-    		{
-    			$('#e52label,#e52checkbox').removeClass('hide');
-    		}
-    		else
-    		{
-    			$('#e52label,#e52checkbox').addClass('hide');
-    		}
-    		$('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv').removeClass('hide');
-    	}	
-    	else
-    	{
-    		if(Proto_Type == 'P2')
-    		{
-    			$('#pcclabel,#pcccheckbox').removeClass('hide');
-    		}
-    		else
-    		{
-    			$('#pcclabel,#pcccheckbox').addClass('hide');
-    		}
-    		if(Site_Workshop_Prototype == 'Nogent (NOG)')
-    		{
-    			$('#e52label,#e52checkbox').removeClass('hide');
-    		}
-    		else
-    		{
-    			$('#e52label,#e52checkbox').addClass('hide');
-    		}
-    		$('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#frittagelabel,#frittagecheckbox,#advdiv,#intralelabel,#intralecheckbox').addClass('hide');
-    	}	
+    populateDependencies: function() {
+        var Type_of_the_Prototype_Order = $.trim($('#Type_of_the_Prototype_Order').val());
+        var Site_Workshop_Prototype = $.trim($('#Site_Workshop_Prototype').val());
+        var Proto_Type = $.trim($('#Proto_Type').val());
+        if (Type_of_the_Prototype_Order == 'VENDU / SOLD') {
+            if (Site_Workshop_Prototype == 'La Verriere (LVR)' && Proto_Type == 'P0') {
+                $('#frittagelabel,#frittagecheckbox').removeClass('hide');
+            } else {
+                $('#frittagelabel,#frittagecheckbox').addClass('hide');
+            }
+
+            if ($('#intralecheckbox').is(":not(:checked)")) {
+                $('#advdiv').removeClass('hide');
+            } else {
+                $('#advdiv').addClass('hide');
+            }
+
+            if (Site_Workshop_Prototype == 'La Suze (LAS)') {
+                $('#intralelabel,#intralecheckbox').removeClass('hide');
+            } else {
+                $('#intralelabel,#intralecheckbox').addClass('hide');
+            }
+            if (Proto_Type == 'P2') {
+                $('#pcclabel,#pcccheckbox').removeClass('hide');
+            } else {
+                $('#pcclabel,#pcccheckbox').addClass('hide');
+            }
+            if (Site_Workshop_Prototype == 'Nogent (NOG)') {
+                $('#e52label,#e52checkbox').removeClass('hide');
+            } else {
+                $('#e52label,#e52checkbox').addClass('hide');
+            }
+            $('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv').removeClass('hide');
+        } else {
+            if (Proto_Type == 'P2') {
+                $('#pcclabel,#pcccheckbox').removeClass('hide');
+            } else {
+                $('#pcclabel,#pcccheckbox').addClass('hide');
+            }
+            if (Site_Workshop_Prototype == 'Nogent (NOG)') {
+                $('#e52label,#e52checkbox').removeClass('hide');
+            } else {
+                $('#e52label,#e52checkbox').addClass('hide');
+            }
+            $('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#frittagelabel,#frittagecheckbox,#advdiv,#intralelabel,#intralecheckbox').addClass('hide');
+        }
     },
 });
