@@ -32,5 +32,5 @@ var CustomerModel = Backbone.Model.extend({
             return "Invalid BookName supplied."
         }
     },
-    urlRoot: 'http://localhost:8888/customer/create'
+    urlRoot: 'http://is-office-2016.appspot.com/customer/create'
 });

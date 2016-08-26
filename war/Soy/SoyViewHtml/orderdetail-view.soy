@@ -17,7 +17,7 @@
 							  			</div>
 						  	  			<div class="form-group col-md-6">
 										    <label>{$paramValue['Site/Workshop Prototype']}<span class="text-danger">*</span></label>
-										    <select class="selectpicker" title=" " id="Site_Workshop_Prototype" data-width="100%" data-live-search="true">
+										    <select class="selectpicker" data-required="yes" data-type="text" title=" " id="Site_Workshop_Prototype" data-width="100%" data-live-search="true">
 										        <option>La Suze (LAS)</option>
 										        <option>La Verriere (LVR)</option>
 										        <option>Laval (LVL)</option>
@@ -31,11 +31,11 @@
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label for="name">N<sup>&#8728;</sup>  {$paramValue['Prototype Order']}<span class="text-danger">*</span></label>
-									    <input type="text" class="form-control input-sm" disabled id="No_Prototype_Order" readonly>
+									    <input type="text" data-required="yes" data-type="text" class="form-control input-sm" disabled id="No_Prototype_Order" readonly>
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>{$paramValue['Proto Type']}<span class="text-danger">*</span></label>
-									    <select class="selectpicker" title=" " id="Proto_Type" data-width="100%">
+									    <select class="selectpicker" data-required="yes" data-type="text" title=" " id="Proto_Type" data-width="100%">
 									        <option>P0</option>
 									        <option>P1</option>
 									        <option>P2</option>
@@ -43,7 +43,7 @@
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>{$paramValue['Type of the prototype order']}<span class="text-danger">*</span></label>
-									    <select class="selectpicker" title=" " id="Type_of_the_Prototype_Order" data-width="100%">
+									    <select class="selectpicker" data-required="yes" data-type="text" title=" " id="Type_of_the_Prototype_Order" data-width="100%">
 									        <option>VENDU / SOLD</option>
 									        <option>NON VENDU / NOT SOLD</option>
 									    </select>
@@ -74,69 +74,69 @@
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label for="name">Requester</label>
-									    <input type="text" class="form-control input-sm disabled" readonly>
+									    <input type="text" id="requester" class="form-control input-sm disabled" readonly>
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>MEP Study <span class="text-danger">*</span></label>
-									    <select class="selectpicker" title=" " data-width="100%" data-live-search="true">
-									        <option>1</option>
-									        <option>2</option>
-									        <option>3</option>
-									        <option>4</option>
+									    <select class="selectpicker" id="mepstudy" title=" " data-width="100%" data-live-search="true">
+									        <option>sathyanarayanan.anbu@valeo.com</option>
+									        <option>luc.diffre.ext@valeo.com </option>
+									        <option>dipty.chander@valeo.com</option>
+									        <option>nicolas.sibert.ext@valeo.com</option>
 									    </select>
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>Quality <span class="text-danger">*</span></label>
-									    <select class="selectpicker" title=" " data-width="100%" data-live-search="true">
-									        <option>1</option>
-									        <option>2</option>
-									        <option>3</option>
-									        <option>4</option>
+									    <select class="selectpicker" data-required="yes" data-type="text" id="quality" title=" " data-width="100%" data-live-search="true">
+									        <option>sathyanarayanan.anbu@valeo.com</option>
+									        <option>luc.diffre.ext@valeo.com </option>
+									        <option>dipty.chander@valeo.com</option>
+									        <option>nicolas.sibert.ext@valeo.com</option>
 									    </select>
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>Proto workshop<span class="text-danger">*</span></label>
-									    <select class="selectpicker" title=" " data-width="100%" data-live-search="true">
-									        <option>1</option>
-									        <option>2</option>
-									        <option>3</option>
-									        <option>4</option>
+									    <select class="selectpicker" data-required="yes" data-type="text" id="protoworkshop" title=" " data-width="100%" data-live-search="true">
+									         <option>sathyanarayanan.anbu@valeo.com</option>
+									        <option>luc.diffre.ext@valeo.com </option>
+									        <option>dipty.chander@valeo.com</option>
+									        <option>nicolas.sibert.ext@valeo.com</option>
 									    </select>
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>Control management<span class="text-danger">*</span></label>
-									    <select class="selectpicker" title=" " data-width="100%" data-live-search="true">
-									        <option>1</option>
-									        <option>2</option>
-									        <option>3</option>
-									        <option>4</option>
+									    <select class="selectpicker" data-required="yes" data-type="text" id="controlmanagement" title=" " data-width="100%" data-live-search="true">
+									         <option>sathyanarayanan.anbu@valeo.com</option>
+									        <option>luc.diffre.ext@valeo.com </option>
+									        <option>dipty.chander@valeo.com</option>
+									        <option>nicolas.sibert.ext@valeo.com</option>
 									    </select>
 									  </div>
 									  <div class="form-group col-md-6 hide">
 									    <label>FO Trade<span class="text-danger">*</span></label>
-									    <select class="selectpicker" title=" " data-width="100%" data-live-search="true">
-									        <option>1</option>
-									        <option>2</option>
-									        <option>3</option>
-									        <option>4</option>
+									    <select class="selectpicker" data-required="yes" data-type="text" id="fotrade" title=" " data-width="100%" data-live-search="true">
+									        <option>sathyanarayanan.anbu@valeo.com</option>
+									        <option>luc.diffre.ext@valeo.com </option>
+									        <option>dipty.chander@valeo.com</option>
+									        <option>nicolas.sibert.ext@valeo.com</option>
 									    </select>
 									  </div>
 									  <div class="form-group col-md-6 hide" id="advdiv">
 									    <label>ADV<span class="text-danger">*</span></label>
-									    <select class="selectpicker" title=" " data-width="100%" data-live-search="true">
-									        <option>1</option>
-									        <option>2</option>
-									        <option>3</option>
-									        <option>4</option>
+									    <select class="selectpicker" data-required="yes" data-type="text" id="adv" title=" " data-width="100%" data-live-search="true">
+									         <option>sathyanarayanan.anbu@valeo.com</option>
+									        <option>luc.diffre.ext@valeo.com </option>
+									        <option>dipty.chander@valeo.com</option>
+									        <option>nicolas.sibert.ext@valeo.com</option>
 									    </select>
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>Project manager<span class="text-danger">*</span></label>
-									    <select class="selectpicker" title=" " data-width="100%" data-live-search="true">
-									        <option>1</option>
-									        <option>2</option>
-									        <option>3</option>
-									        <option>4</option>
+									    <select class="selectpicker" data-required="yes" data-type="text" id="projmanager" title=" " data-width="100%" data-live-search="true">
+									         <option>sathyanarayanan.anbu@valeo.com</option>
+									        <option>luc.diffre.ext@valeo.com </option>
+									        <option>dipty.chander@valeo.com</option>
+									        <option>nicolas.sibert.ext@valeo.com</option>
 									    </select>
 									  </div>
 						  	  		</div>
@@ -153,11 +153,12 @@
 									  	</div>
 						        		<div class="form-group col-md-6">
 										    <label for="name">Customer name <span class="text-danger">*</span></label>
-										    <select class="selectpicker" title=" " id="Customer_Name" data-width="100%" data-live-search="true">
-										        <option>1</option>
-										        <option>2</option>
-										        <option>3</option>
-										        <option>4</option>
+										    <select class="selectpicker" data-required="yes" data-type="text" title=" " id="Customer_Name" data-width="100%" data-live-search="true">
+										         <option>AUDI / GROSSMEHRING</option>
+									        	<option>BLUECAR / BLUECAR ITALY </option>
+									        	<option>BMW / MUNCHEN</option>
+									        	<option>BMW STEYR</option>
+									        	<option>Climate Control Germany</option>
 										    </select>
 										</div>
 										<div class="form-group col-md-6">
@@ -175,29 +176,34 @@
 							  
 									  	<div class="form-group col-md-6">
 										    <label for="name">Plateform <span class="text-danger">*</span></label>
-										    <select class="selectpicker" title=" " id="Plateform" data-width="100%" data-live-search="true">
-										        <option>1</option>
-										        <option>2</option>
-										        <option>3</option>
-										        <option>4</option>
+										    <select class="selectpicker" data-required="yes" data-type="text" title=" " id="Plateform" data-width="100%" data-live-search="true">
+										        <option>A-Entry</option>
+										        <option>Autre</option>
+										        <option>B2E</option>
+										        <option>B3B4</option>
+										         <option>B479</option>
+										          <option>B48</option>
+										           <option>B9</option>
 										    </select>
 										</div>
 										<div class="form-group col-md-3 hide" id="incotermsdiv" style="padding-right: 5px;">
 										    <label for="name">Incoterms</label>
 										    <select class="selectpicker" title=" " id="Incoterms" data-width="100%" data-live-search="true">
-										        <option>1</option>
-										        <option>2</option>
-										        <option>3</option>
-										        <option>4</option>
+										        <option>CPT</option>
+										        <option>DAP</option>
+										        <option>DDP</option>
+										        <option>EXW</option>
+										        <option>FCA</option>
 										    </select>
 										</div>
 										<div class="form-group col-md-3 hide" id="placediv" style="padding-left: 5px;">
 										    <label for="name">Place</label>
 										    <select class="selectpicker" title=" " id="Place" data-width="100%" data-live-search="true">
-										        <option>1</option>
-										        <option>2</option>
-										        <option>3</option>
-										        <option>4</option>
+										        <option>GuyanCourt</option>
+										        <option>La Suze</option>
+										        <option>La Verriere</option>
+										        <option>Lavel</option>
+										         <option>Nogent</option>
 										    </select>
 										</div>
 							  
@@ -212,10 +218,11 @@
 									  	<div class="form-group col-md-6 hide" id="allocationdiv">
 										    <label for="name">Allocation of turnover</label>
 										    <select class="selectpicker" title=" " id="Allocation_of_turnover" data-width="100%" data-live-search="true">
-										        <option>1</option>
-										        <option>2</option>
-										        <option>3</option>
-										        <option>4</option>
+										        <option>E52 NGT ULS</option>
+										        <option>M01 LVR PG</option>
+										        <option>M02 LVR TPT</option>
+										        <option>M25 LVL</option>
+										         <option>T02 NGT</option>
 										    </select>
 										</div>
 										<div class="form-group col-md-6">

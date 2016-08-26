@@ -23,7 +23,14 @@ routerTHS.on('route:order', function(action) {
 
     var orderDetailSectionHTML = new BackboneData.Views.OrderDetailView();
     orderDetailSectionHTML.render();
-
+    actorListDetail1.fetch({
+        success: function (bookResponse) {
+        	var attr = "";
+        	for(attr in bookResponse.attributes){
+        	    console.log(attr, bookResponse.attributes[attr].actorType);
+        	}
+        }
+    });
 });
 routerTHS.on('route:admin', function(action) {
     var adminSettingsHTMl = new BackboneData.Views.AdminDetailView();

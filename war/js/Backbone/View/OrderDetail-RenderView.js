@@ -45,7 +45,9 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
         $('.selectpicker').selectpicker();
         $('.selectpicker').selectpicker('setStyle', 'btn-sm', 'add');
         $('.bs-searchbox input').addClass('input-sm');
-
+    },
+    initialize: function(){
+        
     },
     events: {
         "change #Type_of_the_Prototype_Order": "populateDependencies",

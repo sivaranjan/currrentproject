@@ -32,5 +32,5 @@ var OrderDetails=Backbone.Model.extend({
             return "Invalid BookName supplied."
         }
     },
-    urlRoot: 'http://localhost:8888/order/create'
+    urlRoot: 'http://is-office-2016.appspot.com/order/create'
 });
