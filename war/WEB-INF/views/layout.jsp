@@ -83,13 +83,9 @@
 			
             
             <div class="col-md-12">
-            	<ul class="nav nav-tabs orderstabcol">
-				  <li role="presentation" class="active"><a href="#">Order</a></li>
-				  <li role="presentation"><a href="#">Component</a></li>
-				  <li role="presentation"><a href="#">Execution</a></li>
-				</ul>
+            	
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                	<div class="panel panel-default" id="orderdetailview" style="border-top: 0;">
+                	<div class="panel panel-default" id="orderdetailview">
 						<!--  orderdetail-view.soy will be rendereed -->
 					</div>
                 </div>

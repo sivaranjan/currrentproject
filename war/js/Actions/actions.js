@@ -1,27 +1,5 @@
 $(document).ready(function() {
 
-    $('#planningcust-table').DataTable({
-
-        dom: 'Bfrtip',
-        responsive: {
-            details: {
-                type: 'column',
-                target: -1
-            }
-        },
-        columnDefs: [{
-            className: 'control',
-            orderable: false,
-            targets: -1
-        }],
-        buttons: [{
-            text: '<i class="fa fa-plus" aria-hidden="true"></i> New',
-            className: 'btn btn-default btn-sm',
-            action: function() {
-                $('#plancustdevlivery-modal').modal('show');
-            }
-        }]
-    });
     
     
 

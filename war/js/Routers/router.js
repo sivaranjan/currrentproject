@@ -31,6 +31,9 @@ routerTHS.on('route:admin', function(action) {
 
 });
 routerTHS.on('route:component', function(action) {
+	var navBtnSectionHTML = new BackboneData.Views.NavBtnSectionview();
+    navBtnSectionHTML.render();
+    
     var componentDetailHTMl = new BackboneData.Views.ComponentDetailView();
     componentDetailHTMl.render();
 

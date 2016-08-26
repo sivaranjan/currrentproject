@@ -188,6 +188,35 @@ button.btn.dropdown-toggle.btn-default.btn-sm {
     background-color: #97D045;
 }
 
+/* Component detail css */
+.nav.comnav-tabs > li > a {
+    font-weight: 700;
+    color: #757575;
+}
+.nav.comnav-tabs > li.active > a {
+    background-color: #787878;
+    color: #FFF;
+}
+.comnav-pills {
+    background-color: #787878;
+}
+.comnav-pills > li > a{
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.74);
+    border-radius: 0;	
+}
+.comnav-pills > li > a:hover {
+    background-color: transparent;
+    color: #fff;
+}
+.comnav-pills > li.active > a, 
+.comnav-pills > li.active > a:hover,
+.comnav-pills > li.active > a:focus {
+    background-color: #97D045;
+    cursor: default;
+}
+
 /* Voice box */
 .status-voicebox {
     position: fixed;
