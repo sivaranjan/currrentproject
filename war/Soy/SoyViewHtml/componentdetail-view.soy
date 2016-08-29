@@ -20,8 +20,8 @@
 							    <input type="text" class="form-control input-sm">
 							</div>
 							<div class="form-group col-md-3">
-							    <label for="name">Customer order N<sup>&#8728;</sup></label>
-							    <input type="text" class="form-control input-sm">
+							    <label for="name" id="customerorderN0label">Customer order N<sup>&#8728;</sup></label>
+							    <input type="text" class="form-control input-sm" id="customerorderN0">
 							</div>
 							<div class="form-group col-md-3">
 							    <label for="name">Customer Refernce</label>
@@ -77,8 +77,8 @@
 														    </select>
 										        		</div>
 										        		<div class="form-group col-md-3">
-										        			<label for="name">Unit selling Price (&#x20AC;)</label>
-									        				<input type="text" class="form-control input-sm" />
+										        			<label for="name" id="unitsellingpricelabel">Unit selling Price (&#x20AC;)</label>
+									        				<input type="text" class="form-control input-sm" id="unitsellingprice"/>
 										        		</div>
 										        		<div class="form-group col-md-3">
 										        			<label for="name">Customer</label>
@@ -92,17 +92,17 @@
 														    </select>
 										        		</div>
 										        		<div class="form-group col-md-3">
-											      			<label>Direct delivery to the customer? <span class="text-danger">*</span></label>
-											      			<div>
-											      				<label class="radio-inline"><input type="radio" name="optradio1" style="margin-top: 1px;">Yes</label>
-																<label class="radio-inline"><input type="radio" name="optradio1" style="margin-top: 1px;">No</label>
+											      			<label id="Direct delivery to the customer?">Direct delivery to the customer? <span class="text-danger">*</span></label>
+											      			<div id="delivery">
+											      				<label class="radio-inline" ><input type="radio" name="optradio1" style="margin-top: 1px;" value="Yes" >Yes</label>
+																<label class="radio-inline" ><input type="radio" name="optradio1" style="margin-top: 1px; value="No" >No</label>
 											      			</div>
 											      		</div>
 										        		<div class="form-group col-md-3">
 										        			<label for="name">Product Specification <span class="text-danger">*</span></label>
 										        			<textarea class="form-control" style="height: 65px;resize: none;"></textarea>
 										        		</div>
-											      		<div class="form-group col-md-3">
+											      		<div class="form-group col-md-3" id="laboaddress">
 										        			<label for="name">Labo address or Other</label>
 										        			<textarea class="form-control" style="height: 65px;resize: none;"></textarea>
 										        		</div>
@@ -219,8 +219,8 @@
 													    <input type="text" class="form-control input-sm" placeholder="Total Quantity" />
 													</div>
 													<div class="form-group col-md-6">
-													    <label>Total Amount</label>
-													      <input type="text" class="form-control input-sm" placeholder="Total Amount" />
+													    <label id="totalamountlabel">Total Amount</label>
+													      <input type="text" class="form-control input-sm" placeholder="Total Amount" id="totalamount"/>
 													</div>
 									        		
 									        	</form>
