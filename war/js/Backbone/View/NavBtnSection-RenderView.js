@@ -21,55 +21,70 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
     	_thisView.render();
     },
 	 events: {
-	        "click #saveorderbtn": "saveOrder"
+	        "click #saveorderbtn": "validateOrder"
 	    },
-	    saveOrder: function() {
-	    	var Site_Workshop_Prototype = $('#Site_Workshop_Prototype').val();
-	    	var Proto_Type = $('#Proto_Type').val();
-	    	var orderID = "";
-	    	if (typeof(Storage) !== "undefined") 
+	    validateOrder: function() {
+	    	if(validate.getInstance().formordiv('orderdetailview'))
 	    	{
-	    		if(localStorage.getItem("lastID")!=null && localStorage.getItem("lastID")!="")
-	    		{
-	    			localStorage.setItem("lastID", 0002000);
-	    		}	
-	    		else
-	    		{
-	    			 localStorage.setItem("lastID", 0002000);
-	    			 
-	    		}	
-	    	   
+	    		console.log("trfdsf");
 	    	}
-	    	var Type_of_the_Prototype_Order = $('#Type_of_the_Prototype_Order').val();
-	    	if(Site_Workshop_Prototype == "La Suze (LAS)")
+	    	else
 	    	{
-	    		orderID = "LAS";
-	    	}	
-	    	else if(Site_Workshop_Prototype == "La Verriere (LVR)")
-	    	{
-	    		orderID = "LVR";
+	    		$('#orderdetailview').find('.selectpicker').each(function() { 
+	    			if ($(this).hasClass('error')) 
+	    			{
+	    				
+	    			}
+	    		})
 	    	}
-	    	else if(Site_Workshop_Prototype == "Laval (LVL)")
-	    	{
-	    		orderID = "LVL";
-	    	}
-	    	else if(Site_Workshop_Prototype == "Nogent (NOG)")
-	    	{
-	    		orderID = "NOG";
-	    	}
-	    	else if(Site_Workshop_Prototype == "Reims (RMS)")
-	    	{
-	    		orderID = "RMS";
-	    	}
-	    	if(Type_of_the_Prototype_Order=="VENDU / SOLD")
-	    	{
-	    		Type_of_the_Prototype_Order = "V";
-	    	}
-	    	else if(Type_of_the_Prototype_Order=="NON VENDU / NOT SOLD")
-	    	{
-	    		Type_of_the_Prototype_Order = "N";
-	    	}
-	    	orderID = orderID+localStorage.getItem("lastID")+"-"+Proto_Type+Type_of_the_Prototype_Order;
-	    	$('#No_Prototype_Order').val(orderID);
+	    },
+	    saveOrder:  function(){
+				    	var Site_Workshop_Prototype = $('#Site_Workshop_Prototype').val();
+				    	var Proto_Type = $('#Proto_Type').val();
+				    	var orderID = "";
+				    	if (typeof(Storage) !== "undefined") 
+				    	{
+				    		if(localStorage.getItem("lastID")!=null && localStorage.getItem("lastID")!="")
+				    		{
+				    			localStorage.setItem("lastID", 0002000);
+				    		}	
+				    		else
+				    		{
+				    			 localStorage.setItem("lastID", 0002000);
+				    			 
+				    		}	
+				    	   
+				    	}
+				    	var Type_of_the_Prototype_Order = $('#Type_of_the_Prototype_Order').val();
+				    	if(Site_Workshop_Prototype == "La Suze (LAS)")
+				    	{
+				    		orderID = "LAS";
+				    	}	
+				    	else if(Site_Workshop_Prototype == "La Verriere (LVR)")
+				    	{
+				    		orderID = "LVR";
+				    	}
+				    	else if(Site_Workshop_Prototype == "Laval (LVL)")
+				    	{
+				    		orderID = "LVL";
+				    	}
+				    	else if(Site_Workshop_Prototype == "Nogent (NOG)")
+				    	{
+				    		orderID = "NOG";
+				    	}
+				    	else if(Site_Workshop_Prototype == "Reims (RMS)")
+				    	{
+				    		orderID = "RMS";
+				    	}
+				    	if(Type_of_the_Prototype_Order=="VENDU / SOLD")
+				    	{
+				    		Type_of_the_Prototype_Order = "V";
+				    	}
+				    	else if(Type_of_the_Prototype_Order=="NON VENDU / NOT SOLD")
+				    	{
+				    		Type_of_the_Prototype_Order = "N";
+				    	}
+				    	orderID = orderID+localStorage.getItem("lastID")+"-"+Proto_Type+Type_of_the_Prototype_Order;
+				    	$('#No_Prototype_Order').val(orderID);
 	    }
 });
