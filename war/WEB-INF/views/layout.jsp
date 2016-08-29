@@ -366,7 +366,6 @@
          <script src="../js/Backbone/Model/Places-Model.js"></script>
          <script src="../js/Backbone/Model/Plateform-Model.js"></script>
          
-<!-- 		<script src="../js/Backbone/Model/CreateOrder-Model.js"></script> -->
 		<script src="../js/Backbone/Model/OrderDetails-Model.js"></script>
 		<script src="../js/Backbone/View/GlobalNavBar-RenderView.js"></script>
 		

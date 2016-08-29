@@ -82,7 +82,9 @@ label {
 
 
 /* Data Table Component for pagenation*/
-
+.dataTables_info {
+    float: left;
+}
 .dataTables_paginate ul.pagination li {
     display: none;
 }
@@ -94,7 +96,7 @@ label {
 
 .dataTables_wrapper .dataTables_paginate .paginate_button a,
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled a {
-    padding: 7px 8px 9px;
+    padding: 5px 6px 7px;
     background-color: #fff !important;
     border: 1px solid #dddddd !important;
     margin-left: -1px;
@@ -113,7 +115,7 @@ label {
 
 .dataTables_wrapper .dataTables_paginate .paginate_button a::before,
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled a::before {
-    font-size: 14px;
+    font-size: 12px;
     position: relative;
     top: 1px;
     display: inline-block;
