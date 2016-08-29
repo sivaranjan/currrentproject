@@ -1,5 +1,4 @@
-//BackboneData.Models
-var ActorListDetailsModel = Backbone.Model.extend({
+BackboneData.Models.ActorListDetailsModel = Backbone.Model.extend({
     defaults: {
     	actorType:"",
     	actorEmail:"",

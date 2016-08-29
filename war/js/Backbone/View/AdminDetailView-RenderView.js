@@ -156,7 +156,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
 	   		   			   var actor_Type=$("#actor_type").val();
 	   		   			   var actor_Email=$("#actor_email").val();
 	   		   		       var actorSite=$("#actor_site").val();
-	   		   			   var actorDetails= new ActorListDetailsModel({actorType:actor_Type,actorEmail:actor_Email,site:actorSite});
+	   		   			   var actorDetails= new BackboneData.Models.ActorListDetailsModel({actorType:actor_Type,actorEmail:actor_Email,site:actorSite});
 	   		   			        actorDetails.save({},{
 	   		   					success: function (model, respose, options) {
 	   		   						console.log("The model has been saved to the server");
