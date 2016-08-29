@@ -357,13 +357,16 @@
           <script src="../Soy/SoyViewJs/admindetail-view.js"></script>
 
  		 <script src="../js/Backbone/Model/test-Model.js"></script>
+
          <script src="../js/Backbone/Model/ActorsList-Model.js"></script>
          <script src="../js/Backbone/Model/SitesList_Model.js"></script>
          <script src="../js/Backbone/Model/CustomersList_Model.js"></script>
          <script src="../js/Backbone/Model/Incoterms-Model.js"></script>
          <script src="../js/Backbone/Model/Places-Model.js"></script>
          <script src="../js/Backbone/Model/Plateform-Model.js"></script>
-		<script src="../js/Backbone/Model/CreateOrder-Model.js"></script>
+         
+		//<script src="../js/Backbone/Model/CreateOrder-Model.js"></script>
+		<script src="../js/Backbone/Model/OrderDetails-Model.js"></script>
 		<script src="../js/Backbone/View/GlobalNavBar-RenderView.js"></script>
 		
 		<script src="../js/Backbone/View/Welcome-RenderView.js"></script>
