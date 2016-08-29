@@ -18,19 +18,12 @@ routerTHS.on('route:home', function(action) {
     welcomeSectionHTML.render();
 });
 routerTHS.on('route:order', function(action) {
-    var navBtnSectionHTML = new BackboneData.Views.NavBtnSectionview();
-    navBtnSectionHTML.render();
-
-    var orderDetailSectionHTML = new BackboneData.Views.OrderDetailView();
-    orderDetailSectionHTML.render();
-    actorListDetail1.fetch({
-        success: function (bookResponse) {
-        	var attr = "";
-        	for(attr in bookResponse.attributes){
-        	    console.log(attr, bookResponse.attributes[attr].actorType);
-        	}
-        }
-    });
+    var navBtnSectionHTML 	    = new BackboneData.Views.NavBtnSectionview();
+    var orderDetailModel  		= new BackboneData.Models.ActorListDetailsModel();
+    var orderDetailSectionHTML  = new BackboneData.Views.OrderDetailView({model: orderDetailModel});
+    
+   
+    
 });
 routerTHS.on('route:admin', function(action) {
     var adminSettingsHTMl = new BackboneData.Views.AdminDetailView();
