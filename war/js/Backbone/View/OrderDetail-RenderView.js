@@ -6,7 +6,7 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
         if (window.language == "EN") {
             orderDetailHTML = order.manager.OrderDetailView({ 'paramValue': window.orderDetails_englishLabelList });
         } else {
-            orderDetailHTML = order.manager.OrderDetailView({ 'paramValue': window.orderDetails_frenchLabelList });
+            orderDetailHTML = order.manager.OrderDetailView({ 'paramValue': window.orderDetails_frenchLabelList});
         }
         $('#createorder-section').removeClass('hide');
         $('#welcome-section,#admin-section,#component-section,#orderlist-section').addClass('hide');
@@ -107,5 +107,5 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
             }
             $('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#frittagelabel,#frittagecheckbox,#advdiv,#intralelabel,#intralecheckbox').addClass('hide');
         }
-    },
+    }
 });
