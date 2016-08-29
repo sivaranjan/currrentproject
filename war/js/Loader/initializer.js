@@ -48,13 +48,20 @@ $('.language li a').click(function()
 						    var orderDetailModel  		= new BackboneData.Models.ActorListDetailsModel();
 						    var orderDetailSectionHTML  = new BackboneData.Views.OrderDetailView({model: orderDetailModel});
 						}
-						else if(document.URL.split('#'[1]=="componentdetails"))
+						else if(document.URL.split('#')[1]=="componentdetails")
 						{
 							var globalNavbarHTML = new BackboneData.Views.GlobalNavbarview();
 						    globalNavbarHTML.render();
 							var navBtnSectionHTML 	    = new BackboneData.Views.NavBtnSectionview();
 							var componentDetailHTMl = new BackboneData.Views.ComponentDetailView();
 						    componentDetailHTMl.render();
+						}
+						else if(document.URL.split('#')[1]== "adminsetting")
+						{
+							var globalNavbarHTML = new BackboneData.Views.GlobalNavbarview();
+						    globalNavbarHTML.render();
+							var adminSettingHTML=new BackboneData.Views.AdminDetailView();
+							adminSettingHTML.render();
 						}
 						else
 						{
