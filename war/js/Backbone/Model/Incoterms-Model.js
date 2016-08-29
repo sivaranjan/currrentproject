@@ -10,19 +10,19 @@ var IncotermsDetails=Backbone.Model.extend({
         
     },
     initialize: function() {
-        console.log('Book has been initialized');
+        console.log('Incoterms has been initialized');
         this.on("invalid", function(model, error) {
             console.log("Houston, we have a problem: " + error)
         });
     },
     constructor: function(attributes, options) {
-        console.log('Book\'s constructor had been called');
+        console.log('Incoterms\'s constructor had been called');
         Backbone.Model.apply(this, arguments);
     },
     validate: function(attr) {
-        if (!attr.incoterms) {
-            return "Invalid BookName supplied."
-        }
+//        if (!attr.incoterms) {
+//            return "Invalid BookName supplied."
+//        }
     },
-    urlRoot: 'http://is-office-2016.appspot.com/incoterm/create'
+    urlRoot: 'http://localhost:8888/incoterm/create'
 });
