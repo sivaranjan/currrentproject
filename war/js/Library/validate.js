@@ -27,7 +27,7 @@ var validate = (function() {
     function Validator(options) {
         var _options = (function() {
             var valid = 'valid',
-                invalid = 'invalid',
+                invalid = 'error',
                 event = 'onblur';
             return {
                 setValid: function(value) {
