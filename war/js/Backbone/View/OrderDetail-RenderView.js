@@ -13,6 +13,8 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
         $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
         $('#createorder-tab').addClass('active');
         ref.$el.html(orderDetailHTML);
+        console.log(this.model.toJSON());
+        console.log("hgh");
         $('#example').DataTable({
             dom: 'Bfrtip',
             responsive: {
@@ -47,7 +49,11 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
         $('.bs-searchbox input').addClass('input-sm');
     },
     initialize: function(){
-        
+    	var _thisView = this;
+    	$.when(this.model.fetch())
+        .done(function () {
+          _thisView.render();
+        });
     },
     events: {
         "change #Type_of_the_Prototype_Order": "populateDependencies",
