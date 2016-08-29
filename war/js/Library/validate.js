@@ -291,6 +291,7 @@ var validate = (function() {
                     for (var ind in inputList) {
                         var domObject = inputList[ind];
                         if (typeof domObject !== 'object') break;
+                        if (dom.display == "none")continue;
                         if (!_updateClass(domObject, _isValid(domObject), options)) valid = false;
                     }
                 }

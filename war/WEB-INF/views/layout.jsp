@@ -349,15 +349,26 @@
         <script src="../js/Library/BackboneData.js"></script>
         <script src="../Soy/SoyUtils/soyutils.js"></script>
 
- 		<script src="../Soy/SoyViewJs/globalnavbar-view.js"></script>
+ 		 <script src="../Soy/SoyViewJs/globalnavbar-view.js"></script>
  		 <script src="../Soy/SoyViewJs/welcomesection-view.js"></script>
  		  <script src="../Soy/SoyViewJs/orderdetail-view.js"></script>
-        <script src="../Soy/SoyViewJs/navbtn-view.js"></script>
+          <script src="../Soy/SoyViewJs/navbtn-view.js"></script>
          <script src="../Soy/SoyViewJs/componentdetail-view.js"></script>
           <script src="../Soy/SoyViewJs/admindetail-view.js"></script>
 
-		<script src="../js/Backbone/Model/CreateOrder-Model.js"></script>
+ 		 <script src="../js/Backbone/Model/test-Model.js"></script>
+
+         <script src="../js/Backbone/Model/ActorsList-Model.js"></script>
+         <script src="../js/Backbone/Model/SitesList_Model.js"></script>
+         <script src="../js/Backbone/Model/CustomersList_Model.js"></script>
+         <script src="../js/Backbone/Model/Incoterms-Model.js"></script>
+         <script src="../js/Backbone/Model/Places-Model.js"></script>
+         <script src="../js/Backbone/Model/Plateform-Model.js"></script>
+         
+		//<script src="../js/Backbone/Model/CreateOrder-Model.js"></script>
+		<script src="../js/Backbone/Model/OrderDetails-Model.js"></script>
 		<script src="../js/Backbone/View/GlobalNavBar-RenderView.js"></script>
+		
 		<script src="../js/Backbone/View/Welcome-RenderView.js"></script>
 		<script src="../js/Backbone/View/NavBtnSection-RenderView.js"></script>
 		<script src="../js/Backbone/View/OrderDetail-RenderView.js"></script>
@@ -366,7 +377,7 @@
 		<script src="../js/Loader/initializer.js"></script>
         <script src="../js/Routers/router.js"></script>
         <script src="../js/Actions/actions.js"></script>
-         <script src="../js/Backbone/Model/test-Model.js"></script>
+        
 </body>
 
 </html>

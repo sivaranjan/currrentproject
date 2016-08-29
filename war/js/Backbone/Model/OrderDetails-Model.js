@@ -1,7 +1,4 @@
-/**
- * 
- */
-var OrderDetails=Backbone.Model.extend({
+BackboneData.Models.OrderDetailModel=Backbone.Model.extend({
     defaults: {
         geoSite:"",
         proto_Type:"",
@@ -23,6 +20,29 @@ var OrderDetails=Backbone.Model.extend({
             console.log("Houston, we have a problem: " + error)
         });
     },
+    getCustomUrl: function (method) {
+        switch (method) {
+            case 'read':
+                return 'http://localhost:8888/fetch/orderDependencies';
+                break;
+            case 'create':
+            	return 'http://localhost:8888/order/create';
+                break;
+            case 'update':
+            	return 'http://localhost:8888/order/update';
+                break;
+            case 'delete':
+            	return 'http://localhost:8888/order/delete';
+                break;
+        }
+    },
+    sync: function (method, model, options) {
+        options || (options = {});
+        options.url = this.getCustomUrl(method.toLowerCase());
+        
+        // Lets notify backbone to use our URLs and do follow default course
+        return Backbone.sync.apply(this, arguments);
+    },
     constructor: function(attributes, options) {
         console.log('Book\'s constructor had been called');
         Backbone.Model.apply(this, arguments);
@@ -31,6 +51,5 @@ var OrderDetails=Backbone.Model.extend({
         if (!attr.geoSite) {
             return "Invalid BookName supplied."
         }
-    },
-    urlRoot: 'http://localhost:8888/order/create'
+    }
 });

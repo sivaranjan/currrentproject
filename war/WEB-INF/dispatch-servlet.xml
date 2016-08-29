@@ -32,4 +32,10 @@
     <bean id="orderDao" class="com.ths.DAO.OrderDAO"/>
     <bean id="actorsDao" class="com.ths.DAO.ActorsDAO"/>
     <bean id="customerDao" class="com.ths.DAO.CustomerDAO"/>
+     <bean id="actorsListDao" class="com.ths.DAO.ActorsListDAO"/>
+     <bean id="sitesListDao" class="com.ths.DAO.SitesListDAO"/>
+     <bean id="customersListDao" class="com.ths.DAO.CustomersListDAO"/>
+     <bean id="incotermsListDao" class="com.ths.DAO.IncotermsDAO"/>
+     <bean id="placesListDao" class="com.ths.DAO.PlacesDAO"/>
+     <bean id="plateformListDao" class="com.ths.DAO.PlateformDAO"/>
   </beans>

@@ -18,12 +18,12 @@ routerTHS.on('route:home', function(action) {
     welcomeSectionHTML.render();
 });
 routerTHS.on('route:order', function(action) {
-    var navBtnSectionHTML = new BackboneData.Views.NavBtnSectionview();
-    navBtnSectionHTML.render();
-
-    var orderDetailSectionHTML = new BackboneData.Views.OrderDetailView();
-    orderDetailSectionHTML.render();
-
+    var navBtnSectionHTML 	    = new BackboneData.Views.NavBtnSectionview();
+    var orderDetailModel  		= new BackboneData.Models.ActorListDetailsModel();
+    var orderDetailSectionHTML  = new BackboneData.Views.OrderDetailView({model: orderDetailModel});
+    
+   
+    
 });
 routerTHS.on('route:admin', function(action) {
     var adminSettingsHTMl = new BackboneData.Views.AdminDetailView();

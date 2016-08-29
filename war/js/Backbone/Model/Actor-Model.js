@@ -1,6 +1,3 @@
-/**
- * 
- */
 var ActorDetails = Backbone.Model.extend({
     defaults: {
         requester: "",
