@@ -6,11 +6,11 @@ BackboneData.Views.ComponentDetailView = Backbone.View.extend({
 		var componentDetailHTML	="";
 		if(window.language=="EN")
 		{
-			componentDetailHTML	 = component.manager.ComponentDetailView({'paramValue':window.actorDetails_englishLabelList});
+			componentDetailHTML	 = component.manager.ComponentDetailView({'paramValue':window.componentCreation_englishLabelList});
 		}	
 		else
 		{
-			componentDetailHTML	 =  component.manager.ComponentDetailView({'paramValue':window.actorDetails_frenchLabelList});
+			componentDetailHTML	 =  component.manager.ComponentDetailView({'paramValue':window.componentCreation_frenchLabelList});
 		}	
 		ref.$el.html(componentDetailHTML);
 		$('#component-section,#navfixed-wrapper').removeClass('hide');
@@ -52,34 +52,5 @@ BackboneData.Views.ComponentDetailView = Backbone.View.extend({
             }]
         });
         $('.newplanbtn').removeClass('dt-button');
-	},
-events: {
-    "change #Type_of_the_Prototype_Order": "populatechanges",
-    "change #deliverytothecustomer_Yes":"populatechanges",
-    "change #deliverytothecustomer_No":"populatechanges",
-},
-populatechanges: function() {
-	 alert("hi");
-	 var Type_of_the_Prototype_Order=$("#Type_of_the_Prototype_Order :selected").text();
-	 var delivery_to_the_customer=$("#delivery input[name='optradio1']:checked").val();
-	 if(Type_of_the_Prototype_Order=="VENDU / SOLD")
-	 {
-		 $('#customerorderN0label,#customerorderN0,#unitsellingpricelabel,#unitsellingprice,#Direct delivery to the customer?,#delivery,#totalamountlabel,#totalamount').removeClass('hide');
-		 if(delivery_to_the_customer=="on")
-		 {
-			 $('#customerorderN0label,#customerorderN0,#laboaddress').removeClass('Hide');
-			 
-		 }
-		 else
-		 {
-			 $('#customerorderN0label,#customerorderN0,#laboaddress').addClass('Hide');
-		 }	 
-		 
-	}	 
-	 else
-	{
-		 $('#customerorderN0label,#customerorderN0,#unitsellingpricelabel,#unitsellingprice,#Direct delivery to the customer?,#delivery,#totalamountlabel,#totalamount,#laboaddress').addClass('Hide')
 	}
-	
-}
 });

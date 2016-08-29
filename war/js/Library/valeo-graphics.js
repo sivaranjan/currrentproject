@@ -58,18 +58,6 @@ jQuery(document).ready(function(){
         return uri + separator + key + "=" + value;
       }
     }
-  $(".language li a").click(function(){
-      console.log($(this).text() == " FR");
-      $(".language-dropdown:first-child").html($(this).html() + ' <span class="caret"></span>');
-      $(".language-dropdown:first-child").val($(this).text());
-     /* if($(this).text() == " FR"){
-          window.location.href = updateQueryStringParameter(window.location.href, "locale", "fr_FR")
-      }
-      else{
-          window.location.href = updateQueryStringParameter(window.location.href, "locale", "en_US")
-      }*/
-   });
-
   $('.input-group.date').datepicker({
     autoclose: true
 });

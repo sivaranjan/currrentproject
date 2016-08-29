@@ -44,7 +44,7 @@
                         <span id="userlabel" class="header-text">Welcome </span>
                     </div>
                     <div class="btn-group pull-right">
-				        <button id='lang' type="button" class="btn btn-link dropdown-toggle language-dropdown" data-toggle="dropdown" aria-expanded="false" value="en_US">
+				        <button id='lang' type="button" class="btn btn-link dropdown-toggle language-dropdown" data-toggle="dropdown" aria-expanded="false" value="EN">
 				        <img src="../statics/images/en.png"> EN <span class="caret"></span>
 				        </button>
 				        <ul class="dropdown-menu language" role="menu">
@@ -347,6 +347,7 @@
 		<script type="text/javascript" src="../js/Library/valeo-graphics.js"></script>
 		<script type="text/javascript" src="../js/Library/bootstrap-select.min.js"></script>
         <script src="../js/Library/BackboneData.js"></script>
+        <script src="../js/Library/bootbox.js"></script>
         <script src="../Soy/SoyUtils/soyutils.js"></script>
 
  		 <script src="../Soy/SoyViewJs/globalnavbar-view.js"></script>
@@ -365,7 +366,7 @@
          <script src="../js/Backbone/Model/Places-Model.js"></script>
          <script src="../js/Backbone/Model/Plateform-Model.js"></script>
          
-		//<script src="../js/Backbone/Model/CreateOrder-Model.js"></script>
+<!-- 		<script src="../js/Backbone/Model/CreateOrder-Model.js"></script> -->
 		<script src="../js/Backbone/Model/OrderDetails-Model.js"></script>
 		<script src="../js/Backbone/View/GlobalNavBar-RenderView.js"></script>
 		

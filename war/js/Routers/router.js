@@ -18,11 +18,9 @@ routerTHS.on('route:home', function(action) {
     welcomeSectionHTML.render();
 });
 routerTHS.on('route:order', function(action) {
-    var navBtnSectionHTML 	    = new BackboneData.Views.NavBtnSectionview();
     var orderDetailModel  		= new BackboneData.Models.ActorListDetailsModel();
     var orderDetailSectionHTML  = new BackboneData.Views.OrderDetailView({model: orderDetailModel});
-    
-   
+    var navBtnSectionHTML 	    = new BackboneData.Views.NavBtnSectionview();
     
 });
 routerTHS.on('route:admin', function(action) {
