@@ -4,14 +4,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
 	{
 		var ref = this;
 		var adminDetailHTML	="";
-		if(window.language=="EN")
-		{
-			adminDetailHTML	 = admin.manager.AdminDetailView({'paramValue':window.actorDetails_englishLabelList});
-		}	
-		else
-		{
-			adminDetailHTML	 =  admin.manager.AdminDetailView({'paramValue':window.actorDetails_frenchLabelList});
-		}	
+			adminDetailHTML	 = admin.manager.AdminDetailView();
 		ref.$el.html(adminDetailHTML);
 		$('#admin-section').removeClass('hide');
     	$('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper,#orderlist-section').addClass('hide');
