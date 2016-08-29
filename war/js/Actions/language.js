@@ -9,7 +9,8 @@ window.navBtnSection_frenchLabelList || (window.navBtnSection_frenchLabelList = 
 window.navBtnSection_englishLabelList || (window.navBtnSection_englishLabelList = {});
 window.orderDetails_frenchLabelList || (window.orderDetails_frenchLabelList = {});
 window.orderDetails_englishLabelList || (window.orderDetails_englishLabelList = {});
-
+window.componentCreation_frenchLabelList || (window.componentCreation_frenchLabelList = {});
+window.componentCreation_englishLabelList || (window.componentCreation_englishLabelList = {});
 navBar_englishLabelList = {
     'HOME': 'HOME',
     'CREATE ORDER': 'CREATE ORDER',
@@ -55,7 +56,10 @@ navBtnSection_frenchLabelList = {
     'Current Actor': 'Acteur actuel',
     'Stage': '\xC9tape',
     'Status': 'statut',
-    'Total order amount': 'Montant total de la commande'
+    'Total order amount': 'Montant total de la commande',
+    'Refuse':'Refuser',
+    'Demote to previous step':'Renvoyer au step pr\xE9c\XE9dent',
+    'Demote to requester':'Renvoyer au cr\xE9ateur'
 };
 navBtnSection_englishLabelList = {
     'Print': 'Print',
@@ -70,7 +74,10 @@ navBtnSection_englishLabelList = {
     'Current Actor': 'Current Actor',
     'Stage': 'Stage',
     'Status': 'Status',
-    'Total order amount': 'Total order amount'
+    'Total order amount': 'Total order amount',
+    'Refuse':'Refuse',
+    'Demote to previous step':'Demote to previous step',
+    'Demote to requester':'Demote to requester'
 };
 orderDetails_frenchLabelList = {
     'Order Detail': 'D\xE9tails de la commande',
@@ -198,4 +205,103 @@ orderDetails_englishLabelList = {
     'Create component': 'Create component',
     'Back': 'Back',
     'Next': 'Next'
+};
+componentCreation_frenchLabelList= {
+		'Order Details': 'D\xE9tails de la commande',
+		'Prototype Order': 'Prototype Commander',
+		'Order type':'Type de commande',
+		'Customer order N0':'N\xB0 de la commande client',
+		'Customer reference':'R\xE9f\xE9rence client',
+		'Product type':'Type de produit',
+		'Component ID':'Identifiant du composant',
+		'Component status':'Statut du composant',
+	    'Component': 'Composant',
+	    'Execution':'Execution',
+	    'Component description':'Description du composant',
+	    'Technical definition':'D\xE9finition technique',
+	    'Process validation':'Validation process',
+		'Estimation Costs and Delays':'Estimation Couts et delais',
+		'Qualities deliverables':'D\xE9liverables qualit\xE9s',
+	    'Customer reference':'R\xE9f\xE9rence client',
+	    'Product specification':'D\xE9signation produit',
+	    'Unit selling price':'Prix de vente unitaire',
+	    'Direct delivery to the customer':'Livraison direct au client',
+	    'Customer':'client',
+	    'Labo address or other':'Adresse labo ou autre',
+	    'Comments':'Commentaires',
+	    'Planning customer delivery':'Planning livraison client',
+	    'Quantity':'Quantit\xE9',
+	    'Date':'Date',
+	    'Comment':'Commentaire',
+	    'Total Quantity': 'Quantit\xE9 totale',
+	    'Total amount':'Montant total',
+	    'Edit':'Modifier',
+	    'Delete':'Effacer',
+	    'Project manager':'Chef de projet',
+	    'R&D manager':'Responsable R&D',
+	    'Project phase':'Phase projet',
+	    'Valeo reference':'R\xE9f\xE9rence Valeo',
+	    'Technology':'Technologie',
+	    'WBS / OI code':'Code WBS / OI',
+	    'BE code':'Code BE',
+	    'MIP/PWA code':'Code MIP/PWA',
+	    'Validation process':'Process validation',
+	    'Plan of laboratory tests':'Plan d\'essais de laboratoire',
+	    'Nomenclature':'Nomenclature',
+	    'Plan':'Plan',
+	    'Test type':'Type essais',
+	    'Test request N0':'N\xB0 de demande essai',
+	    'ATP date delivery to Lab':'Date livraison de ATP au Labo',
+	    'Yes':'Oui',
+	    'No':'Non'
+};
+componentCreation_englishLabelList = {
+		'Order Details':'Order Details',
+		'Prototype Order': 'Prototype Order',
+		'Order type':'Order type',
+		'Customer order N0':'Customer order N\xB0',
+		'Customer reference':'Customer reference',
+		'Product type':'Product type',
+		'Component ID':'Component ID',
+		'Component status':'Component status',
+		'Component':'Component',
+		'Execution':'Execution',
+		'Component description':'Component description',
+		'Technical definition':'Technical definition',
+		'Process validation':'Process validation',
+		'Qualities deliverables':'Qualities deliverables',
+		'Estimation Costs and Delays':'Estimation Costs and Delays',
+		'Customer reference':'Customer reference',
+		'Product specification':'Product specification',
+		'Unit selling price':'Unit selling price',
+		'Direct delivery to the customer':'Direct delivery to the customer',
+		'Customer':'Customer',
+		'Labo address or other':'Labo address or other',
+		'Comments':'Comments',
+		'Planning customer delivery':'Planning customer delivery',
+		'Quantity':'Quantity',
+		'Date':'Date',
+		'Comment':'Comment',
+	    'Total Quantity': 'Total Quantity',
+		'Total amount':'Total amount',
+		'Edit':'Edit',
+		'Delete':'Delete',
+		'Project manager':'Project manager',
+		'R&D manager':'R&D manager',
+		'Project phase':'Project phase',
+		'Valeo reference':'Valeo reference',
+		'Technology':'Technology',
+		'WBS / OI code':'WBS / OI code',
+		'BE code':'BE code',
+		'MIP/PWA code':'MIP/PWA code',
+		'Validation process':'Validation process',
+		'Plan of laboratory tests':'Plan of laboratory tests',
+		'Nomenclature':'Nomenclature',
+		'Plan':'Plan',
+		'Test type':'Test type',
+		'Test request N0':'Test request N\xB0',
+		'ATP date delivery to Lab':'ATP date delivery to Lab',
+		'Yes':'Yes',
+		'No':'No'
+		
 };
