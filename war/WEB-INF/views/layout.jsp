@@ -375,7 +375,7 @@
 		<script src="../js/Backbone/View/ComponentDetailView-RenderView.js"></script>
 		<script src="../js/Backbone/View/AdminDetailView-RenderView.js"></script>
 		<script src="../js/Loader/initializer.js"></script>
-        <script src="../js/Routers/router.js"></script>
+        <script src="../js/Routers/router.js?yufyufyufufyu"></script>
         <script src="../js/Actions/actions.js"></script>
         
 </body>
