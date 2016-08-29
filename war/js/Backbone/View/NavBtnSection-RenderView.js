@@ -16,6 +16,10 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
 		ref.$el.html(NavBtnSectionHTML);
 		$('#navfixed-wrapper').removeClass('hide');
 	},
+	initialize: function(name) {
+		var _thisView = this;
+    	_thisView.render();
+    },
 	 events: {
 	        "click #saveorderbtn": "saveOrder"
 	    },
