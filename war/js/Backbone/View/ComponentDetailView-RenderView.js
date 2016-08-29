@@ -6,11 +6,11 @@ BackboneData.Views.ComponentDetailView = Backbone.View.extend({
 		var componentDetailHTML	="";
 		if(window.language=="EN")
 		{
-			componentDetailHTML	 = component.manager.ComponentDetailView({'paramValue':window.actorDetails_englishLabelList});
+			componentDetailHTML	 = component.manager.ComponentDetailView({'paramValue':window.componentCreation_englishLabelList});
 		}	
 		else
 		{
-			componentDetailHTML	 =  component.manager.ComponentDetailView({'paramValue':window.actorDetails_frenchLabelList});
+			componentDetailHTML	 =  component.manager.ComponentDetailView({'paramValue':window.componentCreation_frenchLabelList});
 		}	
 		ref.$el.html(componentDetailHTML);
 		$('#component-section,#navfixed-wrapper').removeClass('hide');
