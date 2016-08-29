@@ -29,9 +29,19 @@ $('.languageli').click(function() {
 	}
 	else if(document.URL.split("#")[1]=="createorder")
 	{
+		var globalNavbarHTML = new BackboneData.Views.GlobalNavbarview();
+	    globalNavbarHTML.render();
 		var navBtnSectionHTML 	    = new BackboneData.Views.NavBtnSectionview();
 	    var orderDetailModel  		= new BackboneData.Models.ActorListDetailsModel();
 	    var orderDetailSectionHTML  = new BackboneData.Views.OrderDetailView({model: orderDetailModel});
+	}
+	else if(document.URL.split('#'[1]=="componentdetails"))
+	{
+		var globalNavbarHTML = new BackboneData.Views.GlobalNavbarview();
+	    globalNavbarHTML.render();
+		var navBtnSectionHTML 	    = new BackboneData.Views.NavBtnSectionview();
+		var componentDetailHTMl = new BackboneData.Views.ComponentDetailView();
+	    componentDetailHTMl.render();
 	}
 	else
 	{
