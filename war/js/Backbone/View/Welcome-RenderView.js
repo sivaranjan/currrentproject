@@ -13,7 +13,7 @@ BackboneData.Views.WelcomeView = Backbone.View.extend({
 			welcomeHTML =  welcome.manager.WelcomeDetailView({'paramValue':window.welcome_frenchLabelList});
 		}	
 		ref.$el.html(welcomeHTML);
-		$('#createorder-section,#navfixed-wrapper,#component-section').addClass('hide');
+		$('#createorder-section,#navfixed-wrapper,#component-section,#admin-section').addClass('hide');
         $('#welcome-section').removeClass('hide');
 //        $('#bs-example-navbar-collapse-1 ul li').addClass('active');
         $('#createorder-tab').removeClass('active');
