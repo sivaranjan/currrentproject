@@ -1,7 +1,7 @@
 {namespace component.manager}
 /**
  * ComponentDetail View
- * @param 
+ * @param paramValue
  */
 {template .ComponentDetailView}
 		<div class="col-md-12">
@@ -9,64 +9,64 @@
 					<div class="panel panel-default col-md-12" style="padding: 10px 15px;">
 						<div class="row">
 							<div class="panel-heading col-md-12">
-								<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">Order details</h2>
+								<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">{$paramValue['Order Details']}</h2>
 							</div>
 							<div class="form-group col-md-3">
-							    <label for="name">N<sup>&#8728;</sup> Prototype Order</label>
+							    <label for="name">N<sup>&#8728;</sup>  {$paramValue['Prototype Order']}</label>
 							    <input type="text" class="form-control input-sm" disabled readonly>
 							</div>
 							<div class="form-group col-md-3">
-							    <label for="name">Order Type</label>
+							    <label for="name">{$paramValue['Order type']}</label>
 							    <input type="text" class="form-control input-sm" disabled readonly>
 							</div>
 							<div class="form-group col-md-3">
-							    <label for="name">Customer order N<sup>&#8728;</sup></label>
+							    <label for="name">{$paramValue['Customer order N0']}</label>
 							    <input type="text" class="form-control input-sm" disabled readonly>
 							</div>
 							<div class="form-group col-md-3">
-							    <label for="name">Customer Reference</label>
+							    <label for="name">{$paramValue['Customer reference']}</label>
 							    <input type="text" class="form-control input-sm" disabled readonly>
 							</div>
 							<div class="form-group col-md-3">
-							    <label for="name">Product Type</label>
+							    <label for="name">{$paramValue['Product type']}</label>
 							    <input type="text" class="form-control input-sm" disabled readonly>
 							</div>
 							<div class="form-group col-md-3">
-							    <label for="name">Component ID</label>
+							    <label for="name">{$paramValue['Component ID']}</label>
 							    <input type="text" class="form-control input-sm" disabled readonly>
 							</div>
 							<div class="form-group col-md-3">
-							    <label for="name">Component Status</label>
+							    <label for="name">{$paramValue['Component status']}</label>
 							    <input type="text" class="form-control input-sm" disabled readonly>
 							</div>
 						</div>
 						<div class="row" style="margin-top: 15px;">
 							  <!-- Nav tabs -->
 							  <ul class="nav nav-tabs comnav-tabs orderstabcol" role="tablist">
-							    <li role="presentation" class="active"><a href="#component-subtab" aria-controls="component-subtab" role="tab" data-toggle="tab">Component</a></li>
-							    <li role="presentation"><a href="#execution-subtab" aria-controls="execution-subtab" role="tab" data-toggle="tab">Execution</a></li>
+							    <li role="presentation" class="active"><a href="#component-subtab" aria-controls="component-subtab" role="tab" data-toggle="tab">{$paramValue['Component']}</a></li>
+							    <li role="presentation"><a href="#execution-subtab" aria-controls="execution-subtab" role="tab" data-toggle="tab">{$paramValue['Execution']}</a></li>
 							  </ul>
 							  <!-- Tab panes -->
 			  				  <div class="tab-content">
 			    				<div role="tabpanel" class="tab-pane active" id="component-subtab">
 			    					<div class="tab-content">
 				    					<ul class="nav nav-pills comnav-pills">
-										  <li role="presentation" class="active"><a href="#componentdesc-subtab" data-toggle="tab">Component Description</a></li>
-										  <li role="presentation"><a href="#techdef-subtab" data-toggle="tab">Technical Definition</a></li>
-										  <li role="presentation"><a href="#processvalid-subtab" data-toggle="tab">Process Validation</a></li>
-										  <li role="presentation"><a href="#costdelay-subtab" data-toggle="tab">Estimating Costs & Delays</a></li>
-										  <li role="presentation"><a href="#qualdel-subtab" data-toggle="tab">Qualities Deliverables</a></li>
+										  <li role="presentation" class="active"><a href="#componentdesc-subtab" data-toggle="tab">{$paramValue['Component description']}</a></li>
+										  <li role="presentation"><a href="#techdef-subtab" data-toggle="tab">{$paramValue['Technical definition']}</a></li>
+										  <li role="presentation"><a href="#processvalid-subtab" data-toggle="tab">{$paramValue['Process validation']}</a></li>
+										  <li role="presentation"><a href="#costdelay-subtab" data-toggle="tab">{$paramValue['Estimation Costs and Delays']}</a></li>
+										  <li role="presentation"><a href="#qualdel-subtab" data-toggle="tab">{$paramValue['Qualities deliverables']}</a></li>
 										</ul>
 										<div role="tabpanel" class="tab-pane active" id="componentdesc-subtab">
 											
 									        	<div class="row">
 									        		<div class="col-md-12" style="padding-top: 15px;">
 										        		<div class="form-group col-md-3">
-										        			<label for="name">Customer reference <span class="text-danger">*</span></label>
+										        			<label for="name">{$paramValue['Customer reference']} <span class="text-danger">*</span></label>
 									        				<input type="text" class="form-control input-sm" />
 										        		</div>
 										        		<div class="form-group col-md-3">
-										        			<label for="name">Product Type <span class="text-danger">*</span></label>
+										        			<label for="name">{$paramValue['Product type']} <span class="text-danger">*</span></label>
 									        				<select class="selectpicker" data-width="100%" title=" ">
 														        <option>option</option>
 														        <option>option</option>
@@ -77,11 +77,11 @@
 														    </select>
 										        		</div>
 										        		<div class="form-group col-md-3">
-										        			<label for="name">Unit selling Price (&#x20AC;)</label>
+										        			<label for="name">{$paramValue['Unit selling price']}(&#x20AC;)</label>
 									        				<input type="text" class="form-control input-sm" />
 										        		</div>
 										        		<div class="form-group col-md-3">
-										        			<label for="name">Customer</label>
+										        			<label for="name">{$paramValue['Customer']}</label>
 									        				<select class="selectpicker" data-width="100%" title=" ">
 														        <option>option</option>
 														        <option>option</option>
@@ -92,39 +92,39 @@
 														    </select>
 										        		</div>
 										        		<div class="form-group col-md-3">
-											      			<label>Direct delivery to the customer? <span class="text-danger">*</span></label>
+											      			<label>{$paramValue['Direct delivery to the customer']}? <span class="text-danger">*</span></label>
 											      			<div>
-											      				<label class="radio-inline"><input type="radio" name="optradio1" style="margin-top: 1px;">Yes</label>
-																<label class="radio-inline"><input type="radio" name="optradio1" style="margin-top: 1px;">No</label>
+											      				<label class="radio-inline"><input type="radio" name="optradio1" style="margin-top: 1px;">{$paramValue['Yes']}</label>
+																<label class="radio-inline"><input type="radio" name="optradio1" style="margin-top: 1px;">{$paramValue['No']}</label>
 											      			</div>
 											      		</div>
 										        		<div class="form-group col-md-3">
-										        			<label for="name">Product Specification <span class="text-danger">*</span></label>
+										        			<label for="name">{$paramValue['Product specification']} <span class="text-danger">*</span></label>
 										        			<textarea class="form-control" style="height: 65px;resize: none;"></textarea>
 										        		</div>
 											      		<div class="form-group col-md-3">
-										        			<label for="name">Labo address or Other</label>
+										        			<label for="name">{$paramValue['Labo address or other']}</label>
 										        			<textarea class="form-control" style="height: 65px;resize: none;"></textarea>
 										        		</div>
 										        		<div class="form-group col-md-3">
-										        			<label for="name">Comment</label>
+										        			<label for="name">{$paramValue['Comment']}</label>
 										        			<textarea class="form-control" style="height: 65px;resize: none;"></textarea>
 										        		</div>
 									        		</div>
 									        	</div>
 									      	
 								        	<div class="panel-heading col-md-12" role="tab">
-								        		<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">Planning Customer Devlivery</h2>
+								        		<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">{$paramValue['Planning customer delivery']}</h2>
 								        	</div>
 								        	<div class="col-md-12">
 										        <table  class="table table-hover responsive nowrap" id="planningcust-table">
 										        	<thead>
 										        		<tr>
-										        			<th>Quantity</th>
-										        			<th>Date</th>
-										        			<th>Comment</th>
-										        			<th class="editopt">Edit</th>
-										        			<th>Delete</th>
+										        			<th>{$paramValue['Quantity']}</th>
+										        			<th>{$paramValue['Date']}</th>
+										        			<th>{$paramValue['Comment']}</th>
+										        			<th class="editopt">{$paramValue['Edit']}</th>
+										        			<th>{$paramValue['Delete']}</th>
 										        			<th>&nbsp;</th>
 										        		</tr>
 										        	</thead>
@@ -215,11 +215,11 @@
 									        <div class="">
 									        	<form role="form">
 									        		<div class="form-group col-md-6">
-													    <label>Total Quantity</label>
+													    <label>{$paramValue['Total Quantity']}</label>
 													    <input type="text" class="form-control input-sm" diabled readonly/>
 													</div>
 													<div class="form-group col-md-6">
-													    <label>Total Amount</label>
+													    <label>{$paramValue['Total amount']}</label>
 													      <input type="text" class="form-control input-sm" disabled readonly/>
 													</div>
 									        		
@@ -230,11 +230,11 @@
 									        	<div class="row">
 									        		<div class="col-md-12" style="padding-top: 15px;">
 										        		<div class="form-group col-md-3">
-														    <label>Project Manager</label>
+														    <label>{$paramValue['Project manager']}</label>
 														    <input type="text" class="form-control input-sm" placeholder="">
 												  		</div>
 												  		<div class="form-group col-md-3">
-														    <label>R&D Manager <span class="text-danger">*</span></label>
+														    <label>{$paramValue['R&D manager']} <span class="text-danger">*</span></label>
 														    <select class="selectpicker" data-width="100%" title=" ">
 														        <option>1</option>
 														        <option>2</option>
@@ -243,7 +243,7 @@
 														    </select>
 														</div>
 														<div class="form-group col-md-3">
-														    <label>Project Phase <span class="text-danger">*</span></label>
+														    <label>{$paramValue['Project phase']} <span class="text-danger">*</span></label>
 														    <select class="selectpicker" data-width="100%" title=" ">
 														        <option>1</option>
 														        <option>2</option>
@@ -252,11 +252,11 @@
 														    </select>
 														</div>
 														<div class="form-group col-md-3">
-														    <label>Valeo Reference <span class="text-danger">*</span></label>
+														    <label>{$paramValue['Valeo reference']} <span class="text-danger">*</span></label>
 														    <input type="text" class="form-control input-sm" placeholder="">
 														</div>
 														<div class="form-group col-md-3">
-														    <label>Technology <span class="text-danger">*</span></label>
+														    <label>{$paramValue['Technology']} <span class="text-danger">*</span></label>
 														    <select class="selectpicker" data-width="100%" title=" ">
 														        <option>1</option>
 														        <option>2</option>
@@ -265,35 +265,35 @@
 														    </select>
 														</div>
 														<div class="form-group col-md-3">
-														    <label>WBS/OI code</label>									    
+														    <label>{$paramValue['WBS / OI code']}</label>									    
 															<input type="text" class="form-control input-sm" placeholder="">									
 												  		</div>
 												  		<div class="form-group col-md-3">
-														    <label>BE code</label>									    
+														    <label>{$paramValue['BE code']}</label>									    
 															<input type="text" class="form-control input-sm" placeholder="">									
 												  		</div>
 												  		<div class="form-group col-md-3">
-														    <label>MIP/PWA code</label>									    
+														    <label>{$paramValue['MIP/PWA code']}</label>									    
 															<input type="text" class="form-control input-sm" placeholder="">									
 												  		</div>
 												  		<div class="form-group col-md-3">
-												  			<label>Validation Process</label>
+												  			<label>{$paramValue['Validation process']}</label>
 												  			<div>
 															    <label class="radio-inline">
-															        <input type="radio" name="validprocess-radio" style="margin-top: 1px;">Yes</label>
+															        <input type="radio" name="validprocess-radio" style="margin-top: 1px;">{$paramValue['Yes']}</label>
 															    <label class="radio-inline">
-															        <input type="radio" name="validprocess-radio" style="margin-top: 1px;">No</label>
+															        <input type="radio" name="validprocess-radio" style="margin-top: 1px;">{$paramValue['No']}</label>
 															</div>
 															
 												  		</div>
 												  		<div class="form-group col-md-3">
-												  			<label>Plan of laboratory tests</label>
+												  			<label>{$paramValue['Plan of laboratory tests']}</label>
 												  			<div>
 															    <label class="radio-inline">
-															        <input type="radio" name="planlab-radio" style="margin-top: 1px;">Yes</label>
+															        <input type="radio" name="planlab-radio" style="margin-top: 1px;">{$paramValue['Yes']}</label>
 															
 															    <label class="radio-inline">
-															        <input type="radio" name="planlab-radio" style="margin-top: 1px;">No</label>
+															        <input type="radio" name="planlab-radio" style="margin-top: 1px;">{$paramValue['No']}</label>
 															</div>
 												  		</div>
 												  	</div>
