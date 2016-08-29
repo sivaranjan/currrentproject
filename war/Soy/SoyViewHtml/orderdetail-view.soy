@@ -4,7 +4,6 @@
  * @param paramValue
  */
 {template .OrderDetailView}
-				    
 				    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 				      <div class="panel-body" style="border-top: 0;padding: 0 15px;">
 				        <form role="form">
@@ -13,7 +12,7 @@
 						  	  <div class="col-md-6">
 						  	  		<div class="row" style="border-right: 1px solid #ddd;">
 							  	  		<div class="panel-heading col-md-12" role="tab">
-							  				<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">Order Detail</h2>
+							  				<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">{$paramValue['Order Detail']}</h2>
 							  			</div>
 						  	  			<div class="form-group col-md-6">
 										    <label>{$paramValue['Site/Workshop Prototype']}<span class="text-danger">*</span></label>
@@ -55,11 +54,11 @@
 										</div>
 									  </div>
 									  <div class="form-group col-md-6 hide">
-										    <label for="name">Total order amount(&#x20AC;)</label>
+										    <label for="name">{$paramValue['Total order amount']}(&#x20AC;)</label>
 										    <input type="text" class="form-control input-sm" disabled id="Total_Order_Amount" readonly>
 									  	</div>
 									  	<div class="form-group col-md-6">
-										    <label for="name">Order Status</label>
+										    <label for="name">{$paramValue['Order Status']}</label>
 										    <input type="text" class="form-control input-sm" disabled id="Order_Status" readonly aria-describedby="basic-addon2">
 										</div>
 									  <div class="form-group col-md-12" style="display: flex;margin-top: 15px;">
@@ -70,14 +69,14 @@
 										<label class="checkbox-inline hide" id="intralelabel" style="flex-grow: 1;"><input type="checkbox" id="intralecheckbox" name="optradio" style="margin-top: 1px;">{$paramValue['IntraLE']}</label>
 									  </div>
 									  <div class="panel-heading col-md-12" role="tab" style="margin-top: 5px;">
-									  	<h2 style="color: #97D045;margin-top: 0px;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">Actor</h2>
+									  	<h2 style="color: #97D045;margin-top: 0px;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">{$paramValue['Actor']}</h2>
 									  </div>
 									  <div class="form-group col-md-6">
-									    <label for="name">Requester</label>
+									    <label for="name">{$paramValue['Requester']}</label>
 									    <input type="text" id="requester" class="form-control input-sm disabled" readonly>
 									  </div>
 									  <div class="form-group col-md-6">
-									    <label>MEP Study <span class="text-danger">*</span></label>
+									    <label>{$paramValue['MEP Study']} <span class="text-danger">*</span></label>
 									    <select class="selectpicker" id="mepstudy" title=" " data-width="100%" data-live-search="true">
 									        <option>sathyanarayanan.anbu@valeo.com</option>
 									        <option>luc.diffre.ext@valeo.com </option>
@@ -86,7 +85,7 @@
 									    </select>
 									  </div>
 									  <div class="form-group col-md-6">
-									    <label>Quality <span class="text-danger">*</span></label>
+									    <label>{$paramValue['Quality']} <span class="text-danger">*</span></label>
 									    <select class="selectpicker" data-required="yes" data-type="text" id="quality" title=" " data-width="100%" data-live-search="true">
 									        <option>sathyanarayanan.anbu@valeo.com</option>
 									        <option>luc.diffre.ext@valeo.com </option>
@@ -95,7 +94,7 @@
 									    </select>
 									  </div>
 									  <div class="form-group col-md-6">
-									    <label>Proto workshop<span class="text-danger">*</span></label>
+									    <label>{$paramValue['Proto workshop']}<span class="text-danger">*</span></label>
 									    <select class="selectpicker" data-required="yes" data-type="text" id="protoworkshop" title=" " data-width="100%" data-live-search="true">
 									         <option>sathyanarayanan.anbu@valeo.com</option>
 									        <option>luc.diffre.ext@valeo.com </option>
@@ -104,7 +103,7 @@
 									    </select>
 									  </div>
 									  <div class="form-group col-md-6">
-									    <label>Control management<span class="text-danger">*</span></label>
+									    <label>{$paramValue['Control management']}<span class="text-danger">*</span></label>
 									    <select class="selectpicker" data-required="yes" data-type="text" id="controlmanagement" title=" " data-width="100%" data-live-search="true">
 									         <option>sathyanarayanan.anbu@valeo.com</option>
 									        <option>luc.diffre.ext@valeo.com </option>
@@ -113,7 +112,7 @@
 									    </select>
 									  </div>
 									  <div class="form-group col-md-6 hide">
-									    <label>FO Trade<span class="text-danger">*</span></label>
+									    <label>{$paramValue['FO Trade']}<span class="text-danger">*</span></label>
 									    <select class="selectpicker" data-required="yes" data-type="text" id="fotrade" title=" " data-width="100%" data-live-search="true">
 									        <option>sathyanarayanan.anbu@valeo.com</option>
 									        <option>luc.diffre.ext@valeo.com </option>
@@ -122,7 +121,7 @@
 									    </select>
 									  </div>
 									  <div class="form-group col-md-6 hide" id="advdiv">
-									    <label>ADV<span class="text-danger">*</span></label>
+									    <label>{$paramValue['ADV']}<span class="text-danger">*</span></label>
 									    <select class="selectpicker" data-required="yes" data-type="text" id="adv" title=" " data-width="100%" data-live-search="true">
 									         <option>sathyanarayanan.anbu@valeo.com</option>
 									        <option>luc.diffre.ext@valeo.com </option>
@@ -131,7 +130,7 @@
 									    </select>
 									  </div>
 									  <div class="form-group col-md-6">
-									    <label>Project manager<span class="text-danger">*</span></label>
+									    <label>{$paramValue['Project manager']}<span class="text-danger">*</span></label>
 									    <select class="selectpicker" data-required="yes" data-type="text" id="projmanager" title=" " data-width="100%" data-live-search="true">
 									         <option>sathyanarayanan.anbu@valeo.com</option>
 									        <option>luc.diffre.ext@valeo.com </option>
@@ -144,15 +143,15 @@
 						  	  <div class="col-md-6">
 						  	  		<div class="row">
 							  	  		<div class="panel-heading col-md-12" role="tab">
-							  	  			<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">Customer Detail</h2>
+							  	  			<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">{$paramValue['Customer Detail']}</h2>
 							  	  		</div>
 										
 										<div class="form-group col-md-6 hide" id="customer_order_no">
-									    	<label for="name">N<sup>&#8728;</sup> Customer Order<span class="text-danger">*</span></label>
+									    	<label for="name">N<sup>&#8728;</sup>  {$paramValue['N0 customer order']}<span class="text-danger">*</span></label>
 									    	<input type="text" class="form-control input-sm">
 									  	</div>
 						        		<div class="form-group col-md-6">
-										    <label for="name">Customer name <span class="text-danger">*</span></label>
+										    <label for="name">{$paramValue['Customer name']} <span class="text-danger">*</span></label>
 										    <select class="selectpicker" data-required="yes" data-type="text" title=" " id="Customer_Name" data-width="100%" data-live-search="true">
 										         <option>AUDI / GROSSMEHRING</option>
 									        	<option>BLUECAR / BLUECAR ITALY </option>
@@ -162,20 +161,20 @@
 										    </select>
 										</div>
 										<div class="form-group col-md-6">
-										    <label for="name">Customer code</label>
+										    <label for="name">{$paramValue['Customer code']}</label>
 										    <input type="text" class="form-control input-sm" id="Customer_Code">
 							  			</div>
 									  	<div class="form-group col-md-6">
-										    <label for="name">Branch code</label>
+										    <label for="name">{$paramValue['Branch code']}</label>
 										    <input type="text" class="form-control input-sm" id="Branch_Code">
 									  	</div>
 									  	<div class="form-group col-md-6">
-										    <label for="name">Provider code</label>
+										    <label for="name">{$paramValue['Provider code']}</label>
 										    <input type="text" class="form-control input-sm" id="Provider_Code">
 									  	</div>
 							  
 									  	<div class="form-group col-md-6">
-										    <label for="name">Plateform <span class="text-danger">*</span></label>
+										    <label for="name">{$paramValue['Plateform']} <span class="text-danger">*</span></label>
 										    <select class="selectpicker" data-required="yes" data-type="text" title=" " id="Plateform" data-width="100%" data-live-search="true">
 										        <option>A-Entry</option>
 										        <option>Autre</option>
@@ -187,7 +186,7 @@
 										    </select>
 										</div>
 										<div class="form-group col-md-3 hide" id="incotermsdiv" style="padding-right: 5px;">
-										    <label for="name">Incoterms</label>
+										    <label for="name">{$paramValue['Incoterms']}</label>
 										    <select class="selectpicker" title=" " id="Incoterms" data-width="100%" data-live-search="true">
 										        <option>CPT</option>
 										        <option>DAP</option>
@@ -197,7 +196,7 @@
 										    </select>
 										</div>
 										<div class="form-group col-md-3 hide" id="placediv" style="padding-left: 5px;">
-										    <label for="name">Place</label>
+										    <label for="name">{$paramValue['Place']}</label>
 										    <select class="selectpicker" title=" " id="Place" data-width="100%" data-live-search="true">
 										        <option>GuyanCourt</option>
 										        <option>La Suze</option>
@@ -208,15 +207,15 @@
 										</div>
 							  
 										<div class="form-group col-md-6">
-										    <label for="name">Customer receiver name</label>
+										    <label for="name">{$paramValue['Customer receiver name']}</label>
 										    <input type="text" class="form-control input-sm" id="Customer_Receiver_Name" aria-describedby="basic-addon2">
 										</div>
 										<div class="form-group col-md-6">
-										    <label for="name">Customer receiver telephone</label>
+										    <label for="name">{$paramValue['Customer receiver telephone']}</label>
 										    <input type="text" class="form-control input-sm" id="Customer_Receiver_Telephone" aria-describedby="basic-addon2">
 										</div>
 									  	<div class="form-group col-md-6 hide" id="allocationdiv">
-										    <label for="name">Allocation of turnover</label>
+										    <label for="name">{$paramValue['Allocation of turnover']}</label>
 										    <select class="selectpicker" title=" " id="Allocation_of_turnover" data-width="100%" data-live-search="true">
 										        <option>E52 NGT ULS</option>
 										        <option>M01 LVR PG</option>
@@ -226,21 +225,21 @@
 										    </select>
 										</div>
 										<div class="form-group col-md-6">
-										    <label for="name">Final delivery Address</label>
+										    <label for="name">{$paramValue['Final delivery Address']}</label>
 										    <textarea class="form-control" id="Final_Delivery_Address" style="height: 65px;resize: none;" id="comment"></textarea>
 										</div>
 									  	<div class="form-group col-md-6">
-									    	<label for="name">Additional address</label>
+									    	<label for="name">{$paramValue['Additional address']}</label>
 									    	<textarea class="form-control" id="Additional_Address" style="height: 65px;resize: none;" id="comment"></textarea>
 									  	</div>
 									  	<div class="form-group col-md-6 hide">
-									    	<label for="name">Site address</label>
+									    	<label for="name">{$paramValue['Site address']}</label>
 									    	<textarea class="form-control" id="Site_Address" style="height: 65px;resize: none;" id="comment"></textarea>
 									  	</div>
 									  	<div class="form-group col-md-6 hide" id="customer_order_file">
 											<div class="panel panel-default">
 												<div class="panel-heading" style="background: #fff;">
-													<h4 class="panel-title"><label style="margin-bottom: 0;">Customer Order</label> <button type="button" class="btn btn-default btn-sm pull-right" style="margin-top: -5px;padding: 3px 5px;" data-toggle="modal" data-target="#orderattach-modal"><i class="fa fa-paperclip"></i> Add Attach</button></h4>
+													<h4 class="panel-title"><label style="margin-bottom: 0;">{$paramValue['Customer order']}</label> <button type="button" class="btn btn-default btn-sm pull-right" style="margin-top: -5px;padding: 3px 5px;" data-toggle="modal" data-target="#orderattach-modal"><i class="fa fa-paperclip"></i>{$paramValue['Add Attach']}</button></h4>
 												</div>
 												<div class="panel-collapse collapse in">
 													<div class="panel-body" style="min-height: 40px;padding: 5px;max-height: 115px;overflow: auto;">
@@ -260,7 +259,7 @@
 						  	  	</div>
 						  	  	<div class="col-md-12">
 						  	  		<div class="panel-heading" style="padding: 10px 0px;">
-						  	  			<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">Component</h2>
+						  	  			<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">{$paramValue['Component']}</h2>
 						  	  		</div>
 						  	  		<table class="table table-hover responsive nowrap" id="example">
 							<thead>

@@ -44,13 +44,13 @@
                         <span id="userlabel" class="header-text">Welcome </span>
                     </div>
                     <div class="btn-group pull-right">
-				        <button id='lang' type="button" class="btn btn-link dropdown-toggle language-dropdown" data-toggle="dropdown" aria-expanded="false" value="en_US">
+				        <button id='lang' type="button" class="btn btn-link dropdown-toggle language-dropdown" data-toggle="dropdown" aria-expanded="false" value="EN">
 				        <img src="../statics/images/en.png"> EN <span class="caret"></span>
 				        </button>
 				        <ul class="dropdown-menu language" role="menu">
-				          <li class="languageli" data-language="EN"><a href="#"><img src="../statics/images/en.png"> EN</a></li>
+				          <li class="languageli" data-language="EN"><a style="cursor:pointer"><img src="../statics/images/en.png"> EN</a></li>
 				          <li class="divider"></li>
-				          <li class="languageli" data-language="FR"><a href="#"><img src="../statics/images/fr.png"> FR</a></li>
+				          <li class="languageli" data-language="FR"><a style="cursor:pointer"><img src="../statics/images/fr.png"> FR</a></li>
 				        </ul>
 				    </div>
                 </div>
@@ -344,9 +344,10 @@
 		<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script> 
 		<script type="text/javascript" src="http://storage.googleapis.com/valeo-design/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="http://storage.googleapis.com/valeo-design/js/bootstrap-datepicker.js"></script>
-		<script type="text/javascript" src="http://storage.googleapis.com/valeo-design/js/valeo-graphics.js"></script>
+		<script type="text/javascript" src="../js/Library/valeo-graphics.js"></script>
 		<script type="text/javascript" src="../js/Library/bootstrap-select.min.js"></script>
         <script src="../js/Library/BackboneData.js"></script>
+        <script src="../js/Library/bootbox.js"></script>
         <script src="../Soy/SoyUtils/soyutils.js"></script>
 
  		 <script src="../Soy/SoyViewJs/globalnavbar-view.js"></script>
@@ -365,7 +366,6 @@
          <script src="../js/Backbone/Model/Places-Model.js"></script>
          <script src="../js/Backbone/Model/Plateform-Model.js"></script>
          
-		<script src="../js/Backbone/Model/CreateOrder-Model.js"></script>
 		<script src="../js/Backbone/Model/OrderDetails-Model.js"></script>
 		<script src="../js/Backbone/View/GlobalNavBar-RenderView.js"></script>
 		

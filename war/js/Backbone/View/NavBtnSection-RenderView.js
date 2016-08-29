@@ -7,11 +7,11 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
 		var NavBtnSectionHTML	= "";
 		if(window.language =="EN")
 		{
-			NavBtnSectionHTML = navigation.manager.NavBtnViewDetail({'paramValue':window.navBtnSection_englishLabelList});
+			NavBtnSectionHTML = navigation.manager.NavBtnViewDetail({'paramValue': window.navBtnSection_englishLabelList });
 		}	
 		else
 		{
-			NavBtnSectionHTML =  navigation.manager.NavBtnViewDetail({'paramValue':window.navBtnSection_frenchLabelList});
+			NavBtnSectionHTML =  navigation.manager.NavBtnViewDetail({'paramValue': window.navBtnSection_frenchLabelList });
 		}	
 		ref.$el.html(NavBtnSectionHTML);
 		$('#navfixed-wrapper').removeClass('hide');
