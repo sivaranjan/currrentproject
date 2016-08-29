@@ -48,9 +48,9 @@
 				        <img src="../statics/images/en.png"> EN <span class="caret"></span>
 				        </button>
 				        <ul class="dropdown-menu language" role="menu">
-				          <li class="languageli" data-language="EN"><a href="#"><img src="../statics/images/en.png"> EN</a></li>
+				          <li class="languageli" data-language="EN"><a style="cursor:pointer"><img src="../statics/images/en.png"> EN</a></li>
 				          <li class="divider"></li>
-				          <li class="languageli" data-language="FR"><a href="#"><img src="../statics/images/fr.png"> FR</a></li>
+				          <li class="languageli" data-language="FR"><a style="cursor:pointer"><img src="../statics/images/fr.png"> FR</a></li>
 				        </ul>
 				    </div>
                 </div>
@@ -344,7 +344,7 @@
 		<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script> 
 		<script type="text/javascript" src="http://storage.googleapis.com/valeo-design/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="http://storage.googleapis.com/valeo-design/js/bootstrap-datepicker.js"></script>
-		<script type="text/javascript" src="http://storage.googleapis.com/valeo-design/js/valeo-graphics.js"></script>
+		<script type="text/javascript" src="../js/Library/valeo-graphics.js"></script>
 		<script type="text/javascript" src="../js/Library/bootstrap-select.min.js"></script>
         <script src="../js/Library/BackboneData.js"></script>
         <script src="../Soy/SoyUtils/soyutils.js"></script>
