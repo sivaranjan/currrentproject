@@ -30,10 +30,8 @@ $('.languageli').click(function() {
 	else if(document.URL.split("#")[1]=="createorder")
 	{
 		var navBtnSectionHTML 	    = new BackboneData.Views.NavBtnSectionview();
-		var orderDetailModel  		= new BackboneData.Models.ActorListDetailsModel();
-	    var orderDetailSectionHTML  = new BackboneData.Views.OrderDetailView();	
-	    navBtnSectionHTML.render();
-	    orderDetailSectionHTML.render();
+	    var orderDetailModel  		= new BackboneData.Models.ActorListDetailsModel();
+	    var orderDetailSectionHTML  = new BackboneData.Views.OrderDetailView({model: orderDetailModel});
 	}
 	else
 	{
