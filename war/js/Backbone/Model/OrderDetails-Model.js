@@ -48,8 +48,8 @@ BackboneData.Models.OrderDetailModel=Backbone.Model.extend({
         Backbone.Model.apply(this, arguments);
     },
     validate: function(attr) {
-        if (!attr.geoSite) {
-            return "Invalid BookName supplied."
-        }
+//        if (!attr.geoSite) {
+//            return "Invalid BookName supplied."
+//        }
     }
 });
