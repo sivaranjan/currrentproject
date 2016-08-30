@@ -23,7 +23,7 @@
 	</head>
 
 <body>
-	<div class="status-voicebox hide">
+	<div class="status-voicebox">
 		<div class="voicebox-content fade in">
 			<span class="loading"></span>
 			<span>loading...</span>
