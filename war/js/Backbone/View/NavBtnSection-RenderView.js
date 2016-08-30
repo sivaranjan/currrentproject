@@ -16,7 +16,7 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
         _thisView.render();
     },
     events: {
-        "click #saveorderbtn": "validateOrder"
+        "click #saveorderbtn": "saveOrder"
     },
     validateOrder: function() {
         if (validate.getInstance().formordiv('orderdetailview')) {
@@ -36,7 +36,7 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
         var Geosite = $('#Geosite').val();
         var No_Prototype_Order = $('#No_Prototype_Order').val();
         var Proto_Type = $('#Proto_Type').val();
-        var pcccheckbox = $('#pcccheckbox').val();
+        var pcccheckbox = $('#pcccheckbox').is(":checked");
         var openordercheckbox = $('#openordercheckbox').is(":checked");
         var frittagecheckbox = $('#frittagecheckbox').is(":checked");
         var e52checkbox = $('#e52checkbox').is(":checked");
@@ -69,6 +69,29 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
         var adv = $('#adv').val();
         var projmanager = 	$('#projmanager').val();
         
+        var orderDetailsObj = new BackboneData.Models.OrderDetailModel({ 
+        	site_Workshop_Prototype:Site_Workshop_Prototype,
+            geoSite:Geosite,
+            no_prototype_order:"",
+            proto_Type:Proto_Type,
+            pcc:pcccheckbox,
+            open_Order:openordercheckbox,
+            frittage:frittagecheckbox,
+            e52:e52checkbox,
+            intraLE:intralecheckbox,
+            type_of_the_Prototype_Order:Type_of_the_Prototype_Order,
+            date_of_the_Order:Date_of_the_Order,
+            order_Status:"Draft",
+            total_Order_Amount:0,
+        });
+        orderDetailsObj.save({}, {
+            success: function(model, respose, options) {
+                console.log("The model has been saved to the server");
+            },
+            error: function(model, xhr, options) {
+                console.log("Something went wrong while saving the model");
+            }
+        });
         
         var orderID = "";
         if (typeof(Storage) !== "undefined") 
