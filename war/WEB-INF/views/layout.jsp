@@ -23,10 +23,10 @@
 	</head>
 
 <body>
-	<div class="status-voicebox hide">
+	<div class="status-voicebox hide" id="statusLoader" >
 		<div class="voicebox-content fade in">
 			<span class="loading"></span>
-			<span>loading...</span>
+			<span id="statusmsg"></span>
 		</div>
 	</div>
     <header class="header">
@@ -375,7 +375,7 @@
 		<script src="../js/Backbone/View/ComponentDetailView-RenderView.js"></script>
 		<script src="../js/Backbone/View/AdminDetailView-RenderView.js"></script>
 		<script src="../js/Loader/initializer.js"></script>
-        <script src="../js/Routers/router.js"></script>
+        <script src="../js/Routers/router.js?yufyufyufufyu"></script>
         <script src="../js/Actions/actions.js"></script>
         
 </body>

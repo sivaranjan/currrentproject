@@ -61,6 +61,10 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
         "change #Proto_Type": "populateDependencies",
         "change #intralecheckbox": "populateDependencies",
     },
+    updateFilter : function(){
+    	debugger;
+    	alert($(this));
+    },
     populateDependencies: function() {
         var Type_of_the_Prototype_Order = $.trim($('#Type_of_the_Prototype_Order').val());
         var Site_Workshop_Prototype = $.trim($('#Site_Workshop_Prototype').val());
@@ -74,8 +78,12 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
 
             if ($('#intralecheckbox').is(":not(:checked)")) {
                 $('#advdiv').removeClass('hide');
+                $('#adv').attr('data-required','yes');
+                $('#adv').attr('data-type','text');
             } else {
                 $('#advdiv').addClass('hide');
+                $('#adv').removeAttr('data-required');
+                $('#adv').removeAttr('data-type');
             }
 
             if (Site_Workshop_Prototype == 'La Suze (LAS)') {
@@ -93,7 +101,9 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
             } else {
                 $('#e52label,#e52checkbox').addClass('hide');
             }
-            $('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv').removeClass('hide');
+            $('#fotrade').attr('data-required','yes');
+            $('#fotrade').attr('data-type','text');
+            $('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').removeClass('hide');
         } else {
             if (Proto_Type == 'P2') {
                 $('#pcclabel,#pcccheckbox').removeClass('hide');
@@ -105,7 +115,9 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
             } else {
                 $('#e52label,#e52checkbox').addClass('hide');
             }
-            $('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#frittagelabel,#frittagecheckbox,#advdiv,#intralelabel,#intralecheckbox').addClass('hide');
+            $('#fotrade').removeAttr('data-required');
+            $('#fotrade').removeAttr('data-type');
+            $('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#frittagelabel,#frittagecheckbox,#advdiv,#intralelabel,#intralecheckbox,#fodiv').addClass('hide');
         }
     }
 });

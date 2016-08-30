@@ -13,9 +13,9 @@ var Book = Backbone.Model.extend({
         Backbone.Model.apply(this, arguments);
     },
     validate: function(attr) {
-        if (!attr.name) {
+       /* if (!attr.name) {
             return "Invalid BookName supplied."
-        }
+        }*/
     },
-    urlRoot: 'http://localhost:8888/example/create'
+    urlRoot: 'http://localhost:8888/idgenerator/create'
 });

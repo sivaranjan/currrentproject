@@ -6,6 +6,7 @@ import com.ths.JDO.ActorsListJDO;
 import com.ths.JDO.CustomerJDO;
 import com.ths.JDO.CustomersListJDO;
 import com.ths.JDO.Example;
+import com.ths.JDO.IdJDO;
 import com.ths.JDO.IncotermsJDO;
 import com.ths.JDO.OrderJDO;
 import com.ths.JDO.PlacesJDO;
@@ -33,6 +34,7 @@ public class Entity {
         ObjectifyService.register(IncotermsJDO.class);
         ObjectifyService.register(PlacesJDO.class);
         ObjectifyService.register(PlateformJDO.class);
+        ObjectifyService.register(IdJDO.class);
         
 
     }

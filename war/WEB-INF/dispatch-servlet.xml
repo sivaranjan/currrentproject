@@ -38,4 +38,5 @@
      <bean id="incotermsListDao" class="com.ths.DAO.IncotermsDAO"/>
      <bean id="placesListDao" class="com.ths.DAO.PlacesDAO"/>
      <bean id="plateformListDao" class="com.ths.DAO.PlateformDAO"/>
+      <bean id="IdDAO" class="com.ths.DAO.IdDAO"/>
   </beans>
