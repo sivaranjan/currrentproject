@@ -1,6 +1,8 @@
 BackboneData.Models.OrderDetailModel=Backbone.Model.extend({
     defaults: {
+    	site_Workshop_Prototype:"",
         geoSite:"",
+        no_prototype_order:"",
         proto_Type:"",
         pcc:"",
         open_Order:"",
@@ -9,10 +11,8 @@ BackboneData.Models.OrderDetailModel=Backbone.Model.extend({
         intraLE:"",
         type_of_the_Prototype_Order:"",
         date_of_the_Order:"",
-        site_Workshop_Prototype:"",
         order_Status:"",
         total_Order_Amount:"",
-        no_prototype_order:"",
     },
     initialize: function() {
         console.log('Book has been initialized');
