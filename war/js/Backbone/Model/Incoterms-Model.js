@@ -1,7 +1,4 @@
-/**
- * 
- */
-var IncotermsDetails=Backbone.Model.extend({
+BackboneData.Models.IncotermsDetails=Backbone.Model.extend({
     defaults: {
     	
     	incoterms:"",
