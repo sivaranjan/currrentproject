@@ -188,8 +188,8 @@
 		    </div>
 		</footer>
 
-		<!-- Admin setting Modal -->
-		<div class="modal fade" id="adminModal" tabindex="-1" role="dialog">
+		<!-- Actor Modal -->
+		<div class="modal fade" id="actor-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
@@ -199,34 +199,19 @@
 		      <div class="modal-body">
 		      	<form role="form">
 		      		<div class="form-group">
-		      			<label>User ID</label>
+		      			<label>MEP Study</label>
 		      			<input type="text" class="form-control" placeholder="firstname.lastname@valeo.com">
 		      		</div>
 		      		<div class="form-group">
-					    <label>Actor</label>
-					    <select class="form-control">
-					        <option>Requester</option>
-					        <option>CAD Team Member</option>
-					        <option>Manager R&D</option>
-					        <option>Process Team Member</option>
-					        <option>Proto Worshop</option>
-					        <option>Project Manager</option>
-					        <option>Management Controller</option>
-					        <option>Quality Team Member</option>
-					        <option>KAM</option>
-					        <option>Sales Administrator</option>
-					        <option>Invoice LE controller</option>
-					        <option>Business Owner</option>
+					    <label>Site</label>
+					    <select class="selectpicker" data-width="100%" title="  ">
+					        <option>La Suze</option>
+					        <option>La Verrière</option>
+					        <option>Laval</option>
+					        <option>Nogent</option>
+					        <option>Reims</option>
 					    </select>
 					</div>
-		      		<div class="form-group">
-		      			<label>User Access</label>
-		      			<div>
-		      				<label class="radio-inline"><input type="radio" name="optradio" style="margin-top: 1px;">User</label>
-							<label class="radio-inline"><input type="radio" name="optradio" style="margin-top: 1px;">Actor</label>
-							<label class="radio-inline"><input type="radio" name="optradio" style="margin-top: 1px;">Admin</label>
-		      			</div>
-		      		</div>
 		      	</form>
 		      </div>
 		      <div class="modal-footer">

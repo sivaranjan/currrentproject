@@ -9,118 +9,406 @@
                 	<div class="panel panel-default">
 						<div class="panel-heading" role="tab">
 					      <h4 class="panel-title">
-					        Users List
+					        Application Configuration
 					      </h4>
 					    </div>
 					    <div class="panel-collapse collapse in" role="tabpanel">
 					      <div class="panel-body">
-						 /*    <table class="table table-hover responsive nowrap" id="admin-table">
-								<thead>
-									<tr>
-										<th>User ID</th>
-										<th>Access</th>
-										<th>Actor</th>
-										<th>Added By</th>
-										<th>Added On</th>
-										<th class="editopt">Edit</th>
-										<th class="deleteopt">Delete</th>
-										<th>&nbsp;</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>sivaranjan.venkatachalam@test.com</td>
-										<td>admin</td>
-										<td>Product owner</td>
-										<td>sathya@text.com</td>
-										<td>Thu 18 Aug 2016 05:19:44 GMT</td>
-										<td class="editopt">
-											<button type="button" class="btn btn-default">
-												<i class="glyphicon glyphicon-pencil"></i>
-											</button>
-										</td>
-      									<td class="deleteopt">
-      										<button type="button" class="btn btn-default">
-      											<i class="glyphicon glyphicon-trash"></i>
-      										</button>
-      									</td>
-										<td>&nbsp;</td>
-									</tr>
-									<tr>
-										<td>sivaranjan.venkatachalam@test.com</td>
-										<td>admin</td>
-										<td>Product owner</td>
-										<td>sathya@text.com</td>
-										<td>Thu 18 Aug 2016 05:19:44 GMT</td>
-										<td class="editopt">
-											<button type="button" class="btn btn-default">
-												<i class="glyphicon glyphicon-pencil"></i>
-											</button>
-										</td>
-      									<td class="deleteopt">
-      										<button type="button" class="btn btn-default">
-      											<i class="glyphicon glyphicon-trash"></i>
-      										</button>
-      									</td>
-										<td>&nbsp;</td>
-									</tr>
-									<tr>
-										<td>sivaranjan.venkatachalam@test.com</td>
-										<td>admin</td>
-										<td>Product owner</td>
-										<td>sathya@text.com</td>
-										<td>Thu 18 Aug 2016 05:19:44 GMT</td>
-										<td class="editopt">
-											<button type="button" class="btn btn-default">
-												<i class="glyphicon glyphicon-pencil"></i>
-											</button>
-										</td>
-      									<td class="deleteopt">
-      										<button type="button" class="btn btn-default">
-      											<i class="glyphicon glyphicon-trash"></i>
-      										</button>
-      									</td>
-										<td>&nbsp;</td>
-									</tr>
-									
-									<tr>
-										<td>sivaranjan.venkatachalam@test.com</td>
-										<td>admin</td>
-										<td>Product owner</td>
-										<td>sathya@text.com</td>
-										<td>Thu 18 Aug 2016 05:19:44 GMT</td>
-										<td class="editopt">
-											<button type="button" class="btn btn-default">
-												<i class="glyphicon glyphicon-pencil"></i>
-											</button>
-										</td>
-      									<td class="deleteopt">
-      										<button type="button" class="btn btn-default">
-      											<i class="glyphicon glyphicon-trash"></i>
-      										</button>
-      									</td>
-										<td>&nbsp;</td>
-									</tr>
-									<tr>
-										<td>sivaranjan.venkatachalam@test.com</td>
-										<td>admin</td>
-										<td>Product owner</td>
-										<td>sathya@text.com</td>
-										<td>Thu 18 Aug 2016 05:19:44 GMT</td>
-										<td class="editopt">
-											<button type="button" class="btn btn-default">
-												<i class="glyphicon glyphicon-pencil"></i>
-											</button>
-										</td>
-      									<td class="deleteopt">
-      										<button type="button" class="btn btn-default">
-      											<i class="glyphicon glyphicon-trash"></i>
-      										</button>
-      									</td>
-										<td>&nbsp;</td>
-									</tr>
-								</tbody>
-							  </table> */
+					      		<ol class="breadcrumb hide" id="configbreadcrumb">
+								  <li><a href="#">App Configuration</a></li>
+								  <li class="active">Data</li>
+								</ol>
+						 		<ul class="list-unstyled row configset">
+						 			<li class="col-md-4">
+						 				<a id="configactor-btn"><img src="../resources/images/formicon.png" />List of Actors</a>
+						 			</li>
+						 			<li class="col-md-4">
+						 				<a id="incoterms-btn"><img src="../resources/images/formicon.png" />List of Incoterms</a>
+						 			</li>
+						 			<li class="col-md-4">
+						 				<a id="clients-btn"><img src="../resources/images/formicon.png" />List of Clients</a>
+						 			</li>
+						 			<li class="col-md-4">
+						 				<a id="prototypists-btn"><img src="../resources/images/formicon.png" />List of Prototypists</a>
+						 			</li>
+						 			<li class="col-md-4">
+						 				<a id="platforms-btn"><img src="../resources/images/formicon.png" />List of Platforms</a>
+						 			</li>
+						 			<li class="col-md-4">
+						 				<a id="-btn"><img src="../resources/images/formicon.png" />List of Products Types</a>
+						 			</li>
+						 			<li class="col-md-4">
+						 				<a id="-btn"><img src="../resources/images/formicon.png" />List of Technologies</a>
+						 			</li>
+						 			<li class="col-md-4">
+						 				<a id="-btn"><img src="../resources/images/formicon.png" />List of R & D Leaders</a>
+						 			</li>
+						 			<li class="col-md-4">
+						 				<a id="-btn"><img src="../resources/images/formicon.png" />List of Clients and Lab Addresses</a>
+						 			</li>
+						 			<li class="col-md-4">
+						 				<a id="-btn"><img src="../resources/images/formicon.png" />List of Locations</a>
+						 			</li>
+						 			<li class="col-md-4">
+						 				<a id="-btn"><img src="../resources/images/formicon.png" />List of Sites</a>
+						 			</li>
+						 			<li class="col-md-4">
+						 				<a id="-btn"><img src="../resources/images/formicon.png" />Workflow Configuration</a>
+						 			</li>
+						 			<li class="col-md-4">
+						 				<a id="-btn"><img src="../resources/images/formicon.png" />Administrator view</a>
+						 			</li>
+						 			<li class="col-md-4">
+						 				<a id="-btn"><img src="../resources/images/formicon.png" />Delete draft requests</a>
+						 			</li>
+						 			<li class="col-md-4">
+						 				<a id="-btn"><img src="../resources/images/formicon.png" />Restart process</a>
+						 			</li>
+						 			<li class="col-md-4">
+						 				<a id="-btn"><img src="../resources/images/formicon.png" />Define a delegate for a period of time</a>
+						 			</li>
+						 		</ul>
+						 		
+						 		/* Actor article */
+						 		<article class="hide" id="actor-article">
+						 			<ul class="nav nav-pills comnav-pills" style="margin-bottom: 15px;">
+						 				<li class="active">
+						 					<a href="#mepstudy-subtab" data-toggle="tab">MEP Study</a>
+						 				</li>
+						 				<li>
+						 					<a href="#quality-subtab" data-toggle="tab">Quality</a>
+						 				</li>
+						 				<li>
+						 					<a href="#proto-subtab" data-toggle="tab">Proto workshop</a>
+						 				</li>
+						 				<li>
+						 					<a href="#manage-subtab" data-toggle="tab">Management Control</a>
+						 				</li>
+						 				<li>
+						 					<a href="#trade-subtab" data-toggle="tab">FO trade</a>
+						 				</li>
+						 				<li>
+						 					<a href="#adv-subtab" data-toggle="tab">ADV</a>
+						 				</li>
+						 				<li>
+						 					<a href="#project-subtab" data-toggle="tab">Project Manager</a>
+						 				</li>
+						 			</ul>
+						 			<div class="tab-content">
+						 				<div role="tabpanel" class="tab-pane active" id="mepstudy-subtab">
+						 					<table class="table table-hover" id="mepstudysub-table">
+						 						<thead>
+						 							<tr>
+						 								<th><input type="checkbox"></th>
+						 								<th>MEP Study</th>
+						 								<th>Site</th>
+						 								<th>Edit</th>
+						 								<th>Delete</th>
+						 							</tr>
+						 						</thead>
+						 						<tbody>
+						 							<tr>
+						 								<td><input type="checkbox"></td>
+						 								<td>bernard.cheron@apps-test.valeo.com</td>
+						 								<td>Nogent</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+														      <i class="fa fa-pencil"></i>
+														    </button>
+						 								</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+													      		<i class="fa fa-trash"></i>
+													    	</button>
+													    </td>
+						 							</tr>
+						 						</tbody>
+						 					</table>
+						 				</div>
+									    <div role="tabpanel" class="tab-pane" id="quality-subtab">
+									    	<table class="table table-hover" id="qualitysub-table">
+						 						<thead>
+						 							<tr>
+						 								<th><input type="checkbox"></th>
+						 								<th>Quality</th>
+						 								<th>Site</th>
+						 								<th>Edit</th>
+						 								<th>Delete</th>
+						 							</tr>
+						 						</thead>
+						 						<tbody>
+						 							<tr>
+						 								<td><input type="checkbox"></td>
+						 								<td>bernard.cheron@apps-test.valeo.com</td>
+						 								<td>Nogent</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+														      <i class="fa fa-pencil"></i>
+														    </button>
+						 								</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+													      		<i class="fa fa-trash"></i>
+													    	</button>
+													    </td>
+						 							</tr>
+						 						</tbody>
+						 					</table>
+									    </div>
+									    <div role="tabpanel" class="tab-pane" id="proto-subtab">
+									    	<table class="table table-hover" id="protosub-table">
+						 						<thead>
+						 							<tr>
+						 								<th><input type="checkbox"></th>
+						 								<th>Proto Workshop</th>
+						 								<th>Site</th>
+						 								<th>Edit</th>
+						 								<th>Delete</th>
+						 							</tr>
+						 						</thead>
+						 						<tbody>
+						 							<tr>
+						 								<td><input type="checkbox"></td>
+						 								<td>bernard.cheron@apps-test.valeo.com</td>
+						 								<td>Nogent</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+														      <i class="fa fa-pencil"></i>
+														    </button>
+						 								</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+													      		<i class="fa fa-trash"></i>
+													    	</button>
+													    </td>
+						 							</tr>
+						 						</tbody>
+						 					</table>
+									    </div>
+									    <div role="tabpanel" class="tab-pane" id="manage-subtab">
+									    	<table class="table table-hover" id="managesub-table">
+						 						<thead>
+						 							<tr>
+						 								<th><input type="checkbox"></th>
+						 								<th>Management Control</th>
+						 								<th>Site</th>
+						 								<th>Edit</th>
+						 								<th>Delete</th>
+						 							</tr>
+						 						</thead>
+						 						<tbody>
+						 							<tr>
+						 								<td><input type="checkbox"></td>
+						 								<td>bernard.cheron@apps-test.valeo.com</td>
+						 								<td>Nogent</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+														      <i class="fa fa-pencil"></i>
+														    </button>
+						 								</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+													      		<i class="fa fa-trash"></i>
+													    	</button>
+													    </td>
+						 							</tr>
+						 						</tbody>
+						 					</table>
+									    </div>
+									    <div role="tabpanel" class="tab-pane" id="trade-subtab">
+									    	<table class="table table-hover" id="tradesub-table">
+						 						<thead>
+						 							<tr>
+						 								<th><input type="checkbox"></th>
+						 								<th>FO trade</th>
+						 								<th>Site</th>
+						 								<th>Edit</th>
+						 								<th>Delete</th>
+						 							</tr>
+						 						</thead>
+						 						<tbody>
+						 							<tr>
+						 								<td><input type="checkbox"></td>
+						 								<td>bernard.cheron@apps-test.valeo.com</td>
+						 								<td>Nogent</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+														      <i class="fa fa-pencil"></i>
+														    </button>
+						 								</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+													      		<i class="fa fa-trash"></i>
+													    	</button>
+													    </td>
+						 							</tr>
+						 						</tbody>
+						 					</table>
+									    </div>
+									    <div role="tabpanel" class="tab-pane" id="adv-subtab">
+									    	<table class="table table-hover" id="advsub-table">
+						 						<thead>
+						 							<tr>
+						 								<th><input type="checkbox"></th>
+						 								<th>ADV</th>
+						 								<th>Site</th>
+						 								<th>Edit</th>
+						 								<th>Delete</th>
+						 							</tr>
+						 						</thead>
+						 						<tbody>
+						 							<tr>
+						 								<td><input type="checkbox"></td>
+						 								<td>bernard.cheron@apps-test.valeo.com</td>
+						 								<td>Nogent</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+														      <i class="fa fa-pencil"></i>
+														    </button>
+						 								</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+													      		<i class="fa fa-trash"></i>
+													    	</button>
+													    </td>
+						 							</tr>
+						 						</tbody>
+						 					</table>
+									    </div>
+									    <div role="tabpanel" class="tab-pane" id="project-subtab">
+									    	<table class="table table-hover" id="prosub-table">
+						 						<thead>
+						 							<tr>
+						 								<th><input type="checkbox"></th>
+						 								<th>Project Manager</th>
+						 								<th>Site</th>
+						 								<th>Edit</th>
+						 								<th>Delete</th>
+						 							</tr>
+						 						</thead>
+						 						<tbody>
+						 							<tr>
+						 								<td><input type="checkbox"></td>
+						 								<td>bernard.cheron@apps-test.valeo.com</td>
+						 								<td>Nogent</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+														      <i class="fa fa-pencil"></i>
+														    </button>
+						 								</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+													      		<i class="fa fa-trash"></i>
+													    	</button>
+													    </td>
+						 							</tr>
+						 						</tbody>
+						 					</table>
+									    </div>
+						 			</div>
+						 		</article>
+						 		
+						 		/* Incoterms article */
+						 		<article class="hide" id="incoterms-article">
+						 			<table class="table table-hover" id="incoterms-table">
+						 						<thead>
+						 							<tr>
+						 								<th><input type="checkbox"></th>
+						 								<th>Incoterms</th>
+						 								<th>Info</th>
+						 								<th>Edit</th>
+						 								<th>Delete</th>
+						 							</tr>
+						 						</thead>
+						 						<tbody>
+						 							<tr>
+						 								<td><input type="checkbox"></td>
+						 								<td>CPT</td>
+						 								<td>Port payé jusqu'au lieu désigné. Frais d'assurance à la charger de l'acheteur.</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+														      <i class="fa fa-pencil"></i>
+														    </button>
+						 								</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+													      		<i class="fa fa-trash"></i>
+													    	</button>
+													    </td>
+						 							</tr>
+						 						</tbody>
+						 					</table>
+						 		</article>
+						 		
+						 		/* Clients article */
+						 		<article class="hide" id="clients-article">
+						 			
+						 		</article>
+						 		
+						 		/* Prototypists article */
+						 		<article class="hide" id="prototypists-article">
+						 			
+						 		</article>
+						 		
+						 		/* Platforms article */
+						 		<article class="hide" id="platforms-article">
+						 			
+						 		</article>
+						 		
+						 		/* Products article */
+						 		<article class="hide" id="productstypes-article">
+						 			
+						 		</article>
+						 		
+						 		/* Technologies article */
+						 		<article class="hide" id="technologies-article">
+						 			
+						 		</article>
+						 		
+						 		/*  R & D Leaders article */
+						 		<article class="hide" id=" rdlead-article">
+						 			
+						 		</article>
+						 		
+						 		/* Clients and Lab Addresses article */
+						 		<article class="hide" id="clientadd-article">
+						 			
+						 		</article>
+						 		
+						 		/* Locations article */
+						 		<article class="hide" id="locations-article">
+						 			
+						 		</article>
+						 		
+						 		/* Sites article */
+						 		<article class="hide" id="sites-article">
+						 			
+						 		</article>
+						 		
+						 		/* Workflow Configuration article */
+						 		<article class="hide" id="workconfig-article">
+						 			
+						 		</article>
+						 		
+						 		/* Administrator view article */
+						 		<article class="hide" id="adminview-article">
+						 			
+						 		</article>
+						 		
+						 		/* Delete draft requests article */
+						 		<article class="hide" id="deldraft-article">
+						 			
+						 		</article>
+						 		
+						 		/* Restart process article */
+						 		<article class="hide" id="restartpro-article">
+						 			
+						 		</article>
+						 		
+						 		/* Define a delegate for a period of time article */
+						 		<article class="hide" id="timeperiod-article">
+						 			
+						 		</article>
 							</div>
 					    </div>
 					</div>

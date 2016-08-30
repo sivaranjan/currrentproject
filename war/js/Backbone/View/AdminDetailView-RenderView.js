@@ -9,28 +9,191 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
         $('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper,#orderlist-section').addClass('hide');
         $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
         $('#adminsetting-tab').addClass('active');
-        $('#admin-table').DataTable({
+        
+        
+        $('#mepstudysub-table').DataTable({
             dom: 'Bfrtip',
-            responsive: {
-                details: {
-                    type: 'column',
-                    target: -1
-                }
-            },
-            columnDefs: [{
-                className: 'control',
-                orderable: false,
-                targets: -1
-            }],
+            columnDefs: [
+                         {
+                             targets: [ 0 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 3 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 4 ],
+                             orderable: false
+                         }
+                         ],
+            "order": [[ 1, 'asc' ]],
             buttons: [{
-                text: '<i class="fa fa-plus" aria-hidden="true"></i> Add new User',
-                className: 'btn btn-default btn-sm',
+                text: '<i class="fa fa-plus" aria-hidden="true"></i> New',
+                className: 'btn btn-success btn-sm',
                 action: function() {
-                    $('#adminModal').modal('show');
+                    $('#actor-modal').modal('show');
                 }
             }]
-
         });
+        
+        $('#qualitysub-table').DataTable({
+            dom: 'Bfrtip',
+            columnDefs: [
+                         {
+                             targets: [ 0 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 3 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 4 ],
+                             orderable: false
+                         }
+                         ],
+            "order": [[ 1, 'asc' ]],
+            buttons: [{
+                text: '<i class="fa fa-plus" aria-hidden="true"></i> New',
+                className: 'btn btn-success btn-sm',
+                action: function() {
+                   /* $('#actor-modal').modal('show');*/
+                }
+            }]
+        });
+        
+        $('#protosub-table').DataTable({
+            dom: 'Bfrtip',
+            columnDefs: [
+                         {
+                             targets: [ 0 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 3 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 4 ],
+                             orderable: false
+                         }
+                         ],
+            "order": [[ 1, 'asc' ]],
+            buttons: [{
+                text: '<i class="fa fa-plus" aria-hidden="true"></i> New',
+                className: 'btn btn-success btn-sm',
+                action: function() {
+                    /*$('#actor-modal').modal('show');*/
+                }
+            }]
+        });
+        
+        $('#managesub-table').DataTable({
+            dom: 'Bfrtip',
+            columnDefs: [
+                         {
+                             targets: [ 0 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 3 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 4 ],
+                             orderable: false
+                         }
+                         ],
+            "order": [[ 1, 'asc' ]],
+            buttons: [{
+                text: '<i class="fa fa-plus" aria-hidden="true"></i> New',
+                className: 'btn btn-success btn-sm',
+                action: function() {
+                    /*$('#actor-modal').modal('show');*/
+                }
+            }]
+        });
+        
+        $('#tradesub-table').DataTable({
+            dom: 'Bfrtip',
+            columnDefs: [
+                         {
+                             targets: [ 0 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 3 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 4 ],
+                             orderable: false
+                         }
+                         ],
+            "order": [[ 1, 'asc' ]],
+            buttons: [{
+                text: '<i class="fa fa-plus" aria-hidden="true"></i> New',
+                className: 'btn btn-success btn-sm',
+                action: function() {
+                    /*$('#actor-modal').modal('show');*/
+                }
+            }]
+        });
+        
+        $('#advsub-table').DataTable({
+            dom: 'Bfrtip',
+            columnDefs: [
+                         {
+                             targets: [ 0 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 3 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 4 ],
+                             orderable: false
+                         }
+                         ],
+            "order": [[ 1, 'asc' ]],
+            buttons: [{
+                text: '<i class="fa fa-plus" aria-hidden="true"></i> New',
+                className: 'btn btn-success btn-sm',
+                action: function() {
+                    $('#actor-modal').modal('show');
+                }
+            }]
+        });
+        
+        $('#prosub-table').DataTable({
+            dom: 'Bfrtip',
+            columnDefs: [
+                         {
+                             targets: [ 0 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 3 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 4 ],
+                             orderable: false
+                         }
+                         ],
+            "order": [[ 1, 'asc' ]],
+            buttons: [{
+                text: '<i class="fa fa-plus" aria-hidden="true"></i> New',
+                className: 'btn btn-success btn-sm',
+                action: function() {
+                    $('#actor-modal').modal('show');
+                }
+            }]
+        });
+        
+        $('.dt-buttons a.btn').removeClass('dt-button');
     },
     events: {
         "click #create_Incoterms": "saveIncoterms",
@@ -39,6 +202,9 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
         "click #create_Customers": "saveCustomer",
         "click #create_site": "saveSite",
         "click #create_Actor": "saveActor",
+        
+        /*sivaranjan changes*/
+        "click #configactor-btn": "viewActorList",
 
     },
     saveIncoterms: function() {
@@ -147,5 +313,9 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
             });
             $('ActorDetails').addClass('hide');
         });
+    },
+    viewActorList: function(){
+    	$('.configset').addClass('hide');
+    	$('#configbreadcrumb,#actor-article').removeClass('hide');
     },
 });

@@ -179,6 +179,8 @@ select.input-sm {
 button.btn.dropdown-toggle.btn-default.btn-sm {
     padding-top: 1.5px;
     padding-bottom: 1.5px;
+}
+button.btn.dropdown-toggle.btn-default {
     background-color: #fff;
     box-shadow: none;
 }
@@ -217,6 +219,21 @@ button.btn.dropdown-toggle.btn-default.btn-sm {
 .comnav-pills > li.active > a:focus {
     background-color: #97D045;
     cursor: default;
+}
+
+/* Admin setting */
+.configset li {
+    margin-bottom: 15px;
+}
+.configset li a {
+    display: inline-block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+.configset li img {
+    width: 42px;
+    margin-right: 15px;
 }
 
 /* Voice box */
