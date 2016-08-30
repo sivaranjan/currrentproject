@@ -33,11 +33,17 @@ public class FetchController {
 
     @Autowired
     private ActorsListDAO actorsListDao;
+    @Autowired
     private IdDAO idDAO;
+    @Autowired
     private IncotermsDAO incotermsDao;
+    @Autowired
     private PlateformDAO plateformDao;
+    @Autowired
     private CustomersListDAO customersListDao;
+    @Autowired
     private SitesListDAO sitesListDao;
+    @Autowired
     private PlacesDAO placesDao;
 
     @RequestMapping(value = "/fetchActorsList", method = RequestMethod.GET)
