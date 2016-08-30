@@ -16,7 +16,7 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
         _thisView.render();
     },
     events: {
-        "click #saveorderbtn": "saveOrder"
+        "click #saveorderbtn": "validateOrder"
     },
     validateOrder: function() {
         if (validate.getInstance().formordiv('orderdetailview')) {
@@ -25,7 +25,7 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
         } else {
             $('#orderdetailview').find('.selectpicker').each(function() {
                 if ($(this).hasClass('error')) {
-
+                	$(this).selectpicker('setStyle','error','add');
                 }
             })
         }
