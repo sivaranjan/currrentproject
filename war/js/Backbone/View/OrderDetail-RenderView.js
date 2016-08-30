@@ -57,14 +57,7 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
     	 _thisView.render();
          var navBtnSectionHTML = new BackboneData.Views.NavBtnSectionview();
     	/*=====================================Fetch Actors List ====================================*/
-    	var fetchActorsListObj = new fetchActorsList();
-    	$.when(fetchActorsListObj.fetch())
-        .done(function(response, xhr) {
-            console.log(response);
-            console.log(xhr);
-        })
-        .fail(function() {
-        });
+    	
     	/*=====================================Fetch ID Generated List ====================================*/
     	var IdCollectionObj = new IdCollection();
     	$.when(IdCollectionObj.fetch())
@@ -91,6 +84,81 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
     populateDependencies: function() {
         var Type_of_the_Prototype_Order = $.trim($('#Type_of_the_Prototype_Order').val());
         var Site_Workshop_Prototype = $.trim($('#Site_Workshop_Prototype').val());
+        if(Site_Workshop_Prototype!=null && Site_Workshop_Prototype.length>0)
+        {
+        	var fetchActorsListObj = new fetchActorsList();
+        	$.when(fetchActorsListObj.fetch())
+            .done(function(response, xhr) {
+                console.log(response);
+                console.log(xhr);
+                var MEPList = new Array();
+            	var QualityList = new Array();
+            	var ProtoWorkshopList = new Array();
+            	var ControlMgmtList = new Array();
+            	var foTradeList = new Array();
+            	var advList = new Array();
+            	var projectManagerList = new Array();
+                response.forEach( function (arrayItem)
+                		{
+                			if(arrayItem.site==Site_Workshop_Prototype)
+                			{
+                				var actorType = arrayItem.actorType;
+                    			switch(actorType) 
+        						{
+        							case "MEP Study":
+        													MEPList.push(arrayItem.actorEmail);
+        										        	break;
+        							case "Quality":
+        													QualityList.push(arrayItem.actorEmail);
+        										        	break;
+        							case "Proto workshop":
+        													ProtoWorkshopList.push(arrayItem.actorEmail);
+        										        	break;
+        							case "Control management":
+        													ControlMgmtList.push(arrayItem.actorEmail);
+        										        	break;
+        							case "FO Trade":
+        													foTradeList.push(arrayItem.actorEmail);
+        										        	break;
+        							case "ADV":
+        													advList.push(arrayItem.actorEmail);
+        										        	break;
+        							case "Project Manager":
+        													projectManagerList.push(arrayItem.actorEmail);
+        										        	break;
+        						}
+                			}	
+                		});
+                console.log("MEPList :: "+MEPList);
+                console.log("QualityList :: "+QualityList);
+                $('#mepstudy').removeAttr('disabled');
+            	$('[data-id="mepstudy"]').removeClass('disabled');
+                $('#quality').removeAttr('disabled');
+                $('[data-id="quality"]').removeClass('disabled');
+                $('#protoworkshop').removeAttr('disabled');
+                $('[data-id="protoworkshop"]').removeClass('disabled');
+                $('#controlmanagement').removeAttr('disabled');
+                $('[data-id="controlmanagement"]').removeClass('disabled');
+                $('#fotrade').removeAttr('disabled');
+                $('[data-id="fotrade"]').removeClass('disabled');
+                $('#adv').removeAttr('disabled');
+                $('[data-id="adv"]').removeClass('disabled');
+                $('#projmanager').removeAttr('disabled');
+                $('[data-id="projmanager"]').removeClass('disabled');
+                var htmllist = "";
+                for (var i in MEPList) {
+              	 htmllist+='<option>'+MEPList[i]+'</option>';
+              	}
+                $('#mepstudy').html(htmllist).selectpicker('refresh');
+                htmllist = "";
+                for (var i in QualityList) {
+                 	 htmllist+='<option>'+QualityList[i]+'</option>';
+                 	}
+                $('#quality').html(htmllist).selectpicker('refresh');
+            })
+            .fail(function() {
+            });
+        }	
         var Proto_Type = $.trim($('#Proto_Type').val());
         if (Type_of_the_Prototype_Order == 'VENDU / SOLD') {
             if (Site_Workshop_Prototype == 'La Verriere (LVR)' && Proto_Type == 'P0') {
