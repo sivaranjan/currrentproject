@@ -13,18 +13,18 @@ public class SitesListDAO extends AbstractDao {
 
     private static final Logger log = Logger.getLogger(SitesListDAO.class.getName());
 
-    public Example findById(long id) {
+    public SitesListJDO findById(long id) {
         log.log(FINER, "Loading example with ID {0}", id);
-        return ofy.load().key(Key.create(Example.class, id)).now();
+        return ofy.load().key(Key.create(SitesListJDO.class, id)).now();
     }
 
-    public Example findByName(String name) {
-        return ofy.load().type(Example.class).filter("name =", name).first().now();
+    public SitesListJDO findByName(String name) {
+        return ofy.load().type(SitesListJDO.class).filter("name =", name).first().now();
     }
 
-    public List<Example> findAllUsers() {
+    public List<SitesListJDO> findAllUsers() {
         log.log(FINER, "Loading all examples.");
-        return ofy.load().type(Example.class).list();
+        return ofy.load().type(SitesListJDO.class).list();
     }
 
     public SitesListJDO save(SitesListJDO sitesList) {
@@ -34,7 +34,7 @@ public class SitesListDAO extends AbstractDao {
     }
 
     public void deleteAll() {
-        List<Key<Example>> keys = ofy.load().type(Example.class).keys().list();
+        List<Key<SitesListJDO>> keys = ofy.load().type(SitesListJDO.class).keys().list();
         ofy.delete().entities(keys).now();
     }
 }

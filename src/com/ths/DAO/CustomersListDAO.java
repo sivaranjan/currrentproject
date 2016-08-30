@@ -1,6 +1,7 @@
 package com.ths.DAO;
 
 import com.googlecode.objectify.Key;
+import com.ths.JDO.CustomerJDO;
 import com.ths.JDO.CustomersListJDO;
 import com.ths.JDO.Example;
 
@@ -13,18 +14,18 @@ public class CustomersListDAO extends AbstractDao {
 
     private static final Logger log = Logger.getLogger(CustomersListDAO.class.getName());
 
-    public Example findById(long id) {
+    public CustomersListJDO findById(long id) {
         log.log(FINER, "Loading example with ID {0}", id);
-        return ofy.load().key(Key.create(Example.class, id)).now();
+        return ofy.load().key(Key.create(CustomersListJDO.class, id)).now();
     }
 
-    public Example findByName(String name) {
-        return ofy.load().type(Example.class).filter("name =", name).first().now();
+    public CustomersListJDO findByName(String name) {
+        return ofy.load().type(CustomersListJDO.class).filter("name =", name).first().now();
     }
 
-    public List<Example> findAllUsers() {
+    public List<CustomersListJDO> findAllUsers() {
         log.log(FINER, "Loading all examples.");
-        return ofy.load().type(Example.class).list();
+        return ofy.load().type(CustomersListJDO.class).list();
     }
 
     public CustomersListJDO save(CustomersListJDO customersList) {
@@ -34,7 +35,7 @@ public class CustomersListDAO extends AbstractDao {
     }
 
     public void deleteAll() {
-        List<Key<Example>> keys = ofy.load().type(Example.class).keys().list();
+        List<Key<CustomersListJDO>> keys = ofy.load().type(CustomersListJDO.class).keys().list();
         ofy.delete().entities(keys).now();
     }
 }

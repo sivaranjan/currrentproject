@@ -23,10 +23,10 @@
 	</head>
 
 <body>
-	<div class="status-voicebox">
+	<div class="status-voicebox hide" id="statusLoader" >
 		<div class="voicebox-content fade in">
 			<span class="loading"></span>
-			<span>loading...</span>
+			<span id="statusmsg"></span>
 		</div>
 	</div>
     <header class="header">
@@ -352,7 +352,9 @@
          <script src="../js/Backbone/Model/Plateform-Model.js"></script>
          
 		<script src="../js/Backbone/Model/OrderDetails-Model.js"></script>
+		<script src="../js/Backbone/Model/Id-Model.js"></script>
 		<script src="../js/Backbone/View/GlobalNavBar-RenderView.js"></script>
+		<script src="../js/Backbone/Collections/CreateOrderCollections.js"></script>
 		
 		<script src="../js/Backbone/View/Welcome-RenderView.js"></script>
 		<script src="../js/Backbone/View/NavBtnSection-RenderView.js"></script>

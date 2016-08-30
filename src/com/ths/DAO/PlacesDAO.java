@@ -13,18 +13,18 @@ public class PlacesDAO extends AbstractDao {
 
     private static final Logger log = Logger.getLogger(PlacesDAO.class.getName());
 
-    public Example findById(long id) {
+    public PlacesJDO findById(long id) {
         log.log(FINER, "Loading example with ID {0}", id);
-        return ofy.load().key(Key.create(Example.class, id)).now();
+        return ofy.load().key(Key.create(PlacesJDO.class, id)).now();
     }
 
-    public Example findByName(String name) {
-        return ofy.load().type(Example.class).filter("name =", name).first().now();
+    public PlacesJDO findByName(String name) {
+        return ofy.load().type(PlacesJDO.class).filter("name =", name).first().now();
     }
 
-    public List<Example> findAllUsers() {
+    public List<PlacesJDO> findAllUsers() {
         log.log(FINER, "Loading all examples.");
-        return ofy.load().type(Example.class).list();
+        return ofy.load().type(PlacesJDO.class).list();
     }
 
     public PlacesJDO save(PlacesJDO places) {
@@ -34,7 +34,7 @@ public class PlacesDAO extends AbstractDao {
     }
     
     public void deleteAll() {
-        List<Key<Example>> keys = ofy.load().type(Example.class).keys().list();
+        List<Key<PlacesJDO>> keys = ofy.load().type(PlacesJDO.class).keys().list();
         ofy.delete().entities(keys).now();
     }
 }

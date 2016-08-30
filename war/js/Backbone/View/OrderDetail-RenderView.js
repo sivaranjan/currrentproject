@@ -13,7 +13,6 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
         $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
         $('#createorder-tab').addClass('active');
         ref.$el.html(orderDetailHTML);
-        console.log(this.model.toJSON());
         console.log("hgh");
         $('#example').DataTable({
             dom: 'Bfrtip',
@@ -47,23 +46,47 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
         $('.selectpicker').selectpicker();
         $('.selectpicker').selectpicker('setStyle', 'btn-sm', 'add');
         $('.bs-searchbox input').addClass('input-sm');
+        var today = new Date();
+        $('#Date_of_the_Order').val(today);
+        $('.selectpicker').on('changed.bs.select', function (e) {
+        	$(this).selectpicker('setStyle','error','remove');
+        	});
     },
     initialize: function(){
     	var _thisView = this;
-    	$.when(this.model.fetch())
-        .done(function () {
-          _thisView.render();
+    	 _thisView.render();
+         var navBtnSectionHTML = new BackboneData.Views.NavBtnSectionview();
+    	/*=====================================Fetch Actors List ====================================*/
+    	var fetchActorsListObj = new fetchActorsList();
+    	$.when(fetchActorsListObj.fetch())
+        .done(function(response, xhr) {
+            console.log(response);
+            console.log(xhr);
+        })
+        .fail(function() {
         });
+    	/*=====================================Fetch ID Generated List ====================================*/
+    	var IdCollectionObj = new IdCollection();
+    	$.when(IdCollectionObj.fetch())
+        .done(function(response, xhr) {
+            console.log(response);
+            console.log(xhr);
+        })
+        .fail(function() {
+        });
+    	/*=====================================Fetch Platforms List ====================================*/
+    	/*=====================================Fetch Incoterms List ====================================*/
+    	/*=====================================Fetch Customers List ====================================*/
+    	/*=====================================Fetch Allocation of turnover List ====================================*/
+    	/*=====================================Fetch Places List ====================================*/
+    	/*=====================================Fetch Sites List ====================================*/
+    	
     },
     events: {
         "change #Type_of_the_Prototype_Order": "populateDependencies",
         "change #Site_Workshop_Prototype": "populateDependencies",
         "change #Proto_Type": "populateDependencies",
         "change #intralecheckbox": "populateDependencies",
-    },
-    updateFilter : function(){
-    	debugger;
-    	alert($(this));
     },
     populateDependencies: function() {
         var Type_of_the_Prototype_Order = $.trim($('#Type_of_the_Prototype_Order').val());

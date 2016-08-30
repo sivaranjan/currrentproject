@@ -25,7 +25,7 @@ public class ActorsListController {
     @Autowired
     private ActorsListDAO actorsListDao;
 
-    @RequestMapping("/find/{id}")
+    @RequestMapping("/findActor/{id}")
     @ResponseBody
     public ActorsListJDO link(@PathVariable("id") long id) {
         return actorsListDao.findById(id);
@@ -42,12 +42,5 @@ public class ActorsListController {
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
     
-    @RequestMapping(value = "/wholelist", method = RequestMethod.GET)
-    public ResponseEntity<List<ActorsListJDO>> listAllUsers() {
-        List<ActorsListJDO> actors = actorsListDao.findAllUsers();
-        if(actors.isEmpty()){
-            return new ResponseEntity<List<ActorsListJDO>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
-        }
-        return new ResponseEntity<List<ActorsListJDO>>(actors, HttpStatus.OK);
-    }
+   
 }

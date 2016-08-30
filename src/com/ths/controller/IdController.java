@@ -21,7 +21,7 @@ public class IdController {
     @Autowired
     private IdDAO idDAO;
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @RequestMapping(value = "/createNewID", method = RequestMethod.POST)
     public ResponseEntity<Void> createUser(@RequestBody IdJDO genID, UriComponentsBuilder ucBuilder) 
     {
         System.out.println("Actor details");
@@ -31,5 +31,4 @@ public class IdController {
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
-
 }

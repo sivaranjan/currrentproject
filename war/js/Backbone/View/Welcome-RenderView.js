@@ -18,4 +18,5 @@ BackboneData.Views.WelcomeView = Backbone.View.extend({
 //        $('#bs-example-navbar-collapse-1 ul li').addClass('active');
         $('#createorder-tab').removeClass('active');
 	}
+
 });

@@ -24,16 +24,8 @@ public class OrderController {
         System.out.println("Creating User ");
   
         orderDao.save(order);
-//        if (userService.isUserExist(user)) 
-//        {
-//            System.out.println("A User with name " + user.getName() + " already exist");
-//            return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-//        }
-//  
-//        userService.saveUser(user);
   
         HttpHeaders headers = new HttpHeaders();
-//        headers.setLocation(ucBuilder.path("/user/{id}").buildAndExpand(user.getId()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
    

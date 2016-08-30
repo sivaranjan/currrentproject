@@ -16,7 +16,7 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
         _thisView.render();
     },
     events: {
-        "click #saveorderbtn": "saveOrder"
+        "click #saveorderbtn": "validateOrder"
     },
     validateOrder: function() {
         if (validate.getInstance().formordiv('orderdetailview')) {
@@ -25,12 +25,14 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
         } else {
             $('#orderdetailview').find('.selectpicker').each(function() {
                 if ($(this).hasClass('error')) {
-
+                	$(this).selectpicker('setStyle','error','add');
                 }
             })
         }
     },
     saveOrder: function() {
+    	$('#statusmsg').html("Saving your order..")
+    	$('#statusLoader').removeClass('hide');
     	
         var Site_Workshop_Prototype = $('#Site_Workshop_Prototype').val();
         var Geosite = $('#Geosite').val();
@@ -85,11 +87,19 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
             total_Order_Amount:0,
         });
         orderDetailsObj.save({}, {
+        	
             success: function(model, respose, options) {
                 console.log("The model has been saved to the server");
             },
             error: function(model, xhr, options) {
-                console.log("Something went wrong while saving the model");
+            	$('#statusmsg').html("Order saved successully");
+//            	$('#statusLoader').addClass('hide');
+                console.log("Something went wrong while saving the model :: "+model);
+                console.log("Something went wrong while saving the xhr :: "+xhr);
+                console.log("Something went wrong while saving the options :: "+options);
+                console.log(model);
+                console.log(xhr);
+                console.log(options);
             }
         });
         
