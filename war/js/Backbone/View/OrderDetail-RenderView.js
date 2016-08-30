@@ -60,9 +60,9 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
         "change #Site_Workshop_Prototype": "populateDependencies",
         "change #Proto_Type": "populateDependencies",
         "change #intralecheckbox": "populateDependencies",
-        'change #Final_Delivery_Address' : 'updateFilter',
     },
     updateFilter : function(){
+    	debugger;
     	alert($(this));
     },
     populateDependencies: function() {
