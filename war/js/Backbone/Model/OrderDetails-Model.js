@@ -13,6 +13,7 @@ BackboneData.Models.OrderDetailModel=Backbone.Model.extend({
         date_of_the_Order:"",
         order_Status:"",
         total_Order_Amount:"",
+        list_Component_Keys : ["gfg","kghh","jhgj"],
     },
     initialize: function() {
         console.log('Book has been initialized');
