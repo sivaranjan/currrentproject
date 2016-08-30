@@ -92,7 +92,7 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
                 console.log("The model has been saved to the server");
             },
             error: function(model, xhr, options) {
-            	$('#statusmsg').html("Order saved successully.");
+            	$('#statusmsg').html("Order saved successully");
 //            	$('#statusLoader').addClass('hide');
                 console.log("Something went wrong while saving the model :: "+model);
                 console.log("Something went wrong while saving the xhr :: "+xhr);
