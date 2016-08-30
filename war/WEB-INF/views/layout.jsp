@@ -367,7 +367,9 @@
          <script src="../js/Backbone/Model/Plateform-Model.js"></script>
          
 		<script src="../js/Backbone/Model/OrderDetails-Model.js"></script>
+		<script src="../js/Backbone/Model/Id-Model.js"></script>
 		<script src="../js/Backbone/View/GlobalNavBar-RenderView.js"></script>
+		<script src="../js/Backbone/Collections/CreateOrderCollections.js"></script>
 		
 		<script src="../js/Backbone/View/Welcome-RenderView.js"></script>
 		<script src="../js/Backbone/View/NavBtnSection-RenderView.js"></script>
