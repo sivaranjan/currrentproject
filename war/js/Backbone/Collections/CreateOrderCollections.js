@@ -1,7 +1,7 @@
 var IdCollection = Backbone.Collection.extend({
 				
 	//Specify REST URL
-	url: 'http://localhost:8888/idgenerator/fetchIDList',
+	url: 'http://localhost:8888/fetchController/fetchIDList',
 	
 	initialize: function () {
 		this.bind("reset", function (model, options) {
@@ -15,7 +15,7 @@ var IdCollection = Backbone.Collection.extend({
 var fetchOrderDependencies = Backbone.Collection.extend({
 	
 	//Specify REST URL
-	url: 'http://localhost:8888/fetch/fetchorderDependencies',
+	url: 'http://localhost:8888/fetchController/fetchorderDependencies',
 	
 	initialize: function () {
 		this.bind("reset", function (model, options) {
@@ -29,7 +29,7 @@ var fetchOrderDependencies = Backbone.Collection.extend({
 var fetchActorsList = Backbone.Collection.extend({
 	
 	//Specify REST URL
-	url: 'http://localhost:8888/actorsList/fetchActorsList',
+	url: 'http://localhost:8888/fetchController/fetchActorsList',
 	
 	initialize: function () {
 		this.bind("reset", function (model, options) {
