@@ -23,10 +23,10 @@
 	</head>
 
 <body>
-	<div class="status-voicebox">
+	<div class="status-voicebox hide" id="statusLoader" >
 		<div class="voicebox-content fade in">
 			<span class="loading"></span>
-			<span>loading...</span>
+			<span id="statusmsg"></span>
 		</div>
 	</div>
     <header class="header">
