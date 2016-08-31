@@ -58,7 +58,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
                 text: '<i class="fa fa-plus" aria-hidden="true"></i> New',
                 className: 'btn btn-success btn-sm',
                 action: function() {
-                   /* $('#actor-modal').modal('show');*/
+                    $('#actor-modal').modal('show');
                 }
             }]
         });
@@ -84,7 +84,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
                 text: '<i class="fa fa-plus" aria-hidden="true"></i> New',
                 className: 'btn btn-success btn-sm',
                 action: function() {
-                    /*$('#actor-modal').modal('show');*/
+                    $('#actor-modal').modal('show');
                 }
             }]
         });
@@ -110,7 +110,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
                 text: '<i class="fa fa-plus" aria-hidden="true"></i> New',
                 className: 'btn btn-success btn-sm',
                 action: function() {
-                    /*$('#actor-modal').modal('show');*/
+                    $('#actor-modal').modal('show');
                 }
             }]
         });
@@ -136,7 +136,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
                 text: '<i class="fa fa-plus" aria-hidden="true"></i> New',
                 className: 'btn btn-success btn-sm',
                 action: function() {
-                    /*$('#actor-modal').modal('show');*/
+                    $('#actor-modal').modal('show');
                 }
             }]
         });
@@ -193,6 +193,137 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
             }]
         });
         
+        
+        $('#incoterms-table').DataTable({
+            dom: 'Bfrtip',
+            columnDefs: [
+                         {
+                             targets: [ 0 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 3 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 4 ],
+                             orderable: false
+                         }
+                         ],
+            "order": [[ 1, 'asc' ]],
+            buttons: [{
+                text: '<i class="fa fa-plus" aria-hidden="true"></i> New',
+                className: 'btn btn-success btn-sm',
+                action: function() {
+                    $('#incoterms-modal').modal('show');
+                }
+            }]
+        });
+        
+        $('#clients-table').DataTable({
+            dom: 'Bfrtip',
+            columnDefs: [
+                         {
+                             targets: [ 0 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 6 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 7 ],
+                             orderable: false
+                         }
+                         ],
+            "order": [[ 1, 'asc' ]],
+            buttons: [{
+                text: '<i class="fa fa-plus" aria-hidden="true"></i> New',
+                className: 'btn btn-success btn-sm',
+                action: function() {
+                    $('#clients-modal').modal('show');
+                }
+            }]
+        });
+        
+        $('#platformssub-table').DataTable({
+            dom: 'Bfrtip',
+            columnDefs: [
+                         {
+                             targets: [ 0 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 2 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 3 ],
+                             orderable: false
+                         }
+                         ],
+            "order": [[ 1, 'asc' ]],
+            buttons: [{
+                text: '<i class="fa fa-plus" aria-hidden="true"></i> New',
+                className: 'btn btn-success btn-sm',
+                action: function() {
+                    $('#platform-modal').modal('show');
+                }
+            }]
+        });
+        
+        $('#locationsub-table').DataTable({
+            dom: 'Bfrtip',
+            columnDefs: [
+                         {
+                             targets: [ 0 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 2 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 3 ],
+                             orderable: false
+                         }
+                         ],
+            "order": [[ 1, 'asc' ]],
+            buttons: [{
+                text: '<i class="fa fa-plus" aria-hidden="true"></i> New',
+                className: 'btn btn-success btn-sm',
+                action: function() {
+                    $('#location-modal').modal('show');
+                }
+            }]
+        });
+        
+        $('#sitesub-table').DataTable({
+            dom: 'Bfrtip',
+            columnDefs: [
+                         {
+                             targets: [ 0 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 3 ],
+                             orderable: false
+                         },
+                         {
+                             targets: [ 4 ],
+                             orderable: false
+                         }
+                         ],
+            "order": [[ 1, 'asc' ]],
+            buttons: [{
+                text: '<i class="fa fa-plus" aria-hidden="true"></i> New',
+                className: 'btn btn-success btn-sm',
+                action: function() {
+                    $('#site-modal').modal('show');
+                }
+            }]
+        });
+        
         $('.dt-buttons a.btn').removeClass('dt-button');
     },
     events: {
@@ -205,6 +336,11 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
         
         /*sivaranjan changes*/
         "click #configactor-btn": "viewActorList",
+        "click #incoterms-btn": "viewIncotermsList",
+        "click #clients-btn": "viewClientsList",
+        "click #platforms-btn": "viewPlatformList",
+        "click #locations-btn": "viewLocationList",
+        "click #sites-btn": "viewSiteList",
 
     },
     saveIncoterms: function() {
@@ -314,8 +450,29 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
             $('ActorDetails').addClass('hide');
         });
     },
+    /*sivaranjan changes*/
     viewActorList: function(){
-    	$('.configset').addClass('hide');
+    	$('.configset,#config-pane article').addClass('hide');
     	$('#configbreadcrumb,#actor-article').removeClass('hide');
+    },
+    viewIncotermsList: function(){
+    	$('.configset,#config-pane article').addClass('hide');
+    	$('#configbreadcrumb,#incoterms-article').removeClass('hide');
+    },
+    viewClientsList: function(){
+    	$('.configset,#config-pane article').addClass('hide');
+    	$('#configbreadcrumb,#clients-article').removeClass('hide');
+    },
+    viewPlatformList: function(){
+    	$('.configset,#config-pane article').addClass('hide');
+    	$('#configbreadcrumb,#platforms-article').removeClass('hide');
+    },
+    viewLocationList: function(){
+    	$('.configset,#config-pane article').addClass('hide');
+    	$('#configbreadcrumb,#locations-article').removeClass('hide');
+    },
+    viewSiteList: function(){
+    	$('.configset,#config-pane article').addClass('hide');
+    	$('#configbreadcrumb,#sites-article').removeClass('hide');
     },
 });

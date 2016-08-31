@@ -13,7 +13,7 @@
 					      </h4>
 					    </div>
 					    <div class="panel-collapse collapse in" role="tabpanel">
-					      <div class="panel-body">
+					      <div class="panel-body" id="config-panel">
 					      		<ol class="breadcrumb hide" id="configbreadcrumb">
 								  <li><a href="#">App Configuration</a></li>
 								  <li class="active">Data</li>
@@ -28,45 +28,45 @@
 						 			<li class="col-md-4">
 						 				<a id="clients-btn"><img src="../resources/images/formicon.png" />List of Clients</a>
 						 			</li>
-						 			<li class="col-md-4">
+						 			/*<li class="col-md-4">
 						 				<a id="prototypists-btn"><img src="../resources/images/formicon.png" />List of Prototypists</a>
-						 			</li>
+						 			</li>*/
 						 			<li class="col-md-4">
 						 				<a id="platforms-btn"><img src="../resources/images/formicon.png" />List of Platforms</a>
 						 			</li>
-						 			<li class="col-md-4">
-						 				<a id="-btn"><img src="../resources/images/formicon.png" />List of Products Types</a>
+						 			/*<li class="col-md-4">
+						 				<a id="producttype-btn"><img src="../resources/images/formicon.png" />List of Products Types</a>
 						 			</li>
 						 			<li class="col-md-4">
-						 				<a id="-btn"><img src="../resources/images/formicon.png" />List of Technologies</a>
+						 				<a id="technologie-btn"><img src="../resources/images/formicon.png" />List of Technologies</a>
 						 			</li>
 						 			<li class="col-md-4">
-						 				<a id="-btn"><img src="../resources/images/formicon.png" />List of R & D Leaders</a>
+						 				<a id="rdlead-btn"><img src="../resources/images/formicon.png" />List of R & D Leaders</a>
 						 			</li>
 						 			<li class="col-md-4">
-						 				<a id="-btn"><img src="../resources/images/formicon.png" />List of Clients and Lab Addresses</a>
+						 				<a id="clientadd-btn"><img src="../resources/images/formicon.png" />List of Clients and Lab Addresses</a>
+						 			</li>*/
+						 			<li class="col-md-4">
+						 				<a id="locations-btn"><img src="../resources/images/formicon.png" />List of Locations</a>
 						 			</li>
 						 			<li class="col-md-4">
-						 				<a id="-btn"><img src="../resources/images/formicon.png" />List of Locations</a>
+						 				<a id="sites-btn"><img src="../resources/images/formicon.png" />List of Sites</a>
+						 			</li>
+						 			/*<li class="col-md-4">
+						 				<a id="wflowconfig-btn"><img src="../resources/images/formicon.png" />Workflow Configuration</a>
 						 			</li>
 						 			<li class="col-md-4">
-						 				<a id="-btn"><img src="../resources/images/formicon.png" />List of Sites</a>
+						 				<a id="adminwiew-btn"><img src="../resources/images/formicon.png" />Administrator view</a>
 						 			</li>
 						 			<li class="col-md-4">
-						 				<a id="-btn"><img src="../resources/images/formicon.png" />Workflow Configuration</a>
+						 				<a id="deldraft-btn"><img src="../resources/images/formicon.png" />Delete draft requests</a>
 						 			</li>
 						 			<li class="col-md-4">
-						 				<a id="-btn"><img src="../resources/images/formicon.png" />Administrator view</a>
+						 				<a id="restart-btn"><img src="../resources/images/formicon.png" />Restart process</a>
 						 			</li>
 						 			<li class="col-md-4">
-						 				<a id="-btn"><img src="../resources/images/formicon.png" />Delete draft requests</a>
-						 			</li>
-						 			<li class="col-md-4">
-						 				<a id="-btn"><img src="../resources/images/formicon.png" />Restart process</a>
-						 			</li>
-						 			<li class="col-md-4">
-						 				<a id="-btn"><img src="../resources/images/formicon.png" />Define a delegate for a period of time</a>
-						 			</li>
+						 				<a id="timeperiod-btn"><img src="../resources/images/formicon.png" />Define a delegate for a period of time</a>
+						 			</li>*/
 						 		</ul>
 						 		
 						 		/* Actor article */
@@ -342,7 +342,40 @@
 						 		
 						 		/* Clients article */
 						 		<article class="hide" id="clients-article">
-						 			
+						 			<table class="table table-hover" id="clients-table">
+						 						<thead>
+						 							<tr>
+						 								<th><input type="checkbox"></th>
+						 								<th>Client name</th>
+						 								<th>Customer Code</th>
+						 								<th>Branch Code</th>
+						 								<th>Vendor Code</th>
+						 								<th>Final delivery address</th>
+						 								<th>Edit</th>
+						 								<th>Delete</th>
+						 							</tr>
+						 						</thead>
+						 						<tbody>
+						 							<tr>
+						 								<td><input type="checkbox"></td>
+						 								<td>AUDI / GROSSMEHRING</td>
+						 								<td>0192DES003\01929999BB</td>
+						 								<td>AUDI</td>
+						 								<td>53246</td>
+						 								<td>AUDI AG WARENEINGANG TEGUTENBERGSTRASS</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+														      <i class="fa fa-pencil"></i>
+														    </button>
+						 								</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+													      		<i class="fa fa-trash"></i>
+													    	</button>
+													    </td>
+						 							</tr>
+						 						</tbody>
+						 					</table>
 						 		</article>
 						 		
 						 		/* Prototypists article */
@@ -352,7 +385,32 @@
 						 		
 						 		/* Platforms article */
 						 		<article class="hide" id="platforms-article">
-						 			
+						 			<table class="table table-hover" id="platformssub-table">
+						 						<thead>
+						 							<tr>
+						 								<th><input type="checkbox"></th>
+						 								<th>Platforms</th>
+						 								<th>Edit</th>
+						 								<th>Delete</th>
+						 							</tr>
+						 						</thead>
+						 						<tbody>
+						 							<tr>
+						 								<td><input type="checkbox"></td>
+						 								<td>A-Entry</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+														      <i class="fa fa-pencil"></i>
+														    </button>
+						 								</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+													      		<i class="fa fa-trash"></i>
+													    	</button>
+													    </td>
+						 							</tr>
+						 						</tbody>
+						 					</table>
 						 		</article>
 						 		
 						 		/* Products article */
@@ -377,12 +435,64 @@
 						 		
 						 		/* Locations article */
 						 		<article class="hide" id="locations-article">
-						 			
+						 			<table class="table table-hover" id="locationsub-table">
+						 						<thead>
+						 							<tr>
+						 								<th><input type="checkbox"></th>
+						 								<th>Place</th>
+						 								<th>Edit</th>
+						 								<th>Delete</th>
+						 							</tr>
+						 						</thead>
+						 						<tbody>
+						 							<tr>
+						 								<td><input type="checkbox"></td>
+						 								<td>Guyancourt</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+														      <i class="fa fa-pencil"></i>
+														    </button>
+						 								</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+													      		<i class="fa fa-trash"></i>
+													    	</button>
+													    </td>
+						 							</tr>
+						 						</tbody>
+						 					</table>
 						 		</article>
 						 		
 						 		/* Sites article */
 						 		<article class="hide" id="sites-article">
-						 			
+						 			<table class="table table-hover" id="sitesub-table">
+						 						<thead>
+						 							<tr>
+						 								<th><input type="checkbox"></th>
+						 								<th>Site Name</th>
+						 								<th>Site Address</th>
+						 								<th>Edit</th>
+						 								<th>Delete</th>
+						 							</tr>
+						 						</thead>
+						 						<tbody>
+						 							<tr>
+						 								<td><input type="checkbox"></td>
+						 								<td>La Suze</td>
+						 								<td>VALEO SYSTEMES THERMIQUESRoute de Chemiré Le Gaudin72210 La Suze S</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+														      <i class="fa fa-pencil"></i>
+														    </button>
+						 								</td>
+						 								<td>
+						 									<button type="button" class="btn btn-default btn-sm">
+													      		<i class="fa fa-trash"></i>
+													    	</button>
+													    </td>
+						 							</tr>
+						 						</tbody>
+						 					</table>
 						 		</article>
 						 		
 						 		/* Workflow Configuration article */
