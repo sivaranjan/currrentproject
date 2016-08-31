@@ -1,4 +1,4 @@
-BackboneData.Models.IncotermsDetails=Backbone.Model.extend({
+BackboneData.Models.IncotermsModel=Backbone.Model.extend({
     defaults: {
     	
     	incoterms:"",
