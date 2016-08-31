@@ -1,9 +1,9 @@
 BackboneData.Models.ActorListDetailsModel = Backbone.Model.extend({
     defaults: {
-    	actorType:"",
-    	actorEmail:"",
-    	site:"",
-    	addedBy:"",
+        actorType: "",
+        actorEmail: "",
+        site: "",
+        addedBy: "",
     },
     initialize: function() {
         console.log('actorlist has been initialized');
@@ -15,7 +15,6 @@ BackboneData.Models.ActorListDetailsModel = Backbone.Model.extend({
         console.log('actorlist\'s constructor had been called');
         Backbone.Model.apply(this, arguments);
     },
-    validate: function(attr) {
-    },
+    validate: function(attr) {},
     urlRoot: 'http://localhost:8888/actorsList/create'
 });

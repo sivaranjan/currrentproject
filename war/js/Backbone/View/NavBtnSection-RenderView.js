@@ -25,15 +25,14 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
         } else {
             $('#orderdetailview').find('.selectpicker').each(function() {
                 if ($(this).hasClass('error')) {
-                	$(this).selectpicker('setStyle','error','add');
+                    $(this).selectpicker('setStyle', 'error', 'add');
                 }
             })
         }
     },
     saveOrder: function() {
-    	$('#statusmsg').html("Saving your order..")
-    	$('#statusLoader').removeClass('hide');
-    	
+        $('#statusmsg').html("Saving your order..")
+        $('#statusLoader').removeClass('hide');
         var Site_Workshop_Prototype = $('#Site_Workshop_Prototype').val();
         var Geosite = $('#Geosite').val();
         var No_Prototype_Order = $('#No_Prototype_Order').val();
@@ -69,34 +68,34 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
         var controlmanagement = $('#controlmanagement').val();
         var fotrade = $('#fotrade').val();
         var adv = $('#adv').val();
-        var projmanager = 	$('#projmanager').val();
-        
-        var orderDetailsObj = new BackboneData.Models.OrderDetailModel({ 
-        	site_Workshop_Prototype:Site_Workshop_Prototype,
-            geoSite:Geosite,
-            no_prototype_order:"",
-            proto_Type:Proto_Type,
-            pcc:pcccheckbox,
-            open_Order:openordercheckbox,
-            frittage:frittagecheckbox,
-            e52:e52checkbox,
-            intraLE:intralecheckbox,
-            type_of_the_Prototype_Order:Type_of_the_Prototype_Order,
-            date_of_the_Order:Date_of_the_Order,
-            order_Status:"Draft",
-            total_Order_Amount:0,
+        var projmanager = $('#projmanager').val();
+
+        var orderDetailsObj = new BackboneData.Models.OrderDetailModel({
+            site_Workshop_Prototype: Site_Workshop_Prototype,
+            geoSite: Geosite,
+            no_prototype_order: "",
+            proto_Type: Proto_Type,
+            pcc: pcccheckbox,
+            open_Order: openordercheckbox,
+            frittage: frittagecheckbox,
+            e52: e52checkbox,
+            intraLE: intralecheckbox,
+            type_of_the_Prototype_Order: Type_of_the_Prototype_Order,
+            date_of_the_Order: Date_of_the_Order,
+            order_Status: "Draft",
+            total_Order_Amount: 0,
         });
         orderDetailsObj.save({}, {
-        	
+
             success: function(model, respose, options) {
                 console.log("The model has been saved to the server");
             },
             error: function(model, xhr, options) {
-            	$('#statusmsg').html("Order saved successully");
-//            	$('#statusLoader').addClass('hide');
-                console.log("Something went wrong while saving the model :: "+model);
-                console.log("Something went wrong while saving the xhr :: "+xhr);
-                console.log("Something went wrong while saving the options :: "+options);
+                $('#statusmsg').html("Order saved successully");
+                //              $('#statusLoader').addClass('hide');
+                console.log("Something went wrong while saving the model :: " + model);
+                console.log("Something went wrong while saving the xhr :: " + xhr);
+                console.log("Something went wrong while saving the options :: " + options);
                 console.log(model);
                 console.log(xhr);
                 console.log(options);

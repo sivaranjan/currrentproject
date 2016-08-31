@@ -1,7 +1,7 @@
-BackboneData.Models.PlateformDetailsModel=Backbone.Model.extend({
+BackboneData.Models.PlateformDetailsModel = Backbone.Model.extend({
     defaults: {
-    	plateform:"",
-    	added_By:"",
+        plateform: "",
+        added_By: "",
     },
     initialize: function() {
         console.log('plateform has been initialized');

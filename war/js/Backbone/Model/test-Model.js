@@ -17,5 +17,5 @@ var Book = Backbone.Model.extend({
             return "Invalid BookName supplied."
         }*/
     },
-    urlRoot: 'http://localhost:8888/idgenerator/create'
+    urlRoot: 'http://localhost:8888/idgenerator/createNewID'
 });

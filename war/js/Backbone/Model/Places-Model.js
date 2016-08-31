@@ -1,9 +1,9 @@
-BackboneData.Models.PlacesDetailsModel=Backbone.Model.extend({
+BackboneData.Models.PlacesDetailsModel = Backbone.Model.extend({
     defaults: {
-    	
-    	places:"",
-    	added_By:"",
-        
+
+        places: "",
+        added_By: "",
+
     },
     initialize: function() {
         console.log('place has been initialized');
@@ -16,9 +16,9 @@ BackboneData.Models.PlacesDetailsModel=Backbone.Model.extend({
         Backbone.Model.apply(this, arguments);
     },
     validate: function(attr) {
-//        if (!attr.places) {
-//            return "Invalid place supplied."
-//        }
+        //        if (!attr.places) {
+        //            return "Invalid place supplied."
+        //        }
     },
     urlRoot: 'http://localhost:8888/place/create'
 });
