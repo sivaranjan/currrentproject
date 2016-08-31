@@ -1,4 +1,4 @@
-var SitesListModel = Backbone.Model.extend({
+BackboneData.Models.SitesListModel = Backbone.Model.extend({
     defaults: {
     	site_Name:"",
     	address:"",
