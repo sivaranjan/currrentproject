@@ -1,7 +1,4 @@
-/**
- * 
- */
-var PlacesDetails=Backbone.Model.extend({
+BackboneData.Models.PlacesDetailsModel=Backbone.Model.extend({
     defaults: {
     	
     	places:"",
