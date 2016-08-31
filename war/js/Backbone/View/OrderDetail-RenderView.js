@@ -59,14 +59,7 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
     	/*=====================================Fetch Actors List ====================================*/
     	
     	/*=====================================Fetch ID Generated List ====================================*/
-    	var IdCollectionObj = new IdCollection();
-    	$.when(IdCollectionObj.fetch())
-        .done(function(response, xhr) {
-            console.log(response);
-            console.log(xhr);
-        })
-        .fail(function() {
-        });
+    	
     	/*=====================================Fetch Platforms List ====================================*/
     	/*=====================================Fetch Incoterms List ====================================*/
     	/*=====================================Fetch Customers List ====================================*/
@@ -84,9 +77,68 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
     populateDependencies: function() {
         var Type_of_the_Prototype_Order = $.trim($('#Type_of_the_Prototype_Order').val());
         var Site_Workshop_Prototype = $.trim($('#Site_Workshop_Prototype').val());
+        var Proto_Type = $.trim($('#Proto_Type').val());
+        console.log("1 :: "+Type_of_the_Prototype_Order);
+        console.log("2 :: "+Site_Workshop_Prototype);
+        console.log("3 :: "+Proto_Type);
+        if(Site_Workshop_Prototype!="" && Type_of_the_Prototype_Order!="" && Proto_Type!="")
+    	{
+    		var IdCollectionObj = new BackboneData.Collections.IdCollection();
+        	$.when(IdCollectionObj.fetch())
+            .done(function(response, xhr) {
+                console.log(response);
+                console.log(xhr);
+                response.forEach( function (arrayItem)
+                {
+                	var lastGeneratedID = parseInt(arrayItem.next_id)+1;
+                	var newPrototypeOrderID = "";
+                    if (typeof(Storage) !== "undefined") 
+                    {
+                    	localStorage.setItem("lastGeneratedID", lastGeneratedID);
+                    }
+                    
+                    if (Site_Workshop_Prototype == "La Suze (LAS)") {
+                    	newPrototypeOrderID = "LAS";
+                    } else if (Site_Workshop_Prototype == "La Verriere (LVR)") {
+                    	newPrototypeOrderID = "LVR";
+                    } else if (Site_Workshop_Prototype == "Laval (LVL)") {
+                    	newPrototypeOrderID = "LVL";
+                    } else if (Site_Workshop_Prototype == "Nogent (NOG)") {
+                    	newPrototypeOrderID = "NOG";
+                    } else if (Site_Workshop_Prototype == "Reims (RMS)") {
+                    	newPrototypeOrderID = "RMS";
+                    }
+                    if(lastGeneratedID.toString().length==4)
+                    {
+                    	newPrototypeOrderID = newPrototypeOrderID+"000";
+                    }
+                    else if(lastGeneratedID.toString().length==5)
+                    {
+                    	newPrototypeOrderID =  newPrototypeOrderID+"00";
+                    }	
+                    else if(lastGeneratedID.toString().length==6)
+                    {
+                    	newPrototypeOrderID = newPrototypeOrderID+"0";
+                    }
+                    else if(lastGeneratedID.toString().length==7)
+                    {
+                    	newPrototypeOrderID =  newPrototypeOrderID;
+                    }
+                    newPrototypeOrderID = newPrototypeOrderID+parseInt(lastGeneratedID)+"-"+Proto_Type;
+                    if (Type_of_the_Prototype_Order == "VENDU / SOLD") {
+                    	newPrototypeOrderID = newPrototypeOrderID+"V";
+                    } else if (Type_of_the_Prototype_Order == "NON VENDU / NOT SOLD") {
+                    	newPrototypeOrderID = newPrototypeOrderID+"N";
+                    }
+                    $('#No_Prototype_Order').val(newPrototypeOrderID);
+                });
+            })
+            .fail(function() {
+            });
+    	}	
         if(Site_Workshop_Prototype!=null && Site_Workshop_Prototype.length>0)
         {
-        	var fetchActorsListObj = new fetchActorsList();
+        	var fetchActorsListObj = new BackboneData.Collections.fetchActorsList();
         	$.when(fetchActorsListObj.fetch())
             .done(function(response, xhr) {
                 console.log(response);
@@ -103,6 +155,7 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
                 			if(arrayItem.site==Site_Workshop_Prototype)
                 			{
                 				var actorType = arrayItem.actorType;
+                				console.log("actor type is htis :: "+actorType);
                     			switch(actorType) 
         						{
         							case "MEP Study":
@@ -131,6 +184,11 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
                 		});
                 console.log("MEPList :: "+MEPList);
                 console.log("QualityList :: "+QualityList);
+                console.log("ProtoWorkshopList :: "+ProtoWorkshopList);
+                console.log("ControlMgmtList :: "+ControlMgmtList);
+                console.log("foTradeList :: "+foTradeList);
+                console.log("ADV :: "+advList);
+                console.log("projectManagerList :: "+projectManagerList);
                 $('#mepstudy').removeAttr('disabled');
             	$('[data-id="mepstudy"]').removeClass('disabled');
                 $('#quality').removeAttr('disabled');
@@ -155,6 +213,36 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
                  	 htmllist+='<option>'+QualityList[i]+'</option>';
                  	}
                 $('#quality').html(htmllist).selectpicker('refresh');
+                htmllist = "";
+                for (var i in ProtoWorkshopList) {
+                 	 htmllist+='<option>'+ProtoWorkshopList[i]+'</option>';
+                 	}
+                $('#protoworkshop').html(htmllist).selectpicker('refresh');
+                htmllist = "";
+                for (var i in ControlMgmtList) {
+                 	 htmllist+='<option>'+ControlMgmtList[i]+'</option>';
+                 	}
+                $('#controlmanagement').html(htmllist).selectpicker('refresh');
+                htmllist = "";
+                for (var i in foTradeList) {
+                 	 htmllist+='<option>'+foTradeList[i]+'</option>';
+                 	}
+                $('#fotrade').html(htmllist).selectpicker('refresh');
+                htmllist = "";
+                for (var i in foTradeList) {
+                 	 htmllist+='<option>'+foTradeList[i]+'</option>';
+                 	}
+                $('#fotrade').html(htmllist).selectpicker('refresh');
+                htmllist = "";
+                for (var i in advList) {
+                 	 htmllist+='<option>'+advList[i]+'</option>';
+                 	}
+                $('#adv').html(htmllist).selectpicker('refresh');
+                htmllist = "";
+                for (var i in projectManagerList) {
+                 	 htmllist+='<option>'+projectManagerList[i]+'</option>';
+                 	}
+                $('#projmanager').html(htmllist).selectpicker('refresh');
             })
             .fail(function() {
             });
