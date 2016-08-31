@@ -21,7 +21,9 @@ public class ActorsListDAO extends AbstractDao {
     public ActorsListJDO findByName(String name) {
         return ofy.load().type(ActorsListJDO.class).filter("name =", name).first().now();
     }
-
+    public List<ActorsListJDO> findByType(String actorType) {
+        return ofy.load().type(ActorsListJDO.class).filter("actorType =", actorType).list();
+    }
     public List<ActorsListJDO> findAllUsers() {
         log.log(FINER, "Loading all examples.");
         return ofy.load().type(ActorsListJDO.class).list();
