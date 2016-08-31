@@ -60,10 +60,10 @@ public class FetchController {
     	List<ActorsListJDO> actors = actorsListDao.findByType(actorType);
     	HashMap<String,List<ActorsListJDO>> responseMap = new HashMap<String,List<ActorsListJDO>>();
     	responseMap.put("data", actors);
-    	 if(actors.isEmpty())
+    	/*if(actors.isEmpty())
          {
              return new ResponseEntity<HashMap<String,List<ActorsListJDO>>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
-         }
+         }*/
         return new ResponseEntity<HashMap<String,List<ActorsListJDO>>>(responseMap, HttpStatus.OK);
     }
     @RequestMapping(value = "/fetchIncotermsList", method = RequestMethod.GET)
@@ -71,10 +71,10 @@ public class FetchController {
         List<IncotermsJDO> incotermsList = incotermsDao.findAllUsers();
         HashMap<String,List<IncotermsJDO>> responseMap = new HashMap<String,List<IncotermsJDO>>();
         responseMap.put("data", incotermsList);
-        if(incotermsList.isEmpty())
+        /*if(incotermsList.isEmpty())
         {
             return new ResponseEntity<HashMap<String,List<IncotermsJDO>>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
-        }
+        }*/
         return new ResponseEntity<HashMap<String,List<IncotermsJDO>>>(responseMap, HttpStatus.OK);
     }
     @RequestMapping(value = "/fetchCustomersList", method = RequestMethod.GET)
@@ -82,10 +82,10 @@ public class FetchController {
         List<CustomersListJDO> customersList = customersListDao.findAllUsers();
         HashMap<String,List<CustomersListJDO>> responseMap = new HashMap<String,List<CustomersListJDO>>();
         responseMap.put("data", customersList);
-        if(customersList.isEmpty())
+        /*if(customersList.isEmpty())
         {
             return new ResponseEntity<HashMap<String,List<CustomersListJDO>>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
-        }
+        }*/
         return new ResponseEntity<HashMap<String,List<CustomersListJDO>>>(responseMap, HttpStatus.OK);
     }
     @RequestMapping(value = "/fetchPlateformList", method = RequestMethod.GET)
@@ -93,10 +93,10 @@ public class FetchController {
         List<PlateformJDO> platFormList = plateformDao.findAllUsers();
         HashMap<String,List<PlateformJDO>> responseMap = new HashMap<String,List<PlateformJDO>>();
         responseMap.put("data", platFormList);
-        if(platFormList.isEmpty())
+        /*if(platFormList.isEmpty())
         {
             return new ResponseEntity<HashMap<String,List<PlateformJDO>>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
-        }
+        }*/
         return new ResponseEntity<HashMap<String,List<PlateformJDO>>>(responseMap, HttpStatus.OK);
     }
     @RequestMapping(value = "/fetchPlacesList", method = RequestMethod.GET)
@@ -104,10 +104,10 @@ public class FetchController {
         List<PlacesJDO> placesList = placesDao.findAllUsers();
         HashMap<String,List<PlacesJDO>> responseMap = new HashMap<String,List<PlacesJDO>>();
         responseMap.put("data", placesList);
-        if(placesList.isEmpty())
+        /*if(placesList.isEmpty())
         {
             return new ResponseEntity<HashMap<String,List<PlacesJDO>>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
-        }
+        }*/
         return new ResponseEntity<HashMap<String,List<PlacesJDO>>>(responseMap, HttpStatus.OK);
     }
     @RequestMapping(value = "/fetchSitesList", method = RequestMethod.GET)
@@ -115,10 +115,10 @@ public class FetchController {
         List<SitesListJDO> sitesList = sitesListDao.findAllUsers();
         HashMap<String,List<SitesListJDO>> responseMap = new HashMap<String,List<SitesListJDO>>();
         responseMap.put("data", sitesList);
-        if(sitesList.isEmpty())
+        /*if(sitesList.isEmpty())
         {
-            return new ResponseEntity<HashMap<String,List<SitesListJDO>>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
-        }
+            return new ResponseEntity<HashMap<String,List<SitesListJDO>>>(responseMap,HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+        }*/
         return new ResponseEntity<HashMap<String,List<SitesListJDO>>>(responseMap, HttpStatus.OK);
     }
     /*@RequestMapping(value = "/fetchAllocationofTurnOverList", method = RequestMethod.GET)
