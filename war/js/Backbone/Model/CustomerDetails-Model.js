@@ -1,4 +1,4 @@
-var CustomerModel = Backbone.Model.extend({
+BackboneData.Models.CustomersListModel = Backbone.Model.extend({
     defaults: {
     	order_Order_ID:"",
     	no_customerOrder:"",
