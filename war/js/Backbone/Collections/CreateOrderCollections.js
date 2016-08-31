@@ -1,4 +1,4 @@
-var IdCollection = Backbone.Collection.extend({
+BackboneData.Collections.IdCollection = Backbone.Collection.extend({
 				
 	//Specify REST URL
 	url: 'http://localhost:8888/fetchController/fetchIDList',
@@ -12,7 +12,7 @@ var IdCollection = Backbone.Collection.extend({
 	}	
 });
 
-var fetchOrderDependencies = Backbone.Collection.extend({
+BackboneData.Collections.fetchOrderDependencies = Backbone.Collection.extend({
 	
 	//Specify REST URL
 	url: 'http://localhost:8888/fetchController/fetchorderDependencies',
@@ -26,10 +26,80 @@ var fetchOrderDependencies = Backbone.Collection.extend({
 	}	
 });
 
-var fetchActorsList = Backbone.Collection.extend({
+BackboneData.Collections.fetchActorsList = Backbone.Collection.extend({
 	
 	//Specify REST URL
 	url: 'http://localhost:8888/fetchController/fetchActorsList',
+	
+	initialize: function () {
+		this.bind("reset", function (model, options) {
+			console.log("Inside event");
+			console.log(model);
+			
+		});
+	}	
+});
+
+BackboneData.Collections.fetchIncotermsList = Backbone.Collection.extend({
+	
+	//Specify REST URL
+	url: 'http://localhost:8888/fetchController/fetchIncotermsList',
+	
+	initialize: function () {
+		this.bind("reset", function (model, options) {
+			console.log("Inside event");
+			console.log(model);
+			
+		});
+	}	
+});
+
+BackboneData.Collections.fetchCustomersList = Backbone.Collection.extend({
+	
+	//Specify REST URL
+	url: 'http://localhost:8888/fetchController/fetchCustomersList',
+	
+	initialize: function () {
+		this.bind("reset", function (model, options) {
+			console.log("Inside event");
+			console.log(model);
+			
+		});
+	}	
+});
+
+BackboneData.Collections.fetchPlatformsList = Backbone.Collection.extend({
+	
+	//Specify REST URL
+	url: 'http://localhost:8888/fetchController/fetchPlatformsList',
+	
+	initialize: function () {
+		this.bind("reset", function (model, options) {
+			console.log("Inside event");
+			console.log(model);
+			
+		});
+	}	
+});
+
+BackboneData.Collections.fetchPlacesList = Backbone.Collection.extend({
+	
+	//Specify REST URL
+	url: 'http://localhost:8888/fetchController/fetchPlacesList',
+	
+	initialize: function () {
+		this.bind("reset", function (model, options) {
+			console.log("Inside event");
+			console.log(model);
+			
+		});
+	}	
+});
+
+BackboneData.Collections.fetchSitesList = Backbone.Collection.extend({
+	
+	//Specify REST URL
+	url: 'http://localhost:8888/fetchController/fetchSitesList',
 	
 	initialize: function () {
 		this.bind("reset", function (model, options) {
