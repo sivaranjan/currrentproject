@@ -24,7 +24,7 @@
 
 <body>
 	<div class="status-voicebox hide" id="statusLoader" >
-		<div class="voicebox-content fade in">
+		<div class="voicebox-content fade">
 			<span class="loading"></span>
 			<span id="statusmsg"></span>
 		</div>
@@ -188,186 +188,13 @@
 		    </div>
 		</footer>
 
-		<!-- Actor Modal -->
-		<div class="modal fade" id="actor-modal" tabindex="-1" role="dialog">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title">New Actor</h4>
-		      </div>
-		      <div class="modal-body">
-		      	<form role="form">
-		      		<div class="form-group">
-		      			<label>MEP Study</label>
-		      			<div class="input-group">
-						  <input type="text" class="form-control" placeholder="firstname.lastname@valeo.com">
-						  <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-						</div>
-		      		</div>
-		      		<div class="form-group">
-					    <label>Site</label>
-					    <select class="selectpicker" data-width="100%" title="  ">
-					        <option>La Suze</option>
-					        <option>La Verrière</option>
-					        <option>Laval</option>
-					        <option>Nogent</option>
-					        <option>Reims</option>
-					    </select>
-					</div>
-		      	</form>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-success">Save changes</button>
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
 		
-		<!-- Incoterms Modal -->
-		<div class="modal fade" id="incoterms-modal" tabindex="-1" role="dialog">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title">New Incoterms</h4>
-		      </div>
-		      <div class="modal-body">
-		      	<form role="form">
-		      		<div class="form-group">
-		      			<label>Incoterms</label>
-		      			<input type="text" class="form-control" placeholder="">
-		      		</div>
-		      		<div class="form-group">
-					    <label>Site</label>
-					    <textarea class="form-control" rows="3"></textarea>
-					</div>
-		      	</form>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-success">Save changes</button>
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
 		
-		<!-- Clients Modal -->
-		<div class="modal fade" id="clients-modal" tabindex="-1" role="dialog">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title">New Client</h4>
-		      </div>
-		      <div class="modal-body">
-		      	<form role="form">
-		      		<div class="form-group">
-		      			<label>Client name</label>
-		      			<input type="text" class="form-control" placeholder="">
-		      		</div>
-		      		<div class="form-group">
-		      			<label>Customer Code</label>
-		      			<input type="text" class="form-control" placeholder="">
-		      		</div>
-		      		<div class="form-group">
-		      			<label>Branch Code</label>
-		      			<input type="text" class="form-control" placeholder="">
-		      		</div>
-		      		<div class="form-group">
-		      			<label>Vendor Code</label>
-		      			<input type="text" class="form-control" placeholder="">
-		      		</div>
-		      		<div class="form-group">
-					    <label>Final delivery address</label>
-					    <textarea class="form-control" rows="3"></textarea>
-					</div>
-		      	</form>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-success">Save changes</button>
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
 		
-		<!-- Platform Modal -->
-		<div class="modal fade" id="platform-modal" tabindex="-1" role="dialog">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title">New Platform</h4>
-		      </div>
-		      <div class="modal-body">
-		      	<form role="form">
-		      		<div class="form-group">
-		      			<label>Platform</label>
-		      			<input type="text" class="form-control" placeholder="">
-		      		</div>
-		      	</form>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-success">Save changes</button>
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
 		
-		<!-- location Modal -->
-		<div class="modal fade" id="location-modal" tabindex="-1" role="dialog">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title">New Place</h4>
-		      </div>
-		      <div class="modal-body">
-		      	<form role="form">
-		      		<div class="form-group">
-		      			<label>Place</label>
-		      			<input type="text" class="form-control" placeholder="">
-		      		</div>
-		      	</form>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-success">Save changes</button>
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
 		
-		<!-- Site Modal -->
-		<div class="modal fade" id="site-modal" tabindex="-1" role="dialog">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title">New Site</h4>
-		      </div>
-		      <div class="modal-body">
-		      	<form role="form">
-		      		<div class="form-group">
-		      			<label>Site Name</label>
-		      			<input type="text" class="form-control" placeholder="">
-		      		</div>
-		      		<div class="form-group">
-					    <label>Site Address</label>
-					    <textarea class="form-control" rows="3"></textarea>
-					</div>
-		      	</form>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-success">Save changes</button>
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
+		
+		
 		
 		<!-- Demote to requster Modal -->
 		<div class="modal fade" id="demotereq-modal" tabindex="-1" role="dialog">
