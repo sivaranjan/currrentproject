@@ -57,6 +57,9 @@ $('.language li a').click(function() {
         });
     }
 
-
+    $(document).on("keyup", ".form-control", function(e) 
+		     {
+    	$(this).removeClass('error');
+		      });
 
 });
