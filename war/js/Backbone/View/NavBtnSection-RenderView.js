@@ -99,7 +99,7 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
         var orderDetailsObj = new BackboneData.Models.OrderDetailModel({
             site_Workshop_Prototype: Site_Workshop_Prototype,
             geoSite: Geosite,
-            no_prototype_order: "",
+            no_prototype_order: No_Prototype_Order,
             proto_Type: Proto_Type,
             pcc: pcccheckbox,
             open_Order: openordercheckbox,
