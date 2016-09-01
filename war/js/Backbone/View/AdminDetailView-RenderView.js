@@ -61,7 +61,6 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
 
    },
     cleanup: function() {
-    	debugger;
         this.undelegateEvents();
         $(this.el).empty();
     },
@@ -294,7 +293,6 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
         this.buildSitesTable();
     },
     buildActorsTable: function(actorTypeFilter) {
-    	debugger;
         $('#actorsub-table').DataTable({
             dom: 'Bfrtip',
             "ajax": "http://localhost:8888/fetchController/fetchActorsByType/" + actorTypeFilter,
