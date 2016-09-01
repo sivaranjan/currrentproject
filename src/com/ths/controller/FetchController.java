@@ -15,6 +15,7 @@ import com.ths.DAO.ActorsListDAO;
 import com.ths.DAO.CustomersListDAO;
 import com.ths.DAO.IdDAO;
 import com.ths.DAO.IncotermsDAO;
+import com.ths.DAO.OrderDAO;
 import com.ths.DAO.PlacesDAO;
 import com.ths.DAO.PlateformDAO;
 import com.ths.DAO.SitesListDAO;
@@ -22,6 +23,7 @@ import com.ths.JDO.ActorsListJDO;
 import com.ths.JDO.CustomersListJDO;
 import com.ths.JDO.IdJDO;
 import com.ths.JDO.IncotermsJDO;
+import com.ths.JDO.OrderJDO;
 import com.ths.JDO.PlacesJDO;
 import com.ths.JDO.PlateformJDO;
 import com.ths.JDO.SitesListJDO;
@@ -46,6 +48,8 @@ public class FetchController {
     private SitesListDAO sitesListDao;
     @Autowired
     private PlacesDAO placesDao;
+    @Autowired
+    private OrderDAO orderDao;
 
     @RequestMapping(value = "/fetchActorsList", method = RequestMethod.GET)
     public ResponseEntity<List<ActorsListJDO>> listAllActors() {
@@ -149,7 +153,17 @@ public class FetchController {
          }*/
         return new ResponseEntity<HashMap<String,List<CustomersListJDO>>>(responseMap, HttpStatus.OK);
     }
-   
+    @RequestMapping(value = "/fetchOrders", method = RequestMethod.GET)
+    public ResponseEntity<HashMap<String,List<OrderJDO>>> fetchOrders() {
+        List<OrderJDO> ordersList = orderDao.findAllUsers();
+        HashMap<String,List<OrderJDO>> responseMap = new HashMap<String,List<OrderJDO>>();
+        responseMap.put("data", ordersList);
+        /*if(customersList.isEmpty())
+        {
+            return new ResponseEntity<HashMap<String,List<CustomersListJDO>>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+        }*/
+        return new ResponseEntity<HashMap<String,List<OrderJDO>>>(responseMap, HttpStatus.OK);
+    }
     
    
     
