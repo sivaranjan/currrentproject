@@ -99,75 +99,7 @@
 			
 		</section>
 		<section class="container hide" id="orderlist-section">
-			<div class="col-md-12">
-				<div class="panel-group" role="tablist">
-                	<div class="panel panel-default">
-						<div class="panel-heading" role="tab">
-					      <h4 class="panel-title">
-					        Order List
-					      </h4>
-					    </div>
-					    <div class="panel-collapse collapse in" role="tabpanel">
-					      <div class="panel-body">
-						      <table class="table table-hover responsive nowrap" id="orderlist-table">
-								<thead>
-									<tr>
-										<th><input type="checkbox"></th>
-										<th>Site</th>
-										<th>Number</th>
-										<th>Status</th>
-										<th>Branch Code</th>
-										<th>N<sup>&#8728;</sup> Customer order</th>
-										<th>Project Manager</th>
-										<th>Proto Type</th>
-										<th>type</th>
-										<th>Cde Ouverte</th>
-										<th>Added By</th>
-										<th>Added On</th>
-										<th>CommandeID</th>
-										<th>&nbsp;</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td><input type="checkbox"></td>
-										<td>La Suze</td>
-										<td>LAS0000220-P0V</td>
-										<td>EN COURS</td>
-										<td>BMW</td>
-										<td></td>
-										<td>teste.valeo005@app-test.valeo.com</td>
-										<td>p1</td>
-										<td>vendu</td>
-										<td><input type="checkbox"></td>
-										<td>18/08/2016</td>
-										<td>sivaranjan.venkatachalam@test.com</td>
-										<td>CMD0000220</td>
-										<td>&nbsp;</td>
-									</tr>
-									<tr>
-										<td><input type="checkbox"></td>
-										<td>La Suze</td>
-										<td>LAS0000221-P0V</td>
-										<td>EN COURS</td>
-										<td>Valeo</td>
-										<td>Test affctation CA / CdP</td>
-										<td>teste.valeo005@app-test.valeo.com</td>
-										<td>p0</td>
-										<td>vendu</td>
-										<td><input type="checkbox"></td>
-										<td>19/08/2016</td>
-										<td>sivaranjan.venkatachalam@test.com</td>
-										<td>CMD0000221</td>
-										<td>&nbsp;</td>
-									</tr>
-								</tbody>
-							  </table>
-							</div>
-					    </div>
-					</div>
-				</div>
-			</div>
+			
 		</section>
         <!-- Footer -->
         <footer>
@@ -315,6 +247,7 @@
           <script src="../Soy/SoyViewJs/navbtn-view.js"></script>
          <script src="../Soy/SoyViewJs/componentdetail-view.js"></script>
           <script src="../Soy/SoyViewJs/admindetail-view.js"></script>
+          <script src="../Soy/SoyViewJs/orderlist-view.js"></script>
 
  		 <script src="../js/Backbone/Model/test-Model.js"></script>
 
@@ -334,6 +267,7 @@
 		<script src="../js/Backbone/View/OrderDetail-RenderView.js"></script>
 		<script src="../js/Backbone/View/ComponentDetailView-RenderView.js"></script>
 		<script src="../js/Backbone/View/AdminDetailView-RenderView.js"></script>
+		<script src="../js/Backbone/View/OrderList-RenderView.js"></script>
 		<script src="../js/Loader/initializer.js"></script>
         <script src="../js/Routers/router.js?yufyufyufufyu"></script>
         <script src="../js/Actions/actions.js"></script>
