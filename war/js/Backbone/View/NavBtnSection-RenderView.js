@@ -54,6 +54,15 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
         {
         	this.saveOrder();
         }	
+        if(validate.getInstance().formordiv('component-section')) {
+        	 console.log("validating component section");
+         } else {
+             $('#component-section').find('.selectpicker').each(function() {
+                 if ($(this).hasClass('error')) {
+                 	$(this).selectpicker('setStyle','error','add');
+                 }
+             })
+        }
     },
     saveOrder: function() {
     	 $('#statusmsg').html("Saving your order..");
