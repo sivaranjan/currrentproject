@@ -12,7 +12,7 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
         $('#welcome-section,#admin-section,#component-section,#orderlist-section').addClass('hide');
         $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
         $('#createorder-tab').addClass('active');
-        ref.$el.html(orderDetailHTML);
+        	ref.$el.html(orderDetailHTML);
         console.log("hgh");
         $('#example').DataTable({
             dom: 'Bfrtip',
@@ -55,7 +55,6 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
     initialize: function() {
         var _thisView = this;
         _thisView.render();
-        var navBtnSectionHTML = new BackboneData.Views.NavBtnSectionview();
         /*=====================================Fetch Actors List ====================================*/
 
         /*=====================================Fetch ID Generated List ====================================*/
