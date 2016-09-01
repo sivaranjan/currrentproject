@@ -1,5 +1,6 @@
 "use strict";
 window.language || (window.language = {});
+window.orderStatus || (window.orderStatus = {});
 var lang = $(".language-dropdown:first-child").val();
 if (lang == "EN") {
     window.language = "EN";
