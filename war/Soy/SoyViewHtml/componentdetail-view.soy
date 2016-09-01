@@ -15,13 +15,13 @@
 							    <label for="name">N<sup>&#8728;</sup>  {$paramValue['Prototype Order']}</label>
 							    <input type="text" class="form-control input-sm" disabled readonly>
 							</div>
-							<div class="form-group col-md-3">
+							<div class="form-group col-md-3" id="orderTypeDiv">
 							    <label for="name">{$paramValue['Order type']}</label>
 							    <input type="text" class="form-control input-sm" disabled readonly>
 							</div>
-							<div class="form-group col-md-3">
-							    <label for="name" id="customerorderN0label">{$paramValue['Customer order N0']}</label>
-							    <input id="customerorderN0" type="text" class="form-control input-sm" disabled readonly>
+							<div class="form-group col-md-3 hide" id="customerOrderNodiv">
+							    <label for="name" >{$paramValue['Customer order N0']}</label>
+							    <input id="" type="text" class="form-control input-sm" disabled readonly>
 							</div>
 							<div class="form-group col-md-3">
 							    <label for="name">{$paramValue['Customer reference']}</label>
@@ -33,7 +33,7 @@
 							</div>
 							<div class="form-group col-md-3">
 							    <label for="name">{$paramValue['Component ID']}</label>
-							    <input type="text" class="form-control input-sm" disabled readonly>
+							    <input type="text" id="componentidfield" class="form-control input-sm" data-required="yes" data-type="text" disabled readonly>
 							</div>
 							<div class="form-group col-md-3">
 							    <label for="name">{$paramValue['Component status']}</label>
@@ -67,7 +67,7 @@
 										        		</div>
 										        		<div class="form-group col-md-3">
 										        			<label for="name">{$paramValue['Product type']} <span class="text-danger">*</span></label>
-									        				<select class="selectpicker" data-width="100%" title=" " data-required="yes" data-type="text">
+									        				<select class="selectpicker" data-required="yes" data-type="text" data-width="100%" title=" " >
 														        <option>option</option>
 														        <option>option</option>
 														        <option>option</option>
@@ -76,13 +76,13 @@
 														        <option>option</option>
 														    </select>
 										        		</div>
-										        		<div class="form-group col-md-3">
-										        			<label for="name" id="unitsellingpricelabel">{$paramValue['Unit selling price']}(&#x20AC;)</label>
+										        		<div class="form-group col-md-3 hide" id="unitsellingpriceDiv">
+										        			<label for="name" >{$paramValue['Unit selling price']}(&#x20AC;)</label>
 									        				<input type="text" class="form-control input-sm" id="unitsellingprice"/>
 										        		</div>
 										        		<div class="form-group col-md-3 hide" id="customerdiv">
-										        			<label for="name" id="customerlabel">{$paramValue['Customer']}</label>
-									        				<select class="selectpicker" data-width="100%" title=" " id="customer">
+										        			<label for="name">{$paramValue['Customer']}</label>
+									        				<select class="selectpicker" id="customerselect" data-width="100%" title=" " id="customer">
 														        <option>option</option>
 														        <option>option</option>
 														        <option>option</option>
@@ -91,20 +91,20 @@
 														        <option>option</option>
 														    </select>
 										        		</div>
-										        		<div class="form-group col-md-3">
-											      			<label id="Direct_delivery_to_customer">{$paramValue['Direct delivery to the customer']}? <span class="text-danger">*</span></label>
-											      			<div id="delivery">
+										        		<div class="form-group col-md-3 hide" id="directDeliveryDiv">
+											      			<label>{$paramValue['Direct delivery to the customer']}? <span class="text-danger">*</span></label>
+											      			<div style="padding: 1.5px 0;">
 											      				<label class="radio-inline"><input type="radio" name="optradio1" style="margin-top: 1px;" value="Yes" >{$paramValue['Yes']}</label>
 																<label class="radio-inline"><input type="radio" name="optradio1" style="margin-top: 1px;" value="No" >{$paramValue['No']}</label>
 											      			</div>
 											      		</div>
 										        		<div class="form-group col-md-3">
 										        			<label for="name">{$paramValue['Product specification']} <span class="text-danger">*</span></label>
-										        			<textarea class="form-control" style="height: 65px;resize: none;" data-required="yes" data-type="text"></textarea>
+										        			<textarea data-required="yes" data-type="text" class="form-control" style="height: 65px;resize: none;"></textarea>
 										        		</div>
-											      		<div class="form-group col-md-3">
-										        			<label for="name" class="hide" id="labolabel">{$paramValue['Labo address or other']}</label>
-										        			<textarea class="form-control hide" style="height: 65px;resize: none;" id="laboaddress"></textarea>
+											      		<div class="form-group col-md-3 hide" id="laboaddressdiv">
+										        			<label for="name" id="labolabel">{$paramValue['Labo address or other']}</label>
+										        			<textarea class="form-control" style="height: 65px;resize: none;" id="laboaddress"></textarea>
 										        		</div>
 										        		<div class="form-group col-md-3">
 										        			<label for="name">{$paramValue['Comment']}</label>
@@ -218,8 +218,8 @@
 													    <label>{$paramValue['Total Quantity']}</label>
 													    <input type="text" class="form-control input-sm" disabled readonly/>
 													</div>
-													<div class="form-group col-md-6">
-													    <label id="totalamountlabel">{$paramValue['Total amount']}</label>
+													<div class="form-group col-md-6 hide" id="totalamtDiv">
+													    <label>{$paramValue['Total amount']}</label>
 													      <input type="text" class="form-control input-sm" disabled readonly id="totalamount"/>
 													</div>
 									        		
