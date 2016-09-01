@@ -19,21 +19,55 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
         "click #saveorderbtn": "validateOrder"
     },
     validateOrder: function() {
+    	var setFlag = false;
         if (validate.getInstance().formordiv('orderdetailview')) {
             console.log("trfdsf");
-            saveOrder();
-        } else {
+            this.saveOrder();
+        } 
+        else 
+        {
             $('#orderdetailview').find('.selectpicker').each(function() {
-                if ($(this).hasClass('error')) {
-                	$(this).selectpicker('setStyle','error','add');
+                if ($(this).hasClass('error')) 
+                {
+                	if(!$(this).parent().parent().hasClass('hide'))
+                	{
+                		setFlag = true;
+                		$(this).selectpicker('setStyle', 'error', 'add');
+                	}	
                 }
-            })
+            });
+            $('#orderdetailview').find('.form-control').each(function() {
+                if ($(this).hasClass('error')) 
+                {
+                	if(!$(this).parent().hasClass('hide'))
+                	{
+                		setFlag = true;
+                	}
+                	else
+                	{
+                		$(this).removeClass('error');
+                	}	
+                }
+            });
+        }
+        if(!setFlag)
+        {
+        	this.saveOrder();
+        }	
+        if(validate.getInstance().formordiv('component-section')) {
+        	 console.log("validating component section");
+         } else {
+             $('#component-section').find('.selectpicker').each(function() {
+                 if ($(this).hasClass('error')) {
+                 	$(this).selectpicker('setStyle','error','add');
+                 }
+             })
         }
     },
     saveOrder: function() {
-    	$('#statusmsg').html("Saving your order..")
-    	$('#statusLoader').removeClass('hide');
-    	
+    	 $('#statusmsg').html("Saving your order..");
+         $('#statusLoader').removeClass('hide');
+         $('#statusLoader .voicebox-content').addClass('in');
         var Site_Workshop_Prototype = $('#Site_Workshop_Prototype').val();
         var Geosite = $('#Geosite').val();
         var No_Prototype_Order = $('#No_Prototype_Order').val();
@@ -69,68 +103,62 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
         var controlmanagement = $('#controlmanagement').val();
         var fotrade = $('#fotrade').val();
         var adv = $('#adv').val();
-        var projmanager = 	$('#projmanager').val();
-        
-        var orderDetailsObj = new BackboneData.Models.OrderDetailModel({ 
-        	site_Workshop_Prototype:Site_Workshop_Prototype,
-            geoSite:Geosite,
-            no_prototype_order:"",
-            proto_Type:Proto_Type,
-            pcc:pcccheckbox,
-            open_Order:openordercheckbox,
-            frittage:frittagecheckbox,
-            e52:e52checkbox,
-            intraLE:intralecheckbox,
-            type_of_the_Prototype_Order:Type_of_the_Prototype_Order,
-            date_of_the_Order:Date_of_the_Order,
-            order_Status:"Draft",
-            total_Order_Amount:0,
+        var projmanager = $('#projmanager').val();
+
+        var orderDetailsObj = new BackboneData.Models.OrderDetailModel({
+            site_Workshop_Prototype: Site_Workshop_Prototype,
+            geoSite: Geosite,
+            no_prototype_order: No_Prototype_Order,
+            proto_Type: Proto_Type,
+            pcc: pcccheckbox,
+            open_Order: openordercheckbox,
+            frittage: frittagecheckbox,
+            e52: e52checkbox,
+            intraLE: intralecheckbox,
+            type_of_the_Prototype_Order: Type_of_the_Prototype_Order,
+            date_of_the_Order: "",
+            no_customerOrder: no_customer_order,
+            customerOrderAttachment: customer_order_list,
+            customer_Name: Customer_Name,
+            customer_Code: Customer_Code,
+            branch_Code: Branch_Code,
+            provider_Code: Provider_Code,
+            final_Delivery_Address: Final_Delivery_Address,
+            additional_Address: Additional_Address,
+            site_Address:Site_Address,
+            plateform: Plateform,
+            incoterms: Incoterms,
+            place: Place,
+            customer_Receiver_Name: Customer_Receiver_Name,
+            customer_Receiver_Telephone: Customer_Receiver_Telephone,
+            allocation_of_turnover: Allocation_of_turnover,
+            requester:requester,
+            mep_Study: mepstudy,
+            quality: quality,
+            proto_Workshop: protoworkshop,
+            control_Management: controlmanagement,
+            fo_Trade: fotrade,
+            adv: adv,
+            project_Manager: projmanager,      	
+            order_Status: "Draft",
+            total_Order_Amount: 0,
         });
         orderDetailsObj.save({}, {
-        	
+
             success: function(model, respose, options) {
                 console.log("The model has been saved to the server");
             },
             error: function(model, xhr, options) {
-            	$('#statusmsg').html("Order saved successully");
-//            	$('#statusLoader').addClass('hide');
-                console.log("Something went wrong while saving the model :: "+model);
-                console.log("Something went wrong while saving the xhr :: "+xhr);
-                console.log("Something went wrong while saving the options :: "+options);
+            	 $('#statusmsg').html("Order saved successfully..");
+                 $('#statusLoader').removeClass('hide');
+                 $('#statusLoader .voicebox-content').addClass('in');
+                console.log("Something went wrong while saving the model :: " + model);
+                console.log("Something went wrong while saving the xhr :: " + xhr);
+                console.log("Something went wrong while saving the options :: " + options);
                 console.log(model);
                 console.log(xhr);
                 console.log(options);
             }
         });
-        
-        var orderID = "";
-        if (typeof(Storage) !== "undefined") 
-        {
-            if (localStorage.getItem("lastID") != null && localStorage.getItem("lastID") != "") {
-                localStorage.setItem("lastID", 0002000);
-            } else {
-                localStorage.setItem("lastID", 0002000);
-
-            }
-        }
-        
-        if (Site_Workshop_Prototype == "La Suze (LAS)") {
-            orderID = "LAS";
-        } else if (Site_Workshop_Prototype == "La Verriere (LVR)") {
-            orderID = "LVR";
-        } else if (Site_Workshop_Prototype == "Laval (LVL)") {
-            orderID = "LVL";
-        } else if (Site_Workshop_Prototype == "Nogent (NOG)") {
-            orderID = "NOG";
-        } else if (Site_Workshop_Prototype == "Reims (RMS)") {
-            orderID = "RMS";
-        }
-        if (Type_of_the_Prototype_Order == "VENDU / SOLD") {
-            Type_of_the_Prototype_Order = "V";
-        } else if (Type_of_the_Prototype_Order == "NON VENDU / NOT SOLD") {
-            Type_of_the_Prototype_Order = "N";
-        }
-        orderID = orderID + localStorage.getItem("lastID") + "-" + Proto_Type + Type_of_the_Prototype_Order;
-        $('#No_Prototype_Order').val(orderID);
     }
 });

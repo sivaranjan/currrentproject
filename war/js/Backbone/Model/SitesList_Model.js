@@ -1,8 +1,8 @@
-var SitesListModel = Backbone.Model.extend({
+BackboneData.Models.SitesListModel = Backbone.Model.extend({
     defaults: {
-    	site_Name:"",
-    	address:"",
-    	added_By:"",
+        site_Name: "",
+        address: "",
+        added_By: "",
     },
     initialize: function() {
         console.log('sitelist has been initialized');

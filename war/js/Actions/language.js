@@ -11,6 +11,10 @@ window.orderDetails_frenchLabelList || (window.orderDetails_frenchLabelList = {}
 window.orderDetails_englishLabelList || (window.orderDetails_englishLabelList = {});
 window.componentCreation_frenchLabelList || (window.componentCreation_frenchLabelList = {});
 window.componentCreation_englishLabelList || (window.componentCreation_englishLabelList = {});
+window.adminSetting_frenchLabelList || (window.adminSetting_frenchLabelList = {});
+window.adminSetting_englishLabelList || (window.adminSetting_englishLabelList = {});
+
+
 navBar_englishLabelList = {
     'HOME': 'HOME',
     'CREATE ORDER': 'CREATE ORDER',
@@ -99,7 +103,7 @@ orderDetails_frenchLabelList = {
     'MEP Study': 'MEP Etude',
     'Quality': 'Qualit\xE9',
     'Proto workshop': 'Atelier Proto',
-    'Control management': 'Controle de Gestion',
+    'Control management': 'Contr\xF4le de Gestion',
     'FO Trade': 'Commerce FO',
     'ADV': 'ADV',
     'Project manager': 'Chef de Projet',
@@ -304,4 +308,65 @@ componentCreation_englishLabelList = {
     'Yes': 'Yes',
     'No': 'No'
 
+};
+adminSetting_frenchLabelList = {
+		'Application Configuration':'Configuration de l\'application',
+		'List of Actors':'Liste des Acteurs',
+		'List of Incoterms':'Liste des Incoterms',
+		'List of Clients':'Liste des clients',
+		'List of Prototypists':'Liste des prototypistes',
+		'List of Plateforms':'Liste des Plateformes',
+		'List of Products Types':'Liste des Produits Types',
+		'List of Technologies':'Liste des Technologies',
+		'List of R & D Leaders':'Liste des R & D Leaders',
+		'List of Clients and Lab Addresses':'Liste des clients et des adresses de laboratoire',
+		'List of Locations':'Liste des emplacements',
+		'List of Sites':'Liste des sites',
+		'Workflow Configuration':'Configuration de workflow',
+		'Administrator View':'Administrator Voir',
+		'Delete draft requests':'Supprimer les projets de demandes',
+		'Restart process':'processus de red\xE9marrage',
+		'Define a delegate for a period of time':'D\xE9finir un d\xE9l\xE9gu\xE9 pour une p\xE9riode de temps',
+		'App Configuration':'Configuration App',
+		'Data':'Donn\xE9es',
+	    'MEP Study': 'MEP Etude',
+	    'Quality': 'Qualit\xE9',
+	    'Proto workshop': 'Atelier Proto',
+	    'Management Control': 'Contr\xF4le de Gestion',
+	    'FO Trade': 'Commerce FO',
+		'ADV':'ADV',
+	    'Project manager': 'Chef de Projet',
+		'Site':'Site',
+	    'Edit': 'Modifier',
+	    'Delete': 'Effacer'
+};
+adminSetting_englishLabelList = {
+		'Application Configuration':'Application Configuration',
+		'List of Actors':'List of Actors',
+		'List of Incoterms':'List of Incoterms',
+		'List of Clients':'List of Clients',
+		'List of Prototypists':'List of Prototypists',
+		'List of Plateforms':'List of Platforms',
+		'List of Products Types':'List of Products Types',
+		'List of Technologies':'List of Technologies',
+		'List of R & D Leaders':'List of R & D Leaders',
+		'List of Clients and Lab Addresses':'List of Clients and Lab Addresses',
+		'List of Locations':'List of Locations',
+		'List of Sites':'List of Sites',
+		'Workflow Configuration':'Workflow Configuration',
+		'Administrator View':'Administrator View',
+		'Delete draft requests':'Delete draft requests',
+		'Restart process':'Restart process',
+		'Define a delegate for a period of time':'Define a delegate for a period of time',
+		'App Configuration':'App Configuration',
+		'Data':'Data',
+		'MEP Study':'MEP Study',
+		'Quality':'Quality',
+		'Proto workshop':'Proto workshop',
+		'Management Control':'Management Control',
+		'FO Trade':'FO Trade',
+		'ADV':'ADV',
+		'Project manager':'Project manager',
+		'Site':'Site',
+		'Delete':'Delete'
 };

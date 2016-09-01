@@ -15,7 +15,7 @@
 					    <div class="panel-collapse collapse in" role="tabpanel">
 					      <div class="panel-body" id="config-panel">
 					      		<ol class="breadcrumb hide" id="configbreadcrumb">
-								  <li><a href="#">App Configuration</a></li>
+								  <li><a id="showtableslist" style="cursor:pointer">App Configuration</a></li>
 								  <li class="active">Data</li>
 								</ol>
 						 		<ul class="list-unstyled row configset">
@@ -70,453 +70,154 @@
 						 		</ul>
 						 		
 						 		/* Actor article */
-						 		<article class="hide" id="actor-article">
-						 			<ul class="nav nav-pills comnav-pills" style="margin-bottom: 15px;">
-						 				<li class="active">
+						 		<article class="tablelistview hide" id="actor-article">
+						 			<ul class="nav nav-pills comnav-pills" id="addActorUL" style="margin-bottom: 15px;">
+						 				<li class="active" data-attr="MEP Study">
 						 					<a href="#mepstudy-subtab" data-toggle="tab">MEP Study</a>
 						 				</li>
-						 				<li>
+						 				<li data-attr="Quality"> 
 						 					<a href="#quality-subtab" data-toggle="tab">Quality</a>
 						 				</li>
-						 				<li>
+						 				<li data-attr="Proto workshop">
 						 					<a href="#proto-subtab" data-toggle="tab">Proto workshop</a>
 						 				</li>
-						 				<li>
-						 					<a href="#manage-subtab" data-toggle="tab">Management Control</a>
+						 				<li data-attr="Control management">
+						 					<a href="#manage-subtab" data-toggle="tab">Control management</a>
 						 				</li>
-						 				<li>
-						 					<a href="#trade-subtab" data-toggle="tab">FO trade</a>
+						 				<li data-attr="FO Trade">
+						 					<a href="#trade-subtab" data-toggle="tab">FO Trade</a>
 						 				</li>
-						 				<li>
+						 				<li data-attr="ADV">
 						 					<a href="#adv-subtab" data-toggle="tab">ADV</a>
 						 				</li>
-						 				<li>
+						 				<li data-attr="Project Manager">
 						 					<a href="#project-subtab" data-toggle="tab">Project Manager</a>
 						 				</li>
 						 			</ul>
 						 			<div class="tab-content">
 						 				<div role="tabpanel" class="tab-pane active" id="mepstudy-subtab">
-						 					<table class="table table-hover" id="mepstudysub-table">
+						 					<table class="table table-hover" id="actorsub-table">
 						 						<thead>
 						 							<tr>
-						 								<th><input type="checkbox"></th>
-						 								<th>MEP Study</th>
+						 								<th>Actor Email</th>
+						 								<th>Actor Type</th>
 						 								<th>Site</th>
-						 								<th>Edit</th>
-						 								<th>Delete</th>
 						 							</tr>
 						 						</thead>
-						 						<tbody>
-						 							<tr>
-						 								<td><input type="checkbox"></td>
-						 								<td>bernard.cheron@apps-test.valeo.com</td>
-						 								<td>Nogent</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-														      <i class="fa fa-pencil"></i>
-														    </button>
-						 								</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-													      		<i class="fa fa-trash"></i>
-													    	</button>
-													    </td>
-						 							</tr>
-						 						</tbody>
 						 					</table>
 						 				</div>
-									    <div role="tabpanel" class="tab-pane" id="quality-subtab">
-									    	<table class="table table-hover" id="qualitysub-table">
-						 						<thead>
-						 							<tr>
-						 								<th><input type="checkbox"></th>
-						 								<th>Quality</th>
-						 								<th>Site</th>
-						 								<th>Edit</th>
-						 								<th>Delete</th>
-						 							</tr>
-						 						</thead>
-						 						<tbody>
-						 							<tr>
-						 								<td><input type="checkbox"></td>
-						 								<td>bernard.cheron@apps-test.valeo.com</td>
-						 								<td>Nogent</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-														      <i class="fa fa-pencil"></i>
-														    </button>
-						 								</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-													      		<i class="fa fa-trash"></i>
-													    	</button>
-													    </td>
-						 							</tr>
-						 						</tbody>
-						 					</table>
-									    </div>
-									    <div role="tabpanel" class="tab-pane" id="proto-subtab">
-									    	<table class="table table-hover" id="protosub-table">
-						 						<thead>
-						 							<tr>
-						 								<th><input type="checkbox"></th>
-						 								<th>Proto Workshop</th>
-						 								<th>Site</th>
-						 								<th>Edit</th>
-						 								<th>Delete</th>
-						 							</tr>
-						 						</thead>
-						 						<tbody>
-						 							<tr>
-						 								<td><input type="checkbox"></td>
-						 								<td>bernard.cheron@apps-test.valeo.com</td>
-						 								<td>Nogent</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-														      <i class="fa fa-pencil"></i>
-														    </button>
-						 								</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-													      		<i class="fa fa-trash"></i>
-													    	</button>
-													    </td>
-						 							</tr>
-						 						</tbody>
-						 					</table>
-									    </div>
-									    <div role="tabpanel" class="tab-pane" id="manage-subtab">
-									    	<table class="table table-hover" id="managesub-table">
-						 						<thead>
-						 							<tr>
-						 								<th><input type="checkbox"></th>
-						 								<th>Management Control</th>
-						 								<th>Site</th>
-						 								<th>Edit</th>
-						 								<th>Delete</th>
-						 							</tr>
-						 						</thead>
-						 						<tbody>
-						 							<tr>
-						 								<td><input type="checkbox"></td>
-						 								<td>bernard.cheron@apps-test.valeo.com</td>
-						 								<td>Nogent</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-														      <i class="fa fa-pencil"></i>
-														    </button>
-						 								</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-													      		<i class="fa fa-trash"></i>
-													    	</button>
-													    </td>
-						 							</tr>
-						 						</tbody>
-						 					</table>
-									    </div>
-									    <div role="tabpanel" class="tab-pane" id="trade-subtab">
-									    	<table class="table table-hover" id="tradesub-table">
-						 						<thead>
-						 							<tr>
-						 								<th><input type="checkbox"></th>
-						 								<th>FO trade</th>
-						 								<th>Site</th>
-						 								<th>Edit</th>
-						 								<th>Delete</th>
-						 							</tr>
-						 						</thead>
-						 						<tbody>
-						 							<tr>
-						 								<td><input type="checkbox"></td>
-						 								<td>bernard.cheron@apps-test.valeo.com</td>
-						 								<td>Nogent</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-														      <i class="fa fa-pencil"></i>
-														    </button>
-						 								</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-													      		<i class="fa fa-trash"></i>
-													    	</button>
-													    </td>
-						 							</tr>
-						 						</tbody>
-						 					</table>
-									    </div>
-									    <div role="tabpanel" class="tab-pane" id="adv-subtab">
-									    	<table class="table table-hover" id="advsub-table">
-						 						<thead>
-						 							<tr>
-						 								<th><input type="checkbox"></th>
-						 								<th>ADV</th>
-						 								<th>Site</th>
-						 								<th>Edit</th>
-						 								<th>Delete</th>
-						 							</tr>
-						 						</thead>
-						 						<tbody>
-						 							<tr>
-						 								<td><input type="checkbox"></td>
-						 								<td>bernard.cheron@apps-test.valeo.com</td>
-						 								<td>Nogent</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-														      <i class="fa fa-pencil"></i>
-														    </button>
-						 								</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-													      		<i class="fa fa-trash"></i>
-													    	</button>
-													    </td>
-						 							</tr>
-						 						</tbody>
-						 					</table>
-									    </div>
-									    <div role="tabpanel" class="tab-pane" id="project-subtab">
-									    	<table class="table table-hover" id="prosub-table">
-						 						<thead>
-						 							<tr>
-						 								<th><input type="checkbox"></th>
-						 								<th>Project Manager</th>
-						 								<th>Site</th>
-						 								<th>Edit</th>
-						 								<th>Delete</th>
-						 							</tr>
-						 						</thead>
-						 						<tbody>
-						 							<tr>
-						 								<td><input type="checkbox"></td>
-						 								<td>bernard.cheron@apps-test.valeo.com</td>
-						 								<td>Nogent</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-														      <i class="fa fa-pencil"></i>
-														    </button>
-						 								</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-													      		<i class="fa fa-trash"></i>
-													    	</button>
-													    </td>
-						 							</tr>
-						 						</tbody>
-						 					</table>
-									    </div>
 						 			</div>
 						 		</article>
 						 		
 						 		/* Incoterms article */
-						 		<article class="hide" id="incoterms-article">
+						 		<article class=" tablelistview hide" id="incoterms-article">
 						 			<table class="table table-hover" id="incoterms-table">
 						 						<thead>
 						 							<tr>
-						 								<th><input type="checkbox"></th>
 						 								<th>Incoterms</th>
 						 								<th>Info</th>
-						 								<th>Edit</th>
-						 								<th>Delete</th>
 						 							</tr>
 						 						</thead>
-						 						<tbody>
-						 							<tr>
-						 								<td><input type="checkbox"></td>
-						 								<td>CPT</td>
-						 								<td>Port payé jusqu'au lieu désigné. Frais d'assurance à la charger de l'acheteur.</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-														      <i class="fa fa-pencil"></i>
-														    </button>
-						 								</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-													      		<i class="fa fa-trash"></i>
-													    	</button>
-													    </td>
-						 							</tr>
-						 						</tbody>
 						 					</table>
 						 		</article>
 						 		
 						 		/* Clients article */
-						 		<article class="hide" id="clients-article">
+						 		<article class="tablelistview hide" id="clients-article">
 						 			<table class="table table-hover" id="clients-table">
 						 						<thead>
 						 							<tr>
-						 								<th><input type="checkbox"></th>
 						 								<th>Client name</th>
 						 								<th>Customer Code</th>
 						 								<th>Branch Code</th>
 						 								<th>Vendor Code</th>
 						 								<th>Final delivery address</th>
-						 								<th>Edit</th>
-						 								<th>Delete</th>
 						 							</tr>
 						 						</thead>
-						 						<tbody>
-						 							<tr>
-						 								<td><input type="checkbox"></td>
-						 								<td>AUDI / GROSSMEHRING</td>
-						 								<td>0192DES003\01929999BB</td>
-						 								<td>AUDI</td>
-						 								<td>53246</td>
-						 								<td>AUDI AG WARENEINGANG TEGUTENBERGSTRASS</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-														      <i class="fa fa-pencil"></i>
-														    </button>
-						 								</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-													      		<i class="fa fa-trash"></i>
-													    	</button>
-													    </td>
-						 							</tr>
-						 						</tbody>
 						 					</table>
 						 		</article>
 						 		
 						 		/* Prototypists article */
-						 		<article class="hide" id="prototypists-article">
+						 		<article class="tablelistview hide" id="prototypists-article">
 						 			
 						 		</article>
 						 		
 						 		/* Platforms article */
-						 		<article class="hide" id="platforms-article">
+						 		<article class="tablelistview hide" id="platforms-article">
 						 			<table class="table table-hover" id="platformssub-table">
 						 						<thead>
 						 							<tr>
-						 								<th><input type="checkbox"></th>
 						 								<th>Platforms</th>
-						 								<th>Edit</th>
-						 								<th>Delete</th>
 						 							</tr>
 						 						</thead>
-						 						<tbody>
-						 							<tr>
-						 								<td><input type="checkbox"></td>
-						 								<td>A-Entry</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-														      <i class="fa fa-pencil"></i>
-														    </button>
-						 								</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-													      		<i class="fa fa-trash"></i>
-													    	</button>
-													    </td>
-						 							</tr>
-						 						</tbody>
 						 					</table>
 						 		</article>
 						 		
 						 		/* Products article */
-						 		<article class="hide" id="productstypes-article">
+						 		<article class="tablelistview hide" id="productstypes-article">
 						 			
 						 		</article>
 						 		
 						 		/* Technologies article */
-						 		<article class="hide" id="technologies-article">
+						 		<article class="tablelistview hide" id="technologies-article">
 						 			
 						 		</article>
 						 		
 						 		/*  R & D Leaders article */
-						 		<article class="hide" id=" rdlead-article">
+						 		<article class="tablelistview hide" id=" rdlead-article">
 						 			
 						 		</article>
 						 		
 						 		/* Clients and Lab Addresses article */
-						 		<article class="hide" id="clientadd-article">
+						 		<article class="tablelistview hide" id="clientadd-article">
 						 			
 						 		</article>
 						 		
 						 		/* Locations article */
-						 		<article class="hide" id="locations-article">
+						 		<article class="tablelistview hide" id="locations-article">
 						 			<table class="table table-hover" id="locationsub-table">
 						 						<thead>
 						 							<tr>
-						 								<th><input type="checkbox"></th>
 						 								<th>Place</th>
-						 								<th>Edit</th>
-						 								<th>Delete</th>
 						 							</tr>
 						 						</thead>
-						 						<tbody>
-						 							<tr>
-						 								<td><input type="checkbox"></td>
-						 								<td>Guyancourt</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-														      <i class="fa fa-pencil"></i>
-														    </button>
-						 								</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-													      		<i class="fa fa-trash"></i>
-													    	</button>
-													    </td>
-						 							</tr>
-						 						</tbody>
 						 					</table>
 						 		</article>
 						 		
 						 		/* Sites article */
-						 		<article class="hide" id="sites-article">
+						 		<article class="tablelistview hide" id="sites-article">
 						 			<table class="table table-hover" id="sitesub-table">
 						 						<thead>
 						 							<tr>
-						 								<th><input type="checkbox"></th>
 						 								<th>Site Name</th>
 						 								<th>Site Address</th>
-						 								<th>Edit</th>
-						 								<th>Delete</th>
 						 							</tr>
 						 						</thead>
-						 						<tbody>
-						 							<tr>
-						 								<td><input type="checkbox"></td>
-						 								<td>La Suze</td>
-						 								<td>VALEO SYSTEMES THERMIQUESRoute de Chemiré Le Gaudin72210 La Suze S</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-														      <i class="fa fa-pencil"></i>
-														    </button>
-						 								</td>
-						 								<td>
-						 									<button type="button" class="btn btn-default btn-sm">
-													      		<i class="fa fa-trash"></i>
-													    	</button>
-													    </td>
-						 							</tr>
-						 						</tbody>
+						 						
 						 					</table>
 						 		</article>
 						 		
 						 		/* Workflow Configuration article */
-						 		<article class="hide" id="workconfig-article">
+						 		<article class="tablelistview hide" id="workconfig-article">
 						 			
 						 		</article>
 						 		
 						 		/* Administrator view article */
-						 		<article class="hide" id="adminview-article">
+						 		<article class="tablelistview hide" id="adminview-article">
 						 			
 						 		</article>
 						 		
 						 		/* Delete draft requests article */
-						 		<article class="hide" id="deldraft-article">
+						 		<article class="tablelistview hide" id="deldraft-article">
 						 			
 						 		</article>
 						 		
 						 		/* Restart process article */
-						 		<article class="hide" id="restartpro-article">
+						 		<article class="tablelistview hide" id="restartpro-article">
 						 			
 						 		</article>
 						 		
 						 		/* Define a delegate for a period of time article */
-						 		<article class="hide" id="timeperiod-article">
+						 		<article class="tablelistview hide" id="timeperiod-article">
 						 			
 						 		</article>
 							</div>
@@ -524,43 +225,185 @@
 					</div>
 				</div>
 			</div>
-			<input type="button" value="Create New Incoterms" id="create_Incoterms"/>
-			<input type="button" value="Create New Plateform" id="create_plateform"/>
-			<input type="button" value="Create New Place" id="create_Place"/>
-			<input type="button" value="Create New Customer" id="create_Customers"/>
-			<input type="button" value="Create New Site" id="create_site"/>
-			<input type="button" value="Create New Actor" id="create_Actor"/>
 			
-			<div id="IncotermDetails" class="hide">
-			<label id="incolabel">Incoterm :</label><input type="text" name="incoterms" id="incoterms_value" /><br>
-	        <label>Infos :</label><input type="text" name="infos" id="incoterms_info"/><br>
-	        <input type="button" value="Save" id="save_incoterms"/>
-	        </div>
-	        <div id="PlaceDetails" class="hide">
-			<label id="placeslabel">Places :</label><input type="text" name="places" id="places"/><br>
-	        <input type="button" value="Save" id="save_places"/>
-	        </div>
-	        <div id="PlateformDetails" class="hide">
-			<label id="plateformlabel">Plateform :</label><input type="text" name="plateform" id="plateforms_value"/><br>
-	        <input type="button" value="Save" id="save_plateform"/>
-	        </div>
-	        <div id="CustomerDetails" class="hide">
-			<label id="Customername">Customer Name :</label><input type="text" name="cust_name" id="customer_name"/><br>
-			<label id="Customercode">Customer Code :</label><input type="text" name="cust_code" id="customer_code"/><br>
-			<label id="Branchcode">Branch Code :</label><input type="text" name="branch_code" id="customer_branch"/><br>
-			<label id="Providercode">Provider Code :</label><input type="text" name="provider_code" id="cust_provider_code"/><br>
-			<label id="CustomerAddress">Customer Address :</label><input type="text" name="cust_address" id="customer_address"/><br>
-	        <input type="button" value="Save" id="save_customer"/>
-	        </div>
-	         <div id="SiteDetails" class="hide">
-			<label id="sitename">site Name :</label><input type="text" name="site_name" id="site_name"/><br>
-			<label id="siteaddress">site Address :</label><input type="text" name="site_address" id="site_address"/><br>
-	        <input type="button" value="Save" id="save_site"/>
-	        </div>
-	        <div id="ActorDetails" class="hide">
-			<label id="actortype">Actor Type :</label><input type="text" name="actor_type" id="actor_type"/><br>
-			<label id="actoremail">Actor Email :</label><input type="text" name="actor_email" id="actor_email"/><br>
-			<label id="actoremail">Site :</label><input type="text" name="actor_site" id="actor_site"/><br>
-	        <input type="button" value="Save" id="save_actorlist"/>
-	        </div>
+			<!-- Actor Modal -->
+			
+		<div class="modal fade" id="actor-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">New Actor</h4>
+		      </div>
+		      <div class="modal-body" id="actor_modal_body">
+		      	<form role="form">
+		      		<div class="form-group">
+		      			<label id="actorLabel">MEP Study</label>
+		      			<div class="input-group">
+						  <input type="text" data-required="yes" data-type="email" class="form-control" id="actor_email" placeholder="firstname.lastname@valeo.com">
+						  <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+						</div>
+		      		</div>
+		      		<div class="form-group">
+					    <label>Site</label>
+					    <select class="selectpicker" data-required="yes" data-live-search="true" data-type="text" id="actor_site" data-width="100%" title="  ">
+					        <option>La Suze (LAS)</option>
+					        <option>La Verriere (LVR)</option>
+					        <option>Laval (LVL)</option>
+					        <option>Nogent (NOG)</option>
+					        <option>Reims (RMS)</option>
+					    </select>
+					</div>
+		      	</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-success" id="save_actor">Save changes</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<!-- Incoterms Modal -->
+		
+		<div class="modal fade" id="incoterms-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">New Incoterms</h4>
+		      </div>
+		      <div class="modal-body" id="incoterms_modal_body">
+		      	<form role="form">
+		      		<div class="form-group">
+		      			<label>Incoterms</label>
+		      			<input type="text" class="form-control" data-required="yes" data-type="text" placeholder="" id="incoterms_value">
+		      		</div>
+		      		<div class="form-group">
+					    <label>Site</label>
+					    <textarea class="form-control" rows="3" data-required="yes" data-type="text" id="incoterms_info"></textarea>
+					</div>
+		      	</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-success" id="save_incoterms">Save changes</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- Clients Modal -->
+		<div class="modal fade" id="clients-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">New Client</h4>
+		      </div>
+		      <div class="modal-body" id="customers_modal_body">
+		      	<form role="form">
+		      		<div class="form-group">
+		      			<label>Client name</label>
+		      			<input type="text" class="form-control" placeholder="" data-required="yes" data-type="text" id="customer_name">
+		      		</div>
+		      		<div class="form-group">
+		      			<label>Customer Code</label>
+		      			<input type="text" class="form-control" placeholder="" data-required="yes" data-type="text" id="customer_code">
+		      		</div>
+		      		<div class="form-group">
+		      			<label>Branch Code</label>
+		      			<input type="text" class="form-control" placeholder="" data-required="yes" data-type="text" id="customer_branch">
+		      		</div>
+		      		<div class="form-group">
+		      			<label>Vendor Code</label>
+		      			<input type="text" class="form-control" placeholder="" data-required="yes" data-type="text" id="cust_provider_code">
+		      		</div>
+		      		<div class="form-group">
+					    <label>Final delivery address</label>
+					    <textarea class="form-control" rows="3" data-required="yes" data-type="text" id="customer_address"></textarea>
+					</div>
+		      	</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-success" id="save_customer">Save changes</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- Platform Modal -->
+		<div class="modal fade" id="platform-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">New Platform</h4>
+		      </div>
+		      <div class="modal-body" id="platform_modal_body">
+		      	<form role="form">
+		      		<div class="form-group">
+		      			<label>Platform</label>
+		      			<input type="text" class="form-control" placeholder="" id="plateforms_value" data-required="yes" data-type="text">
+		      		</div>
+		      	</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-success" id="save_plateform">Save changes</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<!-- location Modal -->
+		<div class="modal fade" id="location-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">New Place</h4>
+		      </div>
+		      <div class="modal-body" id="places_modal_body">
+		      	<form role="form">
+		      		<div class="form-group">
+		      			<label>Place</label>
+		      			<input type="text" class="form-control" placeholder="" id="places" data-required="yes" data-type="text">
+		      		</div>
+		      	</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-success" id="save_places">Save changes</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<!-- Site Modal -->
+		<div class="modal fade" id="site-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">New Site</h4>
+		      </div>
+		      <div class="modal-body" id="sites_modal_body">
+		      	<form role="form">
+		      		<div class="form-group">
+		      			<label>Site Name</label>
+		      			<input type="text" class="form-control" placeholder="" id="site_name" data-required="yes" data-type="text">
+		      		</div>
+		      		<div class="form-group">
+					    <label>Site Address</label>
+					    <textarea class="form-control" rows="3" data-required="yes" id="site_address" data-type="text"></textarea>
+					</div>
+		      	</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-success" id="save_site">Save changes</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 {/template}

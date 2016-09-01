@@ -1,11 +1,11 @@
-var CustomersListModel = Backbone.Model.extend({
+BackboneData.Models.CustomersListModel = Backbone.Model.extend({
     defaults: {
-    	customer_Name:"",
-    	customer_Code:"",
-    	branch_Code:"",
-    	provider_Code:"",
-    	customer_Address:"",
-    	added_By:"",
+        customer_Name: "",
+        customer_Code: "",
+        branch_Code: "",
+        provider_Code: "",
+        customer_Address: "",
+        added_By: "",
     },
     initialize: function() {
         console.log('customer has been initialized');

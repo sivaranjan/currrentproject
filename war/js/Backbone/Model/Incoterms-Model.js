@@ -1,10 +1,10 @@
-BackboneData.Models.IncotermsDetails=Backbone.Model.extend({
+BackboneData.Models.IncotermsModel = Backbone.Model.extend({
     defaults: {
-    	
-    	incoterms:"",
-    	infos:"",
-    	added_By:"",
-        
+
+        incoterms: "",
+        infos: "",
+        added_By: "",
+
     },
     initialize: function() {
         console.log('Incoterms has been initialized');
@@ -17,9 +17,9 @@ BackboneData.Models.IncotermsDetails=Backbone.Model.extend({
         Backbone.Model.apply(this, arguments);
     },
     validate: function(attr) {
-//        if (!attr.incoterms) {
-//            return "Invalid BookName supplied."
-//        }
+        //        if (!attr.incoterms) {
+        //            return "Invalid BookName supplied."
+        //        }
     },
     urlRoot: 'http://localhost:8888/incoterm/create'
 });

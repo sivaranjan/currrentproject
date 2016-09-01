@@ -1,21 +1,21 @@
-var CustomerModel = Backbone.Model.extend({
+BackboneData.Models.CustomersListModel = Backbone.Model.extend({
     defaults: {
-    	order_Order_ID:"",
-    	no_customerOrder:"",
-    	customerOrderAttachment:"",
-    	customer_Name:"",
-    	customer_Code:"",
-    	branch_Code:"",
-    	provider_Code:"",
-    	final_Delivery_Address:"",
-    	additional_Address:"",
-    	site_Address:"",
-    	plateform:"",
-    	incoterms:"",
-    	place:"",
-    	customer_Receiver_Name:"",
-    	customer_Receiver_Telephone:"",
-    	allocation_of_turnover:""
+        order_Order_ID: "",
+        no_customerOrder: "",
+        customerOrderAttachment: "",
+        customer_Name: "",
+        customer_Code: "",
+        branch_Code: "",
+        provider_Code: "",
+        final_Delivery_Address: "",
+        additional_Address: "",
+        site_Address: "",
+        plateform: "",
+        incoterms: "",
+        place: "",
+        customer_Receiver_Name: "",
+        customer_Receiver_Telephone: "",
+        allocation_of_turnover: ""
     },
     initialize: function() {
         console.log('Book has been initialized');

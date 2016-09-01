@@ -6,7 +6,7 @@ if (lang == "EN") {
 } else {
     window.language = "FR";
 }
-window.location.href = "/#home";
+//window.location.href = "/#home";
 $('.language li a').click(function() {
     var languageChanged = $.trim($(this).text());
     if (window.language != languageChanged) {
@@ -57,6 +57,8 @@ $('.language li a').click(function() {
         });
     }
 
-
+    $(document).on("keyup", ".form-control", function(e) {
+        $(this).removeClass('error');
+    });
 
 });
