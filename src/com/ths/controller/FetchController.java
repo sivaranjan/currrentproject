@@ -138,7 +138,17 @@ public class FetchController {
         }
         return new ResponseEntity<List<IdJDO>>(idlist, HttpStatus.OK);
     }
-    
+    @RequestMapping("/fetchCustomerDetailsbyName/{customerName}")
+    public ResponseEntity<HashMap<String,List<CustomersListJDO>>> fetchCustomerDetailsbyName(@PathVariable("customerName") String customerName) {
+    	List<CustomersListJDO> actors = customersListDao.findByType(customerName);
+    	HashMap<String,List<CustomersListJDO>> responseMap = new HashMap<String,List<CustomersListJDO>>();
+    	responseMap.put("data", actors);
+    	/*if(actors.isEmpty())
+         {
+             return new ResponseEntity<HashMap<String,List<ActorsListJDO>>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+         }*/
+        return new ResponseEntity<HashMap<String,List<CustomersListJDO>>>(responseMap, HttpStatus.OK);
+    }
    
     
    

@@ -34,7 +34,7 @@ public class OrderJDO {
 	@Index
 	private String type_of_the_Prototype_Order;
 	@Index
-	private Date date_of_the_Order;
+	private Date date_of_the_Order  = new Date();
 	
 		
 	@Index
