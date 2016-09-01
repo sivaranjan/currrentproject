@@ -71,7 +71,7 @@ BackboneData.Collections.fetchCustomersList = Backbone.Collection.extend({
 BackboneData.Collections.fetchPlatformsList = Backbone.Collection.extend({
 
     //Specify REST URL
-    url: 'http://localhost:8888/fetchController/fetchPlatformsList',
+    url: 'http://localhost:8888/fetchController/fetchPlateformList',
 
     initialize: function() {
         this.bind("reset", function(model, options) {
@@ -102,6 +102,23 @@ BackboneData.Collections.fetchSitesList = Backbone.Collection.extend({
     url: 'http://localhost:8888/fetchController/fetchSitesList',
 
     initialize: function() {
+        this.bind("reset", function(model, options) {
+            console.log("Inside event");
+            console.log(model);
+
+        });
+    }
+});
+
+BackboneData.Collections.fetchCustomerDetailsbyName = Backbone.Collection.extend({
+
+    //Specify REST URL
+    url: 'http://localhost:8888/fetchController/fetchCustomerDetailsbyName/'+localStorage.getItem("customerNameSelected"),
+
+    initialize: function() {
+    	var self = this;
+    	console.log(self);
+    	console.log("==================");
         this.bind("reset", function(model, options) {
             console.log("Inside event");
             console.log(model);

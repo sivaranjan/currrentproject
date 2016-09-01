@@ -19,20 +19,46 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
         "click #saveorderbtn": "validateOrder"
     },
     validateOrder: function() {
+    	var setFlag = false;
         if (validate.getInstance().formordiv('orderdetailview')) {
             console.log("trfdsf");
-            saveOrder();
-        } else {
+            this.saveOrder();
+        } 
+        else 
+        {
             $('#orderdetailview').find('.selectpicker').each(function() {
-                if ($(this).hasClass('error')) {
-                    $(this).selectpicker('setStyle', 'error', 'add');
+                if ($(this).hasClass('error')) 
+                {
+                	if(!$(this).parent().parent().hasClass('hide'))
+                	{
+                		setFlag = true;
+                		$(this).selectpicker('setStyle', 'error', 'add');
+                	}	
                 }
-            })
+            });
+            $('#orderdetailview').find('.form-control').each(function() {
+                if ($(this).hasClass('error')) 
+                {
+                	if(!$(this).parent().hasClass('hide'))
+                	{
+                		setFlag = true;
+                	}
+                	else
+                	{
+                		$(this).removeClass('error');
+                	}	
+                }
+            });
         }
+        if(!setFlag)
+        {
+        	this.saveOrder();
+        }	
     },
     saveOrder: function() {
-        $('#statusmsg').html("Saving your order..")
-        $('#statusLoader').removeClass('hide');
+    	 $('#statusmsg').html("Saving your order..");
+         $('#statusLoader').removeClass('hide');
+         $('#statusLoader .voicebox-content').addClass('in');
         var Site_Workshop_Prototype = $('#Site_Workshop_Prototype').val();
         var Geosite = $('#Geosite').val();
         var No_Prototype_Order = $('#No_Prototype_Order').val();
@@ -81,7 +107,7 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
             e52: e52checkbox,
             intraLE: intralecheckbox,
             type_of_the_Prototype_Order: Type_of_the_Prototype_Order,
-            date_of_the_Order: Date_of_the_Order,
+            date_of_the_Order: "",
             order_Status: "Draft",
             total_Order_Amount: 0,
         });
@@ -91,8 +117,9 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
                 console.log("The model has been saved to the server");
             },
             error: function(model, xhr, options) {
-                $('#statusmsg').html("Order saved successully");
-                //              $('#statusLoader').addClass('hide');
+            	 $('#statusmsg').html("Order saved successfully..");
+                 $('#statusLoader').removeClass('hide');
+                 $('#statusLoader .voicebox-content').addClass('in');
                 console.log("Something went wrong while saving the model :: " + model);
                 console.log("Something went wrong while saving the xhr :: " + xhr);
                 console.log("Something went wrong while saving the options :: " + options);

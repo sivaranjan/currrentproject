@@ -1,4 +1,4 @@
-var CustomersListModel = Backbone.Model.extend({
+BackboneData.Models.CustomersListModel = Backbone.Model.extend({
     defaults: {
         customer_Name: "",
         customer_Code: "",

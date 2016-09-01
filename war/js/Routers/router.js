@@ -32,7 +32,7 @@ routerTHS.on('route:admin', function(action) {
 	var navBtnSectionHTML = new BackboneData.Views.NavBtnSectionview();
 	navBtnSectionHTML.render();
     var adminSettingsHTMl = new BackboneData.Views.AdminDetailView();
-    adminSettingsHTMl.render();
+    //adminSettingsHTMl.render();
 
 });
 routerTHS.on('route:component', function(action) {

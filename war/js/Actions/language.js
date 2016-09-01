@@ -286,7 +286,7 @@ componentCreation_englishLabelList = {
     'Total amount': 'Total amount',
     'Edit': 'Edit',
     'Delete': 'Delete',
-    'Project manager': 'Project manager',
+    'Project manager': 'Project Manager',
     'R&D manager': 'R&D manager',
     'Project phase': 'Project phase',
     'Valeo reference': 'Valeo reference',
