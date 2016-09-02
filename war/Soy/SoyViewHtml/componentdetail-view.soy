@@ -117,7 +117,7 @@
 								        		<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">{$paramValue['Planning customer delivery']}</h2>
 								        	</div>
 								        	<div class="col-md-12">
-										        <table  class="table table-hover responsive nowrap" id="planningcust-table">
+										        <table  class="table table-hover responsive nowrap" id="planningcust-table" cellspacing="0" width="100%">
 										        	<thead>
 										        		<tr>
 										        			<th>{$paramValue['Quantity']}</th>
@@ -278,7 +278,7 @@
 												  		</div>
 												  		<div class="form-group col-md-3">
 												  			<label>{$paramValue['Validation process']}</label>
-												  			<div>
+												  			<div style="padding: 1.5px 0;">
 															    <label class="radio-inline">
 															        <input type="radio" name="validprocess-radio" style="margin-top: 1px;">{$paramValue['Yes']}</label>
 															    <label class="radio-inline">
@@ -288,7 +288,7 @@
 												  		</div>
 												  		<div class="form-group col-md-3">
 												  			<label>{$paramValue['Plan of laboratory tests']}</label>
-												  			<div>
+												  			<div style="padding: 1.5px 0;">
 															    <label class="radio-inline">
 															        <input type="radio" name="planlab-radio" style="margin-top: 1px;">{$paramValue['Yes']}</label>
 															
@@ -296,118 +296,299 @@
 															        <input type="radio" name="planlab-radio" style="margin-top: 1px;">{$paramValue['No']}</label>
 															</div>
 												  		</div>
+												  		<div class="form-group col-md-6">
+															<label for="name">Comment</label>
+															<textarea data-required="yes" data-type="text" class="form-control" style="height: 65px;resize: none;"></textarea>
+														</div>
+												  		<div class="form-group col-md-6" style="margin-top: 10px;">
+															<div class="panel panel-default">
+																<div class="panel-heading" style="background: #fff;">
+																	<h4 class="panel-title">
+																		<label style="margin-bottom: 0;">Nomenclature</label> 
+																		<button type="button" class="btn btn-default btn-sm pull-right" style="margin-top: -5px;padding: 3px 5px;" data-toggle="modal" data-target="#orderattach-modal">
+																			<i class="fa fa-paperclip" style="margin-right: 5px;"></i>Add Attach
+																		</button>
+																	</h4>
+																</div>
+																<div class="panel-collapse collapse in">
+																	<div class="panel-body" style="min-height: 40px;padding: 5px;max-height: 115px;overflow: auto;">
+																		<ul class="list-unstyled attachcustomer">
+																			<li>
+																				<i class="fa fa-file-text-o" aria-hidden="true"></i>
+																				<a>teste</a>
+																				<a class="pull-right fa fa-cloud-download"></a>
+																				<a class="pull-right fa fa-times"></a>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="form-group col-md-6" style="margin-top: 10px;">
+															<div class="panel panel-default">
+																<div class="panel-heading" style="background: #fff;">
+																	<h4 class="panel-title">
+																		<label style="margin-bottom: 0;">Plan</label> 
+																		<button type="button" class="btn btn-default btn-sm pull-right" style="margin-top: -5px;padding: 3px 5px;" data-toggle="modal" data-target="#orderattach-modal">
+																			<i class="fa fa-paperclip" style="margin-right: 5px;"></i>Add Attach
+																		</button>
+																	</h4>
+																</div>
+																<div class="panel-collapse collapse in">
+																	<div class="panel-body" style="min-height: 40px;padding: 5px;max-height: 115px;overflow: auto;">
+																		<ul class="list-unstyled attachcustomer">
+																			<li>
+																				<i class="fa fa-file-text-o" aria-hidden="true"></i>
+																				<a>teste</a>
+																				<a class="pull-right fa fa-cloud-download"></a>
+																				<a class="pull-right fa fa-times"></a>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+															</div>
+														</div>
 												  	</div>
-											<div class="panel-heading col-md-12" role="tab">
-								        		<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">Plan of Laboratory test</h2>
-								        	</div>
-								        	<div class="col-md-12">
-										        <table  class="table table-hover responsive nowrap" id="planninglab-table">
-										        	<thead>
-										        		<tr>
-										        			<th>Quantity</th>
-										        			<th>Tests Type</th>
-										        			<th>Test Request N<sup>&#8728;</sup></th>
-										        			<th>ATP date delivery to Lab</th>
-										        			<th class="editopt">{$paramValue['Edit']}</th>
-										        			<th>{$paramValue['Delete']}</th>
-										        			<th>&nbsp;</th>
-										        		</tr>
-										        	</thead>
-										        	<tbody>
-										        		<tr>
-										        			<td>4</t>
-										        			<td>22 Aug 2016</td>
-										        			<td>Text test</td>
-										        			<td class="editopt">
-																<button type="button">
-																	<i class="fa fa-pencil"></i>
-																</button>
-															</td>
-					      									<td class="deleteopt">
-					      										<button type="button">
-					      											<i class="fa fa-trash"></i>
-					      										</button>
-					      									</td>
-										        			<td>&nbsp;</td>
-										        		</tr>
-										        		<tr>
-										        			<td>4</t>
-										        			<td>22 Aug 2016</td>
-										        			<td>Text test</td>
-										        			<td class="editopt">
-																<button type="button">
-																	<i class="fa fa-pencil"></i>
-																</button>
-															</td>
-					      									<td class="deleteopt">
-					      										<button type="button">
-					      											<i class="fa fa-trash"></i>
-					      										</button>
-					      									</td>
-										        			<td>&nbsp;</td>
-										        		</tr>
-										        		<tr>
-										        			<td>4</t>
-										        			<td>22 Aug 2016</td>
-										        			<td>Text test</td>
-										        			<td class="editopt">
-																<button type="button">
-																	<i class="fa fa-pencil"></i>
-																</button>
-															</td>
-					      									<td class="deleteopt">
-					      										<button type="button">
-					      											<i class="fa fa-trash"></i>
-					      										</button>
-					      									</td>
-										        			<td>&nbsp;</td>
-										        		</tr>
-										        		<tr>
-										        			<td>4</t>
-										        			<td>22 Aug 2016</td>
-										        			<td>Text test</td>
-										        			<td class="editopt">
-																<button type="button">
-																	<i class="fa fa-pencil"></i>
-																</button>
-															</td>
-					      									<td class="deleteopt">
-					      										<button type="button">
-					      											<i class="fa fa-trash"></i>
-					      										</button>
-					      									</td>
-										        			<td>&nbsp;</td>
-										        		</tr>
-										        		<tr>
-										        			<td>4</t>
-										        			<td>22 Aug 2016</td>
-										        			<td>Text test</td>
-										        			<td class="editopt">
-																<button type="button">
-																	<i class="fa fa-pencil"></i>
-																</button>
-															</td>
-					      									<td class="deleteopt">
-					      										<button type="button">
-					      											<i class="fa fa-trash"></i>
-					      										</button>
-					      									</td>
-										        			<td>&nbsp;</td>
-										        		</tr>
-										        	</tbody>
-										        </table>
-										    </div>
+													<div class="col-md-12">
+														<div class="panel-heading col-md-12" role="tab">
+											        		<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">Plan of Laboratory test</h2>
+											        	</div>
+											        	<div class="col-md-12">
+													        <table  class="table table-hover responsive nowrap" id="planninglab-table" cellspacing="0" width="100%">
+													        	<thead>
+													        		<tr>
+													        			<th>Quantity</th>
+													        			<th>Tests Type</th>
+													        			<th>Test Request N<sup>&#8728;</sup></th>
+													        			<th>ATP date delivery to Lab</th>
+													        			<th class="editopt">{$paramValue['Edit']}</th>
+													        			<th>{$paramValue['Delete']}</th>
+													        			<th>&nbsp;</th>
+													        		</tr>
+													        	</thead>
+													        	<tbody>
+													        		<tr>
+													        			<td>4</t>
+													        			<td>22 Aug 2016</td>
+													        			<td>Text test</td>
+													        			<td>20 sep 2016</td>
+													        			<td class="editopt">
+																			<button type="button">
+																				<i class="fa fa-pencil"></i>
+																			</button>
+																		</td>
+								      									<td class="deleteopt">
+								      										<button type="button">
+								      											<i class="fa fa-trash"></i>
+								      										</button>
+								      									</td>
+													        			<td>&nbsp;</td>
+													        		</tr>
+													        	</tbody>
+													        </table>
+													    </div>
+													 </div>
 									        	</div>
 									        	
 										</div>
 										<div role="tabpanel" class="tab-pane" id="processvalid-subtab">
-											processvalid
+											<div class="row">
+												<div class="col-md-12" style="padding-top: 15px;">
+													<div class="form-group col-md-6">
+															<div class="panel panel-default" style="margin-bottom: 0px;">
+																<div class="panel-heading" style="background: #fff;">
+																	<h4 class="panel-title">
+																		<label style="margin-bottom: 0;">Process Deliverable</label> 
+																		<button type="button" class="btn btn-default btn-sm pull-right" style="margin-top: -5px;padding: 3px 5px;" data-toggle="modal" data-target="#orderattach-modal">
+																			<i class="fa fa-paperclip" style="margin-right: 5px;"></i>Add Attach
+																		</button>
+																	</h4>
+																</div>
+																<div class="panel-collapse collapse in">
+																	<div class="panel-body" style="min-height: 51px;padding: 5px;max-height: 115px;overflow: auto;">
+																		<ul class="list-unstyled attachcustomer">
+																			<li>
+																				<i class="fa fa-file-text-o" aria-hidden="true"></i>
+																				<a>teste</a>
+																				<a class="pull-right fa fa-cloud-download"></a>
+																				<a class="pull-right fa fa-times"></a>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+															</div>
+														</div>
+													<div class="form-group col-md-6">
+														<label for="name">Comment</label>
+														<textarea class="form-control" style="height: 67px;resize: none;"></textarea>
+													</div>
+													<div class="checkbox col-md-12">
+													  <label>
+													    <input type="checkbox" value="">
+													    Yes (I specified process requirements)
+													  </label>
+													</div>
+												</div>
+											</div>
 										</div>
 										<div role="tabpanel" class="tab-pane" id="costdelay-subtab">
-											costdelay
+											<div class="row">
+												<div class="col-md-12" style="padding-top: 15px;">
+													<div class="panel-heading col-md-12" role="tab">
+										        		<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">Forecast Planning of Workshop</h2>
+										        	</div>
+										        	<div class="col-md-12">
+												        <table  class="table table-hover responsive nowrap" id="planningworkshop-table" cellspacing="0" width="100%">
+												        	<thead>
+												        		<tr>
+												        			<th>Quantity</th>
+												        			<th>Date</th>
+												        			<th>Comments</th>
+												        			<th class="editopt">{$paramValue['Edit']}</th>
+												        			<th>{$paramValue['Delete']}</th>
+												        			<th>&nbsp;</th>
+												        		</tr>
+												        	</thead>
+												        	<tbody>
+												        		<tr>
+												        			<td>4</t>
+												        			<td>22 Aug 2016</td>
+												        			<td>Text test</td>
+												        			<td class="editopt">
+																		<button type="button">
+																			<i class="fa fa-pencil"></i>
+																		</button>
+																	</td>
+							      									<td class="deleteopt">
+							      										<button type="button">
+							      											<i class="fa fa-trash"></i>
+							      										</button>
+							      									</td>
+												        			<td>&nbsp;</td>
+												        		</tr>
+												        	</tbody>
+												        </table>
+												    </div>
+												</div>
+												<div class="col-md-12">
+													<div class="col-md-6">
+														<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">Forecast Planning of Workshop</h2>
+														<table  class="table table-hover responsive nowrap" id="planremind-table" cellspacing="0" width="100%">
+												        	<thead>
+												        		<tr>
+												        			<th>Quantity</th>
+												        			<th>Date</th>
+												        			<th>&nbsp;</th>
+												        		</tr>
+												        	</thead>
+												        	<tbody>
+												        		<tr>
+												        			<td>4</t>
+												        			<td>22 Aug 2016</td>
+												        			<td>&nbsp;</td>
+												        		</tr>
+												        	</tbody>
+												        </table>
+													</div>
+													<div class="col-md-6">
+														
+										        		<div class="form-group col-md-3">
+										        			<label>Supported By</label>
+									        				<select class="selectpicker" data-live-search="true" data-width="100%" title=" " >
+														        <option>option</option>
+														        <option>option</option>
+														        <option>option</option>
+														        <option>option</option>
+														        <option>option</option>
+														        <option>option</option>
+														    </select>
+										        		</div>
+										        		<div class="form-group col-md-3">
+										        			<label>List of prototypists</label>
+										        			<textarea class="form-control" style="height: 67px;resize: none;"></textarea>
+										        		</div>
+										        		<div class="col-md-12">
+										        			<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">Component Projected Costs</h2>
+										        		</div>
+										        		<div class="form-group col-md-3">
+										        			<label>Estimated amount of workshop</label>
+									        				<input type="text" class="form-control input-sm"/>
+										        		</div>
+										        		<div class="form-group col-md-3">
+										        			<label>Estimated unit internal cost (&#x20AC; / component) <span class="text-danger">*</span></label>
+									        				<input type="text" class="form-control input-sm"/>
+										        		</div>
+										        		<div class="form-group col-md-3">
+										        			<label>Estimated unit external cost (&#x20AC; / component) <span class="text-danger">*</span></label>
+									        				<input type="text" class="form-control input-sm"/>
+										        		</div>
+										        		<div class="form-group col-md-3">
+										        			<label>Estimated total cost components (&#x20AC;) :</label>
+									        				<input type="text" class="form-control input-sm"/>
+										        		</div>
+										        		<div class="form-group col-md-3">
+										        			<label>Hourly rate <span class="text-danger">*</span></label>
+									        				<input type="text" class="form-control input-sm"/>
+										        		</div>
+										        		<div class="form-group col-md-3">
+										        			<label>Fixed costs <span class="text-danger">*</span></label>
+									        				<input type="text" class="form-control input-sm"/>
+										        		</div>
+										        		<div class="form-group col-md-3">
+										        			<label>Estimated time unit of components (hour) <span class="text-danger">*</span></label>
+									        				<input type="text" class="form-control input-sm"/>
+										        		</div>
+										        		<div class="form-group col-md-3">
+										        			<label>Estimated time total of components (hour)</label>
+									        				<input type="text" class="form-control input-sm"/>
+										        		</div>
+										        		<div class="form-group col-md-3">
+										        			<label>Total cost</label>
+									        				<input type="text" class="form-control input-sm"/>
+										        		</div>
+													</div>
+												</div>
+											</div>
 										</div>
 										<div role="tabpanel" class="tab-pane" id="qualdel-subtab">
-											qualdel
+											<div class="row">
+												<div class="col-md-12" style="padding-top: 15px;">
+													<div class="form-group col-md-6">
+															<div class="panel panel-default" style="margin-bottom: 0px;">
+																<div class="panel-heading" style="background: #fff;">
+																	<h4 class="panel-title">
+																		<label style="margin-bottom: 0;">Quality Deliverable</label> 
+																		<button type="button" class="btn btn-default btn-sm pull-right" style="margin-top: -5px;padding: 3px 5px;" data-toggle="modal" data-target="#orderattach-modal">
+																			<i class="fa fa-paperclip" style="margin-right: 5px;"></i>Add Attach
+																		</button>
+																	</h4>
+																</div>
+																<div class="panel-collapse collapse in">
+																	<div class="panel-body" style="min-height: 51px;padding: 5px;max-height: 115px;overflow: auto;">
+																		<ul class="list-unstyled attachcustomer">
+																			<li>
+																				<i class="fa fa-file-text-o" aria-hidden="true"></i>
+																				<a>teste</a>
+																				<a class="pull-right fa fa-cloud-download"></a>
+																				<a class="pull-right fa fa-times"></a>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+															</div>
+														</div>
+													<div class="form-group col-md-6">
+														<label>Comment</label>
+														<textarea class="form-control" style="height: 67px;resize: none;"></textarea>
+													</div>
+													<div class="checkbox col-md-12">
+													  <label>
+													    <input type="checkbox" value="">
+													    Yes (I specified quality requirements)
+													  </label>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
 			    				</div>

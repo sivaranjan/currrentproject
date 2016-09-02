@@ -23,6 +23,7 @@
 	</head>
 
 <body>
+	<main id="wrap">
 	<div class="status-voicebox hide" id="statusLoader" >
 		<div class="voicebox-content fade">
 			<span class="loading"></span>
@@ -31,8 +32,8 @@
 	</div>
     <header class="header">
             
-            <div class="col-md-2 col-sm-2 col-xs-12">
-                <a href="/"><img src="../statics/images/logo-valeo.png"></a>
+            <div class="col-md-2 col-sm-2 col-xs-12 text-center">
+                <a href="/"><img src="../statics/images/Valeo_Logo.svg.png" ></a>
             </div>
             <div class="col-md-6 col-sm-10 col-xs-12">
                 <h3 id="headtitle" class="valeo-app-title">THS France Prototype Database</h3>
@@ -69,17 +70,17 @@
 
         <!-- =========================== Home container ==================================================== -->
         
-        <section class="container" id="welcome-section">
+        <section class="custom-container" id="welcome-section">
         	
         </section>
 
-		<section class="container hide" id="navfixed-wrapper">
+		<section class="custom-container hide" id="navfixed-wrapper">
 			<div id="navbar-2">
 			
 			</div>
 		</section>
         <!-- =========================== Create Order container ==================================================== -->
-        <section class="container hide"  id="createorder-section">
+        <section class="custom-container hide"  id="createorder-section">
 			
             
             <div class="col-md-12">
@@ -91,16 +92,17 @@
                 </div>
             </div>
         </section>
-		<section class="container hide"  id="admin-section">
+		<section class="custom-container hide"  id="admin-section">
 			
 			
 		</section>
-		<section class="container hide" id="component-section">
+		<section class="custom-container hide" id="component-section">
 			
 		</section>
-		<section class="container hide" id="orderlist-section">
+		<section class="custom-container hide" id="orderlist-section">
 			
 		</section>
+		</main>
         <!-- Footer -->
         <footer>
 		    <div class="col-md-12 col-xs-12 logo">
@@ -186,6 +188,44 @@
 		  </div>
 		</div>
 		
+		<!-- Planning Laboratory test Modal -->
+		<div class="modal fade" id="planlabtest-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">Add New</h4>
+		      </div>
+		      <div class="modal-body">
+		      	<form role="form">
+		      			<div class="form-group">
+						    <label for="name">Quantity</label>
+						    <input type="text" class="form-control" placeholder="Quantity">
+						</div>
+						<div class="form-group">
+						    <label for="name">Test Type</label>
+						    <input type="text" class="form-control" placeholder="Test Type">
+						</div>
+						<div class="form-group">
+						    <label for="name">Test Request N<sup>&#8728;</sup></label>
+						    <input type="text" class="form-control" placeholder="Test Request">
+						</div>
+						<div class="form-group">
+						    <label for="name">ATP date delivery to Lab</label>
+						    <div class="input-group date">
+							    <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+							</div>
+						</div>
+		      	</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-success">Save changes</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
 		
 		<!-- Order Attachment Modal -->
 		<div class="modal fade" id="orderattach-modal" tabindex="-1" role="dialog">
@@ -197,18 +237,25 @@
 		      </div>
 		      <div class="modal-body">
 		      	<form role="form">
-		      		<div class="form-group">
-						    <label for="name">Quantity</label>
-						    <input type="text" class="form-control" placeholder="Quantity">
+		      			<div class="form-group">
+						    <label for="name">File Path</label>
+						    <div class="input-group">
+						      <input type="text" class="form-control">
+						      <span class="input-group-btn">
+						        <button class="btn btn-success" type="button">
+						        	<i class="glyphicon glyphicon-folder-open" style="margin-right: 10px;"></i>
+						        	<span>Browse ..</span>
+						        	<input class="custom-fileinput" type="file" class="file" />
+						        </button>
+						      </span>
+						    </div><!-- /input-group -->
 						</div>
 						<div class="form-group">
-						    <label for="name">Date</label>
-						    <div class="input-group date">
-							    <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-							</div>
+						    <label for="name">Title <span class="text-danger">*</span></label>
+						    <input type="text" class="form-control" placeholder="Title">
 						</div>
 						<div class="form-group">
-						    <label for="name">Comment</label>
+						    <label for="name">Description</label>
 						    <textarea class="form-control" rows="3"></textarea>
 						</div>
 		      	</form>

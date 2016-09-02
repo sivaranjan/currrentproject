@@ -54,6 +54,40 @@ BackboneData.Views.ComponentDetailView = Backbone.View
 										}
 									} ]
 								});
+				
+				$('#planninglab-table')
+				.DataTable(
+						{
+
+							dom : 'Bfrtip',
+							responsive : {
+								details : {
+									type : 'column',
+									target : -1
+								}
+							},
+							columnDefs : [ {
+								className : 'control',
+								orderable : false,
+								targets : -1
+							}, {
+								targets : [ 4 ],
+								orderable : false,
+								width : "40px"
+							}, {
+								targets : [ 5 ],
+								orderable : false,
+								width : "40px"
+							} ],
+							buttons : [ {
+								text : '<i class="fa fa-plus" aria-hidden="true"></i> New',
+								className : 'btn btn-default btn-sm newplanbtn',
+								action : function() {
+									$('#planlabtest-modal')
+											.modal('show');
+								}
+							} ]
+						});
 				$('.newplanbtn').removeClass('dt-button');
 		        var Type_of_the_Prototype_Order = $.trim($('#Type_of_the_Prototype_Order').val());
 				if(Type_of_the_Prototype_Order =="VENDU / SOLD")

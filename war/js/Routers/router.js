@@ -12,8 +12,8 @@ var Router = Backbone.Router.extend({
 var routerTHS = new Router();
 routerTHS.on('route:home', function(action) {
 
-    var globalNavbarHTML = new BackboneData.Views.GlobalNavbarview();
-    globalNavbarHTML.render();
+//    var globalNavbarHTML = new BackboneData.Views.GlobalNavbarview();
+//    globalNavbarHTML.render();
 
     var welcomeSectionHTML = new BackboneData.Views.WelcomeView();
     welcomeSectionHTML.render();
