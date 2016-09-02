@@ -1,5 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-
+<%@ page
+	import ="com.google.appengine.api.users.UserServiceFactory"
+	import =" com.google.appengine.api.users.User;"		
+	 %> 
+ 	<%
+	 	String useremailid = "";
+	 	User user = UserServiceFactory.getUserService().getCurrentUser();
+	    if(user.getEmail()!=null && !"".equals(user.getEmail()))
+	    {
+	    	System.out.println("session is there");
+	    	useremailid = user.getEmail();
+	    }
+	 %>
+	 <script>
+	 	var useremailid ='<%=useremailid%>';
+	 </script>	 
 <!DOCTYPE HTML>
 <html lang="en">
 
@@ -271,7 +286,9 @@
 		<script src="../js/Loader/initializer.js"></script>
         <script src="../js/Routers/router.js?yufyufyufufyu"></script>
         <script src="../js/Actions/actions.js"></script>
-        
+        <script>
+$('#userlabel').html("Welcome "+useremailid);
+        </script>
 </body>
 
 </html>
