@@ -17,8 +17,7 @@ BackboneData.Views.ComponentDetailView = Backbone.View
 				}
 				ref.$el.html(componentDetailHTML);
 				$('#component-section,#navfixed-wrapper').removeClass('hide');
-				$('#welcome-section,#createorder-section,#admin-section')
-						.addClass('hide');
+				$('#welcome-section,#createorder-section,#admin-section').addClass('hide');
 				$('.selectpicker').selectpicker();
 				$('.selectpicker').selectpicker('setStyle', 'btn-sm', 'add');
 
@@ -59,33 +58,35 @@ BackboneData.Views.ComponentDetailView = Backbone.View
 		        var Type_of_the_Prototype_Order = $.trim($('#Type_of_the_Prototype_Order').val());
 				if(Type_of_the_Prototype_Order =="VENDU / SOLD")
 				{
-					$('#customerorderN0label,#customerorderN0,#unitsellingpricelabel,#unitsellingprice,#Direct_delivery_to_customer,#delivery,#totalamountlabel,#totalamount').removeClass('hide');
+					$('#customerOrderNodiv,#unitsellingpriceDiv,#directDeliveryDiv,#totalamtDiv').removeClass('hide');
 					$('#unitsellingprice').attr('data-required','yes');
 					$('#unitsellingprice').attr('data-type','text');
 				}
 				else
 				{
-					$('#customerorderN0label,#customerorderN0,#unitsellingpricelabel,#unitsellingprice,#Direct_delivery_to_customer,#delivery,#totalamountlabel,#totalamount,#customerdiv,#labolabel,#laboaddress').addClass('hide');
+					$('#customerOrderNodiv,#unitsellingpriceDiv,#directDeliveryDiv,#totalamtDiv').addClass('hide');
 					$('#unitsellingprice').removeAttr('data-required');
 					$('#unitsellingprice').removeAttr('data-type');
 				}
 			},
 			events : {
-		        "change #delivery":"populateDependencies"
+				'change #directDeliveryDiv input[type=radio]':"populateDependencies"
 			},
 			populateDependencies:function() {
-				var direct_delivery=$('#delivery input[name="optradio1"]:checked').val();
+				var direct_delivery=$('#directDeliveryDiv input[name="optradio1"]:checked').val();
 	            if (direct_delivery == "No") 
 				{
-					$('#customerdiv,#labolabel,#laboaddress').removeClass('hide');
-					$('#customer,#laboaddress').attr('data-required','yes');
-					$('#customer,#laboaddress').attr('data-type','text');
+	            	$('#customerOrderNodiv,#unitsellingpriceDiv,#directDeliveryDiv,#totalamtDiv,#customerdiv,#laboaddressdiv').removeClass('hide');
+	            	$('#customerselect').attr('data-required','yes');
+	            	$('#customerselect').attr('data-type','text');
+	            	$('#laboaddress').attr('data-required','yes');
+	            	$('#laboaddress').attr('data-type','text');
 				}
 				else
 				{
-					$('#customerdiv,#labolabel,#laboaddress').addClass('hide');
-					$('#customer,#laboaddress').removeAttr('data-required');
-					$('#customer,#laboaddress').removeAttr('data-type');
+					$('#customerdiv,#laboaddressdiv').addClass('hide');
+					$('#customerselect,#laboaddress').removeAttr('data-required');
+					$('#customerselect,#laboaddress').removeAttr('data-type');
 				}
 			}
 		});

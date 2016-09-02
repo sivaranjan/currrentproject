@@ -182,10 +182,12 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
                 $('#actor-modal').modal('hide');
                 console.log("Something went wrong while saving the model");
                 self.buildActorsTable(actor_Type);
+                setTimeout(function(){ $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
             }
         });
     },
     saveIncoterms: function() {
+    	var self = this;
         var incoterm = $("#incoterms_value").val();
         var info = $("#incoterms_info").val();
         $('#statusmsg').html("Saving Incoterms..");
@@ -197,22 +199,29 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
                 $('#statusmsg').html("Actor saved successfully.");
                 $('#statusLoader').addClass('hide');
                 $('#statusLoader .voicebox-content').removeClass('in');
-                $('#actor-modal').modal('hide');
+                $('#incoterms-modal').modal('hide');
             },
             error: function(model, xhr, options) {
                 $('#statusmsg').html("Actor saved successfully.");
                 $('#statusLoader').addClass('hide');
                 $('#statusLoader .voicebox-content').removeClass('in');
-                $('#actor-modal').modal('hide');
+                $('#incoterms-modal').modal('hide');
+                $('#statusmsg').html("New incoterms added successfully..");
+                self.buildIncotermsTable();
+                setTimeout(function(){ $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
             }
         });
     },
     saveCustomer: function() {
+    	var self = this;
         var name = $("#customer_name").val();
         var code = $("#customer_code").val();
         var branch_code = $("#customer_branch").val();
         var provider_code = $("#cust_provider_code").val();
         var address = $("#customer_address").val();
+        $('#statusmsg').html("Saving Incoterms..");
+        $('#statusLoader').removeClass('hide');
+        $('#statusLoader .voicebox-content').addClass('in');
         var customerDetails = new BackboneData.Models.CustomersListModel({ customer_Name: name, customer_Code: code, branch_Code: branch_code, provider_Code: provider_code, customer_Address: address });
         customerDetails.save({}, {
             success: function(model, respose, options) {
@@ -220,12 +229,19 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
             },
             error: function(model, xhr, options) {
                 console.log("Something went wrong while saving the model");
+                $('#clients-modal').modal('hide');
+                $('#statusmsg').html("New customer added successfully..");
+                self.buildCustomersTable();
+                setTimeout(function(){ $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
             }
         });
     },
     savePlateform: function() {
-        debugger;
+    	var self = this;
         var plateformValue = $("#plateforms_value").val();
+        $('#statusmsg').html("Saving Incoterms..");
+        $('#statusLoader').removeClass('hide');
+        $('#statusLoader .voicebox-content').addClass('in');
         var plateformDetails = new BackboneData.Models.PlateformDetailsModel({ plateform: plateformValue });
         plateformDetails.save({}, {
             success: function(model, respose, options) {
@@ -233,11 +249,19 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
             },
             error: function(model, xhr, options) {
                 console.log("Something went wrong while saving the model");
+                $('#platform-modal').modal('hide');
+                $('#statusmsg').html("New plateform added successfully..");
+                self.buildPlatformsTable();
+                setTimeout(function(){ $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
             }
         });
     },
     savePlace: function() {
+    	var self = this;
         var placeValue = $("#places").val();
+        $('#statusmsg').html("Saving Incoterms..");
+        $('#statusLoader').removeClass('hide');
+        $('#statusLoader .voicebox-content').addClass('in');
         var placeDetails = new BackboneData.Models.PlacesDetailsModel({ places: placeValue });
         placeDetails.save({}, {
             success: function(model, respose, options) {
@@ -245,12 +269,20 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
             },
             error: function(model, xhr, options) {
                 console.log("Something went wrong while saving the model");
+                $('#location-modal').modal('hide');
+                $('#statusmsg').html("New place added successfully..");
+                self.buildPlacesTable();
+                setTimeout(function(){ $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
             }
         });
     },
     saveSite: function() {
+    	var self = this;
         var siteName = $("#site_name").val();
         var siteAddress = $("#site_address").val();
+        $('#statusmsg').html("Saving Site..");
+        $('#statusLoader').removeClass('hide');
+        $('#statusLoader .voicebox-content').addClass('in');
         var siteDetails = new BackboneData.Models.SitesListModel({ site_Name: siteName, address: siteAddress });
         siteDetails.save({}, {
             success: function(model, respose, options) {
@@ -258,6 +290,10 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
             },
             error: function(model, xhr, options) {
                 console.log("Something went wrong while saving the model");
+                $('#site-modal').modal('hide');
+                $('#statusmsg').html("New site added successfully..");
+                self.buildSitesTable();
+                setTimeout(function(){ $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
             }
         });
     },
@@ -293,6 +329,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
         this.buildSitesTable();
     },
     buildActorsTable: function(actorTypeFilter) {
+    	$('#configbreadcrumb .active').html("Actors / "+actorTypeFilter);
         $('#actorsub-table').DataTable({
             dom: 'Bfrtip',
             "ajax": "http://localhost:8888/fetchController/fetchActorsByType/" + actorTypeFilter,
@@ -318,6 +355,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
         $('.dt-buttons a.btn').removeClass('dt-button');
     },
     buildIncotermsTable: function() {
+    	$('#configbreadcrumb .active').html("Incoterms");
         $('#incoterms-table').DataTable({
             dom: 'Bfrtip',
             "ajax": "http://localhost:8888/fetchController/fetchIncotermsList",
@@ -340,6 +378,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
         $('.dt-buttons a.btn').removeClass('dt-button');
     },
     buildCustomersTable: function() {
+    	$('#configbreadcrumb .active').html("Customers");
         $('#clients-table').DataTable({
             dom: 'Bfrtip',
             "ajax": "http://localhost:8888/fetchController/fetchCustomersList",
@@ -365,6 +404,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
         $('.dt-buttons a.btn').removeClass('dt-button');
     },
     buildPlatformsTable: function() {
+    	$('#configbreadcrumb .active').html("Platforms");
         $('#platformssub-table').DataTable({
             dom: 'Bfrtip',
             "ajax": "http://localhost:8888/fetchController/fetchPlateformList",
@@ -383,6 +423,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
         $('.dt-buttons a.btn').removeClass('dt-button');
     },
     buildPlacesTable: function() {
+    	$('#configbreadcrumb .active').html("Places");
         $('#locationsub-table').DataTable({
             dom: 'Bfrtip',
             "ajax": "http://localhost:8888/fetchController/fetchPlacesList",
@@ -404,6 +445,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
         $('.dt-buttons a.btn').removeClass('dt-button');
     },
     buildSitesTable: function() {
+    	$('#configbreadcrumb .active').html("Sites");
         $('#sitesub-table').DataTable({
             dom: 'Bfrtip',
             "ajax": "http://localhost:8888/fetchController/fetchSitesList",

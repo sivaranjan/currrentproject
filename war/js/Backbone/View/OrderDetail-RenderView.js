@@ -77,7 +77,18 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
                 text: '<i class="fa fa-plus" aria-hidden="true"></i> New component',
                 className: 'btn btn-default btn-sm newcompbtn',
                 action: function() {
-                    window.location.href = "/#componentdetails";
+                	if(window.orderStatus!="saved")
+                	{
+                		 $('#statusmsg').html("Please save the order before creating component");
+                         $('#statusLoader').removeClass('hide');
+                         $('#statusLoader .voicebox-content').addClass('in');
+                	}	
+                	else
+                	{
+                		 window.location.href = "/#componentdetails";
+                	}
+                	setTimeout(function(){ $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
+                	 window.location.href = "/#componentdetails";
                 }
             }]
         });
