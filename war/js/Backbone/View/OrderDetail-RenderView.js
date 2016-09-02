@@ -12,48 +12,49 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
         $('#welcome-section,#admin-section,#component-section,#orderlist-section').addClass('hide');
         $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
         $('#createorder-tab').addClass('active');
-        	ref.$el.html(orderDetailHTML);
+        ref.$el.html(orderDetailHTML);
         console.log("hgh");
         $('#Order_Status').val("Draft");
+        $('#requester').val(useremailid);
         var fetchPlatformsListObj = new BackboneData.Collections.fetchPlatformsList();
         $.when(fetchPlatformsListObj.fetch())
-        .done(function(response, xhr) {
-        	var google = response.data;
-        	console.log(google);
-        	console.log("hello");
-        	var htmllist = "";
-        	google.forEach(function(arrayItem) {
-                    htmllist += '<option>'+arrayItem.plateform+'</option>';
-        	});
-        	 $('#Plateform').html(htmllist).selectpicker('refresh');
-        })
-        .fail(function() {});
+            .done(function(response, xhr) {
+                var google = response.data;
+                console.log(google);
+                console.log("hello");
+                var htmllist = "";
+                google.forEach(function(arrayItem) {
+                    htmllist += '<option>' + arrayItem.plateform + '</option>';
+                });
+                $('#Plateform').html(htmllist).selectpicker('refresh');
+            })
+            .fail(function() {});
         var fetchSitesListObj = new BackboneData.Collections.fetchSitesList();
         $.when(fetchSitesListObj.fetch())
-        .done(function(response, xhr) {
-        	var google = response.data;
-        	console.log(google);
-        	console.log("hello");
-        	var htmllist = "";
-        	google.forEach(function(arrayItem) {
-                    htmllist += '<option>'+arrayItem.site_Name+'</option>';
-        	});
-        	 $('#Site_Workshop_Prototype').html(htmllist).selectpicker('refresh');
-        })
-        .fail(function() {});
+            .done(function(response, xhr) {
+                var google = response.data;
+                console.log(google);
+                console.log("hello");
+                var htmllist = "";
+                google.forEach(function(arrayItem) {
+                    htmllist += '<option>' + arrayItem.site_Name + '</option>';
+                });
+                $('#Site_Workshop_Prototype').html(htmllist).selectpicker('refresh');
+            })
+            .fail(function() {});
         var fetchCustomersListObj = new BackboneData.Collections.fetchCustomersList();
         $.when(fetchCustomersListObj.fetch())
-        .done(function(response, xhr) {
-        	var google = response.data;
-        	console.log(google);
-        	console.log("hello");
-        	var htmllist = "";
-        	google.forEach(function(arrayItem) {
-                    htmllist += '<option>'+arrayItem.customer_Name+'</option>';
-        	});
-        	 $('#Customer_Name').html(htmllist).selectpicker('refresh');
-        })
-        .fail(function() {});
+            .done(function(response, xhr) {
+                var google = response.data;
+                console.log(google);
+                console.log("hello");
+                var htmllist = "";
+                google.forEach(function(arrayItem) {
+                    htmllist += '<option>' + arrayItem.customer_Name + '</option>';
+                });
+                $('#Customer_Name').html(htmllist).selectpicker('refresh');
+            })
+            .fail(function() {});
         $('#example').DataTable({
             dom: 'Bfrtip',
             responsive: {
@@ -77,18 +78,15 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
                 text: '<i class="fa fa-plus" aria-hidden="true"></i> New component',
                 className: 'btn btn-default btn-sm newcompbtn',
                 action: function() {
-                	if(window.orderStatus!="saved")
-                	{
-                		 $('#statusmsg').html("Please save the order before creating component");
-                         $('#statusLoader').removeClass('hide');
-                         $('#statusLoader .voicebox-content').addClass('in');
-                	}	
-                	else
-                	{
-                		 window.location.href = "/#componentdetails";
-                	}
-                	setTimeout(function(){ $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
-                	 window.location.href = "/#componentdetails";
+                    if (window.orderStatus != "saved") {
+                        $('#statusmsg').html("Please save the order before creating component");
+                        $('#statusLoader').removeClass('hide');
+                        $('#statusLoader .voicebox-content').addClass('in');
+                    } else {
+                        window.location.href = "/#componentdetails";
+                    }
+                    setTimeout(function() { $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
+                    //window.location.href = "/#componentdetails";
                 }
             }]
         });
@@ -103,20 +101,9 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
         });
     },
     initialize: function() {
-    	 _.bindAll(this, 'cleanup');
+        _.bindAll(this, 'cleanup');
         var _thisView = this;
         _thisView.render();
-        /*=====================================Fetch Actors List ====================================*/
-
-        /*=====================================Fetch ID Generated List ====================================*/
-
-        /*=====================================Fetch Platforms List ====================================*/
-        /*=====================================Fetch Incoterms List ====================================*/
-        /*=====================================Fetch Customers List ====================================*/
-        /*=====================================Fetch Allocation of turnover List ====================================*/
-        /*=====================================Fetch Places List ====================================*/
-        /*=====================================Fetch Sites List ====================================*/
-
     },
     cleanup: function() {
         this.undelegateEvents();
@@ -129,24 +116,24 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
         "change #intralecheckbox": "populateDependencies",
         "change #Customer_Name": "fetchCustomerDetails",
     },
-    fetchCustomerDetails : function(){
-    	var customerNameSelected = $('#Customer_Name').val();
-    	localStorage.setItem("customerNameSelected", customerNameSelected);
-    	var fetchCustomerDetailsbyNameObj = new BackboneData.Collections.fetchCustomerDetailsbyName();
-    	$.when(fetchCustomerDetailsbyNameObj.fetch())
-        .done(function(response, xhr) {
-        	var google = response.data;
-        	console.log(google);
-        	console.log("hello");
-        	var htmllist = "";
-        	google.forEach(function(arrayItem) {
-        		$('#Customer_Code').val(arrayItem.customer_Code);
-        		$('#Branch_Code').val(arrayItem.branch_Code);
-        		$('#Provider_Code').val(arrayItem.provider_Code);
-        		$('#Final_Delivery_Address').val(arrayItem.customer_Address);
-        	});
-        })
-        .fail(function() {});
+    fetchCustomerDetails: function() {
+        var customerNameSelected = $('#Customer_Name').val();
+        localStorage.setItem("customerNameSelected", customerNameSelected);
+        var fetchCustomerDetailsbyNameObj = new BackboneData.Collections.fetchCustomerDetailsbyName();
+        $.when(fetchCustomerDetailsbyNameObj.fetch())
+            .done(function(response, xhr) {
+                var google = response.data;
+                console.log(google);
+                console.log("hello");
+                var htmllist = "";
+                google.forEach(function(arrayItem) {
+                    $('#Customer_Code').val(arrayItem.customer_Code);
+                    $('#Branch_Code').val(arrayItem.branch_Code);
+                    $('#Provider_Code').val(arrayItem.provider_Code);
+                    $('#Final_Delivery_Address').val(arrayItem.customer_Address);
+                });
+            })
+            .fail(function() {});
     },
     populateDependencies: function() {
         var Type_of_the_Prototype_Order = $.trim($('#Type_of_the_Prototype_Order').val());
@@ -157,30 +144,30 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
         console.log("3 :: " + Proto_Type);
         var fetchPlacesListObj = new BackboneData.Collections.fetchPlacesList();
         $.when(fetchPlacesListObj.fetch())
-        .done(function(response, xhr) {
-        	var google = response.data;
-        	console.log(google);
-        	console.log("hello");
-        	var htmllist = "";
-        	google.forEach(function(arrayItem) {
-                    htmllist += '<option>'+arrayItem.places+'</option>';
-        	});
-        	 $('#Place').html(htmllist).selectpicker('refresh');
-        })
-        .fail(function() {});
+            .done(function(response, xhr) {
+                var google = response.data;
+                console.log(google);
+                console.log("hello");
+                var htmllist = "";
+                google.forEach(function(arrayItem) {
+                    htmllist += '<option>' + arrayItem.places + '</option>';
+                });
+                $('#Place').html(htmllist).selectpicker('refresh');
+            })
+            .fail(function() {});
         var fetchIncotermsListObj = new BackboneData.Collections.fetchIncotermsList();
         $.when(fetchIncotermsListObj.fetch())
-        .done(function(response, xhr) {
-        	var google = response.data;
-        	console.log(google);
-        	console.log("hello");
-        	var htmllist = "";
-        	google.forEach(function(arrayItem) {
-                    htmllist += '<option>'+arrayItem.incoterms+'</option>';
-        	});
-        	 $('#Incoterms').html(htmllist).selectpicker('refresh');
-        })
-        .fail(function() {});
+            .done(function(response, xhr) {
+                var google = response.data;
+                console.log(google);
+                console.log("hello");
+                var htmllist = "";
+                google.forEach(function(arrayItem) {
+                    htmllist += '<option>' + arrayItem.incoterms + '</option>';
+                });
+                $('#Incoterms').html(htmllist).selectpicker('refresh');
+            })
+            .fail(function() {});
         if (Site_Workshop_Prototype != "" && Type_of_the_Prototype_Order != "" && Proto_Type != "") {
             var IdCollectionObj = new BackboneData.Collections.IdCollection();
             $.when(IdCollectionObj.fetch())
@@ -240,8 +227,8 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
                     var projectManagerList = new Array();
                     response.forEach(function(arrayItem) {
                         if (arrayItem.site == Site_Workshop_Prototype) {
-                            console.log("arrayItem.site :: "+arrayItem.site);
-                            console.log("Site_Workshop_Prototype :: "+Site_Workshop_Prototype);
+                            console.log("arrayItem.site :: " + arrayItem.site);
+                            console.log("Site_Workshop_Prototype :: " + Site_Workshop_Prototype);
                             var actorType = arrayItem.actorType;
                             console.log("actor type is htis :: " + actorType);
                             switch (actorType) {
@@ -333,7 +320,7 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend({
                 })
                 .fail(function() {});
         }
-        
+
         var Proto_Type = $.trim($('#Proto_Type').val());
         if (Type_of_the_Prototype_Order == 'VENDU / SOLD') {
             if (Site_Workshop_Prototype == 'La Verriere (LVR)' && Proto_Type == 'P0') {
