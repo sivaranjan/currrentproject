@@ -21,45 +21,45 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
             var currentSelectedTab = $(event.target).text();
             switch (currentSelectedTab) {
                 case "MEP Study":
-                	ref.buildActorsTable("MEP Study");
+                    ref.buildActorsTable("MEP Study");
                     break;
                 case "Quality":
-                	ref.buildActorsTable("Quality");
+                    ref.buildActorsTable("Quality");
                     break;
                 case "Proto workshop":
-                	ref.buildActorsTable("Proto workshop");
+                    ref.buildActorsTable("Proto workshop");
                     break;
                 case "Control management":
-                	ref.buildActorsTable("Control management");
+                    ref.buildActorsTable("Control management");
                     break;
                 case "FO Trade":
-                	ref.buildActorsTable("FO Trade");
+                    ref.buildActorsTable("FO Trade");
                     break;
                 case "ADV":
-                	ref.buildActorsTable("ADV");
+                    ref.buildActorsTable("ADV");
                     break;
                 case "Project Manager":
-                	ref.buildActorsTable("Project Manager");
+                    ref.buildActorsTable("Project Manager");
                     break;
             }
         });
     },
     initialize: function() {
-   	 	_.bindAll(this, 'cleanup');
-          var _thisView = this;
-         _thisView.render();
-       /*=====================================Fetch Actors List ====================================*/
+        _.bindAll(this, 'cleanup');
+        var _thisView = this;
+        _thisView.render();
+        /*=====================================Fetch Actors List ====================================*/
 
-       /*=====================================Fetch ID Generated List ====================================*/
+        /*=====================================Fetch ID Generated List ====================================*/
 
-       /*=====================================Fetch Platforms List ====================================*/
-       /*=====================================Fetch Incoterms List ====================================*/
-       /*=====================================Fetch Customers List ====================================*/
-       /*=====================================Fetch Allocation of turnover List ====================================*/
-       /*=====================================Fetch Places List ====================================*/
-       /*=====================================Fetch Sites List ====================================*/
+        /*=====================================Fetch Platforms List ====================================*/
+        /*=====================================Fetch Incoterms List ====================================*/
+        /*=====================================Fetch Customers List ====================================*/
+        /*=====================================Fetch Allocation of turnover List ====================================*/
+        /*=====================================Fetch Places List ====================================*/
+        /*=====================================Fetch Sites List ====================================*/
 
-   },
+    },
     cleanup: function() {
         this.undelegateEvents();
         $(this.el).empty();
@@ -160,7 +160,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
         }
     },
     saveActor: function() {
-    	var self = this;
+        var self = this;
         var actor_Type = $('ul#addActorUL').find('li.active').data('attr');
         var actor_Email = $("#actor_email").val();
         var actorSite = $("#actor_site").val();
@@ -182,12 +182,12 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
                 $('#actor-modal').modal('hide');
                 console.log("Something went wrong while saving the model");
                 self.buildActorsTable(actor_Type);
-                setTimeout(function(){ $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
+                setTimeout(function() { $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
             }
         });
     },
     saveIncoterms: function() {
-    	var self = this;
+        var self = this;
         var incoterm = $("#incoterms_value").val();
         var info = $("#incoterms_info").val();
         $('#statusmsg').html("Saving Incoterms..");
@@ -208,12 +208,12 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
                 $('#incoterms-modal').modal('hide');
                 $('#statusmsg').html("New incoterms added successfully..");
                 self.buildIncotermsTable();
-                setTimeout(function(){ $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
+                setTimeout(function() { $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
             }
         });
     },
     saveCustomer: function() {
-    	var self = this;
+        var self = this;
         var name = $("#customer_name").val();
         var code = $("#customer_code").val();
         var branch_code = $("#customer_branch").val();
@@ -232,12 +232,12 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
                 $('#clients-modal').modal('hide');
                 $('#statusmsg').html("New customer added successfully..");
                 self.buildCustomersTable();
-                setTimeout(function(){ $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
+                setTimeout(function() { $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
             }
         });
     },
     savePlateform: function() {
-    	var self = this;
+        var self = this;
         var plateformValue = $("#plateforms_value").val();
         $('#statusmsg').html("Saving Incoterms..");
         $('#statusLoader').removeClass('hide');
@@ -252,12 +252,12 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
                 $('#platform-modal').modal('hide');
                 $('#statusmsg').html("New plateform added successfully..");
                 self.buildPlatformsTable();
-                setTimeout(function(){ $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
+                setTimeout(function() { $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
             }
         });
     },
     savePlace: function() {
-    	var self = this;
+        var self = this;
         var placeValue = $("#places").val();
         $('#statusmsg').html("Saving Incoterms..");
         $('#statusLoader').removeClass('hide');
@@ -272,12 +272,12 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
                 $('#location-modal').modal('hide');
                 $('#statusmsg').html("New place added successfully..");
                 self.buildPlacesTable();
-                setTimeout(function(){ $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
+                setTimeout(function() { $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
             }
         });
     },
     saveSite: function() {
-    	var self = this;
+        var self = this;
         var siteName = $("#site_name").val();
         var siteAddress = $("#site_address").val();
         $('#statusmsg').html("Saving Site..");
@@ -293,7 +293,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
                 $('#site-modal').modal('hide');
                 $('#statusmsg').html("New site added successfully..");
                 self.buildSitesTable();
-                setTimeout(function(){ $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
+                setTimeout(function() { $('#statusLoader .voicebox-content').removeClass('in'); }, 3000);
             }
         });
     },
@@ -329,7 +329,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
         this.buildSitesTable();
     },
     buildActorsTable: function(actorTypeFilter) {
-    	$('#configbreadcrumb .active').html("Actors / "+actorTypeFilter);
+        $('#configbreadcrumb .active').html("Actors / " + actorTypeFilter);
         $('#actorsub-table').DataTable({
             dom: 'Bfrtip',
             "ajax": "http://localhost:8888/fetchController/fetchActorsByType/" + actorTypeFilter,
@@ -355,7 +355,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
         $('.dt-buttons a.btn').removeClass('dt-button');
     },
     buildIncotermsTable: function() {
-    	$('#configbreadcrumb .active').html("Incoterms");
+        $('#configbreadcrumb .active').html("Incoterms");
         $('#incoterms-table').DataTable({
             dom: 'Bfrtip',
             "ajax": "http://localhost:8888/fetchController/fetchIncotermsList",
@@ -378,7 +378,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
         $('.dt-buttons a.btn').removeClass('dt-button');
     },
     buildCustomersTable: function() {
-    	$('#configbreadcrumb .active').html("Customers");
+        $('#configbreadcrumb .active').html("Customers");
         $('#clients-table').DataTable({
             dom: 'Bfrtip',
             "ajax": "http://localhost:8888/fetchController/fetchCustomersList",
@@ -404,7 +404,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
         $('.dt-buttons a.btn').removeClass('dt-button');
     },
     buildPlatformsTable: function() {
-    	$('#configbreadcrumb .active').html("Platforms");
+        $('#configbreadcrumb .active').html("Platforms");
         $('#platformssub-table').DataTable({
             dom: 'Bfrtip',
             "ajax": "http://localhost:8888/fetchController/fetchPlateformList",
@@ -423,7 +423,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
         $('.dt-buttons a.btn').removeClass('dt-button');
     },
     buildPlacesTable: function() {
-    	$('#configbreadcrumb .active').html("Places");
+        $('#configbreadcrumb .active').html("Places");
         $('#locationsub-table').DataTable({
             dom: 'Bfrtip',
             "ajax": "http://localhost:8888/fetchController/fetchPlacesList",
@@ -445,7 +445,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
         $('.dt-buttons a.btn').removeClass('dt-button');
     },
     buildSitesTable: function() {
-    	$('#configbreadcrumb .active').html("Sites");
+        $('#configbreadcrumb .active').html("Sites");
         $('#sitesub-table').DataTable({
             dom: 'Bfrtip',
             "ajax": "http://localhost:8888/fetchController/fetchSitesList",
