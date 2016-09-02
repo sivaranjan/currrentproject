@@ -113,12 +113,12 @@ BackboneData.Collections.fetchSitesList = Backbone.Collection.extend({
 BackboneData.Collections.fetchCustomerDetailsbyName = Backbone.Collection.extend({
 
     //Specify REST URL
-    url: 'http://localhost:8888/fetchController/fetchCustomerDetailsbyName/'+localStorage.getItem("customerNameSelected"),
+    url: 'http://localhost:8888/fetchController/fetchCustomerDetailsbyName/' + localStorage.getItem("customerNameSelected"),
 
     initialize: function() {
-    	var self = this;
-    	console.log(self);
-    	console.log("==================");
+        var self = this;
+        console.log(self);
+        console.log("==================");
         this.bind("reset", function(model, options) {
             console.log("Inside event");
             console.log(model);
