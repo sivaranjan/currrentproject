@@ -332,7 +332,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
         $('#configbreadcrumb .active').html("Actors / " + actorTypeFilter);
         $('#actorsub-table').DataTable({
             dom: 'Bfrtip',
-            "ajax": "http://localhost:8888/fetchController/fetchActorsByType/" + actorTypeFilter,
+            "ajax": "/fetchController/fetchActorsByType/" + actorTypeFilter,
             "bDestroy": true,
             "columns": [
                 { "data": "actorEmail" },
@@ -352,6 +352,26 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend({
                 }
             }]
         });
+        $('#actorsub-table tfoot th').each( function () {
+            var title = $(this).text();
+            $(this).html( '<input type="text" class="form-control input-sm" placeholder="Search '+title+'" />' );
+        } );
+     
+        // DataTable
+        var table = $('#actorsub-table').DataTable();
+     
+        // Apply the search
+        table.columns().every( function () {
+            var that = this;
+     
+            $( 'input', this.footer() ).on( 'keyup change', function () {
+                if ( that.search() !== this.value ) {
+                    that
+                        .search( this.value )
+                        .draw();
+                }
+            } );
+        } );
         $('.dt-buttons a.btn').removeClass('dt-button');
     },
     buildIncotermsTable: function() {

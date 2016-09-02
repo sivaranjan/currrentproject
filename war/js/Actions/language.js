@@ -370,3 +370,6 @@ adminSetting_englishLabelList = {
 		'Site':'Site',
 		'Delete':'Delete'
 };
+
+ /*============================== Order Creation (in what stage it is) =========================*/
+
