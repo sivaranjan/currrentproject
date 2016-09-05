@@ -13,6 +13,7 @@
 	    }
 	 %>
 	 <script>
+	 	window.language || (window.language = {});
 	 	var useremailid ='<%=useremailid%>';
 	 </script>	 
 <!DOCTYPE HTML>
@@ -284,7 +285,12 @@
 		</div>
 
 		<!-- JavaScript -->
-		<script src="../js/Actions/language.js"></script>
+		<script src="../js/Loader/language.js"></script>
+		<script src="../js/Loader/constants.js"></script>
+		<script src="../js/Configurations/Config-1-OrderCreation.js">
+			
+		</script><script src="../js/Actions/Operations.js"></script>
+
         <script src="../js/Library/jquery-3.1.0.min.js"></script>
         <script src="../js/Library/underscore.js"></script>
         <script src="../js/Library/backbone-min.js"></script>
@@ -319,6 +325,7 @@
          <script src="../js/Backbone/Model/Incoterms-Model.js"></script>
          <script src="../js/Backbone/Model/Places-Model.js"></script>
          <script src="../js/Backbone/Model/Plateform-Model.js"></script>
+         <script src="../js/Backbone/Model/User-Model.js"></script>
          
 		<script src="../js/Backbone/Model/OrderDetails-Model.js"></script>
 		<script src="../js/Backbone/View/GlobalNavBar-RenderView.js"></script>
@@ -333,8 +340,9 @@
 		<script src="../js/Loader/initializer.js"></script>
         <script src="../js/Routers/router.js?yufyufyufufyu"></script>
         <script src="../js/Actions/actions.js"></script>
+
         <script>
-$('#userlabel').html("Welcome "+useremailid);
+			$('#userlabel').html("Welcome "+useremailid);
         </script>
 </body>
 
