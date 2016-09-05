@@ -4,102 +4,96 @@ BackboneData.Views.ComponentDetailView = Backbone.View
         el: '#component-section',
         render: function()
         {
-            var ref = this;
-            var componentDetailHTML = "";
+            var ref					 = 	this;
+            var componentDetailHTML  = 	"";
             if (window.language == "EN")
             {
                 componentDetailHTML = component.manager.ComponentDetailView(
                 {
-                        'paramValue': window.componentCreation_englishLabelList
+                        'paramValue'	: 	window.componentCreation_englishLabelList
                  });
             }
             else
             {
                 componentDetailHTML = component.manager.ComponentDetailView(
                 {
-                     'paramValue': window.componentCreation_frenchLabelList
+                     	'paramValue'	: 	window.componentCreation_frenchLabelList
                 });
             }
             ref.$el.html(componentDetailHTML);
 
-            $('#planningcust-table')
-                .DataTable(
-                {
-
-                    dom: 'Bfrtip',
+            $('#planningcust-table').DataTable(
+            {
+                    dom				:	'Bfrtip',
                     responsive:
                     {
                         details:
                         {
-                            type: 'column',
-                            target: -1
+                            type	: 	'column',
+                            target	: 	-1
                         }
                     },
                     columnDefs: [
                     {
-                        className: 'control',
-                        orderable: false,
-                        targets: -1
+                        className	: 	'control',
+                        orderable	: 	false,
+                        targets		: 	-1
                     },
                     {
-                        targets: [3],
-                        orderable: false,
-                        width: "40px",
+                        targets		: 	[3],
+                        orderable	: 	false,
+                        width		: 	"40px",
                     },
                     {
-                        targets: [4],
-                        orderable: false,
-                        width: "40px",
+                        targets		: 	[4],
+                        orderable	: 	false,
+                        width		: 	"40px",
                     }],
                     buttons: [
                     {
-                        text: '<i class="fa fa-plus" aria-hidden="true"></i> New',
-                        className: 'btn btn-default btn-sm newplanbtn',
-                        action: function()
+                        text		: '<i class="fa fa-plus" aria-hidden="true"></i> New',
+                        className	: 'btn btn-default btn-sm newplanbtn',
+                        action		: function()
                         {
-                            $('#plancustdevlivery-modal')
-                                .modal('show');
+                            $('#plancustdevlivery-modal').modal('show');
                         }
                     }]
                 });
 
-            $('#planninglab-table')
-                .DataTable(
-                {
-
-                    dom: 'Bfrtip',
+            $('#planninglab-table').DataTable(
+            {
+                    dom				:   'Bfrtip',
                     responsive:
                     {
                         details:
                         {
-                            type: 'column',
-                            target: -1
+                            type	: 	'column',
+                            target	: 	-1
                         }
                     },
                     columnDefs: [
                     {
-                        className: 'control',
-                        orderable: false,
-                        targets: -1
+                        className	: 	'control',
+                        orderable	: 	false,
+                        targets		: 	-1
                     },
                     {
-                        targets: [4],
-                        orderable: false,
-                        width: "40px"
+                        targets		: 	[4],
+                        orderable	: 	false,
+                        width		: 	"40px"
                     },
                     {
-                        targets: [5],
-                        orderable: false,
-                        width: "40px"
+                        targets		: 	[5],
+                        orderable	: 	false,
+                        width		: 	"40px"
                     }],
                     buttons: [
                     {
-                        text: '<i class="fa fa-plus" aria-hidden="true"></i> New',
-                        className: 'btn btn-default btn-sm newplanbtn',
-                        action: function()
+                        text		: 	'<i class="fa fa-plus" aria-hidden="true"></i> New',
+                        className	: 	'btn btn-default btn-sm newplanbtn',
+                        action		: 	function()
                         {
-                            $('#planlabtest-modal')
-                                .modal('show');
+                            $('#planlabtest-modal').modal('show');
                         }
                     }]
                 });
@@ -122,18 +116,18 @@ BackboneData.Views.ComponentDetailView = Backbone.View
         {
             'change #directDeliveryDiv input[type=radio]': "populateDependencies"
         },
-        initialize: function()
+        initialize		: 	function()
         {
             _.bindAll(this, 'cleanup');
             var _thisView = this;
             _thisView.render();
         },
-        cleanup: function()
+        cleanup			:	 function()
         {
             this.undelegateEvents();
             $(this.el).empty();
         },
-        populateDependencies: function()
+        populateDependencies	: 	function()
         {
             /*var direct_delivery = $('#directDeliveryDiv input[name="optradio1"]:checked').val();
             if (direct_delivery == "No")

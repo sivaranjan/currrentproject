@@ -237,15 +237,15 @@ BackboneData.Models.UserModel = Backbone.Model.extend(
     },
     initialize: function()
     {
-        console.log('Book has been initialized');
+        console.log('UserModel has been initialized');
         this.on("invalid", function(model, error)
         {
-            console.log("Houston, we have a problem: " + error)
+            console.log("UserModel, we have a problem: " + error)
         });
     },
     constructor: function(attributes, options)
     {
-        console.log('Book\'s constructor had been called');
+        console.log('UserModels constructor had been called');
         Backbone.Model.apply(this, arguments);
     },
     urlRoot: ApplicationConstants.createorupdateuser

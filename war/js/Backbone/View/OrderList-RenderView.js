@@ -1,26 +1,26 @@
 BackboneData.Views.OrderListview = Backbone.View.extend(
 {
-    el: '#orderlist-section',
-    render: function()
+    el			: 	'#orderlist-section',
+    render		: 	function()
     {
         var ref = this;
-        var orderListViewHtml = "";
-        orderListViewHtml = orderlist.manager.OrderListDetailView();
+        var orderListViewHtml 	= 	"";
+        orderListViewHtml 		= 	orderlist.manager.OrderListDetailView();
         ref.$el.html(orderListViewHtml);
     },
     initialize: function(name)
     {
-        var _thisView = this;
+        var _thisView 	= 	this;
         _thisView.render();
         this.buildOrderListTable();
     },
-    buildOrderListTable: function()
+    buildOrderListTable		: 	function()
     {
         $('#orderlist-table').DataTable(
         {
-            ajax: ApplicationConstants.fetchOrdersList,
-            bDestroy: true,
-            columns: [
+            ajax		: 	ApplicationConstants.fetchOrdersList,
+            bDestroy	: 	true,
+            columns		: 	[
             {
                 "data": "site_Workshop_Prototype"
             },
@@ -58,15 +58,15 @@ BackboneData.Views.OrderListview = Backbone.View.extend(
             {
                 details:
                 {
-                    type: 'column',
-                    target: -1
+                    type	: 'column',
+                    target	: -1
                 }
             },
-            columnDefs: [
+            columnDefs		: [
             {
-                className: 'control',
-                orderable: false,
-                targets: -1
+                className	: 	'control',
+                orderable	: 	false,
+                targets		: 	-1
             }]
         });
     }

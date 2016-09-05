@@ -2,23 +2,23 @@
 {
 	saveSite 						= 		function()
     										{
-											        var siteName = $("#site_name").val();
-											        var siteAddress = $("#site_address").val();
+											        var siteName 		= 	$("#site_name").val();
+											        var siteAddress 	= 	$("#site_address").val();
 											        showVoiceBox.configure("Saving Site",2000);
-											        var siteDetails = new BackboneData.Models.SitesListModel(
+											        var siteDetails 	= 	new BackboneData.Models.SitesListModel(
 											        {
-											            site_Name: siteName,
-											            address: siteAddress,
-											            added_By : useremailid
+											            site_Name	: 	siteName,
+											            address		: 	siteAddress,
+											            added_By 	: 	useremailid
 											        });
 											        siteDetails.save(
 											        {},
 											        {
-											            success: function(model, respose, options)
+											            success		: 	function(model, respose, options)
 											            {
 											                console.log("The model has been saved to the server");
 											            },
-											            error: function(model, xhr, options)
+											            error		: 	function(model, xhr, options)
 											            {
 											                console.log("Something went wrong while saving the model");
 											                showVoiceBox.configure("New site added successfully",2000);
@@ -29,21 +29,21 @@
     											};
     savePlace		 			    = 		function()
 		    								{
-											        var placeValue = $("#places").val();
+											        var placeValue 		= 	$("#places").val();
 											        showVoiceBox.configure("Saving Places",2000);
-											        var placeDetails = new BackboneData.Models.PlacesDetailsModel(
+											        var placeDetails 	= 	new BackboneData.Models.PlacesDetailsModel(
 											        {
-											            places: placeValue,
-											            added_By : useremailid
+											            places		: 	placeValue,
+											            added_By 	: 	useremailid
 											        });
 											        placeDetails.save(
 											        {},
 											        {
-											            success: function(model, respose, options)
+											            success		: 	function(model, respose, options)
 											            {
 											                console.log("The model has been saved to the server");
 											            },
-											            error: function(model, xhr, options)
+											            error		: 	function(model, xhr, options)
 											            {
 											            	showVoiceBox.configure("New place added successfully",2000);
 											                console.log("Something went wrong while saving the model");
@@ -54,21 +54,21 @@
 		    								};
 	savePlateform 					= 		function(languageChanged)
     										{
-											        var plateformValue = $("#plateforms_value").val();
+											        var plateformValue 		= 	$("#plateforms_value").val();
 											        showVoiceBox.configure("Saving Plateform",2000);
-											        var plateformDetails = new BackboneData.Models.PlateformDetailsModel(
+											        var plateformDetails 	= 	new BackboneData.Models.PlateformDetailsModel(
 											        {
-											            plateform: plateformValue,
-											            added_By : useremailid
+											            plateform	: 	plateformValue,
+											            added_By 	: 	useremailid
 											        });
 											        plateformDetails.save(
 											        {},
 											        {
-											            success: function(model, respose, options)
+											            success		: 	function(model, respose, options)
 											            {
 											                console.log("The model has been saved to the server");
 											            },
-											            error: function(model, xhr, options)
+											            error		: 	function(model, xhr, options)
 											            {
 											            	showVoiceBox.configure("New plateform added successfully",2000);
 											                console.log("Something went wrong while saving the model");
@@ -79,21 +79,21 @@
     										};
     saveCustomer 					= 		function()
     										{
-										    	var self = this;
-										        var name = $("#customer_name").val();
-										        var code = $("#customer_code").val();
-										        var branch_code = $("#customer_branch").val();
-										        var provider_code = $("#cust_provider_code").val();
-										        var address = $("#customer_address").val();
+										    	var self 	= 	this;
+										        var name 	= 	$("#customer_name").val();
+										        var code 	= 	$("#customer_code").val();
+										        var branch_code 	=	 $("#customer_branch").val();
+										        var provider_code 	=	 $("#cust_provider_code").val();
+										        var address 		= 	 $("#customer_address").val();
 										        showVoiceBox.configure("Saving Customer Entry",2000);
-										        var customerDetails = new BackboneData.Models.CustomersListModel(
+										        var customerDetails = 	 new BackboneData.Models.CustomersListModel(
 										        {
-										            customer_Name: name,
-										            customer_Code: code,
-										            branch_Code: branch_code,
-										            provider_Code: provider_code,
-										            customer_Address: address,
-										            added_By : useremailid
+										            customer_Name	: 	name,
+										            customer_Code	: 	code,
+										            branch_Code		: 	branch_code,
+										            provider_Code	: 	provider_code,
+										            customer_Address: 	address,
+										            added_By 		: 	useremailid
 										            
 										        });
 										        customerDetails.save(
@@ -115,15 +115,15 @@
     									};
     	saveIncoterms 					= 	function(currentpage,docallBack)
     										{
-									    	 	var self = this;
-										        var incoterm = $("#incoterms_value").val();
-										        var info = $("#incoterms_info").val();
+									    	 	var self 		= 	this;
+										        var incoterm 	= 	$("#incoterms_value").val();
+										        var info 		= 	$("#incoterms_info").val();
 										        showVoiceBox.configure("Saving Incoterms",2000);
-										        var incotermsDetails = new BackboneData.Models.IncotermsModel(
+										        var incotermsDetails	 = 	new BackboneData.Models.IncotermsModel(
 										        {
-										            incoterms: incoterm,
-										            infos: info,
-										            added_By : useremailid
+										            incoterms	: 	incoterm,
+										            infos		: 	info,
+										            added_By 	: 	useremailid
 										        });
 										        incotermsDetails.save(
 										        {},
@@ -143,27 +143,27 @@
     										};
     	saveActor 						= 	function(currentPage,docallBack)
 									    	{
-										    	var self = this;
-										        var actor_Type = $('ul#addActorUL').find('li.active').data('attr');
-										        var actor_Email = $("#actor_email").val();
-										        var actorSite = $("#actor_site").val();
+										    	var 	self 		= 	this;
+										        var 	actor_Type 	= 	$('ul#addActorUL').find('li.active').data('attr');
+										        var 	actor_Email = 	$("#actor_email").val();
+										        var 	actorSite 	= 	$("#actor_site").val();
 										        showVoiceBox.configure("Saving actor",2000);
-										        var actorDetails = new BackboneData.Models.ActorListDetailsModel(
+										        var 	actorDetails = 	new BackboneData.Models.ActorListDetailsModel(
 										        {
-										            actorType: actor_Type,
-										            actorEmail: actor_Email,
-										            site: actorSite,
-										            addedBy : useremailid
+										            actorType	: 	actor_Type,
+										            actorEmail	: 	actor_Email,
+										            site		: 	actorSite,
+										            addedBy		: 	useremailid
 										        });
 										        actorDetails.save(
 										        {},
 										        {
-										            success: function(model, respose, options)
+										            success		: 	function(model, respose, options)
 										            {
 										            	showVoiceBox.configure("Actor saved successfully",2000);
 										                console.log("The model has been saved to the server");
 										            },
-										            error: function(model, xhr, options)
+										            error		: 	function(model, xhr, options)
 										            {
 										            	showVoiceBox.configure("Actor saved successfully",2000);
 										                $('#actor-modal').modal('hide');
@@ -177,27 +177,27 @@
 										        $('#configbreadcrumb .active').html("Actors / " + actorTypeFilter);
 										        $('#actorsub-table').DataTable(
 										        {
-										            dom: 'Bfrtip',
-										            "ajax": ApplicationConstants.fetchActorsListByType + actorTypeFilter,
-										            "bDestroy": true,
-										            "columns": [
+										            dom			: 	'Bfrtip',
+										            "ajax"		: 	ApplicationConstants.fetchActorsListByType + actorTypeFilter,
+										            "bDestroy"	:	true,
+										            "columns"	: 	[
 										            {
-										                "data": "actorEmail"
+										                "data"	: "actorEmail"
 										            },
 										            {
-										                "data": "actorType"
+										                "data"	: "actorType"
 										            },
 										            {
-										                "data": "site"
+										                "data"	: "site"
 										            }, ],
-										            "order": [
+										            "order"		: 	[
 										                [1, 'asc']
 										            ],
 										            buttons: [
 										            {
-										                text: '<i class="fa fa-plus" aria-hidden="true"></i> Add new actor',
-										                className: 'btn btn-success btn-sm',
-										                action: function()
+										                text		: 	'<i class="fa fa-plus" aria-hidden="true"></i> Add new actor',
+										                className	: 	'btn btn-success btn-sm',
+										                action		: 	function()
 										                {
 										                    var dataAttr = $('ul#addActorUL').find('li.active').data('attr');
 										                    $('#actorLabel').html(dataAttr);
@@ -208,7 +208,7 @@
 										                    	var responseData = response.data;
 										                    	console.log("sites data down ");
 										                    	console.log(responseData);
-										                    	var sitesHTML = "";
+										                    	var sitesHTML 	= "";
 										                    	responseData.forEach(function(arrayItem)
 														        {
 										                    		sitesHTML += '<option>' + arrayItem.site_Name + '</option>';
@@ -236,9 +236,7 @@
 										            {
 										                if (that.search() !== this.value)
 										                {
-										                    that
-										                        .search(this.value)
-										                        .draw();
+										                    that.search(this.value).draw();
 										                }
 										            });
 										        });
@@ -249,24 +247,22 @@
 												$('#configbreadcrumb .active').html("Incoterms");
 										        $('#incoterms-table').DataTable(
 										        {
-										            dom: 'Bfrtip',
-										            "ajax": ApplicationConstants.fetchIncotermsList,
-										            "bDestroy": true,
-										            "columns": [
+										            dom			: 	'Bfrtip',
+										            "ajax"		: 	ApplicationConstants.fetchIncotermsList,
+										            "bDestroy"	: 	true,
+										            "columns"	: 	[
 										            {
-										                "data": "incoterms"
+										                "data"	: "incoterms"
 										            },
 										            {
-										                "data": "infos"
+										                "data"	: "infos"
 										            }, ],
-										            "order": [
-										                [1, 'asc']
-										            ],
-										            buttons: [
+										            "order"		: [[1, 'asc']],
+										            buttons		: [
 										            {
-										                text: '<i class="fa fa-plus" aria-hidden="true"></i> Add New Incoterms',
-										                className: 'btn btn-success btn-sm',
-										                action: function()
+										                text		: 	'<i class="fa fa-plus" aria-hidden="true"></i> Add New Incoterms',
+										                className	: 	'btn btn-success btn-sm',
+										                action		: 	function()
 										                {
 										                    $('#incoterms-modal').modal('show');
 										                }
@@ -279,33 +275,31 @@
 												$('#configbreadcrumb .active').html("Customers");
 										        $('#clients-table').DataTable(
 										        {
-										            dom: 'Bfrtip',
-										            "ajax": ApplicationConstants.fetchCustomersList,
-										            "bDestroy": true,
-										            "columns": [
+										            dom			: 	'Bfrtip',
+										            "ajax"		: 	ApplicationConstants.fetchCustomersList,
+										            "bDestroy"	: 	true,
+										            "columns"	: 	[
 										            {
-										                "data": "customer_Name"
+										                "data"	: "customer_Name"
 										            },
 										            {
-										                "data": "customer_Code"
+										                "data"	: "customer_Code"
 										            },
 										            {
-										                "data": "branch_Code"
+										                "data"	: "branch_Code"
 										            },
 										            {
-										                "data": "provider_Code"
+										                "data"	: "provider_Code"
 										            },
 										            {
-										                "data": "customer_Address"
+										                "data"	: "customer_Address"
 										            }, ],
-										            "order": [
-										                [1, 'asc']
-										            ],
-										            buttons: [
+										            "order"		: [[1, 'asc']],
+										            buttons		: [
 										            {
-										                text: '<i class="fa fa-plus" aria-hidden="true"></i> Add New Customer',
-										                className: 'btn btn-success btn-sm',
-										                action: function()
+										                text		: '<i class="fa fa-plus" aria-hidden="true"></i> Add New Customer',
+										                className	: 'btn btn-success btn-sm',
+										                action		: function()
 										                {
 										                    $('#clients-modal').modal('show');
 										                }
@@ -318,18 +312,18 @@
 												$('#configbreadcrumb .active').html("Platforms");
 										        $('#platformssub-table').DataTable(
 										        {
-										            dom: 'Bfrtip',
-										            "ajax": ApplicationConstants.fetchPlateformesList,
-										            "bDestroy": true,
-										            "columns": [
+										            dom			: 'Bfrtip',
+										            "ajax"		: ApplicationConstants.fetchPlateformesList,
+										            "bDestroy"	: true,
+										            "columns"	: [
 										            {
-										                "data": "plateform"
+										                "data"	: "plateform"
 										            }, ],
-										            buttons: [
+										            buttons		: [
 										            {
-										                text: '<i class="fa fa-plus" aria-hidden="true"></i> Add New Platform',
-										                className: 'btn btn-success btn-sm',
-										                action: function()
+										                text	  : '<i class="fa fa-plus" aria-hidden="true"></i> Add New Platform',
+										                className : 'btn btn-success btn-sm',
+										                action	  : function()
 										                {
 										                    $('#platform-modal').modal('show');
 										                }
@@ -342,21 +336,19 @@
 												$('#configbreadcrumb .active').html("Places");
 										        $('#locationsub-table').DataTable(
 										        {
-										            dom: 'Bfrtip',
-										            "ajax": ApplicationConstants.fetchPlacesList,
-										            "bDestroy": true,
-										            "columns": [
+										            dom			: 'Bfrtip',
+										            "ajax"		: ApplicationConstants.fetchPlacesList,
+										            "bDestroy"	: true,
+										            "columns"	: [
 										            {
-										                "data": "places"
+										                "data"	: "places"
 										            }, ],
-										            "order": [
-										                [0, 'asc']
-										            ],
-										            buttons: [
+										            "order"		: [[0, 'asc']],
+										            buttons		: [
 										            {
-										                text: '<i class="fa fa-plus" aria-hidden="true"></i> Add New Places',
+										                text	: '<i class="fa fa-plus" aria-hidden="true"></i> Add New Places',
 										                className: 'btn btn-success btn-sm',
-										                action: function()
+										                action	: function()
 										                {
 										                    $('#location-modal').modal('show');
 										                }
@@ -369,24 +361,22 @@
 												 $('#configbreadcrumb .active').html("Sites");
 											        $('#sitesub-table').DataTable(
 											        {
-											            dom: 'Bfrtip',
-											            "ajax": ApplicationConstants.fetchSitesList,
-											            "bDestroy": true,
-											            "columns": [
+											            dom			: 'Bfrtip',
+											            "ajax"		: ApplicationConstants.fetchSitesList,
+											            "bDestroy"	: true,
+											            "columns"	: [
 											            {
-											                "data": "site_Name"
+											                "data"	: "site_Name"
 											            },
 											            {
-											                "data": "address"
+											                "data"	: "address"
 											            }, ],
-											            "order": [
-											                [1, 'asc']
-											            ],
-											            buttons: [
+											            "order"		: [[1, 'asc']],
+											            buttons		: [
 											            {
-											                text: '<i class="fa fa-plus" aria-hidden="true"></i> Add New Sites',
+											                text	: '<i class="fa fa-plus" aria-hidden="true"></i> Add New Sites',
 											                className: 'btn btn-success btn-sm',
-											                action: function()
+											                action	: function()
 											                {
 											                    $('#site-modal').modal('show');
 											                }

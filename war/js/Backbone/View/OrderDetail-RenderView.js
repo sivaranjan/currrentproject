@@ -3,26 +3,26 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
     el						:   '#orderdetailview',
     render					:   function()
 							    {
-							        var ref = this;
-							        var orderDetailHTML = "";
+							        var ref 			= 	this;
+							        var orderDetailHTML = 	"";
 							        if (window.language == "EN")
 							        {
 							            orderDetailHTML = order.manager.OrderDetailView(
 							            {
-							                'paramValue': window.orderDetails_englishLabelList,
-							                'visibleconfig': window.orderCreationVisibilitySettings,
-							                'editableconfig': window.orderCreationEditableSettings,
-							                'mandatoryconfig': window.orderCreationMandatorySettings
+							                'paramValue'		: 	window.orderDetails_englishLabelList,
+							                'visibleconfig'		: 	window.orderCreationVisibilitySettings,
+							                'editableconfig'	: 	window.orderCreationEditableSettings,
+							                'mandatoryconfig'	: 	window.orderCreationMandatorySettings
 							            });
 							        }
 							        else
 							        {
-							            orderDetailHTML = order.manager.OrderDetailView(
+							            orderDetailHTML 	= 	order.manager.OrderDetailView(
 							            {
-							                'paramValue': window.orderDetails_frenchLabelList,
-							                'visibleconfig': window.orderCreationVisibilitySettings,
-							                'editableconfig': window.orderCreationEditableSettings,
-							                'mandatoryconfig': window.orderCreationMandatorySettings
+							                'paramValue'		: 	window.orderDetails_frenchLabelList,
+							                'visibleconfig'		: 	window.orderCreationVisibilitySettings,
+							                'editableconfig'	: 	window.orderCreationEditableSettings,
+							                'mandatoryconfig'	: 	window.orderCreationMandatorySettings
 							            });
 							        }
 							        ref.$el.html(orderDetailHTML);

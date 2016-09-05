@@ -3,9 +3,9 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend(
     el							: 	'#admin-section',
     render					    : 	function()
 					    			{
-								        var ref = this;
-								        var adminDetailHTML = "";
-								        adminDetailHTML = admin.manager.AdminDetailView();
+								        var ref 			= 	this;
+								        var adminDetailHTML = 	"";
+								        adminDetailHTML 	= 	admin.manager.AdminDetailView();
 								        ref.$el.html(adminDetailHTML);
 					    			},
     initialize					:   function()
@@ -14,13 +14,13 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend(
 						        		_thisView.render();
 						    		},
     events						:   {
-								        "click #showtableslist": "showTablesList",
-								        "click #configactor-btn": "viewActorList",
-								        "click #incoterms-btn": "viewIncotermsList",
-								        "click #clients-btn": "viewClientsList",
-								        "click #platforms-btn": "viewPlatformList",
-								        "click #locations-btn": "viewLocationList",
-								        "click #sites-btn": "viewSiteList",
+								        "click #showtableslist"		: 	"showTablesList",
+								        "click #configactor-btn"	: 	"viewActorList",
+								        "click #incoterms-btn"		: 	"viewIncotermsList",
+								        "click #clients-btn"		: 	"viewClientsList",
+								        "click #platforms-btn"		: 	"viewPlatformList",
+								        "click #locations-btn"		: 	"viewLocationList",
+								        "click #sites-btn"			: 	"viewSiteList",
 								    },
     showTablesList				: 	function()
 									{
