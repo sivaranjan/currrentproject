@@ -2,13 +2,13 @@ var Router = Backbone.Router.extend(
 {
     routes:
     {
-        '/*': 'home',
-        'home': 'home',
-        'createorder': 'order',
-        'adminsetting': 'admin',
+        '/*'			: 	'home',
+        'home'			: 	'home',
+        'createorder'	: 	'order',
+        'adminsetting'	: 	'admin',
         'componentdetails': 'component',
-        'orderlisting': 'orderlist',
-        'orderdetail': 'home'	
+        'orderlisting'	: 	'orderlist',
+        'orderdetail'	: 	'home'	
     }
 });
 var routerTHS = new Router();
