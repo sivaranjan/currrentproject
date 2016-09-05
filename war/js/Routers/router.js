@@ -27,19 +27,14 @@ routerTHS.on('route:home', function(action)
 });
 routerTHS.on('route:order', function(action)
 {
-	alert("1");
     pullUserInfo(function()
     {
-    	alert("2");
         pullOrderDependencies(function()
         {
-        	alert("3");
         	renderBackboneView("createorder",function()
         	{
-        		alert("4");
         		SetView("createorder",function()
         		{
-        			alert("5");
                 	SetDetails();
                 });
         	});
@@ -65,7 +60,7 @@ routerTHS.on('route:component', function(action)
     {
     	renderBackboneView("componentdetails",function()
     	{
-    		SetView("component",function()
+    		SetView("componentdetails",function()
     	    {
     	    	// This does the hide and show of divs    			
     	    });
