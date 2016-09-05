@@ -2,9 +2,10 @@
 /**
  * Navbtn View
  * @param paramValue
+ * @param visibleconfig
  */
 {template .NavBtnViewDetail}
-			<div class="col-md-12 hide">
+			<div class="col-md-12 {$visibleconfig['breadcrumb']} ">
 				<ol class="breadcrumb">
 				  <li><a href="#">Home</a></li>
 				  <li><a href="#">Library</a></li>
@@ -12,21 +13,21 @@
 				</ol>
 			</div>
 			<p class="col-md-12">
-				<button type="button" class="btn btn-default btn-sm"><i class="fa fa-print" aria-hidden="true"></i> {$paramValue['Print']}</button>
-                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-files-o" aria-hidden="true"></i > {$paramValue['Duplicate']}</button>
-                <button type="button" id="saveorderbtn" class="btn btn-default btn-sm"><i class="fa fa-floppy-o" aria-hidden="true"></i > {$paramValue['Save']}</button>
-                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-times" aria-hidden="true"></i> {$paramValue['Close']}</button>
-                <button type="button" class="btn btn-default btn-sm hide"><i class="fa fa-check-square-o" aria-hidden="true"></i> Validate</button>
-                <button type="button" class="btn btn-default btn-sm hide" data-toggle="modal" data-target="#demotereq-modal"><i class="fa fa-thumbs-down" aria-hidden="true"></i> Refuse</button>
-                <button type="button" class="btn btn-default btn-sm hide"><i class="fa fa-times" aria-hidden="true"></i> {$paramValue['Cancel']}</button>
+				<button type="button" class="btn btn-default btn-sm {$visibleconfig['print']}"><i class="fa fa-print" aria-hidden="true"></i> {$paramValue['Print']}</button>
+                <button type="button" class="btn btn-default btn-sm {$visibleconfig['duplicate']}"><i class="fa fa-files-o" aria-hidden="true"></i > {$paramValue['Duplicate']}</button>
+                <button type="button" id="saveorderbtn" class="btn btn-default btn-sm {$visibleconfig['saveorder']}"><i class="fa fa-floppy-o" aria-hidden="true"></i > {$paramValue['Save']}</button>
+                <button type="button" class="btn btn-default btn-sm {$visibleconfig['close']}"><i class="fa fa-times" aria-hidden="true"></i> {$paramValue['Close']}</button>
+                <button type="button" class="btn btn-default btn-sm {$visibleconfig['closeorder']}"><i class="fa fa-times" aria-hidden="true"></i> Close the order</button>
+                <button type="button" class="btn btn-default btn-sm {$visibleconfig['cancelorder']}"><i class="fa fa-times" aria-hidden="true"></i> Cancel the order</button>
                 <span class="pull-right">    
-                <button type="button" class="btn btn-default btn-sm hide" data-toggle="modal" data-target="#demotereq-modal"><i class="fa fa-hand-o-left" aria-hidden="true"></i>  {$paramValue['Refuse']}</button>
-                    <button type="button" class="btn btn-default btn-sm hide" data-toggle="modal" data-target="#demotereq-modal"><i class="fa fa-hand-o-left" aria-hidden="true"></i>  {$paramValue['Demote to previous step']}</button>
-                    <button type="button" class="btn btn-default btn-sm hide" data-toggle="modal" data-target="#demotereq-modal"><i class="fa fa-user-times" aria-hidden="true"></i>  {$paramValue['Demote to requester']}</button>                 
+                	<button type="button" class="btn btn-default btn-sm {$visibleconfig['validateorder']}"><i class="fa fa-check-square-o" aria-hidden="true"></i> Validate</button>
+                	<button type="button" class="btn btn-default btn-sm {$visibleconfig['refuseorder']}" data-toggle="modal" data-target="#demotereq-modal"><i class="fa fa-hand-o-left" aria-hidden="true"></i>  {$paramValue['Refuse']}</button>
+                    <button type="button" class="btn btn-default btn-sm {$visibleconfig['demoteprevious']}" data-toggle="modal" data-target="#demotereq-modal"><i class="fa fa-hand-o-left" aria-hidden="true"></i>  {$paramValue['Demote to previous step']}</button>
+                    <button type="button" class="btn btn-default btn-sm {$visibleconfig['demoterequester']}" data-toggle="modal" data-target="#demotereq-modal"><i class="fa fa-user-times" aria-hidden="true"></i>  {$paramValue['Demote to requester']}</button>                 
                 </span>
              </p>
              
-                <div class="col-md-12 hide" id="panelwell-details">
+                <div class="col-md-12 {$visibleconfig['fixednavbar']}" id="panelwell-details">
         		<div class="panel panel-default" style="background: #E6E6E6;">
 				  <div class="panel-body" style="padding: 10px;">
 				  	<div class="row">
