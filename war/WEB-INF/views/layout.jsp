@@ -317,17 +317,8 @@
           <script src="../Soy/SoyViewJs/admindetail-view.js"></script>
           <script src="../Soy/SoyViewJs/orderlist-view.js"></script>
 
- 		 <script src="../js/Backbone/Model/test-Model.js"></script>
-
-         <script src="../js/Backbone/Model/ActorsList-Model.js"></script>
-         <script src="../js/Backbone/Model/SitesList_Model.js"></script>
-         <script src="../js/Backbone/Model/CustomersList_Model.js"></script>
-         <script src="../js/Backbone/Model/Incoterms-Model.js"></script>
-         <script src="../js/Backbone/Model/Places-Model.js"></script>
-         <script src="../js/Backbone/Model/Plateform-Model.js"></script>
-         <script src="../js/Backbone/Model/User-Model.js"></script>
+		<script src="../js/Backbone/Model/Model.js"></script>
          
-		<script src="../js/Backbone/Model/OrderDetails-Model.js"></script>
 		<script src="../js/Backbone/View/GlobalNavBar-RenderView.js"></script>
 		<script src="../js/Backbone/Collections/CreateOrderCollections.js"></script>
 		
@@ -340,6 +331,9 @@
 		<script src="../js/Loader/initializer.js"></script>
         <script src="../js/Routers/router.js?yufyufyufufyu"></script>
         <script src="../js/Actions/actions.js"></script>
+        <script src="../js/Actions/clicksandblur-events.js"></script>
+        <script src="../js/Actions/AdminPage-Actions.js"></script>
+        <script src="../js/Actions/OrderPage-Actions.js"></script>
 
         <script>
 			$('#userlabel').html("Welcome "+useremailid);
