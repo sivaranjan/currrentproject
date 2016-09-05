@@ -13,31 +13,31 @@
 							</div>
 							<div class="form-group col-md-3">
 							    <label for="name">N<sup>&#8728;</sup>  {$paramValue['Prototype Order']}</label>
-							    <input type="text" class="form-control input-sm" disabled readonly>
+							    <input type="text" class="form-control input-sm" >
 							</div>
 							<div class="form-group col-md-3" id="orderTypeDiv">
 							    <label for="name">{$paramValue['Order type']}</label>
-							    <input type="text" class="form-control input-sm" disabled readonly>
+							    <input type="text" class="form-control input-sm" >
 							</div>
-							<div class="form-group col-md-3 hide" id="customerOrderNodiv">
+							<div class="form-group col-md-3 " id="customerOrderNodiv">
 							    <label for="name" >{$paramValue['Customer order N0']}</label>
-							    <input id="" type="text" class="form-control input-sm" disabled readonly>
+							    <input id="" type="text" class="form-control input-sm" >
 							</div>
 							<div class="form-group col-md-3">
 							    <label for="name">{$paramValue['Customer reference']}</label>
-							    <input type="text" class="form-control input-sm" disabled readonly>
+							    <input type="text" class="form-control input-sm" >
 							</div>
 							<div class="form-group col-md-3">
 							    <label for="name">{$paramValue['Product type']}</label>
-							    <input type="text" class="form-control input-sm" disabled readonly>
+							    <input type="text" class="form-control input-sm" >
 							</div>
 							<div class="form-group col-md-3">
 							    <label for="name">{$paramValue['Component ID']}</label>
-							    <input type="text" id="componentidfield" class="form-control input-sm" data-required="yes" data-type="text" disabled readonly>
+							    <input type="text" id="componentidfield" class="form-control input-sm"  >
 							</div>
 							<div class="form-group col-md-3">
 							    <label for="name">{$paramValue['Component status']}</label>
-							    <input type="text" class="form-control input-sm" disabled readonly>
+							    <input type="text" class="form-control input-sm" >
 							</div>
 						</div>
 						<div class="row" style="margin-top: 15px;">
@@ -63,11 +63,11 @@
 									        		<div class="col-md-12" style="padding-top: 15px;">
 										        		<div class="form-group col-md-3">
 										        			<label for="name">{$paramValue['Customer reference']} <span class="text-danger">*</span></label>
-									        				<input type="text" class="form-control input-sm" data-required="yes" data-type="text"/>
+									        				<input type="text" class="form-control input-sm" />
 										        		</div>
 										        		<div class="form-group col-md-3">
 										        			<label for="name">{$paramValue['Product type']} <span class="text-danger">*</span></label>
-									        				<select class="selectpicker" data-required="yes" data-type="text" data-width="100%" title=" " >
+									        				<select class="selectpicker"  data-width="100%" title=" " >
 														        <option>option</option>
 														        <option>option</option>
 														        <option>option</option>
@@ -76,11 +76,11 @@
 														        <option>option</option>
 														    </select>
 										        		</div>
-										        		<div class="form-group col-md-3 hide" id="unitsellingpriceDiv">
+										        		<div class="form-group col-md-3 " id="unitsellingpriceDiv">
 										        			<label for="name" >{$paramValue['Unit selling price']}(&#x20AC;)</label>
 									        				<input type="text" class="form-control input-sm" id="unitsellingprice"/>
 										        		</div>
-										        		<div class="form-group col-md-3 hide" id="customerdiv">
+										        		<div class="form-group col-md-3 " id="customerdiv">
 										        			<label for="name">{$paramValue['Customer']}</label>
 									        				<select class="selectpicker" id="customerselect" data-width="100%" title=" " id="customer">
 														        <option>option</option>
@@ -91,7 +91,7 @@
 														        <option>option</option>
 														    </select>
 										        		</div>
-										        		<div class="form-group col-md-3 hide" id="directDeliveryDiv">
+										        		<div class="form-group col-md-3 " id="directDeliveryDiv">
 											      			<label>{$paramValue['Direct delivery to the customer']}? <span class="text-danger">*</span></label>
 											      			<div style="padding: 1.5px 0;">
 											      				<label class="radio-inline"><input type="radio" name="optradio1" style="margin-top: 1px;" value="Yes" >{$paramValue['Yes']}</label>
@@ -100,9 +100,9 @@
 											      		</div>
 										        		<div class="form-group col-md-3">
 										        			<label for="name">{$paramValue['Product specification']} <span class="text-danger">*</span></label>
-										        			<textarea data-required="yes" data-type="text" class="form-control" style="height: 65px;resize: none;"></textarea>
+										        			<textarea  class="form-control" style="height: 65px;resize: none;"></textarea>
 										        		</div>
-											      		<div class="form-group col-md-3 hide" id="laboaddressdiv">
+											      		<div class="form-group col-md-3 " id="laboaddressdiv">
 										        			<label for="name" id="labolabel">{$paramValue['Labo address or other']}</label>
 										        			<textarea class="form-control" style="height: 65px;resize: none;" id="laboaddress"></textarea>
 										        		</div>
@@ -216,11 +216,11 @@
 									        	<form role="form">
 									        		<div class="form-group col-md-6">
 													    <label>{$paramValue['Total Quantity']}</label>
-													    <input type="text" class="form-control input-sm" disabled readonly/>
+													    <input type="text" class="form-control input-sm" />
 													</div>
-													<div class="form-group col-md-6 hide" id="totalamtDiv">
+													<div class="form-group col-md-6 " id="totalamtDiv">
 													    <label>{$paramValue['Total amount']}</label>
-													      <input type="text" class="form-control input-sm" disabled readonly id="totalamount"/>
+													      <input type="text" class="form-control input-sm"  id="totalamount"/>
 													</div>
 									        		
 									        	</form>
@@ -298,7 +298,7 @@
 												  		</div>
 												  		<div class="form-group col-md-6">
 															<label for="name">Comment</label>
-															<textarea data-required="yes" data-type="text" class="form-control" style="height: 65px;resize: none;"></textarea>
+															<textarea  class="form-control" style="height: 65px;resize: none;"></textarea>
 														</div>
 												  		<div class="form-group col-md-6" style="margin-top: 10px;">
 															<div class="panel panel-default">
