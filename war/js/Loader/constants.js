@@ -13,8 +13,17 @@ ApplicationConstants = {
 "fetchActorsListBySite"	:	"/fetchController/fetchActorsListBySite/",
 "fetchCustomerDetailsbyName":	"/fetchController/fetchCustomerDetailsbyName/",
 "fetchUserInfoDetails"	:	"/fetchController/fetchUserDetails/",
-"fetchOrderDependencies": "/fetchController/fetchOrderDependencies",
+"fetchOrderDependencies": 	"/fetchController/fetchOrderDependencies",
+"fetchOrdersList"		: 	"/fetchController/fetchOrders",
 "saveOrderUrl"			:	"/order/create",
-"createorupdateuser"	:	"/users/createorupdate"
+"createorupdateuser"	:	"/users/createorupdate",
+"saveActorsListURL"		:	"/actorsList/create",
+"saveCustomersListURL"	:	"/customerslist/create",
+"saveIncotermsListURL"	:	"/incoterm/create",
+"savePlacesListURL"		:	"/place/create",
+"savePlaterormsListURL"	:	"/plateform/create",
+"savesSitesListURL"		:	"/siteslist/create",
+"generateNewId"			:	"/idgenerator/createNewID"
+	
 }
 
