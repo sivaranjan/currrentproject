@@ -30,8 +30,6 @@
     <!--Persistence-->
     <bean id="eventDao" class="com.ths.DAO.ExampleDao"/>
     <bean id="orderDao" class="com.ths.DAO.OrderDAO"/>
-    <bean id="actorsDao" class="com.ths.DAO.ActorsDAO"/>
-    <bean id="customerDao" class="com.ths.DAO.CustomerDAO"/>
      <bean id="actorsListDao" class="com.ths.DAO.ActorsListDAO"/>
      <bean id="sitesListDao" class="com.ths.DAO.SitesListDAO"/>
      <bean id="customersListDao" class="com.ths.DAO.CustomersListDAO"/>
@@ -39,4 +37,7 @@
      <bean id="placesListDao" class="com.ths.DAO.PlacesDAO"/>
      <bean id="plateformListDao" class="com.ths.DAO.PlateformDAO"/>
       <bean id="IdDAO" class="com.ths.DAO.IdDAO"/>
+      <bean id="ComponentIDDAO" class="com.ths.DAO.ComponentIDDAO"/>
+     <bean id="UserDAO" class="com.ths.DAO.UserDAO"/>
+      
   </beans>
