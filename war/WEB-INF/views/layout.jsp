@@ -330,7 +330,6 @@
 		<script src="../js/Backbone/View/OrderList-RenderView.js"></script>
 		<script src="../js/Loader/initializer.js"></script>
         <script src="../js/Routers/router.js?yufyufyufufyu"></script>
-        <script src="../js/Actions/actions.js"></script>
         <script src="../js/Actions/clicksandblur-events.js"></script>
         <script src="../js/Actions/AdminPage-Actions.js"></script>
         <script src="../js/Actions/OrderPage-Actions.js"></script>
