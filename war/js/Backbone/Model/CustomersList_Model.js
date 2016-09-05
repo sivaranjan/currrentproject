@@ -8,13 +8,13 @@ BackboneData.Models.CustomersListModel = Backbone.Model.extend({
         added_By: "",
     },
     initialize: function() {
-        console.log('customer has been initialized');
+        console.log('CustomersListModel has been initialized');
         this.on("invalid", function(model, error) {
-            console.log("Houston, we have a problem: " + error)
+            console.log("CustomersListModel, we have a problem: " + error)
         });
     },
     constructor: function(attributes, options) {
-        console.log('customer\'s constructor had been called');
+        console.log('CustomersListModel constructor had been called');
         Backbone.Model.apply(this, arguments);
     },
     validate: function(attr) {

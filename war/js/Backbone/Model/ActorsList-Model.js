@@ -6,13 +6,13 @@ BackboneData.Models.ActorListDetailsModel = Backbone.Model.extend({
         addedBy: "",
     },
     initialize: function() {
-        console.log('actorlist has been initialized');
+        console.log('ActorListDetailsModel has been initialized');
         this.on("invalid", function(model, error) {
-            console.log("Houston, we have a problem: " + error)
+            console.log("ActorListDetailsModel, we have a problem: " + error)
         });
     },
     constructor: function(attributes, options) {
-        console.log('actorlist\'s constructor had been called');
+        console.log('ActorListDetailsModel constructor had been called');
         Backbone.Model.apply(this, arguments);
     },
     validate: function(attr) {},

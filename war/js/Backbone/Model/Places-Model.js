@@ -6,13 +6,13 @@ BackboneData.Models.PlacesDetailsModel = Backbone.Model.extend({
 
     },
     initialize: function() {
-        console.log('place has been initialized');
+        console.log('PlacesDetailsModel has been initialized');
         this.on("invalid", function(model, error) {
-            console.log("Houston, we have a problem: " + error)
+            console.log("PlacesDetailsModel we have a problem: " + error)
         });
     },
     constructor: function(attributes, options) {
-        console.log('place\'s constructor had been called');
+        console.log('PlacesDetailsModel constructor had been called');
         Backbone.Model.apply(this, arguments);
     },
     validate: function(attr) {

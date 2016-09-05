@@ -4,13 +4,13 @@ BackboneData.Models.PlateformDetailsModel = Backbone.Model.extend({
         added_By: "",
     },
     initialize: function() {
-        console.log('plateform has been initialized');
+        console.log('PlateformDetailsModel has been initialized');
         this.on("invalid", function(model, error) {
-            console.log("Houston, we have a problem: " + error)
+            console.log("PlateformDetailsModel we have a problem: " + error)
         });
     },
     constructor: function(attributes, options) {
-        console.log('plateform\'s constructor had been called');
+        console.log('PlateformDetailsModel constructor had been called');
         Backbone.Model.apply(this, arguments);
     },
     validate: function(attr) {

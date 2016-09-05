@@ -4,17 +4,22 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend({
         var ref = this;
         var NavBtnSectionHTML = "";
         if (window.language == "EN") {
-            NavBtnSectionHTML = navigation.manager.NavBtnViewDetail({ 'paramValue': window.navBtnSection_englishLabelList });
+            NavBtnSectionHTML = navigation.manager.NavBtnViewDetail({ 'paramValue': window.navBtnSection_englishLabelList,'visibleconfig': window.navVisibilitySettings });
         } else {
-            NavBtnSectionHTML = navigation.manager.NavBtnViewDetail({ 'paramValue': window.navBtnSection_frenchLabelList });
+            NavBtnSectionHTML = navigation.manager.NavBtnViewDetail({ 'paramValue': window.navBtnSection_frenchLabelList,'visibleconfig': window.navVisibilitySettings });
         }
         ref.$el.html(NavBtnSectionHTML);
         $('#navfixed-wrapper').removeClass('hide');
     },
-    initialize: function(name) {
-        var _thisView = this;
-        _thisView.render();
-    },
+    initialize: function() {
+	    _.bindAll(this, 'cleanup');
+	    var _thisView = this;
+	    _thisView.render();
+	},
+	cleanup: function() {
+	    this.undelegateEvents();
+	    $(this.el).empty();
+	},
     events: {
         "click #saveorderbtn": "validateOrder"
     },

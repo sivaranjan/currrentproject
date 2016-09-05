@@ -1,57 +1,96 @@
-"use strict";
-var Router = Backbone.Router.extend({
-    routes: {
+var Router = Backbone.Router.extend(
+{
+    routes:
+    {
         '/*': 'home',
         'home': 'home',
         'createorder': 'order',
         'adminsetting': 'admin',
         'componentdetails': 'component',
-        'orderlisting': 'orderlist'
+        'orderlisting': 'orderlist',
+        'orderdetail': 'home'	
     }
 });
 var routerTHS = new Router();
-routerTHS.on('route:home', function(action) {
-
-//    var globalNavbarHTML = new BackboneData.Views.GlobalNavbarview();
-//    globalNavbarHTML.render();
-
-    var welcomeSectionHTML = new BackboneData.Views.WelcomeView();
-    welcomeSectionHTML.render();
+routerTHS.on('route:home', function(action)
+{
+    pullUserInfo(function()
+    {
+    	renderBackboneView("home",function()
+        {
+    		SetView("home",function()
+            {
+    			
+            });
+        });
+    });
 });
-routerTHS.on('route:order', function(action) {
-    var globalNavbarHTML = new BackboneData.Views.GlobalNavbarview();
-    globalNavbarHTML.render();
-    var navBtnSectionHTML = new BackboneData.Views.NavBtnSectionview();
-    navBtnSectionHTML.render();
-    var orderDetailSectionHTML = new BackboneData.Views.OrderDetailView();
-
+routerTHS.on('route:order', function(action)
+{
+	alert("1");
+    pullUserInfo(function()
+    {
+    	alert("2");
+        pullOrderDependencies(function()
+        {
+        	alert("3");
+        	renderBackboneView("createorder",function()
+        	{
+        		alert("4");
+        		SetView("createorder",function()
+        		{
+        			alert("5");
+                	SetDetails();
+                });
+        	});
+        });
+    });
 });
-routerTHS.on('route:admin', function(action) {
-    var globalNavbarHTML = new BackboneData.Views.GlobalNavbarview();
-    globalNavbarHTML.render();
-    var navBtnSectionHTML = new BackboneData.Views.NavBtnSectionview();
-    navBtnSectionHTML.render();
-    var adminSettingsHTMl = new BackboneData.Views.AdminDetailView();
-    //adminSettingsHTMl.render();
-
+routerTHS.on('route:admin', function(action)
+{
+    pullUserInfo(function()
+    {
+    	renderBackboneView("adminsetting",function()
+        {
+    		SetView("adminsetting",function()
+    	    {
+    			// This does the hide and show of divs	
+    	    });
+        });
+    });
 });
-routerTHS.on('route:component', function(action) {
-    var globalNavbarHTML = new BackboneData.Views.GlobalNavbarview();
-    globalNavbarHTML.render();
-    var navBtnSectionHTML = new BackboneData.Views.NavBtnSectionview();
-    navBtnSectionHTML.render();
-    var componentDetailHTMl = new BackboneData.Views.ComponentDetailView();
-    componentDetailHTMl.render();
-
+routerTHS.on('route:component', function(action)
+{
+    pullUserInfo(function()
+    {
+    	renderBackboneView("componentdetails",function()
+    	{
+    		SetView("component",function()
+    	    {
+    	    	// This does the hide and show of divs    			
+    	    });
+    	});
+    });
 });
-routerTHS.on('route:orderlist', function(action) {
-    var globalNavbarHTML = new BackboneData.Views.GlobalNavbarview();
-    globalNavbarHTML.render();
-    var orderListHTMl = new BackboneData.Views.OrderListview();
+routerTHS.on('route:orderlist', function(action)
+{
+    pullUserInfo(function()
+    {
+    	renderBackboneView("orderlisting",function()
+    	{
+    		SetView("orderlisting",function()
+    	    {
+    			// This does the hide and show of divs    			
+    	    });	
+    	});
+    });
 });
-if (Backbone.history != undefined && Backbone.history != null && Backbone.history != '') {
+if (Backbone.history != undefined && Backbone.history != null && Backbone.history != '')
+{
     console.log('backnonhistory has  started!!!');
     Backbone.history.start();
-} else {
+}
+else
+{
     console.log('backnonhistory has already started!!!');
 }

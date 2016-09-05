@@ -5,13 +5,13 @@ BackboneData.Models.SitesListModel = Backbone.Model.extend({
         added_By: "",
     },
     initialize: function() {
-        console.log('sitelist has been initialized');
+        console.log('SitesListModel has been initialized');
         this.on("invalid", function(model, error) {
-            console.log("Houston, we have a problem: " + error)
+            console.log("SitesListModel we have a problem: " + error)
         });
     },
     constructor: function(attributes, options) {
-        console.log('sitelist\'s constructor had been called');
+        console.log('SitesListModel constructor had been called');
         Backbone.Model.apply(this, arguments);
     },
     validate: function(attr) {

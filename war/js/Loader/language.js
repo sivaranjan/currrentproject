@@ -30,8 +30,9 @@ navBar_frenchLabelList = {
     'ADMIN SETTINGS': 'REGLAGES ADMIN'
 };
 welcome_englishLabelList = {
+	'determine' : 'hide',
     'Welcome to': 'Welcome to',
-    'Create': 'Create',
+    'Create': 'Create New Order',
     'Create new orders and its associate components': 'Create new orders and its associate components',
     'List Orders': 'List Orders',
     'View list of orders': 'View list of orders',

@@ -16,10 +16,6 @@ BackboneData.Views.ComponentDetailView = Backbone.View
 							});
 				}
 				ref.$el.html(componentDetailHTML);
-				$('#component-section,#navfixed-wrapper').removeClass('hide');
-				$('#welcome-section,#createorder-section,#admin-section').addClass('hide');
-				$('.selectpicker').selectpicker();
-				$('.selectpicker').selectpicker('setStyle', 'btn-sm', 'add');
 
 				$('#planningcust-table')
 						.DataTable(
@@ -105,6 +101,15 @@ BackboneData.Views.ComponentDetailView = Backbone.View
 			},
 			events : {
 				'change #directDeliveryDiv input[type=radio]':"populateDependencies"
+			},
+			initialize: function() {
+			    _.bindAll(this, 'cleanup');
+			    var _thisView = this;
+			    _thisView.render();
+			},
+			cleanup: function() {
+			    this.undelegateEvents();
+			    $(this.el).empty();
 			},
 			populateDependencies:function() {
 				var direct_delivery=$('#directDeliveryDiv input[name="optradio1"]:checked').val();

@@ -1,128 +1,119 @@
 BackboneData.Collections.IdCollection = Backbone.Collection.extend({
 
-    //Specify REST URL
-    url: 'http://localhost:8888/fetchController/fetchIDList',
+    url: ApplicationConstants.fetchIDList,
 
     initialize: function() {
         this.bind("reset", function(model, options) {
-            console.log("Inside event");
+            console.log("Inside FetchID Collection");
             console.log(model);
 
         });
     }
 });
 
-BackboneData.Collections.fetchOrderDependencies = Backbone.Collection.extend({
-
-    //Specify REST URL
-    url: 'http://localhost:8888/fetchController/fetchorderDependencies',
-
-    initialize: function() {
+BackboneData.Collections.fetchActorsListBySite = Backbone.Collection.extend({
+	site_type : '',
+	initialize: function() {
         this.bind("reset", function(model, options) {
-            console.log("Inside event");
+        	var self = this;
+            console.log("Inside fetchactorslistbysite collection");
             console.log(model);
-
         });
-    }
-});
-
-BackboneData.Collections.fetchActorsList = Backbone.Collection.extend({
-
-    //Specify REST URL
-    url: 'http://localhost:8888/fetchController/fetchActorsList',
-
-    initialize: function() {
-        this.bind("reset", function(model, options) {
-            console.log("Inside event");
-            console.log(model);
-
-        });
-    }
+    },
+    url: ApplicationConstants.fetchActorsListBySite + $('#Site_Workshop_Prototype').val(),
+    
 });
 
 BackboneData.Collections.fetchIncotermsList = Backbone.Collection.extend({
 
-    //Specify REST URL
-    url: 'http://localhost:8888/fetchController/fetchIncotermsList',
-
     initialize: function() {
         this.bind("reset", function(model, options) {
-            console.log("Inside event");
+            console.log("Inside fetchincoterms collection");
             console.log(model);
 
         });
-    }
+    },
+    url: ApplicationConstants.fetchIncotermsList
 });
 
 BackboneData.Collections.fetchCustomersList = Backbone.Collection.extend({
 
-    //Specify REST URL
-    url: 'http://localhost:8888/fetchController/fetchCustomersList',
-
     initialize: function() {
         this.bind("reset", function(model, options) {
             console.log("Inside event");
             console.log(model);
 
         });
-    }
+    },
+    url: ApplicationConstants.fetchCustomersList
 });
 
 BackboneData.Collections.fetchPlatformsList = Backbone.Collection.extend({
 
-    //Specify REST URL
-    url: 'http://localhost:8888/fetchController/fetchPlateformList',
-
     initialize: function() {
         this.bind("reset", function(model, options) {
-            console.log("Inside event");
+            console.log("Inside fetchplatformlist collection");
             console.log(model);
-
         });
-    }
+    },
+    url: ApplicationConstants.fetchPlateformesList
 });
 
 BackboneData.Collections.fetchPlacesList = Backbone.Collection.extend({
 
-    //Specify REST URL
-    url: 'http://localhost:8888/fetchController/fetchPlacesList',
-
     initialize: function() {
         this.bind("reset", function(model, options) {
-            console.log("Inside event");
+            console.log("Inside fetchplaceslist collection");
             console.log(model);
 
         });
-    }
+    },
+    url: ApplicationConstants.fetchPlacesList
 });
 
 BackboneData.Collections.fetchSitesList = Backbone.Collection.extend({
 
-    //Specify REST URL
-    url: 'http://localhost:8888/fetchController/fetchSitesList',
+	initialize: function() {
+	        this.bind("reset", function(model, options) {
+	            console.log("Inside fetchsiteslist collection");
+	            console.log(model);
 
-    initialize: function() {
-        this.bind("reset", function(model, options) {
-            console.log("Inside event");
-            console.log(model);
+	        });
+	    },
+    url: ApplicationConstants.fetchSitesList
 
-        });
-    }
+   
 });
 
 BackboneData.Collections.fetchCustomerDetailsbyName = Backbone.Collection.extend({
 
-    //Specify REST URL
-    url: 'http://localhost:8888/fetchController/fetchCustomerDetailsbyName/' + localStorage.getItem("customerNameSelected"),
-
-    initialize: function() {
-        var self = this;
-        console.log(self);
-        console.log("==================");
+	initialize: function() {
         this.bind("reset", function(model, options) {
-            console.log("Inside event");
+            console.log("Inside fetchcustomerdetailsbyname collection");
             console.log(model);
-
+            this.id=options.customerNameSelected;
         });
-    }
+    },
+    url: ApplicationConstants.fetchCustomerDetailsbyName + this.id
+});
+
+BackboneData.Collections.fetchUserInfoDetails = Backbone.Collection.extend({
+
+	initialize: function() {
+        this.bind("reset", function(model, options) {
+            console.log("Inside fetchUserInfoDetails collection");
+            console.log(model);
+        });
+    },
+    url: ApplicationConstants.fetchUserInfoDetails + useremailid
+});
+BackboneData.Collections.fetchOrderDependencies = Backbone.Collection.extend({
+
+	initialize: function() {
+        this.bind("reset", function(model, options) {
+            console.log("Inside fetchUserInfoDetails collection");
+            console.log(model);
+        });
+    },
+    url: ApplicationConstants.fetchOrderDependencies
 });

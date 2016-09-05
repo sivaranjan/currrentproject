@@ -7,13 +7,13 @@ BackboneData.Models.IncotermsModel = Backbone.Model.extend({
 
     },
     initialize: function() {
-        console.log('Incoterms has been initialized');
+        console.log('IncotermsModel has been initialized');
         this.on("invalid", function(model, error) {
-            console.log("Houston, we have a problem: " + error)
+            console.log("IncotermsModel, we have a problem: " + error)
         });
     },
     constructor: function(attributes, options) {
-        console.log('Incoterms\'s constructor had been called');
+        console.log('IncotermsModel constructor had been called');
         Backbone.Model.apply(this, arguments);
     },
     validate: function(attr) {
