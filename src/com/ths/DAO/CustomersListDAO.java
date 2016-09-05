@@ -1,15 +1,12 @@
 package com.ths.DAO;
 
-import com.googlecode.objectify.Key;
-import com.ths.JDO.ActorsListJDO;
-import com.ths.JDO.CustomerJDO;
-import com.ths.JDO.CustomersListJDO;
-import com.ths.JDO.Example;
+import static java.util.logging.Level.FINER;
 
 import java.util.List;
 import java.util.logging.Logger;
 
-import static java.util.logging.Level.FINER;
+import com.googlecode.objectify.Key;
+import com.ths.JDO.CustomersListJDO;
 
 public class CustomersListDAO extends AbstractDao {
 

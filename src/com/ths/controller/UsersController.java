@@ -13,24 +13,33 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.ths.DAO.ActorsDAO;
-import com.ths.JDO.ActorsJDO;
+import com.ths.DAO.PlacesDAO;
+import com.ths.DAO.UserDAO;
+import com.ths.JDO.PlacesJDO;
+import com.ths.JDO.UserJDO;
 
 
 @RestController
-@RequestMapping("/actor")
-public class ActorsController {
+@RequestMapping("/users")
+public class UsersController {
 
     @Autowired
-    private ActorsDAO actorsDao;
-
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public ResponseEntity<Void> createUser(@RequestBody ActorsJDO actor, UriComponentsBuilder ucBuilder) 
-    {
-        System.out.println("Actor details");
-  
-        actorsDao.save(actor);
-  
+    private UserDAO userDao;
+    
+    @RequestMapping(value = "/createorupdate", method = RequestMethod.POST)
+    public ResponseEntity<Void> saveorupdate(@RequestBody UserJDO userinfo, UriComponentsBuilder ucBuilder) {
+        System.out.println("places details");
+        UserJDO userInfoNew = userDao.findByUserEmailsingle(userinfo.getUseremail());
+        if(userInfoNew!=null)
+        {
+        	userInfoNew.setLanguage(userinfo.getLanguage());
+        	userInfoNew.setLastLoggedDate(userinfo.getLastLoggedDate());
+        	userDao.update(userInfoNew);
+        }
+        else
+        {
+        	userDao.save(userinfo);
+        }
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }

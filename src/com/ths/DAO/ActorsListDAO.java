@@ -1,14 +1,12 @@
 package com.ths.DAO;
 
-import com.googlecode.objectify.Key;
-import com.ths.JDO.ActorsJDO;
-import com.ths.JDO.ActorsListJDO;
-import com.ths.JDO.Example;
+import static java.util.logging.Level.FINER;
 
 import java.util.List;
 import java.util.logging.Logger;
 
-import static java.util.logging.Level.FINER;
+import com.googlecode.objectify.Key;
+import com.ths.JDO.ActorsListJDO;
 
 public class ActorsListDAO extends AbstractDao {
 
@@ -21,10 +19,13 @@ public class ActorsListDAO extends AbstractDao {
     public ActorsListJDO findByName(String name) {
         return ofy.load().type(ActorsListJDO.class).filter("name =", name).first().now();
     }
+    public List<ActorsListJDO> findBySite(String site) {
+        return ofy.load().type(ActorsListJDO.class).filter("site =", site).list();
+    }
     public List<ActorsListJDO> findByType(String actorType) {
         return ofy.load().type(ActorsListJDO.class).filter("actorType =", actorType).list();
     }
-    public List<ActorsListJDO> findAllUsers() {
+    public List<ActorsListJDO> findWholeActorsList() {
         log.log(FINER, "Loading all examples.");
         return ofy.load().type(ActorsListJDO.class).list();
     }
