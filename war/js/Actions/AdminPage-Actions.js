@@ -21,7 +21,7 @@
 											            error		: 	function(model, xhr, options)
 											            {
 											                console.log("Something went wrong while saving the model");
-											                showVoiceBox.configure("New site added successfully",2000);
+											                showVoiceBox.configure("Saved successfully",2000);
 											                $('#site-modal').modal('hide');
 											                buildSitesTable();
 											            }
@@ -45,13 +45,167 @@
 											            },
 											            error		: 	function(model, xhr, options)
 											            {
-											            	showVoiceBox.configure("New place added successfully",2000);
+											            	showVoiceBox.configure("Saved successfully",2000);
 											                console.log("Something went wrong while saving the model");
 											                $('#location-modal').modal('hide');
 											                buildPlacesTable();
 											            }
 											        });
 		    								};
+    saveProductType					=		function()
+    										{
+											    	var productType 		= 	$("#producttype").val();
+											        showVoiceBox.configure("Saving Product Type",2000);
+											        var productDetails 	= 	new BackboneData.Models.ProductTypesModel(
+											        {
+											        	productType	: 	productType,
+											   	     	added_By	: 	useremailid
+											        });
+											        productDetails.save(
+											        {},
+											        {
+											            success		: 	function(model, respose, options)
+											            {
+											                console.log("The model has been saved to the server");
+											            },
+											            error		: 	function(model, xhr, options)
+											            {
+											            	showVoiceBox.configure("Saved successfully",2000);
+											                console.log("Something went wrong while saving the model");
+											                $('#producttype-modal').modal('hide');
+											                buildProductTypesList();
+											            }
+											        });
+    										};
+    savePrototypists					=		function()
+    										{
+											    	var prototypists 		= 	$("#prototypists").val();
+											        showVoiceBox.configure("Saving Prototypists",2000);
+											        var prototypistsDetails 	= 	new BackboneData.Models.PrototypistsModel(
+											        {
+											        	prototypist		: 	prototypists,
+											    		added_By		: 	useremailid
+											        });
+											        prototypistsDetails.save(
+											        {},
+											        {
+											            success		: 	function(model, respose, options)
+											            {
+											                console.log("The model has been saved to the server");
+											            },
+											            error		: 	function(model, xhr, options)
+											            {
+											            	showVoiceBox.configure("Saved successfully",2000);
+											                console.log("Something went wrong while saving the model");
+											                $('#prototypists-modal').modal('hide');
+											                buildPrototypistsList();
+											            }
+											        });
+    										};
+    saveTechnology						=		function()
+     										{
+ 											    	var prod_type_technology 		= 	$("#prod_type_technology").val();
+ 											    	var technology 					= 	$("#technology").val();
+ 											        showVoiceBox.configure("Saving",2000);
+ 											        var technologyDetails 	= 	new BackboneData.Models.TechnologyModel(
+ 											        {
+ 											        	technology		: 	technology,
+ 											        	productType		: 	prod_type_technology,
+ 											        	added_By		: 	useremailid
+ 											        });
+ 											       technologyDetails.save(
+ 											        {},
+ 											        {
+ 											            success		: 	function(model, respose, options)
+ 											            {
+ 											                console.log("The model has been saved to the server");
+ 											            },
+ 											            error		: 	function(model, xhr, options)
+ 											            {
+ 											            	showVoiceBox.configure("Saved successfully",2000);
+ 											                console.log("Something went wrong while saving the model");
+ 											                $('#technology-modal').modal('hide');
+ 											               buildTechnologyList();
+ 											            }
+ 											        });
+     										};
+     saveRandD							=	function()
+     										{
+ 											    	var randD 			= 	$("#randD").val();
+ 											        showVoiceBox.configure("Saving",2000);
+ 											        var rAndDDetails 	= 	new BackboneData.Models.randDModel(
+ 											        {
+ 											        	randD		: 	randD,
+ 											        	added_By	: 	useremailid
+ 											        });
+ 											        rAndDDetails.save(
+ 											        {},
+ 											        {
+ 											            success		: 	function(model, respose, options)
+ 											            {
+ 											                console.log("The model has been saved to the server");
+ 											            },
+ 											            error		: 	function(model, xhr, options)
+ 											            {
+ 											            	showVoiceBox.configure("Saved successfully",2000);
+ 											                console.log("Something went wrong while saving the model");
+ 											                $('#randD-modal').modal('hide');
+ 											                buildRandDList();
+ 											            }
+ 											        });
+     										};
+     saveAllocation							=		function()
+     										{
+ 											    	var allocationturnover 		= 	$("#allocationturnover").val();
+ 											        showVoiceBox.configure("Saving",2000);
+ 											        var allocationDetails 	= 	new BackboneData.Models.allocationModel(
+ 											        {
+ 											        	allocation		: 	allocationturnover,
+ 											        	added_By		:	useremailid
+ 											        });
+ 											        allocationDetails.save(
+ 											        {},
+ 											        {
+ 											            success		: 	function(model, respose, options)
+ 											            {
+ 											                console.log("The model has been saved to the server");
+ 											            },
+ 											            error		: 	function(model, xhr, options)
+ 											            {
+ 											            	showVoiceBox.configure("Saved successfully",2000);
+ 											                console.log("Something went wrong while saving the model");
+ 											                $('#allocation-turnover-modal').modal('hide');
+ 											                buildAllocationTurnOverList();
+ 											            }
+ 											        });
+     										};
+     saveClientLabo					=		function()
+     										{
+ 											    	var clientName 			= 	$("#clientName").val();
+ 											    	var laboaddress 		= 	$("#laboaddress").val();
+ 											        showVoiceBox.configure("Saving",2000);
+ 											        var clientLaboDetails 	= 	new BackboneData.Models.ClientLaboModel(
+ 											        {
+ 											        	clientName		: 	clientName,
+ 											        	address			: 	laboaddress,
+ 											        	added_By		: 	useremailid
+ 											        });
+ 											        clientLaboDetails.save(
+ 											        {},
+ 											        {
+ 											            success		: 	function(model, respose, options)
+ 											            {
+ 											                console.log("The model has been saved to the server");
+ 											            },
+ 											            error		: 	function(model, xhr, options)
+ 											            {
+ 											            	showVoiceBox.configure("Saved successfully",2000);
+ 											                console.log("Something went wrong while saving the model");
+ 											                $('#clientLabo-modal').modal('hide');
+ 											                buildClientLaboList();
+ 											            }
+ 											        });
+     										};
 	savePlateform 					= 		function(languageChanged)
     										{
 											        var plateformValue 		= 	$("#plateforms_value").val();
@@ -70,7 +224,7 @@
 											            },
 											            error		: 	function(model, xhr, options)
 											            {
-											            	showVoiceBox.configure("New plateform added successfully",2000);
+											            	showVoiceBox.configure("Saved successfully",2000);
 											                console.log("Something went wrong while saving the model");
 											                $('#platform-modal').modal('hide');
 											                buildPlatformsTable();
@@ -105,7 +259,7 @@
 										            },
 										            error: function(model, xhr, options)
 										            {
-										            	showVoiceBox.configure("New customer added successfully",2000);
+										            	showVoiceBox.configure("Saved successfully",2000);
 										                console.log("Something went wrong while saving the model");
 										                $('#clients-modal').modal('hide');
 										                buildCustomersTable();
@@ -130,12 +284,12 @@
 										        {
 										            success: function(model, respose, options)
 										            {
-										            	showVoiceBox.configure("Incoterms saved successfully",2000);
+										            	showVoiceBox.configure("Saved successfully",2000);
 										                $('#incoterms-modal').modal('hide');
 										            },
 										            error: function(model, xhr, options)
 										            {
-										            	showVoiceBox.configure("Incoterms saved successfully",2000);
+										            	showVoiceBox.configure("Saved successfully",2000);
 										                $('#incoterms-modal').modal('hide');
 										                buildIncotermsTable();
 										            }
@@ -160,12 +314,12 @@
 										        {
 										            success		: 	function(model, respose, options)
 										            {
-										            	showVoiceBox.configure("Actor saved successfully",2000);
+										            	showVoiceBox.configure("Saved successfully",2000);
 										                console.log("The model has been saved to the server");
 										            },
 										            error		: 	function(model, xhr, options)
 										            {
-										            	showVoiceBox.configure("Actor saved successfully",2000);
+										            	showVoiceBox.configure("Saved successfully",2000);
 										                $('#actor-modal').modal('hide');
 										                console.log("Something went wrong while saving the model");
 										                buildActorsTable(actor_Type);
@@ -195,7 +349,7 @@
 										            ],
 										            buttons: [
 										            {
-										                text		: 	'<i class="fa fa-plus" aria-hidden="true"></i> Add new actor',
+										                text		: 	'<i class="fa fa-plus" aria-hidden="true"></i> Add new',
 										                className	: 	'btn btn-success btn-sm',
 										                action		: 	function()
 										                {
@@ -260,7 +414,7 @@
 										            "order"		: [[1, 'asc']],
 										            buttons		: [
 										            {
-										                text		: 	'<i class="fa fa-plus" aria-hidden="true"></i> Add New Incoterms',
+										                text		: 	'<i class="fa fa-plus" aria-hidden="true"></i> Add New',
 										                className	: 	'btn btn-success btn-sm',
 										                action		: 	function()
 										                {
@@ -297,7 +451,7 @@
 										            "order"		: [[1, 'asc']],
 										            buttons		: [
 										            {
-										                text		: '<i class="fa fa-plus" aria-hidden="true"></i> Add New Customer',
+										                text		: '<i class="fa fa-plus" aria-hidden="true"></i> Add New',
 										                className	: 'btn btn-success btn-sm',
 										                action		: function()
 										                {
@@ -321,7 +475,7 @@
 										            }, ],
 										            buttons		: [
 										            {
-										                text	  : '<i class="fa fa-plus" aria-hidden="true"></i> Add New Platform',
+										                text	  : '<i class="fa fa-plus" aria-hidden="true"></i> Add New',
 										                className : 'btn btn-success btn-sm',
 										                action	  : function()
 										                {
@@ -346,7 +500,7 @@
 										            "order"		: [[0, 'asc']],
 										            buttons		: [
 										            {
-										                text	: '<i class="fa fa-plus" aria-hidden="true"></i> Add New Places',
+										                text	: '<i class="fa fa-plus" aria-hidden="true"></i> Add New',
 										                className: 'btn btn-success btn-sm',
 										                action	: function()
 										                {
@@ -355,6 +509,164 @@
 										            }]
 										        });
 										        $('.dt-buttons a.btn').removeClass('dt-button');
+											};
+	buildProductTypesList				=	function()
+											{
+												$('#configbreadcrumb .active').html("Product Types");
+												$('#productstypessub-table').DataTable(
+												{
+												            dom			: 'Bfrtip',
+												            "ajax"		: ApplicationConstants.fetchProductTypeList,
+												            "bDestroy"	: true,
+												            "columns"	: [
+												            {
+												                "data"	: "productType"
+												            }, ],
+												            "order"		: [[0, 'asc']],
+												            buttons		: [
+												            {
+												                text	: '<i class="fa fa-plus" aria-hidden="true"></i> Add New',
+												                className: 'btn btn-success btn-sm',
+												                action	: function()
+												                {
+												                    $('#producttype-modal').modal('show');
+												                }
+												            }]
+												  });
+												  $('.dt-buttons a.btn').removeClass('dt-button');
+											};
+	buildPrototypistsList				=	function()
+											{
+												$('#configbreadcrumb .active').html("Prototypists");
+												$('#protypistsub-table').DataTable(
+												{
+												            dom			: 'Bfrtip',
+												            "ajax"		: ApplicationConstants.fetchPrototypitsList,
+												            "bDestroy"	: true,
+												            "columns"	: [
+												            {
+												                "data"	: "prototypist"
+												            }, ],
+												            "order"		: [[0, 'asc']],
+												            buttons		: [
+												            {
+												                text	: '<i class="fa fa-plus" aria-hidden="true"></i> Add New',
+												                className: 'btn btn-success btn-sm',
+												                action	: function()
+												                {
+												                    $('#prototypists-modal').modal('show');
+												                }
+												            }]
+												  });
+												  $('.dt-buttons a.btn').removeClass('dt-button');
+											};
+	buildTechnologyList					=	function()
+											{
+												$('#configbreadcrumb .active').html("Technology");
+												$('#technolosub-table').DataTable(
+												{
+												            dom			: 'Bfrtip',
+												            "ajax"		: ApplicationConstants.fetchTechnologyList,
+												            "bDestroy"	: true,
+												            "columns"	: 	[
+																	            {
+																	                "data"	: "technology"
+																	            },
+																	            {
+																	                "data"	: "productType"
+																	            },
+																	         ],
+												            "order"		: [[0, 'asc']],
+												            buttons		: [
+												            {
+												                text	: '<i class="fa fa-plus" aria-hidden="true"></i> Add New',
+												                className: 'btn btn-success btn-sm',
+												                action	: function()
+												                {
+												                    $('#technology-modal').modal('show');
+												                }
+												            }]
+												  });
+												  $('.dt-buttons a.btn').removeClass('dt-button');
+											};
+	buildRandDList					=		function()
+											{
+												$('#configbreadcrumb .active').html("R&D List");
+												$('#rdleadtsub-table').DataTable(
+												{
+												            dom			: 'Bfrtip',
+												            "ajax"		: ApplicationConstants.fetchRandDList,
+												            "bDestroy"	: true,
+												            "columns"	: [
+												            {
+												                "data"	: "randD"
+												            }, ],
+												            "order"		: [[0, 'asc']],
+												            buttons		: [
+												            {
+												                text	: '<i class="fa fa-plus" aria-hidden="true"></i> Add New',
+												                className: 'btn btn-success btn-sm',
+												                action	: function()
+												                {
+												                    $('#randD-modal').modal('show');
+												                }
+												            }]
+												  });
+												  $('.dt-buttons a.btn').removeClass('dt-button');
+											};
+	buildAllocationTurnOverList		 =		function()
+											{
+												$('#configbreadcrumb .active').html("Allocation of Turnover");
+												$('#allocationturnoversub-table').DataTable(
+												{
+												            dom			: 'Bfrtip',
+												            "ajax"		: ApplicationConstants.fetchAllocationofTurnOverList,
+												            "bDestroy"	: true,
+												            "columns"	: [
+												            {
+												                "data"	: "allocation"
+												            }, ],
+												            "order"		: [[0, 'asc']],
+												            buttons		: [
+												            {
+												                text	: '<i class="fa fa-plus" aria-hidden="true"></i> Add New',
+												                className: 'btn btn-success btn-sm',
+												                action	: function()
+												                {
+												                    $('#allocation-turnover-modal').modal('show');
+												                }
+												            }]
+												  });
+												  $('.dt-buttons a.btn').removeClass('dt-button');
+											};
+	 buildClientLaboList		=			function()
+											{
+												$('#configbreadcrumb .active').html("Client Labo Lists");
+												$('#clientaddsub-table').DataTable(
+												{
+												            dom			: 'Bfrtip',
+												            "ajax"		: ApplicationConstants.fetchClientLaboList,
+												            "bDestroy"	: true,
+												            "columns"	: 	[
+																	            {
+																	                "data"	: "clientName"
+																	            },
+																	            {
+																	                "data"	: "address"
+																	            },
+																	         ],
+												            "order"		: [[0, 'asc']],
+												            buttons		: [
+												            {
+												                text	: '<i class="fa fa-plus" aria-hidden="true"></i> Add New',
+												                className: 'btn btn-success btn-sm',
+												                action	: function()
+												                {
+												                    $('#clientLabo-modal').modal('show');
+												                }
+												            }]
+												  });
+												  $('.dt-buttons a.btn').removeClass('dt-button');
 											};
     buildSitesTable 					= 	function()
 											{
