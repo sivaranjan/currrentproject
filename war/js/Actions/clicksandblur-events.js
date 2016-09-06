@@ -92,9 +92,13 @@ $(document).ready(function()
 				{
 			    	 if(currentPage.get().indexOf("#createorder")!=-1)
 			         {
+			    		 debugger;
 			    		 validateOrder(function()
 						 {
-						    saveOrder();
+			    			 validateProtypeID(function()
+			    			 {
+			    				 saveOrder();
+			    			 });
 						 });
 			         }		 
 			    	 else if(currentPage.get().indexOf("#componentdetails")!=-1)
