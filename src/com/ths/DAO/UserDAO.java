@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import com.googlecode.objectify.Key;
-import com.ths.JDO.CustomersListJDO;
 import com.ths.JDO.UserJDO;
 
 public class UserDAO extends AbstractDao {
