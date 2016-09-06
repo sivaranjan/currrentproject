@@ -351,7 +351,7 @@ adminSetting_englishLabelList = {
 		'List of Products Types':'List of Products Types',
 		'List of Technologies':'List of Technologies',
 		'List of R & D Leaders':'List of R & D Leaders',
-		'List of Clients and Lab Addresses':'List of Clients and Lab Addresses',
+		'List of Clients and Lab Addresses':'List of Clients and Labo Addresses',
 		'List of Locations':'List of Locations',
 		'List of Sites':'List of Sites',
 		'Workflow Configuration':'Workflow Configuration',
