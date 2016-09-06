@@ -28,7 +28,7 @@
 						 			<li class="col-md-4">
 						 				<a id="clients-btn"><img src="../resources/images/formicon.png" />List of Clients</a>
 						 			</li>
-						 			<li class="col-md-4 hide">
+						 			<li class="col-md-4">
 						 				<a id="prototypists-btn"><img src="../resources/images/formicon.png" />List of Prototypists</a>
 						 			</li>
 						 			<li class="col-md-4">
@@ -37,14 +37,17 @@
 						 			<li class="col-md-4">
 						 				<a id="producttype-btn"><img src="../resources/images/formicon.png" />List of Products Types</a>
 						 			</li>
-						 			<li class="col-md-4 hide">
+						 			<li class="col-md-4 ">
 						 				<a id="technologie-btn"><img src="../resources/images/formicon.png" />List of Technologies</a>
 						 			</li>
-						 			<li class="col-md-4 hide">
+						 			<li class="col-md-4 ">
 						 				<a id="rdlead-btn"><img src="../resources/images/formicon.png" />List of R & D Leaders</a>
 						 			</li>
-						 			<li class="col-md-4 hide" >
-						 				<a id="clientadd-btn"><img src="../resources/images/formicon.png" />List of Clients and Lab Addresses</a>
+						 			<li class="col-md-4" >
+						 				<a id="clientadd-btn"><img src="../resources/images/formicon.png" />List of Clients and Labo Addresses</a>
+						 			</li>
+						 			<li class="col-md-4" >
+						 				<a id="allocation-btn"><img src="../resources/images/formicon.png" />List of Allocation of Turnover</a>
 						 			</li>
 						 			<li class="col-md-4">
 						 				<a id="locations-btn"><img src="../resources/images/formicon.png" />List of Locations</a>
@@ -145,7 +148,13 @@
 						 		
 						 		/* Prototypists article */
 						 		<article class="tablelistview hide" id="prototypists-article">
-						 			
+						 			<table class="table table-hover" id="protypistsub-table">
+						 						<thead>
+						 							<tr>
+						 								<th>Prototypists</th>
+						 							</tr>
+						 						</thead>
+						 			</table>
 						 		</article>
 						 		
 						 		/* Platforms article */
@@ -161,22 +170,58 @@
 						 		
 						 		/* Products article */
 						 		<article class="tablelistview hide" id="productstypes-article">
-						 			
+						 			<table class="table table-hover" id="productstypessub-table">
+						 						<thead>
+						 							<tr>
+						 								<th>Product Type</th>
+						 							</tr>
+						 						</thead>
+						 					</table>
 						 		</article>
 						 		
 						 		/* Technologies article */
 						 		<article class="tablelistview hide" id="technologies-article">
-						 			
+						 			<table class="table table-hover" id="technolosub-table">
+						 						<thead>
+						 							<tr>
+						 								<th>Technology</th>
+						 								<th>Product Type</th>
+						 							</tr>
+						 						</thead>
+						 			</table>
 						 		</article>
 						 		
 						 		/*  R & D Leaders article */
-						 		<article class="tablelistview hide" id=" rdlead-article">
-						 			
+						 		<article class="tablelistview hide" id="rdlead-article">
+						 			<table class="table table-hover" id="rdleadtsub-table">
+						 						<thead>
+						 							<tr>
+						 								<th>Name of the responsible R&D</th>
+						 							</tr>
+						 						</thead>
+						 			</table>
 						 		</article>
 						 		
 						 		/* Clients and Lab Addresses article */
 						 		<article class="tablelistview hide" id="clientadd-article">
-						 			
+						 			<table class="table table-hover" id="clientaddsub-table">
+						 						<thead>
+						 							<tr>
+						 								<th>Client Name</th>
+						 								<th>Labo Address</th>
+						 							</tr>
+						 						</thead>
+						 			</table>
+						 		</article>
+						 		/* Allocation of TurnOVer */
+						 		<article class="tablelistview hide" id="allocationturnover-article">
+						 			<table class="table table-hover" id="allocationturnoversub-table">
+						 						<thead>
+						 							<tr>
+						 								<th>Allocation of turnover</th>
+						 							</tr>
+						 						</thead>
+						 			</table>
 						 		</article>
 						 		
 						 		/* Locations article */
@@ -381,7 +426,152 @@
 		    </div>
 		  </div>
 		</div>
-		
+		<!-- Product Type Modal -->
+		<div class="modal fade" id="producttype-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">New Product Type</h4>
+		      </div>
+		      <div class="modal-body" id="producttype_modal_body">
+		      	<form role="form">
+		      		<div class="form-group">
+		      			<label>Product Type</label>
+		      			<input type="text" class="form-control" placeholder="" id="producttype" data-required="yes" data-type="text">
+		      		</div>
+		      	</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-success" id="save_producttype">Save changes</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- Prototypists Type Modal -->
+		<div class="modal fade" id="prototypists-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">New Product Type</h4>
+		      </div>
+		      <div class="modal-body" id="Prototypists_modal_body">
+		      	<form role="form">
+		      		<div class="form-group">
+		      			<label>Prototypists</label>
+		      			<input type="text" class="form-control" placeholder="" id="prototypists" data-required="yes" data-type="text">
+		      		</div>
+		      	</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-success" id="save_prototypists">Save changes</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- Techonology Type Modal -->
+		<div class="modal fade" id="technology-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">Technology</h4>
+		      </div>
+		      <div class="modal-body" id="technology_modal_body">
+		      	<form role="form">
+		      		<div class="form-group">
+		      			<label>Product Type</label>
+		      			<input type="text" class="form-control" placeholder="" id="prod_type_technology" data-required="yes" data-type="text">
+		      		</div>
+		      		<div class="form-group">
+		      			<label>Technology</label>
+		      			<input type="text" class="form-control" placeholder="" id="technology" data-required="yes" data-type="text">
+		      		</div>
+		      	</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-success" id="save_technology">Save changes</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- R and D Type Modal -->
+		<div class="modal fade" id="randD-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">R and D</h4>
+		      </div>
+		      <div class="modal-body" id="randD_modal_body">
+		      	<form role="form">
+		      		<div class="form-group">
+		      			<label>Name of the responsible R&D</label>
+		      			<input type="text" class="form-control" placeholder="" id="randD" data-required="yes" data-type="text">
+		      		</div>
+		      	</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-success" id="save_randD">Save changes</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- Allocation on Turnover Type Modal -->
+		<div class="modal fade" id="allocation-turnover-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">Allocation of TurnOver</h4>
+		      </div>
+		      <div class="modal-body" id="allocation_modal_body">
+		      	<form role="form">
+		      		<div class="form-group">
+		      			<label>Allocation of turnover</label>
+		      			<input type="text" class="form-control" placeholder="" id="allocationturnover" data-required="yes" data-type="text">
+		      		</div>
+		      	</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-success" id="save_allocation">Save changes</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- ClientLabo Type Modal -->
+		<div class="modal fade" id="clientLabo-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">Client and Labo Address</h4>
+		      </div>
+		      <div class="modal-body" id="clientlabo_modal_body">
+		      	<form role="form">
+		      		<div class="form-group">
+		      			<label>Client </label>
+		      			<input type="text" class="form-control" placeholder="" id="clientName" data-required="yes" data-type="text">
+		      		</div>
+		      		<div class="form-group">
+		      			<label>Labo Address </label>
+		      			<input type="textarea" class="form-control" placeholder="" id="laboaddress" data-required="yes" data-type="text">
+		      		</div>
+		      	</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-success" id="save_clientlabo">Save changes</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 		<!-- Site Modal -->
 		<div class="modal fade" id="site-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog" role="document">
