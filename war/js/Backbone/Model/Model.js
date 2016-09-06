@@ -157,6 +157,140 @@ BackboneData.Models.PlacesDetailsModel = Backbone.Model.extend(
     urlRoot: ApplicationConstants.savePlacesListURL
 });
 
+BackboneData.Models.ProductTypesModel = Backbone.Model.extend(
+{
+	defaults:
+	{
+		 productType	: 	"",
+	     added_By		: 	"",
+	},
+	initialize: function()
+	{
+	     console.log('ProductTypesModel has been initialized');
+	     this.on("invalid", function(model, error)
+	     {
+	         console.log("ProductTypesModel we have a problem: " + error)
+	     });
+	},
+	constructor: function(attributes, options)
+	{
+	    console.log('PlacesDetailsModel constructor had been called');
+	    Backbone.Model.apply(this, arguments);
+	},
+	urlRoot: ApplicationConstants.saveProductTypeListURL
+});
+BackboneData.Models.PrototypistsModel = Backbone.Model.extend(
+{
+	defaults:
+	{
+		prototypist		: 	"",
+		added_By		: 	"",
+	},
+	initialize: function()
+	{
+	    console.log('PrototypistsModel has been initialized');
+	    this.on("invalid", function(model, error)
+		{
+			console.log("PrototypistsModel we have a problem: " + error)
+	    });
+	},
+	constructor: function(attributes, options)
+	{
+	    console.log('PrototypistsModel constructor had been called');
+		Backbone.Model.apply(this, arguments);
+	},
+	urlRoot: ApplicationConstants.savePrototypistListURL
+});
+BackboneData.Models.TechnologyModel = Backbone.Model.extend(
+{
+	defaults:
+	{
+		technology		: 	"",
+		productType		: 	"",
+		added_By		: 	"",
+	},
+	initialize: function()
+	{
+		console.log('TechnologyModel has been initialized');
+		this.on("invalid", function(model, error)
+		{
+			console.log("TechnologyModel we have a problem: " + error)
+		});
+	},
+	constructor: function(attributes, options)
+	{
+		console.log('TechnologyModel constructor had been called');
+		Backbone.Model.apply(this, arguments);
+	},
+	urlRoot: ApplicationConstants.saveTechnologyListURL
+});
+BackboneData.Models.randDModel = Backbone.Model.extend(
+{
+	defaults:
+	{
+		randD		: 	"",
+		added_By	: 	"",
+	},
+	initialize: function()
+	{
+		console.log('randDModel has been initialized');
+		this.on("invalid", function(model, error)
+		{
+			console.log("randDModel we have a problem: " + error)
+		});
+	},
+	constructor: function(attributes, options)
+	{
+		console.log('randDModel constructor had been called');
+		Backbone.Model.apply(this, arguments);
+	},
+	urlRoot: ApplicationConstants.saveRandDListURL
+});
+BackboneData.Models.allocationModel = Backbone.Model.extend(
+{
+	defaults:
+	{
+		allocation		: 	"",
+		added_By		:	"",
+	},
+	initialize: function()
+	{
+		console.log('allocationModel has been initialized');
+	    this.on("invalid", function(model, error)
+		{
+			console.log("allocationModel we have a problem: " + error)
+		});
+	},
+	constructor: function(attributes, options)
+	{
+		console.log('allocationModel constructor had been called');
+		Backbone.Model.apply(this, arguments);
+	},
+	urlRoot: ApplicationConstants.saveAllocationListURL
+});
+BackboneData.Models.ClientLaboModel = Backbone.Model.extend(
+{
+	defaults:
+	{
+		clientName		: 	"",
+		address			: 	"",
+		added_By		: 	"",
+	},
+	initialize: function()
+	{
+		console.log('ClientLaboModel has been initialized');
+		this.on("invalid", function(model, error)
+		{
+			console.log("ClientLaboModel we have a problem: " + error)
+		});
+	},
+	constructor: function(attributes, options)
+	{
+		console.log('ClientLaboModel constructor had been called');
+		Backbone.Model.apply(this, arguments);
+	},
+	urlRoot: ApplicationConstants.saveClientLaboListURL
+});
 BackboneData.Models.PlateformDetailsModel = Backbone.Model.extend(
 {
     defaults:
