@@ -20,6 +20,7 @@
 								                }
 								                else
 								                {
+								                	window.language = "EN";
 								                	setUserDetail("EN",function()
 								                	{
 								                		  // This sets the user record for the first time
