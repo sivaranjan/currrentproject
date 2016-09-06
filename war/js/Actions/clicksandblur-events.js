@@ -42,10 +42,53 @@ $(document).ready(function()
 			    		saveSite();
 					});
 			    });
+			    $(document).on("click", "#save_producttype", function(e) 
+			    {
+					validateAdminSection('producttype_modal_body',function()
+				    {
+					    saveProductType();
+					});
+				});
+			    $(document).on("click", "#save_prototypists", function(e) 
+			    {
+						validateAdminSection('Prototypists_modal_body',function()
+						{
+							savePrototypists();
+						});
+				});
+			    $(document).on("click", "#save_technology", function(e) 
+			    {
+						validateAdminSection('technology_modal_body',function()
+						{
+							saveTechnology();
+						});
+				});
+			    $(document).on("click", "#save_randD", function(e) 
+			    {
+						validateAdminSection('randD_modal_body',function()
+						{
+							saveRandD();
+						});
+				});
+			    $(document).on("click", "#save_allocation", function(e) 
+			    {
+					    validateAdminSection('allocation_modal_body',function()
+						{
+					    	saveAllocation();
+						});
+				});
+			    $(document).on("click", "#save_clientlabo", function(e) 
+				{
+						validateAdminSection('clientlabo_modal_body',function()
+						{
+							saveClientLabo();
+						});
+				});
 			    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e)
 		    	{
 		    			console.log($(event.target).text()); // newly activated tab
 		    			var currentSelectedTab = $(event.target).text();
+		    			debugger;
 		    			switch (currentSelectedTab)
 		    			{
 		    					case "MEP Study":
