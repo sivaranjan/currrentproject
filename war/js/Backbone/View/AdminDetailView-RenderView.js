@@ -38,6 +38,7 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend(
 								    {
 									        $('.configset,#config-panel article').addClass('hide');
 									        $('#configbreadcrumb,#actor-article').removeClass('hide');
+									        renderTabClick();
 									        buildActorsTable("MEP Study");
 								    },
     viewIncotermsList			: 	function()
