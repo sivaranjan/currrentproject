@@ -423,6 +423,10 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 								   		{
 								   			$('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').attr('readonly',true);
 								   			$('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').attr('disabled',true);
+								   			$('#fotrade').removeAttr('readonly');
+								   			$('#fotrade').removeAttr('disabled');
+								   			$('#fodiv .bootstrap-select').removeClass('disabled');
+								   			$('#fodiv .dropdown-toggle').removeClass('disabled');
 								   		}
 								   		if(Site_Workshop_Prototype.indexOf("La Verriere")!=-1 && Proto_Type=="P0" && Type_of_the_Prototype_Order == "VENDU/SOLD")
 	   									{
@@ -457,7 +461,9 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 	   									if (Type_of_the_Prototype_Order == 'VENDU / SOLD' && $('#intralecheckbox').is(":not(:checked)"))
 								        {
 	   										$('#adv').removeAttr('readonly');
-	   										$('#adv').removeAttr('disabled');
+								   			$('#adv').removeAttr('disabled');
+								   			$('#advdiv .bootstrap-select').removeClass('disabled');
+								   			$('#advdiv .dropdown-toggle').removeClass('disabled');
 								        }
 	   									else
 	   									{
@@ -465,7 +471,7 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 	   										$('#adv').attr('disabled',true);
 	   									}	
    									},
-   CheckMandatorySettings			:	function()
+   CheckMandatorySettings			:	function(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type)
    										{
 	   										if (Type_of_the_Prototype_Order == 'VENDU / SOLD')
 	   										{
