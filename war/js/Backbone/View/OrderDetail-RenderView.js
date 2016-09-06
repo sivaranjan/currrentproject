@@ -373,7 +373,7 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 	   									{
 	   										$('#totalorderamountdiv,#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').addClass('hide');
 	   									}	
-	   									if(Site_Workshop_Prototype=="La Verriere (LVR)" && Proto_Type=="P0" && Type_of_the_Prototype_Order == "VENDU/SOLD")
+	   									if(Site_Workshop_Prototype.indexOf("La Verriere")!=-1 && Proto_Type=="P0" && Type_of_the_Prototype_Order == "VENDU/SOLD")
 	   									{
 	   										$('#frittagelabel,#frittagecheckbox').removeClass('hide');
 	   									}
@@ -381,7 +381,7 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 	   									{
 	   										$('#frittagelabel,#frittagecheckbox').addClass('hide');
 	   									}	
-	   									if(Site_Workshop_Prototype=="Nogent (NOG)")
+	   									if(Site_Workshop_Prototype.indexOf("Nogent")!=-1)
 	   									{
 	   										$('#e52label,#e52checkbox').removeClass('hide');
 	   									}
@@ -389,7 +389,7 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 	   									{
 	   										$('#e52label,#e52checkbox').addClass('hide');
 	   									}	
-	   									if (Type_of_the_Prototype_Order == 'VENDU / SOLD' && Site_Workshop_Prototype == "La Suze (LAS)")
+	   									if (Type_of_the_Prototype_Order == 'VENDU / SOLD' && Site_Workshop_Prototype.indexOf("La Suze")!=-1)
 	   									{
 	   										$('#intralelabel,#intralecheckbox').removeClass('hide');
 	   									}	
@@ -416,38 +416,38 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 								   		}	
 								   		if (Type_of_the_Prototype_Order == 'VENDU / SOLD')
 								   		{
-								   			$('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').removeClass('readonly');
-								   			$('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').removeClass('disabled');
+								   			$('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').removeAttr('readonly');
+								   			$('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').removeAttr('disabled');
 								   		}
 								   		else
 								   		{
 								   			$('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').attr('readonly',true);
 								   			$('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').attr('disabled',true);
 								   		}
-								   		if(Site_Workshop_Prototype=="La Verriere (LVR)" && Proto_Type=="P0" && Type_of_the_Prototype_Order == "VENDU/SOLD")
+								   		if(Site_Workshop_Prototype.indexOf("La Verriere")!=-1 && Proto_Type=="P0" && Type_of_the_Prototype_Order == "VENDU/SOLD")
 	   									{
-	   										$('#frittagelabel,#frittagecheckbox').removeClass('readonly');
-	   										$('#frittagelabel,#frittagecheckbox').removeClass('disabled');
+	   										$('#frittagelabel,#frittagecheckbox').removeAttr('readonly');
+	   										$('#frittagelabel,#frittagecheckbox').removeAttr('disabled');
 	   									}
 								   		else
 								   		{
 								   			$('#frittagelabel,#frittagecheckbox').attr('readonly',true);
 	   										$('#frittagelabel,#frittagecheckbox').attr('disabled',true);
 								   		}	
-								   		if(Site_Workshop_Prototype=="Nogent (NOG)")
+								   		if(Site_Workshop_Prototype.indexOf("Nogent")!=-1)
 	   									{
-	   										$('#e52label,#e52checkbox').removeClass('readonly');
-	   										$('#e52label,#e52checkbox').removeClass('disabled');
+	   										$('#e52label,#e52checkbox').removeAttr('readonly');
+	   										$('#e52label,#e52checkbox').removeAttr('disabled');
 	   									}
 								   		else
 								   		{
 								   			$('#e52label,#e52checkbox').attr('readonly',true);
 	   										$('#e52label,#e52checkbox').attr('disabled',true);
 								   		}	
-	   									if (Type_of_the_Prototype_Order == 'VENDU / SOLD' && Site_Workshop_Prototype == "La Suze (LAS)")
+	   									if (Type_of_the_Prototype_Order == 'VENDU / SOLD' && Site_Workshop_Prototype.indexOf("La Suze")!=-1)
 	   									{
-	   										$('#intralelabel,#intralecheckbox').removeClass('readonly');
-	   										$('#intralelabel,#intralecheckbox').removeClass('disabled');
+	   										$('#intralelabel,#intralecheckbox').removeAttr('readonly');
+	   										$('#intralelabel,#intralecheckbox').removeAttr('disabled');
 	   									}	
 	   									else
 	   									{
@@ -456,13 +456,13 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 	   									}	
 	   									if (Type_of_the_Prototype_Order == 'VENDU / SOLD' && $('#intralecheckbox').is(":not(:checked)"))
 								        {
-	   										$('#advdiv').removeClass('readonly');
-	   										$('#advdiv').removeClass('disabled');
+	   										$('#adv').removeAttr('readonly');
+	   										$('#adv').removeAttr('disabled');
 								        }
 	   									else
 	   									{
-	   										$('#advdiv').attr('readonly',true);
-	   										$('#advdiv').attr('disabled',true);
+	   										$('#adv').attr('readonly',true);
+	   										$('#adv').attr('disabled',true);
 	   									}	
    									},
    CheckMandatorySettings			:	function()
