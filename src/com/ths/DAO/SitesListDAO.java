@@ -1,13 +1,12 @@
 package com.ths.DAO;
 
-import com.googlecode.objectify.Key;
-import com.ths.JDO.Example;
-import com.ths.JDO.SitesListJDO;
+import static java.util.logging.Level.FINER;
 
 import java.util.List;
 import java.util.logging.Logger;
 
-import static java.util.logging.Level.FINER;
+import com.googlecode.objectify.Key;
+import com.ths.JDO.SitesListJDO;
 
 public class SitesListDAO extends AbstractDao {
 
