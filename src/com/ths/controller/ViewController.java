@@ -14,11 +14,4 @@ public class ViewController {
         model.addAttribute("greeting", "Hello World from Spring 4 MVC");
         return "layout";
     }
- 
-//    @RequestMapping(value="/helloagain", method = RequestMethod.GET)
-//    public String sayHelloAgain(ModelMap model) {
-//        model.addAttribute("greeting", "Hello World Again, from Spring 4 MVC");
-//        return "layout";
-//    }
- 
 }
