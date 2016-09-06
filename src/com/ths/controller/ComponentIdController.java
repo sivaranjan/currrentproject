@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.ths.DAO.ComponentIDDAO;
-import com.ths.DAO.IdDAO;
 import com.ths.JDO.ComponentIDJDO;
-import com.ths.JDO.IdJDO;
 
 
 @RestController
