@@ -39,5 +39,12 @@
       <bean id="IdDAO" class="com.ths.DAO.IdDAO"/>
       <bean id="ComponentIDDAO" class="com.ths.DAO.ComponentIDDAO"/>
      <bean id="UserDAO" class="com.ths.DAO.UserDAO"/>
+     <bean id="ProductTypeDAO" class="com.ths.DAO.ProductTypeDAO"/>
+     <bean id="PrototypistsDAO" class="com.ths.DAO.PrototypistsDAO"/>
+     <bean id="randManagerDAO" class="com.ths.DAO.RandDDAO"/>
+     <bean id="technologyDAO" class="com.ths.DAO.TechnologyDAO"/>
+     <bean id="AllocationTurnOverDAO" class="com.ths.DAO.AllocationTurnOverDAO"/>
+     <bean id="ClientLaboDAO" class="com.ths.DAO.ClientLaboDAO"/>
+     
       
   </beans>
