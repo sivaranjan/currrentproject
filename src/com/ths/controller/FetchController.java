@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ths.DAO.ActorsListDAO;
+import com.ths.DAO.AllocationTurnOverDAO;
+import com.ths.DAO.ClientLaboDAO;
 import com.ths.DAO.ComponentIDDAO;
 import com.ths.DAO.CustomersListDAO;
 import com.ths.DAO.IdDAO;
@@ -22,9 +24,15 @@ import com.ths.DAO.IncotermsDAO;
 import com.ths.DAO.OrderDAO;
 import com.ths.DAO.PlacesDAO;
 import com.ths.DAO.PlateformDAO;
+import com.ths.DAO.ProductTypeDAO;
+import com.ths.DAO.PrototypistsDAO;
+import com.ths.DAO.RandDDAO;
 import com.ths.DAO.SitesListDAO;
+import com.ths.DAO.TechnologyDAO;
 import com.ths.DAO.UserDAO;
 import com.ths.JDO.ActorsListJDO;
+import com.ths.JDO.AllocationTurnOverJDO;
+import com.ths.JDO.ClientLaboJDO;
 import com.ths.JDO.ComponentIDJDO;
 import com.ths.JDO.CustomersListJDO;
 import com.ths.JDO.IdJDO;
@@ -32,7 +40,11 @@ import com.ths.JDO.IncotermsJDO;
 import com.ths.JDO.OrderJDO;
 import com.ths.JDO.PlacesJDO;
 import com.ths.JDO.PlateformJDO;
+import com.ths.JDO.ProductTypesJDO;
+import com.ths.JDO.PrototypistsJDO;
+import com.ths.JDO.RandDJDO;
 import com.ths.JDO.SitesListJDO;
+import com.ths.JDO.TechnologyJDO;
 import com.ths.JDO.UserJDO;
 
 @RestController
@@ -57,6 +69,18 @@ public class FetchController {
     private PlacesDAO placesDao;
     @Autowired
     private OrderDAO orderDao;
+    @Autowired
+    private ProductTypeDAO productTypeDao;
+    @Autowired
+    private PrototypistsDAO prototypistDao;
+    @Autowired
+    private RandDDAO rAndDao;
+    @Autowired
+    private TechnologyDAO technologyDao;
+    @Autowired
+    private AllocationTurnOverDAO allocationDao;
+    @Autowired
+    private ClientLaboDAO clientLaboDao;
     @Autowired
     private UserDAO userDao;
     private static final Logger log = Logger.getLogger(FetchController.class.getName());
@@ -317,15 +341,47 @@ public class FetchController {
 	         HashMap<String,List<SitesListJDO>> responseMap = new HashMap<String,List<SitesListJDO>>();
 	         responseMap.put("data", sitesList);
 	         return new ResponseEntity<HashMap<String,List<SitesListJDO>>>(responseMap, HttpStatus.OK);
-	     }		
+	     }	
+	     @RequestMapping(value = "/fetchProductTypeList", method = RequestMethod.GET)
+	     public ResponseEntity<HashMap<String,List<ProductTypesJDO>>> fetchProductTypeList() {
+	         List<ProductTypesJDO> productTypesList = productTypeDao.findAllUsers();
+	         HashMap<String,List<ProductTypesJDO>> responseMap = new HashMap<String,List<ProductTypesJDO>>();
+	         responseMap.put("data", productTypesList);
+	         return new ResponseEntity<HashMap<String,List<ProductTypesJDO>>>(responseMap, HttpStatus.OK);
+	     }
+	     @RequestMapping(value = "/fetchPrototypitsList", method = RequestMethod.GET)
+	     public ResponseEntity<HashMap<String,List<PrototypistsJDO>>> fetchPrototypitsList() {
+	         List<PrototypistsJDO> prototypistsList = prototypistDao.findAllUsers();
+	         HashMap<String,List<PrototypistsJDO>> responseMap = new HashMap<String,List<PrototypistsJDO>>();
+	         responseMap.put("data", prototypistsList);
+	         return new ResponseEntity<HashMap<String,List<PrototypistsJDO>>>(responseMap, HttpStatus.OK);
+	     }
+	     @RequestMapping(value = "/fetchRandDList", method = RequestMethod.GET)
+	     public ResponseEntity<HashMap<String,List<RandDJDO>>> fetchRandDList() {
+	         List<RandDJDO> rAndDList = rAndDao.findAllUsers();
+	         HashMap<String,List<RandDJDO>> responseMap = new HashMap<String,List<RandDJDO>>();
+	         responseMap.put("data", rAndDList);
+	         return new ResponseEntity<HashMap<String,List<RandDJDO>>>(responseMap, HttpStatus.OK);
+	     }
+	     @RequestMapping(value = "/fetchTechnologyList", method = RequestMethod.GET)
+	     public ResponseEntity<HashMap<String,List<TechnologyJDO>>> fetchTechnologyList() {
+	         List<TechnologyJDO> technologyList = technologyDao.findAllUsers();
+	         HashMap<String,List<TechnologyJDO>> responseMap = new HashMap<String,List<TechnologyJDO>>();
+	         responseMap.put("data", technologyList);
+	         return new ResponseEntity<HashMap<String,List<TechnologyJDO>>>(responseMap, HttpStatus.OK);
+	     }
+	     @RequestMapping(value = "/fetchClientLaboList", method = RequestMethod.GET)
+	     public ResponseEntity<HashMap<String,List<ClientLaboJDO>>> fetchClientLaboList() {
+	         List<ClientLaboJDO> clientLaboList = clientLaboDao.findAllUsers();
+	         HashMap<String,List<ClientLaboJDO>> responseMap = new HashMap<String,List<ClientLaboJDO>>();
+	         responseMap.put("data", clientLaboList);
+	         return new ResponseEntity<HashMap<String,List<ClientLaboJDO>>>(responseMap, HttpStatus.OK);
+	     }
 	     @RequestMapping(value = "/fetchAllocationofTurnOverList", method = RequestMethod.GET)
-	    public ResponseEntity<List<IncotermsJDO>> fetchAllocationofTurnOverList() {
-	        List<IncotermsJDO> incotermsList = incotermsDao.findAllUsers();
-	        if(incotermsList.isEmpty())
-	        {
-	            return new ResponseEntity<List<IncotermsJDO>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
-	        }
-	        return new ResponseEntity<List<IncotermsJDO>>(incotermsList, HttpStatus.OK);
-	    }
-	     
+	     public ResponseEntity<HashMap<String,List<AllocationTurnOverJDO>>> fetchAllocationofTurnOverList() {
+	         List<AllocationTurnOverJDO> allocationTurnOverList = allocationDao.findAllUsers();
+	         HashMap<String,List<AllocationTurnOverJDO>> responseMap = new HashMap<String,List<AllocationTurnOverJDO>>();
+	         responseMap.put("data", allocationTurnOverList);
+	         return new ResponseEntity<HashMap<String,List<AllocationTurnOverJDO>>>(responseMap, HttpStatus.OK);
+	     }
 }
