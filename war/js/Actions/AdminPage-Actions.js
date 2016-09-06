@@ -372,10 +372,11 @@
 										                }
 										            }]
 										        });
-										        $('#actorsub-table tfoot th').each(function()
+										        $('#actorlisttable_footer th').each(function()
 										        {
-										            var title = $(this).text();
-										            $(this).html('<input type="text" class="form-control input-sm" placeholder="Search ' + title + '" />');
+										           /* var title = $(this).text();*/
+										        	var title = '';
+										            $(this).html('<input type="text" style="width: 100%;" class="form-control input-sm" placeholder="Search ' + title + '" />');
 										        });
 										
 										        // DataTable
