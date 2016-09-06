@@ -21,6 +21,12 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend(
 								        "click #platforms-btn"		: 	"viewPlatformList",
 								        "click #locations-btn"		: 	"viewLocationList",
 								        "click #sites-btn"			: 	"viewSiteList",
+								        "click #producttype-btn"	:	"viewProductTypeList",
+								        "click #prototypists-btn"	:	"viewPrototypistsList",
+								        "click #rdlead-btn"			:	"viewRandDManagerList",
+								        "click #technologie-btn"	:	"viewTechnologyList",
+								        "click #allocation-btn"		:	"viewAllocationTurnOverList",
+								        "click #clientadd-btn"		:	"viewClientLaboList",
 								    },
     showTablesList				: 	function()
 									{
@@ -63,6 +69,41 @@ BackboneData.Views.AdminDetailView = Backbone.View.extend(
 									        $('.configset,#config-panel article').addClass('hide');
 									        $('#configbreadcrumb,#sites-article').removeClass('hide');
 									        buildSitesTable();
+								    },
+	viewProductTypeList			: 	function()
+								    {
+									        $('.configset,#config-panel article').addClass('hide');
+									        $('#configbreadcrumb,#productstypes-article').removeClass('hide');
+									        buildProductTypesList();
+								    },
+	viewPrototypistsList		: 	function()
+								    {
+									        $('.configset,#config-panel article').addClass('hide');
+									        $('#configbreadcrumb,#prototypists-article').removeClass('hide');
+									        buildPrototypistsList();
+								    },
+	viewTechnologyList			: 	function()
+								    {
+									        $('.configset,#config-panel article').addClass('hide');
+									        $('#configbreadcrumb,#technologies-article').removeClass('hide');
+									        buildTechnologyList();
+								    },
+	viewRandDManagerList		: 	function()
+								    {
+									        $('.configset,#config-panel article').addClass('hide');
+									        $('#configbreadcrumb,#rdlead-article').removeClass('hide');
+									        buildRandDList();
+								    },
+	viewAllocationTurnOverList	: 	function()
+								    {
+									        $('.configset,#config-panel article').addClass('hide');
+									        $('#configbreadcrumb,#allocationturnover-article').removeClass('hide');
+									        buildAllocationTurnOverList();
+								    },
+	viewClientLaboList			: 	function()
+								    {
+									        $('.configset,#config-panel article').addClass('hide');
+									        $('#configbreadcrumb,#clientadd-article').removeClass('hide');
+									        buildClientLaboList();
 								    }
-    
 });
