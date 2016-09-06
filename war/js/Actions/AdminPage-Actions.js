@@ -713,5 +713,37 @@
 										            })
 										        }
 									    	};
+	renderTabClick 						= 	function()
+									    	{
+												$('a[data-toggle="tab"]').on('shown.bs.tab', function(event)
+												{
+												    			console.log($(event.target).text()); // newly activated tab
+												    			var currentSelectedTab = $(event.target).text();
+												    			switch (currentSelectedTab)
+												    			{
+												    					case "MEP Study":
+												    						          		buildActorsTable("MEP Study");
+												    						          		break;
+												    					case "Quality":
+												    						                buildActorsTable("Quality");
+												    						                break;
+												    					case "Proto workshop":
+												    						    	  		buildActorsTable("Proto workshop");
+												    						    	  		break;
+												    					case "Control management":
+												    						    	  		buildActorsTable("Control management");
+												    						    	  		break;
+												    					case "FO Trade":
+												    						                buildActorsTable("FO Trade");
+												    						                break;
+												    					case "ADV":
+												    						                buildActorsTable("ADV");
+												    						                break;
+												    					case "Project Manager":
+												    						    	  	    buildActorsTable("Project Manager");
+												    						    	  	    break;
+												    			}
+												   });	
+									    	   };
     
 })();
