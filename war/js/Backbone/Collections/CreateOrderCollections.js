@@ -137,3 +137,15 @@ BackboneData.Collections.fetchOrderDependencies = Backbone.Collection.extend(
     },
     url	: ApplicationConstants.fetchOrderDependencies
 });	
+BackboneData.Collections.fetchlastPrototypeID = Backbone.Collection.extend(
+{
+		    initialize	: function()
+		    {
+		        this.bind("reset", function(model, options)
+		        {
+		            console.log("Inside fetchlastPrototypeID collection");
+		            console.log(model);
+		        });
+		    },
+		    url	: ApplicationConstants.fetchlastPrototypeID
+});	
