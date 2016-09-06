@@ -1,5 +1,6 @@
 window.orderCreationVisibilitySettings || (window.orderCreationVisibilitySettings = {});
 window.orderCreationEditableSettings || (window.orderCreationEditableSettings = {});
+window.orderCreationMandatorySettings || (window.orderCreationMandatorySettings = {});
 window.navVisibilitySettings || (window.navVisibilitySettings = {});
 
 navVisibilitySettings = {
