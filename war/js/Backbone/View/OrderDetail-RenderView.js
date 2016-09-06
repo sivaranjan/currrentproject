@@ -418,15 +418,15 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 								   		{
 								   			$('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').removeAttr('readonly');
 								   			$('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').removeAttr('disabled');
+								   			$('#fotrade,#incotermsdiv,#placediv,#allocationdiv').removeAttr('readonly');
+								   			$('#fotrade,#Place,#Incoterms,#Allocation_of_turnover').removeAttr('disabled');
+								   			$('#fodiv .bootstrap-select,#incotermsdiv .bootstrap-select,#placediv .bootstrap-select,#allocationdiv .bootstrap-select').removeClass('disabled');
+								   			$('#fodiv .dropdown-toggle,#incotermsdiv .dropdown-toggle,#placediv .dropdown-toggle,#allocationdiv .dropdown-toggle').removeClass('disabled');
 								   		}
 								   		else
 								   		{
 								   			$('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').attr('readonly',true);
 								   			$('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').attr('disabled',true);
-								   			$('#fotrade').removeAttr('readonly');
-								   			$('#fotrade').removeAttr('disabled');
-								   			$('#fodiv .bootstrap-select').removeClass('disabled');
-								   			$('#fodiv .dropdown-toggle').removeClass('disabled');
 								   		}
 								   		if(Site_Workshop_Prototype.indexOf("La Verriere")!=-1 && Proto_Type=="P0" && Type_of_the_Prototype_Order == "VENDU/SOLD")
 	   									{
