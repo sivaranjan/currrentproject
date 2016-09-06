@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 import com.googlecode.objectify.Key;
 import com.ths.JDO.IdJDO;
+import com.ths.JDO.UserJDO;
 
 public class IdDAO extends AbstractDao {
 
@@ -17,11 +18,11 @@ public class IdDAO extends AbstractDao {
         return ofy.load().key(Key.create(IdJDO.class, id)).now();
     }
 
-    public IdJDO findByName(String name) {
-        return ofy.load().type(IdJDO.class).filter("name =", name).first().now();
+    public IdJDO findByIdValue(String nexId) {
+        return ofy.load().type(IdJDO.class).filter("next_id =", nexId).first().now();
     }
 
-    public List<IdJDO> findAllUsers() {
+    public List<IdJDO> findallEntries() {
         log.log(FINER, "Loading all examples.");
         return ofy.load().type(IdJDO.class).list();
     }
@@ -30,7 +31,10 @@ public class IdDAO extends AbstractDao {
         ofy.save().entities(genID).now();
         return genID;
     }
-
+    public IdJDO update(IdJDO newObj) {
+        ofy.save().entities(newObj).now();
+        return newObj;
+    }
     public void deleteAll() {
         List<Key<IdJDO>> keys = ofy.load().type(IdJDO.class).keys().list();
         ofy.delete().entities(keys).now();
