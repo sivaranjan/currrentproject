@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="
-        http://www.springframework.org/schema/beans     
-        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-        http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context-4.0.xsd
-        http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
-	<context:component-scan base-package="com.ths.controller" />
-	<context:component-scan base-package="com.ths.DAO" />
-	<context:component-scan base-package="com.ths.JDO" />
-	<mvc:annotation-driven />
-	<bean
-        class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation="         http://www.springframework.org/schema/beans              http://www.springframework.org/schema/beans/spring-beans-4.0.xsd         http://www.springframework.org/schema/context         http://www.springframework.org/schema/context/spring-context-4.0.xsd         http://www.springframework.org/schema/mvc         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+    <context:component-scan base-package="com.ths.controller" />
+    <context:component-scan base-package="com.ths.DAO" />
+    <context:component-scan base-package="com.ths.JDO" />
+    <mvc:annotation-driven />
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">
             <value>/WEB-INF/views/</value>
         </property>
@@ -23,28 +12,23 @@
             <value>.jsp</value>
         </property>
     </bean>
-    
-    <bean id="registerEntity" class="com.ths.service.Entity" init-method="init"/>
-    
-
+    <bean id="registerEntity" class="com.ths.service.Entity" init-method="init" />
     <!--Persistence-->
-    <bean id="eventDao" class="com.ths.DAO.ExampleDao"/>
-    <bean id="orderDao" class="com.ths.DAO.OrderDAO"/>
-     <bean id="actorsListDao" class="com.ths.DAO.ActorsListDAO"/>
-     <bean id="sitesListDao" class="com.ths.DAO.SitesListDAO"/>
-     <bean id="customersListDao" class="com.ths.DAO.CustomersListDAO"/>
-     <bean id="incotermsListDao" class="com.ths.DAO.IncotermsDAO"/>
-     <bean id="placesListDao" class="com.ths.DAO.PlacesDAO"/>
-     <bean id="plateformListDao" class="com.ths.DAO.PlateformDAO"/>
-      <bean id="IdDAO" class="com.ths.DAO.IdDAO"/>
-      <bean id="ComponentIDDAO" class="com.ths.DAO.ComponentIDDAO"/>
-     <bean id="UserDAO" class="com.ths.DAO.UserDAO"/>
-     <bean id="ProductTypeDAO" class="com.ths.DAO.ProductTypeDAO"/>
-     <bean id="PrototypistsDAO" class="com.ths.DAO.PrototypistsDAO"/>
-     <bean id="randManagerDAO" class="com.ths.DAO.RandDDAO"/>
-     <bean id="technologyDAO" class="com.ths.DAO.TechnologyDAO"/>
-     <bean id="AllocationTurnOverDAO" class="com.ths.DAO.AllocationTurnOverDAO"/>
-     <bean id="ClientLaboDAO" class="com.ths.DAO.ClientLaboDAO"/>
-     
-      
-  </beans>
+    <bean id="eventDao" class="com.ths.DAO.ExampleDao" />
+    <bean id="orderDao" class="com.ths.DAO.OrderDAO" />
+    <bean id="actorsListDao" class="com.ths.DAO.ActorsListDAO" />
+    <bean id="sitesListDao" class="com.ths.DAO.SitesListDAO" />
+    <bean id="customersListDao" class="com.ths.DAO.CustomersListDAO" />
+    <bean id="incotermsListDao" class="com.ths.DAO.IncotermsDAO" />
+    <bean id="placesListDao" class="com.ths.DAO.PlacesDAO" />
+    <bean id="plateformListDao" class="com.ths.DAO.PlateformDAO" />
+    <bean id="IdDAO" class="com.ths.DAO.IdDAO" />
+    <bean id="ComponentIDDAO" class="com.ths.DAO.ComponentIDDAO" />
+    <bean id="UserDAO" class="com.ths.DAO.UserDAO" />
+    <bean id="ProductTypeDAO" class="com.ths.DAO.ProductTypeDAO" />
+    <bean id="PrototypistsDAO" class="com.ths.DAO.PrototypistsDAO" />
+    <bean id="randManagerDAO" class="com.ths.DAO.RandDDAO" />
+    <bean id="technologyDAO" class="com.ths.DAO.TechnologyDAO" />
+    <bean id="AllocationTurnOverDAO" class="com.ths.DAO.AllocationTurnOverDAO" />
+    <bean id="ClientLaboDAO" class="com.ths.DAO.ClientLaboDAO" />
+</beans>
