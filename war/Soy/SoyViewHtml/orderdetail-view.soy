@@ -31,12 +31,12 @@
 									  </div>
 										<div class="form-group col-md-6">
 										    <label>{$paramValue['Site/Workshop Prototype']}<span class="text-danger">*</span></label>
-										    <select class="selectpicker"   title=" " {$mandatoryconfig['site_workshop_drpdwn']} id="Site_Workshop_Prototype" data-width="100%" data-live-search="true">
+										    <select class="selectpicker"   title=" " {$mandatoryconfig['site_workshop_drpdwn']} {$editableconfig['site_workshop_drpdwn']} id="Site_Workshop_Prototype" data-width="100%" data-live-search="true">
 										    </select>
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>{$paramValue['Proto Type']}<span class="text-danger">*</span></label>
-									    <select class="selectpicker"  {$mandatoryconfig['prototype_drpdwn']} title=" " id="Proto_Type" data-width="100%">
+									    <select class="selectpicker"  {$mandatoryconfig['prototype_drpdwn']} {$editableconfig['proto_type_drpdwn']} title=" " id="Proto_Type" data-width="100%">
 									        <option>P0</option>
 									        <option>P1</option>
 									        <option>P2</option>
@@ -44,7 +44,7 @@
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>{$paramValue['Type of the prototype order']}<span class="text-danger">*</span></label>
-									    <select class="selectpicker"   title=" " {$mandatoryconfig['Type_of_the_Prototype_Order_drpdwn']} id="Type_of_the_Prototype_Order" data-width="100%">
+									    <select class="selectpicker" {$editableconfig['type_of_the_prototype_order_drpdwn']}  title=" " {$mandatoryconfig['Type_of_the_Prototype_Order_drpdwn']} id="Type_of_the_Prototype_Order" data-width="100%">
 									        <option>VENDU / SOLD</option>
 									        <option>NON VENDU / NOT SOLD</option>
 									    </select>
@@ -76,22 +76,22 @@
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>{$paramValue['MEP Study']} <span class="text-danger ">*</span></label>
-									    <select class="selectpicker"  {$mandatoryconfig['mep_study_drpdwn']} id="mepstudy" title=" " data-width="100%" data-live-search="true">
+									    <select class="selectpicker" {$editableconfig['mep_study_drpdwn']} {$mandatoryconfig['mep_study_drpdwn']} id="mepstudy" title=" " data-width="100%" data-live-search="true">
 									    </select>
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>{$paramValue['Quality']} <span class="text-danger">*</span></label>
-									    <select class="selectpicker"   {$mandatoryconfig['quality_drpdwn']} id="quality" title=" " data-width="100%" data-live-search="true">
+									    <select class="selectpicker" {$editableconfig['quality_drpdwn']}  {$mandatoryconfig['quality_drpdwn']} id="quality" title=" " data-width="100%" data-live-search="true">
 									    </select>
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>{$paramValue['Proto workshop']}<span class="text-danger">*</span></label>
-									    <select class="selectpicker" {$mandatoryconfig['proto_workshop_drpdwn']}   id="protoworkshop" title=" " data-width="100%" data-live-search="true">
+									    <select class="selectpicker" {$mandatoryconfig['proto_workshop_drpdwn']} {$editableconfig['proto_workshop_drpdwn']}   id="protoworkshop" title=" " data-width="100%" data-live-search="true">
 									    </select>
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>{$paramValue['Control management']}<span class="text-danger">*</span></label>
-									    <select class="selectpicker"  {$mandatoryconfig['control_management_drpdwn']}   id="controlmanagement" title=" " data-width="100%" data-live-search="true">
+									    <select class="selectpicker"  {$mandatoryconfig['control_management_drpdwn']} {$editableconfig['control_management_drpdwn']}   id="controlmanagement" title=" " data-width="100%" data-live-search="true">
 									    </select>
 									  </div>
 									  <div class="form-group col-md-6 {$visibleconfig['fo_trade_drpdwn']}" id="fodiv">
@@ -106,7 +106,7 @@
 									  </div>
 									  <div class="form-group col-md-6">
 									    <label>{$paramValue['Project manager']}<span class="text-danger">*</span></label>
-									    <select class="selectpicker" {$mandatoryconfig['project_manager_drpdwn']}   id="projmanager" title=" " data-width="100%" data-live-search="true">
+									    <select class="selectpicker" {$mandatoryconfig['project_manager_drpdwn']} {$editableconfig['project_manager_drpdwn']}  id="projmanager" title=" " data-width="100%" data-live-search="true">
 									    </select>
 									  </div>
 						  	  		</div>
