@@ -133,19 +133,37 @@
 								<thead>
 									<tr>
 										<th>Site</th>
-										<th>Prototype Order No</th>
-										<th>Status</th>
+										<th>Number Cde Cordys</th>
+										<th>Cde status</th>
 										<th>Branch Code</th>
-										<th>N<sup>&#8728;</sup> Customer order</th>
-										<th>Project Manager</th>
-										<th>Proto Type</th>
+										<th>Affectation</th>
 										<th>Type</th>
-										<th>Added On</th>
-										<th>Added By</th>
+										<th>Component status</th>
+										<th>Current approver</th>
+										<th>Request Id</th>
+										<th>Ref Client</th>
+										<th>Client Qty</th>
+										<th>Produced Qty</th>
+										<th>Qty Approvin Quality</th>
+										<th>Delivered Qty</th>
+										<th>Invoiced Qty</th>
+										<th>Qty to invoice</th>
+										<th>Num Customer Order</th>
+										<th>Platform</th>
+										<th>CodeWBS</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
 										<td></td>
 										<td></td>
 										<td></td>
@@ -288,6 +306,39 @@
 		    </div>
 		  </div>
 		</div>
+		<!-- Forecast Planning of Workshop Modal -->
+		<div class="modal fade" id="planningworkshop-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">Add New</h4>
+		      </div>
+		      <div class="modal-body">
+		      	<form role="form">
+		      			<div class="form-group">
+						    <label for="name">Quantity</label>
+						    <input type="text" class="form-control" placeholder="Quantity">
+						</div>
+						<div class="form-group">
+						    <label>Date</label>
+						    <div class="input-group date">
+							    <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+							</div>
+						</div>
+						<div class="form-group">
+						    <label for="name">Comment</label>
+						    <textarea class="form-control" rows="3"></textarea>
+						</div>
+		      	</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-success">Save changes</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 		
 		
 		<!-- Order Attachment Modal -->
@@ -405,6 +456,17 @@
 						</div>
 						<div class="form-group">
 						    <label>Compliant ?</label>
+						    <select class="selectpicker" data-width="100%" title=" ">
+						        <option>Yes</option>
+						        <option>No</option>
+						    </select>
+						</div>
+						<div class="form-group">
+						    <label>BLi#</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>Delivery</label>
 						    <input type="text" class="form-control">
 						</div>
 						<div class="form-group">
@@ -417,6 +479,130 @@
 						</div>
 						<div class="form-group">
 						    <label>Notification ?</label>
+						    <input type="text" class="form-control">
+						</div>
+		      	</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-success">Save changes</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- Validation test report Modal -->
+		<div class="modal fade" id="validtestreport-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">Creation of Validation test report</h4>
+		      </div>
+		      <div class="modal-body">
+		      	<form role="form">
+		      			<div class="form-group">
+						    <label>Link</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>Date</label>
+						    <div class="input-group date">
+							    <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+							</div>
+						</div>
+						<div class="form-group">
+						    <label>Quantity</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>Approval ?</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>BLi#</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>Delivery</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>Notification ?</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>Comment</label>
+						    <textarea class="form-control" rows="3"></textarea>
+						</div>
+						<div class="form-group">
+						    <label>Made by</label>
+						    <input type="text" class="form-control">
+						</div>
+		      	</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-success">Save changes</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- Delivery/Billing Modal -->
+		<div class="modal fade" id="devliverbill-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">Creation of Delivery/Billing</h4>
+		      </div>
+		      <div class="modal-body">
+		      	<form role="form">
+		      			<div class="form-group">
+						    <label>Link</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>Delivery Date</label>
+						    <div class="input-group date">
+							    <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+							</div>
+						</div>
+						<div class="form-group">
+						    <label>Qty delivered</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>N<sup>&#8728;</sup> Marker</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>BL Cordys</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>BL SAP</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>Invoice N<sup>&#8728;</sup></label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>Inviced qty</label>
+						   	<input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>Billing date</label>
+						    <div class="input-group date">
+							    <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+							</div>
+						</div>
+						<div class="form-group">
+						    <label>Delivery notif. ?</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>Billing notif. ?</label>
 						    <input type="text" class="form-control">
 						</div>
 		      	</form>

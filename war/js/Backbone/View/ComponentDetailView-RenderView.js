@@ -97,7 +97,30 @@ BackboneData.Views.ComponentDetailView = Backbone.View
                         }
                     }]
                 });
-            
+            $('#planningworkshop-table').DataTable(
+                    {
+                            dom				:   'Bfrtip',
+                            columnDefs: [
+                            {
+                                targets		: 	[3],
+                                orderable	: 	false,
+                                width		: 	"40px"
+                            },
+                            {
+                                targets		: 	[4],
+                                orderable	: 	false,
+                                width		: 	"40px"
+                            }],
+                            buttons: [
+                            {
+                                text		: 	'<i class="fa fa-plus" aria-hidden="true"></i> New',
+                                className	: 	'btn btn-default btn-sm newplanbtn',
+                                action		: 	function()
+                                {
+                                    $('#planningworkshop-modal').modal('show');
+                                }
+                            }]
+                        });
 //            Execution tables
             $('#partsprod-table').DataTable(
                     {
