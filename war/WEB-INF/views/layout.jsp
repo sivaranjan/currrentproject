@@ -118,6 +118,53 @@
 		<section class="custom-container hide" id="orderlist-section">
 			
 		</section>
+		<section class="custom-container hide" id="componentlist-section">
+			<div class="col-md-12">
+				<div class="panel-group" role="tablist">
+                	<div class="panel panel-default">
+						<div class="panel-heading" role="tab">
+					      <h4 class="panel-title">
+					        Component List
+					      </h4>
+					    </div>
+					    <div class="panel-collapse collapse in" role="tabpanel">
+					      <div class="panel-body">
+						      <table class="table table-hover" id="componentlist-table" cellspacing="0" width="100%">
+								<thead>
+									<tr>
+										<th>Site</th>
+										<th>Prototype Order No</th>
+										<th>Status</th>
+										<th>Branch Code</th>
+										<th>N<sup>&#8728;</sup> Customer order</th>
+										<th>Project Manager</th>
+										<th>Proto Type</th>
+										<th>Type</th>
+										<th>Added On</th>
+										<th>Added By</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+							  </table>
+							</div>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</section>
 		</main>
         <!-- Footer -->
         <footer>

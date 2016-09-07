@@ -8,7 +8,8 @@ var Router = Backbone.Router.extend(
         'adminsetting'	: 	'admin',
         'componentdetails': 'component',
         'orderlisting'	: 	'orderlist',
-        'orderdetail'	: 	'home'	
+        'orderdetail'	: 	'home',
+        'componentlisting'	: 	'componentlist',
     }
 });
 var routerTHS = new Router();
@@ -80,6 +81,19 @@ routerTHS.on('route:orderlist', function(action)
     	});
     });
 });
+routerTHS.on('route:componentlist', function(action)
+		{
+		    pullUserInfo(function()
+		    {
+		    	renderBackboneView("componentlisting",function()
+		    	{
+		    		SetView("componentlisting",function()
+		    	    {
+		    			// This does the hide and show of divs    			
+		    	    });	
+		    	});
+		    });
+		});
 if (Backbone.history != undefined && Backbone.history != null && Backbone.history != '')
 {
     console.log('backnonhistory has  started!!!');

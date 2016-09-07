@@ -126,6 +126,13 @@
 															        $('#orderlist-tab').addClass('active');
 															        validateAndDoCallback(docallBack);
 															        break;
+												case 'componentlisting':
+																	$('#componentlist-section').removeClass('hide');
+															        $('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper,#admin-section,#orderlist-section').addClass('hide');
+															        $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
+															        $('#componentlist-tab').addClass('active');
+															        validateAndDoCallback(docallBack);
+															        break;
 												case 'home'		:
 																	$('#createorder-section,#navfixed-wrapper,#component-section,#admin-section,#orderlist-section').addClass('hide');
 															        $('#welcome-section').removeClass('hide');
