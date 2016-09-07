@@ -26,16 +26,16 @@
 		Welcome to THS France Prototype Database
     </title>
     <!-- CSS -->
-    	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="http://storage.googleapis.com/valeo-design/css/bootstrap.css">
-		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
-		<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.bootstrap.min.css">
-		<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
-		<link rel="stylesheet" href="http://storage.googleapis.com/valeo-design/css/datepicker3.css">
-		<link rel="stylesheet" href="../css/bootstrap-select.min.css">
-		<link rel="stylesheet" href="../css/valeo-graphics.css">
-		<link rel="stylesheet" href="../css/app.css">
+    	<link href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/app.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/bootstrap-select.min.css">
+		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/bootstrap.css">
+		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/buttons.dataTables.min.css">
+		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/dataTables.bootstrap.min.css">
+		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/datepicker3.css">
+		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/font-awesome.min.css">
+		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/fonts.googleapis.com.css">
+		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/responsive.bootstrap.min.css">
+		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/valeo-graphics.css">
 	</head>
 
 <body>
