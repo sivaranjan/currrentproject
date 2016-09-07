@@ -107,28 +107,28 @@
 									    	{
 												case 'createorder' :
 																	 $('#createorder-section,#navbar-1').removeClass('hide');
-														             $('#welcome-section,#admin-section,#component-section,#orderlist-section').addClass('hide');
+														             $('#welcome-section,#admin-section,#component-section,#orderlist-section,#componentlist-section').addClass('hide');
 														             $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
 														             $('#createorder-tab').addClass('active');
 														             validateAndDoCallback(docallBack);
 														             break;
 												case 'componentdetails' :
 																	$('#component-section,#navfixed-wrapper,#navbar-1').removeClass('hide');
-																	$('#welcome-section,#createorder-section,#admin-section').addClass('hide');
+																	$('#welcome-section,#createorder-section,#admin-section,#componentlist-section').addClass('hide');
 																	$('.selectpicker').selectpicker();
 																	$('.selectpicker').selectpicker('setStyle', 'btn-sm', 'add');
 																	validateAndDoCallback(docallBack);
 																	break;
 												case 'adminsetting' 	:
 																	$('#admin-section,#navbar-1').removeClass('hide');
-															        $('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper,#orderlist-section').addClass('hide');
+															        $('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper,#orderlist-section,#componentlist-section').addClass('hide');
 															        $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
 															        $('#adminsetting-tab').addClass('active');
 															        validateAndDoCallback(docallBack);
 															        break;																
 												case 'orderlisting':
 																	$('#orderlist-section,#navbar-1').removeClass('hide');
-															        $('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper,#admin-section').addClass('hide');
+															        $('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper,#admin-section,#componentlist-section').addClass('hide');
 															        $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
 															        $('#orderlist-tab').addClass('active');
 															        validateAndDoCallback(docallBack);
@@ -141,7 +141,7 @@
 															        validateAndDoCallback(docallBack);
 															        break;
 												case 'home'		:
-																	$('#createorder-section,#navfixed-wrapper,#component-section,#admin-section,#orderlist-section').addClass('hide');
+																	$('#createorder-section,#navfixed-wrapper,#component-section,#admin-section,#orderlist-section,#componentlist-section').addClass('hide');
 															        $('#welcome-section').removeClass('hide');
 															        $('#createorder-tab').removeClass('active');
 															        $('#navbar-1').addClass('hide');

@@ -6,10 +6,6 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/aopalliance-1.0.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/guava-10.0.1.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/jackson-annotations-2.5.0.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/jackson-core-2.5.3.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/jackson-databind-2.5.3.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/javax.servlet-api-3.1.0.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/json-simple-1.1.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/objectify-5.0.5.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/org-apache-commons-codec.jar"/>

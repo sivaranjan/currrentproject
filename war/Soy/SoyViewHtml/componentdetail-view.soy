@@ -212,7 +212,7 @@
 										        	</tbody>
 										        </table>
 										    </div>
-									        <div class="">
+									        <div class="col-md-12" style="padding: 15px 0px;">
 									        	<form role="form">
 									        		<div class="form-group col-md-6">
 													    <label>{$paramValue['Total Quantity']}</label>
@@ -276,30 +276,42 @@
 														    <label>{$paramValue['MIP/PWA code']}</label>									    
 															<input type="text" class="form-control input-sm" placeholder="">									
 												  		</div>
-												  		<div class="form-group col-md-3">
-												  			<label>{$paramValue['Validation process']}</label>
-												  			<div style="padding: 1.5px 0;">
-															    <label class="radio-inline">
-															        <input type="radio" name="validprocess-radio" style="margin-top: 1px;">{$paramValue['Yes']}</label>
-															    <label class="radio-inline">
-															        <input type="radio" name="validprocess-radio" style="margin-top: 1px;">{$paramValue['No']}</label>
+												  		<div class="col-md-6" style="padding: 0;">
+													  		<div class="form-group col-md-6">
+													  			<label>{$paramValue['Validation process']}</label>
+													  			<div>
+																    <label class="radio-inline">
+																        <input type="radio" name="validprocess-radio" style="margin-top: 1px;">{$paramValue['Yes']}</label>
+																    <label class="radio-inline">
+																        <input type="radio" name="validprocess-radio" style="margin-top: 1px;">{$paramValue['No']}</label>
+																</div>
+																
+													  		</div>
+													  		<div class="form-group col-md-6">
+													  			<label>{$paramValue['Plan of laboratory tests']}</label>
+													  			<div>
+																    <label class="radio-inline">
+																        <input type="radio" name="planlab-radio" style="margin-top: 1px;">{$paramValue['Yes']}</label>
+																
+																    <label class="radio-inline">
+																        <input type="radio" name="planlab-radio" style="margin-top: 1px;">{$paramValue['No']}</label>
+																</div>
+													  		</div>
+													  		<div class="form-group col-md-6">
+															    <label>Process Team Member <span class="text-danger">*</span></label>
+															    <select class="selectpicker" data-width="100%" title=" ">
+															        <option>1</option>
+															        <option>2</option>
+															        <option>3</option>
+															        <option>4</option>
+															    </select>
 															</div>
-															
-												  		</div>
-												  		<div class="form-group col-md-3">
-												  			<label>{$paramValue['Plan of laboratory tests']}</label>
-												  			<div style="padding: 1.5px 0;">
-															    <label class="radio-inline">
-															        <input type="radio" name="planlab-radio" style="margin-top: 1px;">{$paramValue['Yes']}</label>
-															
-															    <label class="radio-inline">
-															        <input type="radio" name="planlab-radio" style="margin-top: 1px;">{$paramValue['No']}</label>
-															</div>
-												  		</div>
+														</div>
 												  		<div class="form-group col-md-6">
 															<label for="name">Comment</label>
-															<textarea  class="form-control" style="height: 65px;resize: none;"></textarea>
+															<textarea  class="form-control" style="height: 67px;resize: none;"></textarea>
 														</div>
+														
 												  		<div class="form-group col-md-6" style="margin-top: 10px;">
 															<div class="panel panel-default">
 																<div class="panel-heading" style="background: #fff;">
@@ -446,7 +458,6 @@
 												        			<th>Comments</th>
 												        			<th class="editopt">{$paramValue['Edit']}</th>
 												        			<th>{$paramValue['Delete']}</th>
-												        			<th>&nbsp;</th>
 												        		</tr>
 												        	</thead>
 												        	<tbody>
@@ -464,35 +475,32 @@
 							      											<i class="fa fa-trash"></i>
 							      										</button>
 							      									</td>
-												        			<td>&nbsp;</td>
 												        		</tr>
 												        	</tbody>
 												        </table>
 												    </div>
 												</div>
-												<div class="col-md-12">
+												<div class="col-md-12" style="padding-top: 15px;padding-bottom: 15px;">
 													<div class="col-md-6">
-														<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">Forecast Planning of Workshop</h2>
+														<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">Reminder</h2>
 														<table  class="table table-hover responsive nowrap" id="planremind-table" cellspacing="0" width="100%">
 												        	<thead>
 												        		<tr>
 												        			<th>Quantity</th>
 												        			<th>Date</th>
-												        			<th>&nbsp;</th>
 												        		</tr>
 												        	</thead>
 												        	<tbody>
 												        		<tr>
 												        			<td>4</t>
 												        			<td>22 Aug 2016</td>
-												        			<td>&nbsp;</td>
 												        		</tr>
 												        	</tbody>
 												        </table>
 													</div>
 													<div class="col-md-6">
 														
-										        		<div class="form-group col-md-3">
+										        		<div class="form-group col-md-6">
 										        			<label>Supported By</label>
 									        				<select class="selectpicker" data-live-search="true" data-width="100%" title=" " >
 														        <option>option</option>
@@ -503,27 +511,31 @@
 														        <option>option</option>
 														    </select>
 										        		</div>
-										        		<div class="form-group col-md-3">
+										        		<div class="form-group col-md-6">
 										        			<label>List of prototypists</label>
 										        			<textarea class="form-control" style="height: 67px;resize: none;"></textarea>
 										        		</div>
-										        		<div class="col-md-12">
+										        		<div class="form-group col-md-12">
 										        			<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">Component Projected Costs</h2>
 										        		</div>
-										        		<div class="form-group col-md-3">
+										        		<div class="form-group col-md-6">
 										        			<label>Estimated amount of workshop</label>
 									        				<input type="text" class="form-control input-sm"/>
 										        		</div>
-										        		<div class="form-group col-md-3">
+										        		<div class="form-group col-md-6">
 										        			<label>Estimated unit internal cost (&#x20AC; / component) <span class="text-danger">*</span></label>
 									        				<input type="text" class="form-control input-sm"/>
 										        		</div>
-										        		<div class="form-group col-md-3">
+										        		<div class="form-group col-md-6">
 										        			<label>Estimated unit external cost (&#x20AC; / component) <span class="text-danger">*</span></label>
 									        				<input type="text" class="form-control input-sm"/>
 										        		</div>
-										        		<div class="form-group col-md-3">
+										        		<div class="form-group col-md-6">
 										        			<label>Estimated total cost components (&#x20AC;) :</label>
+									        				<input type="text" class="form-control input-sm"/>
+										        		</div>
+										        		<div class="form-group col-md-6">
+										        			<label>Estimated time unit of components (hour) <span class="text-danger">*</span></label>
 									        				<input type="text" class="form-control input-sm"/>
 										        		</div>
 										        		<div class="form-group col-md-3">
@@ -534,11 +546,7 @@
 										        			<label>Fixed costs <span class="text-danger">*</span></label>
 									        				<input type="text" class="form-control input-sm"/>
 										        		</div>
-										        		<div class="form-group col-md-3">
-										        			<label>Estimated time unit of components (hour) <span class="text-danger">*</span></label>
-									        				<input type="text" class="form-control input-sm"/>
-										        		</div>
-										        		<div class="form-group col-md-3">
+										        		<div class="form-group col-md-6">
 										        			<label>Estimated time total of components (hour)</label>
 									        				<input type="text" class="form-control input-sm"/>
 										        		</div>
