@@ -268,11 +268,13 @@ public class FetchController {
     	HashMap<String,List<CustomersListJDO>> customersMap = null;
     	HashMap<String,List<PlacesJDO>> placesMap = null;
     	HashMap<String,List<IncotermsJDO>> incotermsMap = null;
+    	HashMap<String,List<AllocationTurnOverJDO>> allocationTurnOverMap = null;
     	List<PlateformJDO> platformsList = null;
     	List<SitesListJDO> sitesList = null;
     	List<CustomersListJDO> customersList = null;
     	List<PlacesJDO> placesList = null;
     	List<IncotermsJDO> incotermsList = null;
+    	List<AllocationTurnOverJDO> allocationList = null;
     	try
     	{
     		platformMap 	= new HashMap<String,List<PlateformJDO>>();
@@ -280,22 +282,26 @@ public class FetchController {
         	customersMap 	= new HashMap<String,List<CustomersListJDO>>();
         	placesMap 		= new HashMap<String,List<PlacesJDO>>();
         	incotermsMap 	= new HashMap<String,List<IncotermsJDO>>();
+        	allocationTurnOverMap = new HashMap<String,List<AllocationTurnOverJDO>>();
     		responseMap 	= new HashMap<String,Object>();
         	platformsList   = plateformDao.findAllUsers();
         	sitesList 		= sitesListDao.findAllUsers();
         	customersList 	= customersListDao.findAllUsers();
         	placesList 		= placesDao.findAllUsers();
         	incotermsList 	= incotermsDao.findAllUsers();
+        	allocationList 	= allocationDao.findAllUsers();
         	platformMap.put("list", platformsList);
         	sitesMap.put("list", sitesList);
         	customersMap.put("list", customersList);
         	placesMap.put("list", placesList);
         	incotermsMap.put("list", incotermsList);
+        	allocationTurnOverMap.put("list", allocationList);
         	responseMap.put("platformMap", platformMap);
         	responseMap.put("sitesMap", sitesMap);
         	responseMap.put("customersMap", customersMap);
         	responseMap.put("placesMap", placesMap);
         	responseMap.put("incotermsMap", incotermsMap);
+        	responseMap.put("allocationTurnOverMap", allocationTurnOverMap);
         	log.log(FINER, "Response Map from fetchOrderDependencies :: "+responseMap);
     	}
     	catch(Exception e)
