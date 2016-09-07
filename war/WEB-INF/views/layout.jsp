@@ -29,9 +29,9 @@
     	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="http://storage.googleapis.com/valeo-design/css/bootstrap.css">
-		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
-		<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.bootstrap.min.css">
-		<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
+		<link rel="stylesheet" href="../css/dataTables.bootstrap.min.css">
+		<link rel="stylesheet" href="../css/responsive.bootstrap.min.css">
+		<link rel="stylesheet" href="../css/buttons.dataTables.min.css">
 		<link rel="stylesheet" href="http://storage.googleapis.com/valeo-design/css/datepicker3.css">
 		<link rel="stylesheet" href="../css/bootstrap-select.min.css">
 		<link rel="stylesheet" href="../css/valeo-graphics.css">
@@ -296,11 +296,11 @@
         <script src="../js/Library/backbone-min.js"></script>
 		<script src="../js/Library/validate.js"></script>		
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-		<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-		<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
-		<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.1.0/js/responsive.bootstrap.min.js"></script>
-		<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script> 
+		<script type="text/javascript" src="../js/Library/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="../js/Library/dataTables.bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/Library/dataTables.responsive.min.js"></script>
+		<script type="text/javascript" src="../js/Library/responsive.bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/Library/dataTables.buttons.min.js"></script> 
 		<script type="text/javascript" src="http://storage.googleapis.com/valeo-design/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="http://storage.googleapis.com/valeo-design/js/bootstrap-datepicker.js"></script>
 		<script type="text/javascript" src="../js/Library/valeo-graphics.js"></script>
