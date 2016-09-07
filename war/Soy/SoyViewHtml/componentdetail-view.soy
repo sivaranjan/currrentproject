@@ -593,34 +593,177 @@
 									</div>
 			    				</div>
 			    				<div role="tabpanel" class="tab-pane" id="execution-subtab">
-			    					<ul class="nav nav-pills comnav-pills">
-									  <li role="presentation" class="active"><a href="#partsprod-subtab" data-toggle="tab">Parts Production</a></li>
-									  <li role="presentation"><a href="#qualapp-subtab" data-toggle="tab">Quality Approval</a></li>
-									  <li role="presentation"><a href="#validtestreport-subtab" data-toggle="tab">Validation test report(in case of Testing Laboratory)</a></li>
-									  <li role="presentation"><a href="#devliverbill-subtab" data-toggle="tab">Delivery/Billing</a></li>
-									</ul>
-									<div role="tabpanel" class="tab-pane active" id="partsprod-subtab">
-										<div class="row">
-											<div class="col-md-12" style="padding-top: 15px;">
+			    					<div class="tab-content">
+				    					<ul class="nav nav-pills comnav-pills">
+										  <li role="presentation" class="active"><a href="#partsprod-subtab" data-toggle="tab">Parts Production</a></li>
+										  <li role="presentation"><a href="#qualapp-subtab" data-toggle="tab">Quality Approval</a></li>
+										  <li role="presentation"><a href="#validtestreport-subtab" data-toggle="tab">Validation test report(in case of Testing Laboratory)</a></li>
+										  <li role="presentation"><a href="#devliverbill-subtab" data-toggle="tab">Delivery/Billing</a></li>
+										</ul>
+										<div class="row" style="padding-top: 15px;">
+											<div class="col-md-12">
+												<div class="form-group col-md-3">
+												    <label for="name">Customer qty</label>
+												    <input type="text" class="form-control input-sm" >
+												</div>
+												<div class="form-group col-md-3">
+												    <label for="name">Qty lab test plan qty</label>
+												    <input type="text" class="form-control input-sm" >
+												</div>
+												<div class="form-group col-md-3">
+												    <label for="name">Qty produced</label>
+												    <input type="text" class="form-control input-sm" >
+												</div>
+												<div class="form-group col-md-3">
+												    <label for="name">Qty test report</label>
+												    <input type="text" class="form-control input-sm" >
+												</div>
+												<div class="form-group col-md-3">
+												    <label for="name">Qty approv. compliant quality</label>
+												    <input type="text" class="form-control input-sm" >
+												</div>
+												<div class="form-group col-md-3">
+												    <label for="name">Qty approv. not compliant quality</label>
+												    <input type="text" class="form-control input-sm" >
+												</div>
+												<div class="form-group col-md-3">
+												    <label for="name">Delivered quantity</label>
+												    <input type="text" class="form-control input-sm" >
+												</div>
+												<div class="form-group col-md-3">
+												    <label for="name">Invoiced qty</label>
+												    <input type="text" class="form-control input-sm" >
+												</div>
 											</div>
 										</div>
-									</div>
-									<div role="tabpanel" class="tab-pane" id="qualapp-subtab">
-										<div class="row">
-											<div class="col-md-12" style="padding-top: 15px;">
-											</div>
+										<hr>
+										<div role="tabpanel" class="tab-pane active" id="partsprod-subtab">
+												<div class="col-md-12">
+													<table  class="table table-hover responsive nowrap" id="partsprod-table" cellspacing="0" width="100%">
+											        	<thead>
+											        		<tr>
+											        			<th>Link</th>
+											        			<th>Date</th>
+											        			<th>Quantity</th>
+											        			<th>Made by</th>
+											        			<th>MOD past hours</th>
+											        			<th>Comment</th>
+											        			<th>Notification ?</th>
+											        		</tr>
+											        	</thead>
+											        	<tbody>
+											        		<tr>
+											        			<td>test</t>
+											        			<td>22 Aug 2016</td>
+											        			<td>test quantity</td>
+											        			<td>test made by</td>
+											        			<td>test MOD</td>
+											        			<td>test comment</td>
+											        			<td>xxxxxx</td>
+											        		</tr>
+											        	</tbody>
+											        </table>
+												</div>
 										</div>
-									</div>
-									<div role="tabpanel" class="tab-pane" id="validtestreport-subtab">
-										<div class="row">
-											<div class="col-md-12" style="padding-top: 15px;">
-											</div>
+										<div role="tabpanel" class="tab-pane" id="qualapp-subtab">
+												<div class="col-md-12">
+													<table  class="table table-hover responsive nowrap" id="qualapp-table" cellspacing="0" width="100%">
+											        	<thead>
+											        		<tr>
+											        			<th>Link</th>
+											        			<th>Date</th>
+											        			<th>Quantity</th>
+											        			<th>Compliant ?</th>
+											        			<th>BLi#</th>
+											        			<th>Delivery</th>
+											        			<th>Made by</th>
+											        			<th>Comment</th>
+											        			<th>Notification ?</th>
+											        		</tr>
+											        	</thead>
+											        	<tbody>
+											        		<tr>
+											        			<td>test</t>
+											        			<td>22 Aug 2016</td>
+											        			<td>test quantity</td>
+											        			<td>test Compliant</td>
+											        			<td>test BLi#</td>
+											        			<td>test deliver</td>
+											        			<td>test made by</td>
+											        			<td>test comment</td>
+											        			<td>xxxxxx</td>
+											        		</tr>
+											        	</tbody>
+											        </table>
+												</div>
 										</div>
-									</div>
-									<div role="tabpanel" class="tab-pane" id="devliverbill-subtab">
-										<div class="row">
-											<div class="col-md-12" style="padding-top: 15px;">
-											</div>
+										<div role="tabpanel" class="tab-pane" id="validtestreport-subtab">
+												<div class="col-md-12">
+													<table  class="table table-hover responsive nowrap" id="validtestreport-table" cellspacing="0" width="100%">
+											        	<thead>
+											        		<tr>
+											        			<th>Link</th>
+											        			<th>Date</th>
+											        			<th>Quantity</th>
+											        			<th>Apporval ?</th>
+											        			<th>BLi#</th>
+											        			<th>Delivery</th>
+											        			<th>Notification ?</th>
+											        			<th>Comment</th>
+											        			<th>Made by</th>
+											        		</tr>
+											        	</thead>
+											        	<tbody>
+											        		<tr>
+											        			<td>test</t>
+											        			<td>22 Aug 2016</td>
+											        			<td>test quantity</td>
+											        			<td>test approval</td>
+											        			<td>test BLi#</td>
+											        			<td>test deliver</td>
+											        			<td>xxxxxx</td>
+											        			<td>test comment</td>
+											        			<td>test made by</td>
+											        		</tr>
+											        	</tbody>
+											        </table>
+												</div>
+										</div>
+										<div role="tabpanel" class="tab-pane" id="devliverbill-subtab">
+												<div class="col-md-12">
+													<table  class="table table-hover responsive nowrap" id="devliverbill-table" cellspacing="0" width="100%">
+											        	<thead>
+											        		<tr>
+											        			<th>Link</th>
+											        			<th>Delivery date</th>
+											        			<th>Qty delivered</th>
+											        			<th>N<sup>&#8728;</sup> Marker</th>
+											        			<th>BL Cordys</th>
+											        			<th>BL SAP</th>
+											        			<th>Invoice N<sup>&#8728;</sup></th>
+											        			<th>Inviced qty</th>
+											        			<th>Billing date</th>
+											        			<th>Delivery notif. ?</th>
+											        			<th>Billing notif. ?</th>
+											        		</tr>
+											        	</thead>
+											        	<tbody>
+											        		<tr>
+											        			<td>test</t>
+											        			<td>22 Aug 2016</td>
+											        			<td>test quantity</td>
+											        			<td>yyyyy</td>
+											        			<td>zzzzzzz</td>
+											        			<td>xx</td>
+											        			<td>xxxxxx</td>
+											        			<td>yy</td>
+											        			<td>zzz</td>
+											        			<td>wwwww</td>
+											        			<td>ttttt</td>
+											        		</tr>
+											        	</tbody>
+											        </table>
+												</div>
 										</div>
 									</div>
 			    				</div>

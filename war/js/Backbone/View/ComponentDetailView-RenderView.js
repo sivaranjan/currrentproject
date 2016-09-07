@@ -97,6 +97,60 @@ BackboneData.Views.ComponentDetailView = Backbone.View
                         }
                     }]
                 });
+            
+//            Execution tables
+            $('#partsprod-table').DataTable(
+                    {
+                            dom				:   'Bfrtip',
+                            buttons: [
+                            {
+                                text		: 	'<i class="fa fa-plus" aria-hidden="true"></i> Creation',
+                                className	: 	'btn btn-default btn-sm newplanbtn',
+                                action		: 	function()
+                                {
+                                    $('#partsprod-modal').modal('show');
+                                }
+                            }]
+                        });
+            $('#qualapp-table').DataTable(
+                    {
+                            dom				:   'Bfrtip',
+                            buttons: [
+                            {
+                                text		: 	'<i class="fa fa-plus" aria-hidden="true"></i> Creation',
+                                className	: 	'btn btn-default btn-sm newplanbtn',
+                                action		: 	function()
+                                {
+                                    $('#qualapp-modal').modal('show');
+                                }
+                            }]
+                        });
+            $('#validtestreport-table').DataTable(
+                    {
+                            dom				:   'Bfrtip',
+                            buttons: [
+                            {
+                                text		: 	'<i class="fa fa-plus" aria-hidden="true"></i> Creation',
+                                className	: 	'btn btn-default btn-sm newplanbtn',
+                                action		: 	function()
+                                {
+                                    $('#validtestreport-modal').modal('show');
+                                }
+                            }]
+                        });
+            $('#devliverbill-table').DataTable(
+                    {
+                            dom				:   'Bfrtip',
+                            buttons: [
+                            {
+                                text		: 	'<i class="fa fa-plus" aria-hidden="true"></i> Creation',
+                                className	: 	'btn btn-default btn-sm newplanbtn',
+                                action		: 	function()
+                                {
+                                    $('#devliverbill-modal').modal('show');
+                                }
+                            }]
+                        });
             $('.newplanbtn').removeClass('dt-button');
             /*var Type_of_the_Prototype_Order = $.trim($('#Type_of_the_Prototype_Order').val());
             if (Type_of_the_Prototype_Order == "VENDU / SOLD")

@@ -26,16 +26,16 @@
 		Welcome to THS France Prototype Database
     </title>
     <!-- CSS -->
-    	<link href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/app.css" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/bootstrap-select.min.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/bootstrap.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/buttons.dataTables.min.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/dataTables.bootstrap.min.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/datepicker3.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/font-awesome.min.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/fonts.googleapis.com.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/responsive.bootstrap.min.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/valeo-graphics.css">
+    	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="http://storage.googleapis.com/valeo-design/css/bootstrap.css">
+		<link rel="stylesheet" href="../css/dataTables.bootstrap.min.css">
+		<link rel="stylesheet" href="../css/responsive.bootstrap.min.css">
+		<link rel="stylesheet" href="../css/buttons.dataTables.min.css">
+		<link rel="stylesheet" href="http://storage.googleapis.com/valeo-design/css/datepicker3.css">
+		<link rel="stylesheet" href="../css/bootstrap-select.min.css">
+		<link rel="stylesheet" href="../css/valeo-graphics.css">
+		<link rel="stylesheet" href="../css/app.css">
 	</head>
 
 <body>
@@ -48,7 +48,7 @@
 	</div>
     <header class="header">
             
-            <div class="col-md-2 col-sm-2 col-xs-12 text-center">
+            <div class="col-md-2 col-sm-2 col-xs-12">
                 <a href="/"><img src="../statics/images/Valeo_Logo.svg.png" ></a>
             </div>
             <div class="col-md-6 col-sm-10 col-xs-12">
@@ -169,12 +169,12 @@
         <!-- Footer -->
         <footer>
 		    <div class="col-md-12 col-xs-12 logo">
-		        <div class="col-md-2 col-xs-4 text-center">
+		        <div class="col-md-2 col-xs-4">
 		            <img src="../statics/images/logo-valeo-2.png" alt="Valeo">
 		            <span>&#x40;</span>
 		        </div>
 		    </div>
-		    <div class="col-md-11 col-md-offset-1 col-xs-11 col-xs-offset-1 footer-text">
+		    <div class="col-md-12 col-xs-12 footer-text" style="padding: 15px 50px;">
 		        Valeo is an automotive supplier, partner to all automakers worldwide.
 		        As a technology company, Valeo proposes innovative products and systems that contribute
 		        to the reduction of CO2 emissions and to the development of intuitive driving.<br> In 2013,
@@ -330,7 +330,104 @@
 		    </div>
 		  </div>
 		</div>
-
+		<!-- Parts Production Modal -->
+		<div class="modal fade" id="partsprod-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">Creation of Parts Production</h4>
+		      </div>
+		      <div class="modal-body">
+		      	<form role="form">
+		      			<div class="form-group">
+						    <label>Link</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>Date</label>
+						    <div class="input-group date">
+							    <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+							</div>
+						</div>
+						<div class="form-group">
+						    <label>Quantity</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>Made by</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>MOD past hours</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>Comment</label>
+						    <textarea class="form-control" rows="3"></textarea>
+						</div>
+						<div class="form-group">
+						    <label>Notification ?</label>
+						    <input type="text" class="form-control">
+						</div>
+		      	</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-success">Save changes</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- Quality Approval Modal -->
+		<div class="modal fade" id="qualapp-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">Creation of Quality Approval</h4>
+		      </div>
+		      <div class="modal-body">
+		      	<form role="form">
+		      			<div class="form-group">
+						    <label>Link</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>Date</label>
+						    <div class="input-group date">
+							    <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+							</div>
+						</div>
+						<div class="form-group">
+						    <label>Quantity</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>Compliant ?</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>Comment</label>
+						    <textarea class="form-control" rows="3"></textarea>
+						</div>
+						<div class="form-group">
+						    <label>Made by</label>
+						    <input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+						    <label>Notification ?</label>
+						    <input type="text" class="form-control">
+						</div>
+		      	</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-success">Save changes</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 		<!-- JavaScript -->
 		<script src="../js/Loader/language.js"></script>
 		<script src="../js/Loader/constants.js"></script>
@@ -338,23 +435,23 @@
 			
 		</script><script src="../js/Actions/Operations.js"></script>
 
-        <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/jquery-3.1.0.min.js"></script>
-        <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/underscore.js"></script>
-        <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/backbone-min.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/validate.js"></script>		
-		<script type="text/javascript" src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/jquery.min.js"></script>
-		<script type="text/javascript" src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/jquery.dataTables.min.js"></script>
-		<script type="text/javascript" src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/dataTables.bootstrap.min.js"></script>
-		<script type="text/javascript" src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/dataTables.responsive.min.js"></script>
-		<script type="text/javascript" src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/responsive.bootstrap.min.js"></script>
-		<script type="text/javascript" src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/dataTables.buttons.min.js"></script> 
-		<script type="text/javascript" src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/bootstrap.min.js"></script>
-		<script type="text/javascript" src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/bootstrap-datepicker.js"></script>
-		<script type="text/javascript" src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/valeo-graphics.js"></script>
-		<script type="text/javascript" src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/bootstrap-select.min.js"></script>
-        <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/BackboneData.js"></script>
-        <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/bootbox.js"></script>
-        <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/soyutils.js"></script>
+        <script src="../js/Library/jquery-3.1.0.min.js"></script>
+        <script src="../js/Library/underscore.js"></script>
+        <script src="../js/Library/backbone-min.js"></script>
+		<script src="../js/Library/validate.js"></script>		
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/Library/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="../js/Library/dataTables.bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/Library/dataTables.responsive.min.js"></script>
+		<script type="text/javascript" src="../js/Library/responsive.bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/Library/dataTables.buttons.min.js"></script> 
+		<script type="text/javascript" src="http://storage.googleapis.com/valeo-design/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="http://storage.googleapis.com/valeo-design/js/bootstrap-datepicker.js"></script>
+		<script type="text/javascript" src="../js/Library/valeo-graphics.js"></script>
+		<script type="text/javascript" src="../js/Library/bootstrap-select.min.js"></script>
+        <script src="../js/Library/BackboneData.js"></script>
+        <script src="../js/Library/bootbox.js"></script>
+        <script src="../Soy/SoyUtils/soyutils.js"></script>
 
  		 <script src="../Soy/SoyViewJs/globalnavbar-view.js"></script>
  		 <script src="../Soy/SoyViewJs/welcomesection-view.js"></script>
