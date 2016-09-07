@@ -202,9 +202,9 @@
 											           $(".language-dropdown:first-child").val("FR");
 											           window.language = "FR";
 											       }   
-	   											   		renderBackboneView("order",function()
+	   											   		renderBackboneView(document.URL.split("#")[1],function()
 	   										        	{
-	   										        		SetView("order",function()
+	   										        		SetView(document.URL.split("#")[1],function()
 	   										        		{
 	   										        			pullOrderDependencies();
 	   										                });
