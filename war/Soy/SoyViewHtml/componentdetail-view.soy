@@ -13,31 +13,31 @@
 							</div>
 							<div class="form-group col-md-3">
 							    <label for="name">N<sup>&#8728;</sup>  {$paramValue['Prototype Order']}</label>
-							    <input type="text" class="form-control input-sm" >
+							    <input type="text" id="no_prototype_order_comppage_txt" {$editableconfig['no_prototype_order_comppage_txt']} class="form-control input-sm" >
 							</div>
 							<div class="form-group col-md-3" id="orderTypeDiv">
 							    <label for="name">{$paramValue['Order type']}</label>
-							    <input type="text" class="form-control input-sm" >
+							    <input type="text" id="order_type_txt" {$editableconfig['order_type_txt']} class="form-control input-sm" >
 							</div>
 							<div class="form-group col-md-3 " id="customerOrderNodiv">
 							    <label for="name" >{$paramValue['Customer order N0']}</label>
-							    <input id="" type="text" class="form-control input-sm" >
+							    <input id="customer_order_no_compage_txt" {$editableconfig['customer_order_no_compage_txt']} type="text" class="form-control input-sm" >
 							</div>
 							<div class="form-group col-md-3">
 							    <label for="name">{$paramValue['Customer reference']}</label>
-							    <input type="text" class="form-control input-sm" >
+							    <input type="text" {$editableconfig['customer_reference_txt']} id="customer_reference_txt" class="form-control input-sm" >
 							</div>
 							<div class="form-group col-md-3">
 							    <label for="name">{$paramValue['Product type']}</label>
-							    <input type="text" class="form-control input-sm" >
+							    <input type="text" {$editableconfig['product_type_component_txt']} id="product_type_component_txt" class="form-control input-sm" >
 							</div>
 							<div class="form-group col-md-3">
 							    <label for="name">{$paramValue['Component ID']}</label>
-							    <input type="text" id="componentidfield" class="form-control input-sm"  >
+							    <input type="text" {$editableconfig['component_id_txt']} id="component_id_txt" class="form-control input-sm"  >
 							</div>
 							<div class="form-group col-md-3">
 							    <label for="name">{$paramValue['Component status']}</label>
-							    <input type="text" class="form-control input-sm" >
+							    <input type="text" {$editableconfig['component_status_txt']} id="component_status_txt" class="form-control input-sm" >
 							</div>
 						</div>
 						<div class="row" style="margin-top: 15px;">
@@ -78,7 +78,7 @@
 										        		</div>
 										        		<div class="form-group col-md-3 " id="unitsellingpriceDiv">
 										        			<label for="name" >{$paramValue['Unit selling price']}(&#x20AC;)</label>
-									        				<input type="text" class="form-control input-sm" id="unitsellingprice"/>
+									        				<input type="text" class="form-control input-sm" {$editableconfig['unit_selling_price_txt']} id="unit_selling_price_txt"/>
 										        		</div>
 										        		<div class="form-group col-md-3 " id="customerdiv">
 										        			<label for="name">{$paramValue['Customer']}</label>
@@ -216,11 +216,11 @@
 									        	<form role="form">
 									        		<div class="form-group col-md-6">
 													    <label>{$paramValue['Total Quantity']}</label>
-													    <input type="text" class="form-control input-sm" />
+													    <input type="text" id="total_quantity_txt" {$editableconfig['total_quantity_txt']} class="form-control input-sm" />
 													</div>
 													<div class="form-group col-md-6 " id="totalamtDiv">
 													    <label>{$paramValue['Total amount']}</label>
-													      <input type="text" class="form-control input-sm"  id="totalamount"/>
+													      <input type="text" id="total_amount_txt" {$editableconfig['total_amount_txt']} class="form-control input-sm"  id="totalamount"/>
 													</div>
 									        		
 									        	</form>
@@ -313,7 +313,7 @@
 														</div>
 												  		<div class="form-group col-md-6">
 															<label for="name">{$paramValue['Comment']}</label>
-															<textarea  class="form-control" style="height: 67px;resize: none;"></textarea>
+															<textarea  id="comment_technical_definition_txtarea" {$editableconfig['comment_technical_definition_txtarea']} class="form-control" style="height: 67px;resize: none;"></textarea>
 														</div>
 												  		<div class="form-group col-md-6" style="margin-top: 10px;">
 															<div class="panel panel-default">
@@ -505,7 +505,7 @@
 														
 										        		<div class="form-group col-md-6">
 										        			<label>{$paramValue['Supported by']}</label>
-									        				<select class="selectpicker" data-live-search="true" data-width="100%" title=" " >
+									        				<select class="selectpicker" id="supported_by_drpdwn" {$editableconfig['supported_by_drpdwn']} data-live-search="true" data-width="100%" title=" " >
 														        <option>option</option>
 														        <option>option</option>
 														        <option>option</option>
@@ -516,46 +516,46 @@
 										        		</div>
 										        		<div class="form-group col-md-6">
 										        			<label>{$paramValue['List of prototypists']}</label>
-										        			<textarea class="form-control" style="height: 67px;resize: none;"></textarea>
+										        			<textarea class="form-control" id="list_of_prototypists_txtarea" {$editableconfig['list_of_prototypists_txtarea']} style="height: 67px;resize: none;"></textarea>
 										        		</div>
 										        		<div class="form-group col-md-12">
 										        			<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">{$paramValue['Component Projected Costs']}</h2>
 										        		</div>
 										        		<div class="form-group col-md-6">
 										        			<label>{$paramValue['Estimated amount of workshop']}</label>
-									        				<input type="text" class="form-control input-sm"/>
+									        				<input type="text" id="estimated_amount_of_workshop_txt" {$editableconfig['estimated_amount_of_workshop_txt']} class="form-control input-sm"/>
 										        		</div>
 										        		<div class="form-group col-md-6">
 										        			<label>{$paramValue['Estimated unit internal cost']} (&#x20AC; / {$paramValue['Component']}) <span class="text-danger">*</span></label>
-									        				<input type="text" class="form-control input-sm"/>
+									        				<input type="text" id="estimated_unit_internal_cost_txt" {$editableconfig['estimated_unit_internal_cost_txt']} class="form-control input-sm"/>
 										        		</div>
 										        		<div class="form-group col-md-6">
 										        			<label>{$paramValue['Estimated unit external cost']} (&#x20AC; / {$paramValue['Component']}) <span class="text-danger">*</span></label>
-									        				<input type="text" class="form-control input-sm"/>
+									        				<input type="text" id="estimated_unit_external_cost_txt" {$editableconfig['estimated_unit_external_cost_txt']} class="form-control input-sm"/>
 										        		</div>
 										        		<div class="form-group col-md-6">
 										        			<label>{$paramValue['Estimated total cost components']} (&#x20AC;) :</label>
-									        				<input type="text" class="form-control input-sm"/>
+									        				<input type="text" id="estimated_total_cost_components_txt" {$editableconfig['estimated_total_cost_components_txt']} class="form-control input-sm"/>
 										        		</div>
 										        		<div class="form-group col-md-6">
 										        			<label>{$paramValue['Estimated time unit of components (hour)']} <span class="text-danger">*</span></label>
-									        				<input type="text" class="form-control input-sm"/>
+									        				<input type="text" id="estimated_time_unit_of_components_txt" {$editableconfig['estimated_time_unit_of_components_txt']} class="form-control input-sm"/>
 										        		</div>
 										        		<div class="form-group col-md-3">
 										        			<label>{$paramValue['Hourly rate']} <span class="text-danger">*</span></label>
-									        				<input type="text" class="form-control input-sm"/>
+									        				<input type="text" id="hourly_rate_txt" {$editableconfig['hourly_rate_txt']} class="form-control input-sm"/>
 										        		</div>
 										        		<div class="form-group col-md-3">
 										        			<label>{$paramValue['Fixed costs']} <span class="text-danger">*</span></label>
-									        				<input type="text" class="form-control input-sm"/>
+									        				<input type="text" id="fixed_costs_txt" {$editableconfig['fixed_costs_txt']}  class="form-control input-sm"/>
 										        		</div>
 										        		<div class="form-group col-md-6">
 										        			<label>{$paramValue['Estimated time total of components (hour)']}</label>
-									        				<input type="text" class="form-control input-sm"/>
+									        				<input type="text" id="estimated_time_total_of_components_txt" {$editableconfig['estimated_time_total_of_components_txt']} class="form-control input-sm"/>
 										        		</div>
 										        		<div class="form-group col-md-3">
 										        			<label>{$paramValue['Total cost']}</label>
-									        				<input type="text" class="form-control input-sm"/>
+									        				<input type="text" id="total_cost_txt" {$editableconfig['total_cost_txt']} class="form-control input-sm"/>
 										        		</div>
 													</div>
 												</div>
@@ -594,7 +594,7 @@
 													</div>
 													<div class="checkbox col-md-12">
 													  <label>
-													    <input type="checkbox" value="">
+													    <input type="checkbox" value="" id="yes_i_specified_quality_req_checkbox" {$editableconfig['yes_i_specified_quality_req_checkbox']} >
 													    {$paramValue['YES (I specified quality requirements)']}
 													  </label>
 													</div>
@@ -615,35 +615,35 @@
 											<div class="col-md-12">
 												<div class="form-group col-md-3">
 												    <label for="name">{$paramValue['Customer qty']}</label>
-												    <input type="text" class="form-control input-sm" >
+												    <input type="text" id="customer_qty_txt" {$editableconfig['customer_qty_txt']} class="form-control input-sm" >
 												</div>
 												<div class="form-group col-md-3">
 												    <label for="name">{$paramValue['Qty lab test plan qty']}</label>
-												    <input type="text" class="form-control input-sm" >
+												    <input type="text" id="qty_lab_test_plan_qty_txt" {$editableconfig['qty_lab_test_plan_qty_txt']} class="form-control input-sm" >
 												</div>
 												<div class="form-group col-md-3">
 												    <label for="name">{$paramValue['Qty produced']}</label>
-												    <input type="text" class="form-control input-sm" >
+												    <input type="text" id="qty_produced_txt" {$editableconfig['qty_produced_txt']} class="form-control input-sm" >
 												</div>
 												<div class="form-group col-md-3">
 												    <label for="name">{$paramValue['Qty test report']}</label>
-												    <input type="text" class="form-control input-sm" >
+												    <input type="text" id="qty_test_report_txt" {$editableconfig['qty_test_report_txt']} class="form-control input-sm" >
 												</div>
 												<div class="form-group col-md-3">
 												    <label for="name">{$paramValue['Qty approv. compliant quality']}</label>
-												    <input type="text" class="form-control input-sm" >
+												    <input type="text" id="qty_approv_compliant_quality_txt" {$editableconfig['qty_approv_compliant_quality_txt']} class="form-control input-sm" >
 												</div>
 												<div class="form-group col-md-3">
 												    <label for="name">{$paramValue['Qty approv. not compliant quality']}</label>
-												    <input type="text" class="form-control input-sm" >
+												    <input type="text" id="qty_approv_not_compliant_quality_txt" {$editableconfig['qty_approv_not_compliant_quality_txt']} class="form-control input-sm" >
 												</div>
 												<div class="form-group col-md-3">
 												    <label for="name">{$paramValue['Delivered quantity']}</label>
-												    <input type="text" class="form-control input-sm" >
+												    <input type="text" id="delivered_quantity_txt" {$editableconfig['delivered_quantity_txt']} class="form-control input-sm" >
 												</div>
 												<div class="form-group col-md-3">
 												    <label for="name">{$paramValue['Invoiced qty']}</label>
-												    <input type="text" class="form-control input-sm" >
+												    <input type="text" id="invoiced_quantity_txt" {$editableconfig['invoiced_quantity_txt']} class="form-control input-sm" >
 												</div>
 											</div>
 										</div>
