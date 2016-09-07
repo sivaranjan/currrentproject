@@ -99,25 +99,34 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 							    },
     fetchCustomerDetails	:   function()
 							    {
-							        var customerNameSelected 			= 	$('#Customer_Name').val(); //doubt
-							        var fetchCustomerDetailsbyNameObj 	= 	new BackboneData.Collections.fetchCustomerDetailsbyName(
+							        var customerNameSelected 			= 	$.trim($('#Customer_Name').val()); //doubt
+							        $.ajax({
+								           type: 'get',
+								           url: ApplicationConstants.fetchCustomerDetailsbyName+customerNameSelected ,
+								           contentType: "application/json; charset=utf-8",
+								           traditional: true,
+								           success: function (data) 
+								           {
+								        	   var google = data.data;
+								                console.log(google);
+								                console.log("hello");
+								                google.forEach(function(arrayItem)
+								                {
+								                    $('#Customer_Code').val(arrayItem.customer_Code);
+								                    $('#Branch_Code').val(arrayItem.branch_Code);
+								                    $('#Provider_Code').val(arrayItem.provider_Code);
+								                    $('#Final_Delivery_Address').val(arrayItem.customer_Address);
+								                });
+								           }
+							        });
+							       /* var fetchCustomerDetailsbyNameObj 	= 	new BackboneData.Collections.fetchCustomerDetailsbyName(
 							        {
 							            customerNameSelected: customerNameSelected
 							        });
 							        $.when(fetchCustomerDetailsbyNameObj.fetch()).done(function(response, xhr)
 							        {
-							                var google = response.data;
-							                console.log(google);
-							                console.log("hello");
-							                var htmllist = "";
-							                google.forEach(function(arrayItem)
-							                {
-							                    $('#Customer_Code').val(arrayItem.customer_Code);
-							                    $('#Branch_Code').val(arrayItem.branch_Code);
-							                    $('#Provider_Code').val(arrayItem.provider_Code);
-							                    $('#Final_Delivery_Address').val(arrayItem.customer_Address);
-							                });
-							         }).fail(function() {});
+							               
+							         }).fail(function() {});*/
 							    },
     populateDependencies	: 	function()
 							    {  
@@ -182,6 +191,7 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 									                google.forEach(function(arrayItem)
 									                {
 								                        var lastGeneratedID 	= 	parseInt(arrayItem.next_id) + 1;
+								                        
 								                        var newPrototypeOrderID = 	"";
 								                        if (typeof(Storage) !== "undefined")
 								                        {
@@ -239,121 +249,133 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
     								},
    loadActorsList				 :	function(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type)
    									{
-									   			var fetchActorsListObj 	= 	new BackboneData.Collections.fetchActorsListBySite(
+										   	  $.ajax({
+									           type: 'get',
+									           url: ApplicationConstants.fetchActorsListBySite +Site_Workshop_Prototype ,
+									           contentType: "application/json; charset=utf-8",
+									           traditional: true,
+									           success: function (data) 
+									           {
+									        	   console.log(data);
+									        	   console.log("mini areat");
+									        	   var response = data;
+									        	   response =response.data;
+								                    var MEPList 			= 	new Array();
+								                    var QualityList 		= 	new Array();
+								                    var ProtoWorkshopList 	= 	new Array();
+								                    var ControlMgmtList 	= 	new Array();
+								                    var foTradeList 		= 	new Array();
+								                    var advList 			= 	new Array();
+								                    var projectManagerList  = 	new Array();
+								                    response.forEach(function(arrayItem)
+								                    {
+								                            var actorType = arrayItem.actorType;
+								                            console.log("actor type is htis :: " + actorType);
+								                            switch (actorType)
+								                            {
+								                                case "MEP Study":
+								                                    MEPList.push(arrayItem.actorEmail);
+								                                    break;
+								                                case "Quality":
+								                                    QualityList.push(arrayItem.actorEmail);
+								                                    break;
+								                                case "Proto workshop":
+								                                    ProtoWorkshopList.push(arrayItem.actorEmail);
+								                                    break;
+								                                case "Control management":
+								                                    ControlMgmtList.push(arrayItem.actorEmail);
+								                                    break;
+								                                case "FO Trade":
+								                                    foTradeList.push(arrayItem.actorEmail);
+								                                    break;
+								                                case "ADV":
+								                                    advList.push(arrayItem.actorEmail);
+								                                    break;
+								                                case "Project Manager":
+								                                    projectManagerList.push(arrayItem.actorEmail);
+								                                    break;
+								                            }
+								                    });
+								                    console.log("MEPList :: " + MEPList);
+								                    console.log("QualityList :: " + QualityList);
+								                    console.log("ProtoWorkshopList :: " + ProtoWorkshopList);
+								                    console.log("ControlMgmtList :: " + ControlMgmtList);
+								                    console.log("foTradeList :: " + foTradeList);
+								                    console.log("ADV :: " + advList);
+								                    console.log("projectManagerList :: " + projectManagerList);
+								                    $('#mepstudy').removeAttr('disabled');
+								                    $('[data-id="mepstudy"]').removeClass('disabled');
+								                    $('#quality').removeAttr('disabled');
+								                    $('[data-id="quality"]').removeClass('disabled');
+								                    $('#protoworkshop').removeAttr('disabled');
+								                    $('[data-id="protoworkshop"]').removeClass('disabled');
+								                    $('#controlmanagement').removeAttr('disabled');
+								                    $('[data-id="controlmanagement"]').removeClass('disabled');
+								                    $('#fotrade').removeAttr('disabled');
+								                    $('[data-id="fotrade"]').removeClass('disabled');
+								                    $('#adv').removeAttr('disabled');
+								                    $('[data-id="adv"]').removeClass('disabled');
+								                    $('#projmanager').removeAttr('disabled');
+								                    $('[data-id="projmanager"]').removeClass('disabled');
+								                    var htmllist = "";
+								                    for (var i in MEPList)
+								                    {
+								                        htmllist += '<option>' + MEPList[i] + '</option>';
+								                    }
+								                    $('#mepstudy').html(htmllist).selectpicker('refresh');
+								                    htmllist = "";
+								                    for (var i in QualityList)
+								                    {
+								                        htmllist += '<option>' + QualityList[i] + '</option>';
+								                    }
+								                    $('#quality').html(htmllist).selectpicker('refresh');
+								                    htmllist = "";
+								                    for (var i in ProtoWorkshopList)
+								                    {
+								                        htmllist += '<option>' + ProtoWorkshopList[i] + '</option>';
+								                    }
+								                    $('#protoworkshop').html(htmllist).selectpicker('refresh');
+								                    htmllist = "";
+								                    for (var i in ControlMgmtList)
+								                    {
+								                        htmllist += '<option>' + ControlMgmtList[i] + '</option>';
+								                    }
+								                    $('#controlmanagement').html(htmllist).selectpicker('refresh');
+								                    htmllist = "";
+								                    for (var i in foTradeList)
+								                    {
+								                        htmllist += '<option>' + foTradeList[i] + '</option>';
+								                    }
+								                    $('#fotrade').html(htmllist).selectpicker('refresh');
+								                    htmllist = "";
+								                    for (var i in foTradeList)
+								                    {
+								                        htmllist += '<option>' + foTradeList[i] + '</option>';
+								                    }
+								                    $('#fotrade').html(htmllist).selectpicker('refresh');
+								                    htmllist = "";
+								                    for (var i in advList)
+								                    {
+								                        htmllist += '<option>' + advList[i] + '</option>';
+								                    }
+								                    $('#adv').html(htmllist).selectpicker('refresh');
+								                    htmllist = "";
+								                    for (var i in projectManagerList)
+								                    {
+								                        htmllist += '<option>' + projectManagerList[i] + '</option>';
+								                    }
+								                    $('#projmanager').html(htmllist).selectpicker('refresh');
+									           }
+										   	  });
+									   			/*var fetchActorsListObj 	= 	new BackboneData.Collections.fetchActorsListBySite(
 									            {
 									                site_type: Site_Workshop_Prototype
 									            });
 									            $.when(fetchActorsListObj.fetch()).done(function(response, xhr)
 									            {
-									                    console.log(response);
-									                    console.log(xhr);
-									                    var MEPList 			= 	new Array();
-									                    var QualityList 		= 	new Array();
-									                    var ProtoWorkshopList 	= 	new Array();
-									                    var ControlMgmtList 	= 	new Array();
-									                    var foTradeList 		= 	new Array();
-									                    var advList 			= 	new Array();
-									                    var projectManagerList  = 	new Array();
-									                    response.forEach(function(arrayItem)
-									                    {
-									                            var actorType = arrayItem.actorType;
-									                            console.log("actor type is htis :: " + actorType);
-									                            switch (actorType)
-									                            {
-									                                case "MEP Study":
-									                                    MEPList.push(arrayItem.actorEmail);
-									                                    break;
-									                                case "Quality":
-									                                    QualityList.push(arrayItem.actorEmail);
-									                                    break;
-									                                case "Proto workshop":
-									                                    ProtoWorkshopList.push(arrayItem.actorEmail);
-									                                    break;
-									                                case "Control management":
-									                                    ControlMgmtList.push(arrayItem.actorEmail);
-									                                    break;
-									                                case "FO Trade":
-									                                    foTradeList.push(arrayItem.actorEmail);
-									                                    break;
-									                                case "ADV":
-									                                    advList.push(arrayItem.actorEmail);
-									                                    break;
-									                                case "Project Manager":
-									                                    projectManagerList.push(arrayItem.actorEmail);
-									                                    break;
-									                            }
-									                    });
-									                    console.log("MEPList :: " + MEPList);
-									                    console.log("QualityList :: " + QualityList);
-									                    console.log("ProtoWorkshopList :: " + ProtoWorkshopList);
-									                    console.log("ControlMgmtList :: " + ControlMgmtList);
-									                    console.log("foTradeList :: " + foTradeList);
-									                    console.log("ADV :: " + advList);
-									                    console.log("projectManagerList :: " + projectManagerList);
-									                    $('#mepstudy').removeAttr('disabled');
-									                    $('[data-id="mepstudy"]').removeClass('disabled');
-									                    $('#quality').removeAttr('disabled');
-									                    $('[data-id="quality"]').removeClass('disabled');
-									                    $('#protoworkshop').removeAttr('disabled');
-									                    $('[data-id="protoworkshop"]').removeClass('disabled');
-									                    $('#controlmanagement').removeAttr('disabled');
-									                    $('[data-id="controlmanagement"]').removeClass('disabled');
-									                    $('#fotrade').removeAttr('disabled');
-									                    $('[data-id="fotrade"]').removeClass('disabled');
-									                    $('#adv').removeAttr('disabled');
-									                    $('[data-id="adv"]').removeClass('disabled');
-									                    $('#projmanager').removeAttr('disabled');
-									                    $('[data-id="projmanager"]').removeClass('disabled');
-									                    var htmllist = "";
-									                    for (var i in MEPList)
-									                    {
-									                        htmllist += '<option>' + MEPList[i] + '</option>';
-									                    }
-									                    $('#mepstudy').html(htmllist).selectpicker('refresh');
-									                    htmllist = "";
-									                    for (var i in QualityList)
-									                    {
-									                        htmllist += '<option>' + QualityList[i] + '</option>';
-									                    }
-									                    $('#quality').html(htmllist).selectpicker('refresh');
-									                    htmllist = "";
-									                    for (var i in ProtoWorkshopList)
-									                    {
-									                        htmllist += '<option>' + ProtoWorkshopList[i] + '</option>';
-									                    }
-									                    $('#protoworkshop').html(htmllist).selectpicker('refresh');
-									                    htmllist = "";
-									                    for (var i in ControlMgmtList)
-									                    {
-									                        htmllist += '<option>' + ControlMgmtList[i] + '</option>';
-									                    }
-									                    $('#controlmanagement').html(htmllist).selectpicker('refresh');
-									                    htmllist = "";
-									                    for (var i in foTradeList)
-									                    {
-									                        htmllist += '<option>' + foTradeList[i] + '</option>';
-									                    }
-									                    $('#fotrade').html(htmllist).selectpicker('refresh');
-									                    htmllist = "";
-									                    for (var i in foTradeList)
-									                    {
-									                        htmllist += '<option>' + foTradeList[i] + '</option>';
-									                    }
-									                    $('#fotrade').html(htmllist).selectpicker('refresh');
-									                    htmllist = "";
-									                    for (var i in advList)
-									                    {
-									                        htmllist += '<option>' + advList[i] + '</option>';
-									                    }
-									                    $('#adv').html(htmllist).selectpicker('refresh');
-									                    htmllist = "";
-									                    for (var i in projectManagerList)
-									                    {
-									                        htmllist += '<option>' + projectManagerList[i] + '</option>';
-									                    }
-									                    $('#projmanager').html(htmllist).selectpicker('refresh');
+									                   
 									                })
-									                .fail(function() {});
+									                .fail(function() {});*/
    									},
    CheckVisibilitySettings		 :  function(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type)
    									{
@@ -416,8 +438,8 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 								   		}	
 								   		if (Type_of_the_Prototype_Order == 'VENDU / SOLD')
 								   		{
-								   			$('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').removeAttr('readonly');
-								   			$('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').removeAttr('disabled');
+								   			$('#openorderlabel,#openordercheckbox,#no_customer_order,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').removeAttr('readonly');
+								   			$('#openorderlabel,#openordercheckbox,#no_customer_order,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').removeAttr('disabled');
 								   			$('#fotrade,#incotermsdiv,#placediv,#allocationdiv').removeAttr('readonly');
 								   			$('#fotrade,#Place,#Incoterms,#Allocation_of_turnover').removeAttr('disabled');
 								   			$('#fodiv .bootstrap-select,#incotermsdiv .bootstrap-select,#placediv .bootstrap-select,#allocationdiv .bootstrap-select').removeClass('disabled');
@@ -425,8 +447,8 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 								   		}
 								   		else
 								   		{
-								   			$('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').attr('readonly',true);
-								   			$('#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').attr('disabled',true);
+								   			$('#openorderlabel,#openordercheckbox,#no_customer_order,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').attr('readonly',true);
+								   			$('#openorderlabel,#openordercheckbox,#no_customer_order,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').attr('disabled',true);
 								   		}
 								   		if(Site_Workshop_Prototype.indexOf("La Verriere")!=-1 && Proto_Type=="P0" && Type_of_the_Prototype_Order == "VENDU/SOLD")
 	   									{

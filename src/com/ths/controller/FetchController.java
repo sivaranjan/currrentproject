@@ -157,7 +157,7 @@ public class FetchController {
     	HashMap<String,List<IdJDO>> responseMap = null;
     	try
     	{
-    		idlist = idDAO.findAllUsers();
+    		idlist = idDAO.findallEntries();
     		responseMap = new HashMap<String,List<IdJDO>>();
         	responseMap.put("data", idlist);
             log.log(FINER, "Response Map from fetchIDList :: "+responseMap);
@@ -384,4 +384,12 @@ public class FetchController {
 	         responseMap.put("data", allocationTurnOverList);
 	         return new ResponseEntity<HashMap<String,List<AllocationTurnOverJDO>>>(responseMap, HttpStatus.OK);
 	     }
+	     @RequestMapping(value = "/fetchlastPrototypeID", method = RequestMethod.GET)
+	     public ResponseEntity<HashMap<String,List<IdJDO>>> fetchlastPrototypeID() {
+	         List<IdJDO> lastIDList = idDAO.findallEntries();
+	         HashMap<String,List<IdJDO>> responseMap = new HashMap<String,List<IdJDO>>();
+	         responseMap.put("data", lastIDList);
+	         return new ResponseEntity<HashMap<String,List<IdJDO>>>(responseMap, HttpStatus.OK);
+	     }
+	     
 }

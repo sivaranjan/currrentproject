@@ -138,6 +138,33 @@
 												        }
 											        }
 												};
+    validateProtypeID					=	function(done)
+    										{
+    											var currentProtypeID = $.trim(localStorage.getItem("lastGeneratedID"));
+    											currentProtypeID = parseInt(currentProtypeID)-1;
+    											var  IdListObj 	= 	new BackboneData.Collections.fetchlastPrototypeID();
+    									        $.when(IdListObj.fetch()).done(function(response, xhr)
+    									        {
+    									        	 var lastIDObj = response.data;
+    									        	 lastIDObj.forEach(function(arrayItem)
+    											     {
+    										              var lastGeneratedID 	= 	parseInt(arrayItem.next_id);
+    										              if(lastGeneratedID!=currentProtypeID)
+    										              {
+    										            	  bootbox.confirm("The selected ID has been chosen for other Order. New prototype order number has been created. Do you want to continue saving the order?", function(result)
+    										            	  {
+    										            	       if (result)
+    										            	       {
+    										            	    	   $('#No_Prototype_Order').val();
+    										            	    	   generateNewPrototypeID();
+    										            	    	   validateAndDoCallback(done);
+    										            	       }
+    										            	  });
+    										              } 	  
+    											     });
+    									        	 
+    									        }).fail(function() {});
+    										};
 	validateComponent					= function(done)
 										  {
 												var setFlag = false;
