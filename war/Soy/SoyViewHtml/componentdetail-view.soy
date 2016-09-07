@@ -122,7 +122,7 @@
 										        		<tr>
 										        			<th>{$paramValue['Quantity']}</th>
 										        			<th>{$paramValue['Date']}</th>
-										        			<th>{$paramValue['Comment']}</th>
+										        			<th>{$paramValue['Comments']}</th>
 										        			<th class="editopt">{$paramValue['Edit']}</th>
 										        			<th>{$paramValue['Delete']}</th>
 										        			<th>&nbsp;</th>
@@ -212,7 +212,7 @@
 										        	</tbody>
 										        </table>
 										    </div>
-									        <div class="">
+									        <div class="col-md-12" style="padding: 15px 0px;">
 									        	<form role="form">
 									        		<div class="form-group col-md-6">
 													    <label>{$paramValue['Total Quantity']}</label>
@@ -276,37 +276,49 @@
 														    <label>{$paramValue['MIP/PWA code']}</label>									    
 															<input type="text" class="form-control input-sm" placeholder="">									
 												  		</div>
-												  		<div class="form-group col-md-3">
-												  			<label>{$paramValue['Validation process']}</label>
-												  			<div style="padding: 1.5px 0;">
-															    <label class="radio-inline">
-															        <input type="radio" name="validprocess-radio" style="margin-top: 1px;">{$paramValue['Yes']}</label>
-															    <label class="radio-inline">
-															        <input type="radio" name="validprocess-radio" style="margin-top: 1px;">{$paramValue['No']}</label>
+												  		<div class="col-md-6" style="padding: 0;">
+													  		<div class="form-group col-md-6">
+													  			<label>{$paramValue['Validation process']}</label>
+													  			<div>
+																    <label class="radio-inline">
+																        <input type="radio" name="validprocess-radio" style="margin-top: 1px;">{$paramValue['Yes']}</label>
+																    <label class="radio-inline">
+																        <input type="radio" name="validprocess-radio" style="margin-top: 1px;">{$paramValue['No']}</label>
+																</div>
+																
+													  		</div>
+													  		<div class="form-group col-md-6">
+													  			<label>{$paramValue['Plan of laboratory tests']}</label>
+													  			<div>
+																    <label class="radio-inline">
+																        <input type="radio" name="planlab-radio" style="margin-top: 1px;">{$paramValue['Yes']}</label>
+																
+																    <label class="radio-inline">
+																        <input type="radio" name="planlab-radio" style="margin-top: 1px;">{$paramValue['No']}</label>
+																</div>
+													  		</div>
+													  		<div class="form-group col-md-6">
+															    <label>{$paramValue['Process Team Member']} <span class="text-danger">*</span></label>
+															    <select class="selectpicker" data-width="100%" title=" ">
+															        <option>1</option>
+															        <option>2</option>
+															        <option>3</option>
+															        <option>4</option>
+															    </select>
 															</div>
-															
-												  		</div>
-												  		<div class="form-group col-md-3">
-												  			<label>{$paramValue['Plan of laboratory tests']}</label>
-												  			<div style="padding: 1.5px 0;">
-															    <label class="radio-inline">
-															        <input type="radio" name="planlab-radio" style="margin-top: 1px;">{$paramValue['Yes']}</label>
-															
-															    <label class="radio-inline">
-															        <input type="radio" name="planlab-radio" style="margin-top: 1px;">{$paramValue['No']}</label>
-															</div>
-												  		</div>
-												  		<div class="form-group col-md-6">
-															<label for="name">Comment</label>
-															<textarea  class="form-control" style="height: 65px;resize: none;"></textarea>
 														</div>
+												  		<div class="form-group col-md-6">
+															<label for="name">{$paramValue['Comment']}</label>
+															<textarea  class="form-control" style="height: 67px;resize: none;"></textarea>
+														</div>
+														
 												  		<div class="form-group col-md-6" style="margin-top: 10px;">
 															<div class="panel panel-default">
 																<div class="panel-heading" style="background: #fff;">
 																	<h4 class="panel-title">
-																		<label style="margin-bottom: 0;">Nomenclature</label> 
+																		<label style="margin-bottom: 0;">{$paramValue['Nomenclature']}</label> 
 																		<button type="button" class="btn btn-default btn-sm pull-right" style="margin-top: -5px;padding: 3px 5px;" data-toggle="modal" data-target="#orderattach-modal">
-																			<i class="fa fa-paperclip" style="margin-right: 5px;"></i>Add Attach
+																			<i class="fa fa-paperclip" style="margin-right: 5px;"></i>{$paramValue['Add Attach']}
 																		</button>
 																	</h4>
 																</div>
@@ -328,9 +340,9 @@
 															<div class="panel panel-default">
 																<div class="panel-heading" style="background: #fff;">
 																	<h4 class="panel-title">
-																		<label style="margin-bottom: 0;">Plan</label> 
+																		<label style="margin-bottom: 0;">{$paramValue['Plan']}</label> 
 																		<button type="button" class="btn btn-default btn-sm pull-right" style="margin-top: -5px;padding: 3px 5px;" data-toggle="modal" data-target="#orderattach-modal">
-																			<i class="fa fa-paperclip" style="margin-right: 5px;"></i>Add Attach
+																			<i class="fa fa-paperclip" style="margin-right: 5px;"></i>{$paramValue['Add Attach']}
 																		</button>
 																	</h4>
 																</div>
@@ -357,10 +369,10 @@
 													        <table  class="table table-hover responsive nowrap" id="planninglab-table" cellspacing="0" width="100%">
 													        	<thead>
 													        		<tr>
-													        			<th>Quantity</th>
-													        			<th>Tests Type</th>
-													        			<th>Test Request N<sup>&#8728;</sup></th>
-													        			<th>ATP date delivery to Lab</th>
+													        			<th>{$paramValue['Quantity']}</th>
+													        			<th>{$paramValue['Test type']}</th>
+													        			<th>{$paramValue['Test request N0']}</th>
+													        			<th>{$paramValue['ATP date delivery to Lab']}</th>
 													        			<th class="editopt">{$paramValue['Edit']}</th>
 													        			<th>{$paramValue['Delete']}</th>
 													        			<th>&nbsp;</th>
@@ -398,9 +410,9 @@
 															<div class="panel panel-default" style="margin-bottom: 0px;">
 																<div class="panel-heading" style="background: #fff;">
 																	<h4 class="panel-title">
-																		<label style="margin-bottom: 0;">Process Deliverable</label> 
+																		<label style="margin-bottom: 0;">{$paramValue['Process deliverable']}</label> 
 																		<button type="button" class="btn btn-default btn-sm pull-right" style="margin-top: -5px;padding: 3px 5px;" data-toggle="modal" data-target="#orderattach-modal">
-																			<i class="fa fa-paperclip" style="margin-right: 5px;"></i>Add Attach
+																			<i class="fa fa-paperclip" style="margin-right: 5px;"></i>{$paramValue['Add Attach']}
 																		</button>
 																	</h4>
 																</div>
@@ -419,13 +431,13 @@
 															</div>
 														</div>
 													<div class="form-group col-md-6">
-														<label for="name">Comment</label>
+														<label for="name">{$paramValue['Comment']}</label>
 														<textarea class="form-control" style="height: 67px;resize: none;"></textarea>
 													</div>
 													<div class="checkbox col-md-12">
 													  <label>
 													    <input type="checkbox" value="">
-													    Yes (I specified process requirements)
+													    {$paramValue['YES (I specified process requirements)']}
 													  </label>
 													</div>
 												</div>
@@ -435,18 +447,17 @@
 											<div class="row">
 												<div class="col-md-12" style="padding-top: 15px;">
 													<div class="panel-heading col-md-12" role="tab">
-										        		<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">Forecast Planning of Workshop</h2>
+										        		<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">{$paramValue['Forecast planning of workshop']}</h2>
 										        	</div>
 										        	<div class="col-md-12">
 												        <table  class="table table-hover responsive nowrap" id="planningworkshop-table" cellspacing="0" width="100%">
 												        	<thead>
 												        		<tr>
-												        			<th>Quantity</th>
-												        			<th>Date</th>
-												        			<th>Comments</th>
+												        			<th>{$paramValue['Quantity']}</th>
+												        			<th>{$paramValue['Date']}</th>
+												        			<th>{$paramValue['Comments']}</th>
 												        			<th class="editopt">{$paramValue['Edit']}</th>
 												        			<th>{$paramValue['Delete']}</th>
-												        			<th>&nbsp;</th>
 												        		</tr>
 												        	</thead>
 												        	<tbody>
@@ -464,36 +475,33 @@
 							      											<i class="fa fa-trash"></i>
 							      										</button>
 							      									</td>
-												        			<td>&nbsp;</td>
 												        		</tr>
 												        	</tbody>
 												        </table>
 												    </div>
 												</div>
-												<div class="col-md-12">
+												<div class="col-md-12" style="padding-top: 15px;padding-bottom: 15px;">
 													<div class="col-md-6">
-														<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">Forecast Planning of Workshop</h2>
+														<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">{$paramValue['Reminder']}</h2>
 														<table  class="table table-hover responsive nowrap" id="planremind-table" cellspacing="0" width="100%">
 												        	<thead>
 												        		<tr>
-												        			<th>Quantity</th>
-												        			<th>Date</th>
-												        			<th>&nbsp;</th>
+												        			<th>{$paramValue['Quantity']}</th>
+												        			<th>{$paramValue['Date']}</th>
 												        		</tr>
 												        	</thead>
 												        	<tbody>
 												        		<tr>
 												        			<td>4</t>
 												        			<td>22 Aug 2016</td>
-												        			<td>&nbsp;</td>
 												        		</tr>
 												        	</tbody>
 												        </table>
 													</div>
 													<div class="col-md-6">
 														
-										        		<div class="form-group col-md-3">
-										        			<label>Supported By</label>
+										        		<div class="form-group col-md-6">
+										        			<label>{$paramValue['Supported by']}</label>
 									        				<select class="selectpicker" data-live-search="true" data-width="100%" title=" " >
 														        <option>option</option>
 														        <option>option</option>
@@ -503,47 +511,47 @@
 														        <option>option</option>
 														    </select>
 										        		</div>
-										        		<div class="form-group col-md-3">
-										        			<label>List of prototypists</label>
+										        		<div class="form-group col-md-6">
+										        			<label>{$paramValue['List of prototypists']}</label>
 										        			<textarea class="form-control" style="height: 67px;resize: none;"></textarea>
 										        		</div>
-										        		<div class="col-md-12">
-										        			<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">Component Projected Costs</h2>
+										        		<div class="form-group col-md-12">
+										        			<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">{$paramValue['Component Projected Costs']}</h2>
 										        		</div>
-										        		<div class="form-group col-md-3">
-										        			<label>Estimated amount of workshop</label>
+										        		<div class="form-group col-md-6">
+										        			<label>{$paramValue['Estimated amount of workshop']}</label>
+									        				<input type="text" class="form-control input-sm"/>
+										        		</div>
+										        		<div class="form-group col-md-6">
+										        			<label>{$paramValue['Estimated unit internal cost']} (&#x20AC; / {$paramValue['Component']}) <span class="text-danger">*</span></label>
+									        				<input type="text" class="form-control input-sm"/>
+										        		</div>
+										        		<div class="form-group col-md-6">
+										        			<label>{$paramValue['Estimated unit external cost']} (&#x20AC; / {$paramValue['Component']}) <span class="text-danger">*</span></label>
+									        				<input type="text" class="form-control input-sm"/>
+										        		</div>
+										        		<div class="form-group col-md-6">
+										        			<label>{$paramValue['Estimated total cost components']} (&#x20AC;) :</label>
+									        				<input type="text" class="form-control input-sm"/>
+										        		</div>
+										        		<div class="form-group col-md-6">
+										        			<label>{$paramValue['Estimated time unit of components (hour)']} <span class="text-danger">*</span></label>
 									        				<input type="text" class="form-control input-sm"/>
 										        		</div>
 										        		<div class="form-group col-md-3">
-										        			<label>Estimated unit internal cost (&#x20AC; / component) <span class="text-danger">*</span></label>
+										        			<label>{$paramValue['Hourly rate']} <span class="text-danger">*</span></label>
 									        				<input type="text" class="form-control input-sm"/>
 										        		</div>
 										        		<div class="form-group col-md-3">
-										        			<label>Estimated unit external cost (&#x20AC; / component) <span class="text-danger">*</span></label>
+										        			<label>{$paramValue['Fixed costs']} <span class="text-danger">*</span></label>
+									        				<input type="text" class="form-control input-sm"/>
+										        		</div>
+										        		<div class="form-group col-md-6">
+										        			<label>{$paramValue['Estimated time total of components (hour)']}</label>
 									        				<input type="text" class="form-control input-sm"/>
 										        		</div>
 										        		<div class="form-group col-md-3">
-										        			<label>Estimated total cost components (&#x20AC;) :</label>
-									        				<input type="text" class="form-control input-sm"/>
-										        		</div>
-										        		<div class="form-group col-md-3">
-										        			<label>Hourly rate <span class="text-danger">*</span></label>
-									        				<input type="text" class="form-control input-sm"/>
-										        		</div>
-										        		<div class="form-group col-md-3">
-										        			<label>Fixed costs <span class="text-danger">*</span></label>
-									        				<input type="text" class="form-control input-sm"/>
-										        		</div>
-										        		<div class="form-group col-md-3">
-										        			<label>Estimated time unit of components (hour) <span class="text-danger">*</span></label>
-									        				<input type="text" class="form-control input-sm"/>
-										        		</div>
-										        		<div class="form-group col-md-3">
-										        			<label>Estimated time total of components (hour)</label>
-									        				<input type="text" class="form-control input-sm"/>
-										        		</div>
-										        		<div class="form-group col-md-3">
-										        			<label>Total cost</label>
+										        			<label>{$paramValue['Total cost']}</label>
 									        				<input type="text" class="form-control input-sm"/>
 										        		</div>
 													</div>
@@ -557,9 +565,9 @@
 															<div class="panel panel-default" style="margin-bottom: 0px;">
 																<div class="panel-heading" style="background: #fff;">
 																	<h4 class="panel-title">
-																		<label style="margin-bottom: 0;">Quality Deliverable</label> 
+																		<label style="margin-bottom: 0;">{$paramValue['Quality deliverable']}</label> 
 																		<button type="button" class="btn btn-default btn-sm pull-right" style="margin-top: -5px;padding: 3px 5px;" data-toggle="modal" data-target="#orderattach-modal">
-																			<i class="fa fa-paperclip" style="margin-right: 5px;"></i>Add Attach
+																			<i class="fa fa-paperclip" style="margin-right: 5px;"></i>{$paramValue['Add Attach']}
 																		</button>
 																	</h4>
 																</div>
@@ -578,13 +586,13 @@
 															</div>
 														</div>
 													<div class="form-group col-md-6">
-														<label>Comment</label>
+														<label>{$paramValue['Comment']}</label>
 														<textarea class="form-control" style="height: 67px;resize: none;"></textarea>
 													</div>
 													<div class="checkbox col-md-12">
 													  <label>
 													    <input type="checkbox" value="">
-													    Yes (I specified quality requirements)
+													    {$paramValue['YES (I specified quality requirements)']}
 													  </label>
 													</div>
 												</div>
@@ -595,43 +603,43 @@
 			    				<div role="tabpanel" class="tab-pane" id="execution-subtab">
 			    					<div class="tab-content">
 				    					<ul class="nav nav-pills comnav-pills">
-										  <li role="presentation" class="active"><a href="#partsprod-subtab" data-toggle="tab">Parts Production</a></li>
-										  <li role="presentation"><a href="#qualapp-subtab" data-toggle="tab">Quality Approval</a></li>
-										  <li role="presentation"><a href="#validtestreport-subtab" data-toggle="tab">Validation test report(in case of Testing Laboratory)</a></li>
-										  <li role="presentation"><a href="#devliverbill-subtab" data-toggle="tab">Delivery/Billing</a></li>
+										  <li role="presentation" class="active"><a href="#partsprod-subtab" data-toggle="tab">{$paramValue['Parts production']}</a></li>
+										  <li role="presentation"><a href="#qualapp-subtab" data-toggle="tab">{$paramValue['Quality approval']}</a></li>
+										  <li role="presentation"><a href="#validtestreport-subtab" data-toggle="tab">{$paramValue['Validation test report(in case pf Testing Laboratory)']}</a></li>
+										  <li role="presentation"><a href="#devliverbill-subtab" data-toggle="tab">{$paramValue['Delivery/Billing']}</a></li>
 										</ul>
 										<div class="row" style="padding-top: 15px;">
 											<div class="col-md-12">
 												<div class="form-group col-md-3">
-												    <label for="name">Customer qty</label>
+												    <label for="name">{$paramValue['Customer qty']}</label>
 												    <input type="text" class="form-control input-sm" >
 												</div>
 												<div class="form-group col-md-3">
-												    <label for="name">Qty lab test plan qty</label>
+												    <label for="name">{$paramValue['Qty lab test plan qty']}</label>
 												    <input type="text" class="form-control input-sm" >
 												</div>
 												<div class="form-group col-md-3">
-												    <label for="name">Qty produced</label>
+												    <label for="name">{$paramValue['Qty produced']}</label>
 												    <input type="text" class="form-control input-sm" >
 												</div>
 												<div class="form-group col-md-3">
-												    <label for="name">Qty test report</label>
+												    <label for="name">{$paramValue['Qty test report']}</label>
 												    <input type="text" class="form-control input-sm" >
 												</div>
 												<div class="form-group col-md-3">
-												    <label for="name">Qty approv. compliant quality</label>
+												    <label for="name">{$paramValue['Qty approv. compliant quality']}</label>
 												    <input type="text" class="form-control input-sm" >
 												</div>
 												<div class="form-group col-md-3">
-												    <label for="name">Qty approv. not compliant quality</label>
+												    <label for="name">{$paramValue['Qty approv. not compliant quality']}</label>
 												    <input type="text" class="form-control input-sm" >
 												</div>
 												<div class="form-group col-md-3">
-												    <label for="name">Delivered quantity</label>
+												    <label for="name">{$paramValue['Delivered quantity']}</label>
 												    <input type="text" class="form-control input-sm" >
 												</div>
 												<div class="form-group col-md-3">
-												    <label for="name">Invoiced qty</label>
+												    <label for="name">{$paramValue['Invoiced qty']}</label>
 												    <input type="text" class="form-control input-sm" >
 												</div>
 											</div>
@@ -642,13 +650,13 @@
 													<table  class="table table-hover responsive nowrap" id="partsprod-table" cellspacing="0" width="100%">
 											        	<thead>
 											        		<tr>
-											        			<th>Link</th>
-											        			<th>Date</th>
-											        			<th>Quantity</th>
-											        			<th>Made by</th>
-											        			<th>MOD past hours</th>
-											        			<th>Comment</th>
-											        			<th>Notification ?</th>
+											        			<th>{$paramValue['Link']}</th>
+											        			<th>{$paramValue['Date']}</th>
+											        			<th>{$paramValue['Quantity']}</th>
+											        			<th>{$paramValue['Made by']}</th>
+											        			<th>{$paramValue['MOD past hours']}</th>
+											        			<th>{$paramValue['Comments']}</th>
+											        			<th>{$paramValue['Notification']} ?</th>
 											        		</tr>
 											        	</thead>
 											        	<tbody>
@@ -670,15 +678,15 @@
 													<table  class="table table-hover responsive nowrap" id="qualapp-table" cellspacing="0" width="100%">
 											        	<thead>
 											        		<tr>
-											        			<th>Link</th>
-											        			<th>Date</th>
-											        			<th>Quantity</th>
-											        			<th>Compliant ?</th>
-											        			<th>BLi#</th>
-											        			<th>Delivery</th>
-											        			<th>Made by</th>
-											        			<th>Comment</th>
-											        			<th>Notification ?</th>
+											        			<th>{$paramValue['Link']}</th>
+											        			<th>{$paramValue['Date']}</th>
+											        			<th>{$paramValue['Quantity']}</th>
+											        			<th>{$paramValue['Compliant']} ?</th>
+											        			<th>{$paramValue['BLi#']}</th>
+											        			<th>{$paramValue['Delivery']}</th>
+											        			<th>{$paramValue['Made by']}</th>
+											        			<th>{$paramValue['Comments']}</th>
+											        			<th>{$paramValue['Notification']} ?</th>
 											        		</tr>
 											        	</thead>
 											        	<tbody>
@@ -702,15 +710,15 @@
 													<table  class="table table-hover responsive nowrap" id="validtestreport-table" cellspacing="0" width="100%">
 											        	<thead>
 											        		<tr>
-											        			<th>Link</th>
-											        			<th>Date</th>
-											        			<th>Quantity</th>
-											        			<th>Apporval ?</th>
-											        			<th>BLi#</th>
-											        			<th>Delivery</th>
-											        			<th>Notification ?</th>
-											        			<th>Comment</th>
-											        			<th>Made by</th>
+											        			<th>{$paramValue['Link']}</th>
+											        			<th>{$paramValue['Date']}</th>
+											        			<th>{$paramValue['Quantity']}</th>
+											        			<th>{$paramValue['Approval']} ?</th>
+											        			<th>{$paramValue['BLi#']}</th>
+											        			<th>{$paramValue['Delivery']}</th>
+											        			<th>{$paramValue['Notification']} ?</th>
+											        			<th>{$paramValue['Comments']}</th>
+											        			<th>{$paramValue['Made by']}</th>
 											        		</tr>
 											        	</thead>
 											        	<tbody>
@@ -734,17 +742,17 @@
 													<table  class="table table-hover responsive nowrap" id="devliverbill-table" cellspacing="0" width="100%">
 											        	<thead>
 											        		<tr>
-											        			<th>Link</th>
-											        			<th>Delivery date</th>
-											        			<th>Qty delivered</th>
-											        			<th>N<sup>&#8728;</sup> Marker</th>
-											        			<th>BL Cordys</th>
-											        			<th>BL SAP</th>
-											        			<th>Invoice N<sup>&#8728;</sup></th>
-											        			<th>Inviced qty</th>
-											        			<th>Billing date</th>
-											        			<th>Delivery notif. ?</th>
-											        			<th>Billing notif. ?</th>
+											        			<th>{$paramValue['Link']}</th>
+											        			<th>{$paramValue['Delivery date']}</th>
+											        			<th>{$paramValue['Qty delivered']}</th>
+											        			<th>{$paramValue['N0 Marker']}</th>
+											        			<th>{$paramValue['BL Cordys']}</th>
+											        			<th>{$paramValue['BL SAP']}</th>
+											        			<th>{$paramValue['Invoice N0']}</th>
+											        			<th>{$paramValue['Invoiced  qty']}</th>
+											        			<th>{$paramValue['Billing date']}</th>
+											        			<th>{$paramValue['Delivery notif.']} ?</th>
+											        			<th>{$paramValue['Billing notif.']} ?</th>
 											        		</tr>
 											        	</thead>
 											        	<tbody>
