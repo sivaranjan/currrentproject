@@ -1,30 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?><web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-	<servlet>
-	  <servlet-name>dispatch</servlet-name>
-	  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-	  <load-on-startup>1</load-on-startup>
-	 </servlet>
- <servlet-mapping>
-  <servlet-name>dispatch</servlet-name>
-  <url-pattern>/</url-pattern>
- </servlet-mapping>
- 
- <servlet>
-  <servlet-name>SystemServiceServlet</servlet-name>
-  <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
-  <init-param>
-   <param-name>services</param-name>
-   <param-value/>
-  </init-param>
- </servlet>
- <servlet-mapping>
-  <servlet-name>SystemServiceServlet</servlet-name>
-  <url-pattern>/_ah/spi/*</url-pattern>
- </servlet-mapping>
- 
- 
- 
-<!--  <security-constraint>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <servlet>
+        <servlet-name>dispatch</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatch</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SystemServiceServlet</servlet-name>
+        <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
+        <init-param>
+            <param-name>services</param-name>
+            <param-value />
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SystemServiceServlet</servlet-name>
+        <url-pattern>/_ah/spi/*</url-pattern>
+    </servlet-mapping>
+    <!--  <security-constraint>
         <web-resource-collection>
             <web-resource-name>profile</web-resource-name>
             <url-pattern>/*</url-pattern>
@@ -33,34 +30,31 @@
             <transport-guarantee>CONFIDENTIAL</transport-guarantee>
         </user-data-constraint>
  </security-constraint> -->
- <security-constraint>
-       <web-resource-collection>
-           
-           <url-pattern>/</url-pattern>
-       </web-resource-collection>
-       <auth-constraint>
-           <role-name>*</role-name>
-       </auth-constraint>
-   </security-constraint>
-   
- 
-<listener>
+    <security-constraint>
+        <web-resource-collection>
+            <url-pattern>/</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>*</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/errors/servererror.jsp</location>
+    </error-page>
+    <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/dispatch-servlet.xml</param-value>
     </context-param>
-    
     <filter>
-      <filter-name>AuthFilter</filter-name>
-      <filter-class>com.ths.service.AuthFilter</filter-class>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>com.ths.service.AuthFilter</filter-class>
     </filter>
     <filter-mapping>
-      <filter-name>AuthFilter</filter-name>
-      <url-pattern>/example/create</url-pattern>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/example/create</url-pattern>
     </filter-mapping>
-   
-   
 </web-app>
