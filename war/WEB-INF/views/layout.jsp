@@ -26,7 +26,7 @@
 		Welcome to THS France Prototype Database
     </title>
     <!-- CSS -->
-    	<link href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/app.css" rel="stylesheet" type="text/css">
+    	<link href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/app.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/bootstrap-select.min.css">
 		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/bootstrap.css">
 		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/buttons.dataTables.min.css">
