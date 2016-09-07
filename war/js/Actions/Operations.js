@@ -65,7 +65,8 @@
         	 										var placesMap 		= 	buildDropDowns.placesMap.list;
         	 										var platformMap 	= 	buildDropDowns.platformMap.list;
         	 										var sitesMap 		= 	buildDropDowns.sitesMap.list;
-    								                var platformlistHTML,sitesListHTML,customersListHTML,placesListHTML,incotermsListHTML = "";
+        	 										var allocationTurnOverMap = buildDropDowns.allocationTurnOverMap.list;
+    								                var platformlistHTML,sitesListHTML,customersListHTML,placesListHTML,incotermsListHTML,allocationHTML = "";
     								                customersMap.forEach(function(arrayItem)
     								                {
     								                	  	customersListHTML += '<option>' + arrayItem.customer_Name + '</option>';
@@ -86,11 +87,17 @@
     										        {
     								                		sitesListHTML += '<option>' + arrayItem.site_Name + '</option>';
     										        });
+    								                allocationTurnOverMap.forEach(function(arrayItem)
+    	    										{
+    								                	allocationHTML += '<option>' + arrayItem.allocation + '</option>';
+    	    										});
     								                $('#Plateform').html(platformlistHTML).selectpicker('refresh');
     										        $('#Site_Workshop_Prototype').html(sitesListHTML).selectpicker('refresh');
     										        $('#Customer_Name').html(customersListHTML).selectpicker('refresh');
     										        $('#Place').html(placesListHTML).selectpicker('refresh');
     										        $('#Incoterms').html(incotermsListHTML).selectpicker('refresh');
+    										        $('#Incoterms').html(incotermsListHTML).selectpicker('refresh');
+    										        $('#Allocation_of_turnover').html(allocationHTML).selectpicker('refresh');
     	 										}	
     	 										
     									};
@@ -99,28 +106,28 @@
 									    	switch(currentpage)
 									    	{
 												case 'createorder' :
-																	 $('#createorder-section').removeClass('hide');
+																	 $('#createorder-section,#navbar-1').removeClass('hide');
 														             $('#welcome-section,#admin-section,#component-section,#orderlist-section').addClass('hide');
 														             $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
 														             $('#createorder-tab').addClass('active');
 														             validateAndDoCallback(docallBack);
 														             break;
 												case 'componentdetails' :
-																	$('#component-section,#navfixed-wrapper').removeClass('hide');
+																	$('#component-section,#navfixed-wrapper,#navbar-1').removeClass('hide');
 																	$('#welcome-section,#createorder-section,#admin-section').addClass('hide');
 																	$('.selectpicker').selectpicker();
 																	$('.selectpicker').selectpicker('setStyle', 'btn-sm', 'add');
 																	validateAndDoCallback(docallBack);
 																	break;
 												case 'adminsetting' 	:
-																	$('#admin-section').removeClass('hide');
+																	$('#admin-section,#navbar-1').removeClass('hide');
 															        $('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper,#orderlist-section').addClass('hide');
 															        $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
 															        $('#adminsetting-tab').addClass('active');
 															        validateAndDoCallback(docallBack);
 															        break;																
 												case 'orderlisting':
-																	$('#orderlist-section').removeClass('hide');
+																	$('#orderlist-section,#navbar-1').removeClass('hide');
 															        $('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper,#admin-section').addClass('hide');
 															        $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
 															        $('#orderlist-tab').addClass('active');
@@ -137,6 +144,7 @@
 																	$('#createorder-section,#navfixed-wrapper,#component-section,#admin-section,#orderlist-section').addClass('hide');
 															        $('#welcome-section').removeClass('hide');
 															        $('#createorder-tab').removeClass('active');
+															        $('#navbar-1').addClass('hide');
 															        validateAndDoCallback(docallBack);
 															        break;
 									    	}

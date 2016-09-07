@@ -142,10 +142,13 @@
     										{
     											var currentProtypeID = $.trim(localStorage.getItem("lastGeneratedID"));
     											currentProtypeID = parseInt(currentProtypeID)-1;
+    											debugger;
     											var  IdListObj 	= 	new BackboneData.Collections.fetchlastPrototypeID();
+    											debugger;
     									        $.when(IdListObj.fetch()).done(function(response, xhr)
     									        {
     									        	 var lastIDObj = response.data;
+    									        	 debugger;
     									        	 lastIDObj.forEach(function(arrayItem)
     											     {
     										              var lastGeneratedID 	= 	parseInt(arrayItem.next_id);
@@ -160,6 +163,10 @@
     										            	    	   validateAndDoCallback(done);
     										            	       }
     										            	  });
+    										              } 
+    										              else
+    										              {
+    										            	  validateAndDoCallback(done);
     										              } 	  
     											     });
     									        	 
