@@ -117,6 +117,8 @@
 																	$('#welcome-section,#createorder-section,#admin-section,#componentlist-section').addClass('hide');
 																	$('.selectpicker').selectpicker();
 																	$('.selectpicker').selectpicker('setStyle', 'btn-sm', 'add');
+																	$('#bs-example-navbar-collapse-1 ul li').removeClass('active');
+																	 $('#createorder-tab').addClass('active');
 																	validateAndDoCallback(docallBack);
 																	break;
 												case 'adminsetting' 	:
@@ -154,34 +156,39 @@
 									    	switch(currentPage)
 									    	{
 												case 'createorder' :
-																var globalNavbarHTML = new BackboneData.Views.GlobalNavbarview();
-													            var navBtnSectionHTML = new BackboneData.Views.NavBtnSectionview();
-													            var orderDetailSectionHTML = new BackboneData.Views.OrderDetailView();
+																var globalNavbarHTML 		= 	new BackboneData.Views.GlobalNavbarview();
+													            var navBtnSectionHTML 		= 	new BackboneData.Views.NavBtnSectionview();
+													            var orderDetailSectionHTML 	= 	new BackboneData.Views.OrderDetailView();
 													            validateAndDoCallback(docallBack);
 													            break;
 												case 'componentdetails' :
-																var globalNavbarHTML = new BackboneData.Views.GlobalNavbarview();
-														        var navBtnSectionHTML = new BackboneData.Views.NavBtnSectionview();
-														        var componentDetailHTMl = new BackboneData.Views.ComponentDetailView();
+																var globalNavbarHTML 		= 	new BackboneData.Views.GlobalNavbarview();
+														        var navBtnSectionHTML 		= 	new BackboneData.Views.NavBtnSectionview();
+														        var componentDetailHTMl 	= 	new BackboneData.Views.ComponentDetailView();
 														        validateAndDoCallback(docallBack);
 														        break;
 												case 'adminsetting' :
-																var globalNavbarHTML = new BackboneData.Views.GlobalNavbarview();
-														        var navBtnSectionHTML = new BackboneData.Views.NavBtnSectionview();
-														        var adminSettingsHTMl = new BackboneData.Views.AdminDetailView();
+																var globalNavbarHTML 		= 	new BackboneData.Views.GlobalNavbarview();
+														        var navBtnSectionHTML 		=	new BackboneData.Views.NavBtnSectionview();
+														        var adminSettingsHTMl 		= 	new BackboneData.Views.AdminDetailView();
 														        validateAndDoCallback(docallBack);
 														        break;																
 												case 'orderlisting':
-																var globalNavbarHTML = new BackboneData.Views.GlobalNavbarview();
-														        var orderListHTMl = new BackboneData.Views.OrderListview();
+																var globalNavbarHTML 		=	 new BackboneData.Views.GlobalNavbarview();
+														        var orderListHTMl 			= 	 new BackboneData.Views.OrderListview();
 														        validateAndDoCallback(docallBack);
 														        break;
 												case 'home':
-																var welcomeSectionHTML = new BackboneData.Views.WelcomeView();
+																var welcomeSectionHTML 		= 	new BackboneData.Views.WelcomeView();
+																validateAndDoCallback(docallBack);
+																break;
+												case 'componentlisting':
+																var globalNavbarHTML 		=	 new BackboneData.Views.GlobalNavbarview();
+																var componentListDetailHTML = 	new BackboneData.Views.ComponentListView();
 																validateAndDoCallback(docallBack);
 																break;
 												default:
-																var welcomeSectionHTML = new BackboneData.Views.WelcomeView();
+																var componentListDetailHTML = 	new BackboneData.Views.WelcomeView();
 																validateAndDoCallback(docallBack);
 																break;
 									    	}
