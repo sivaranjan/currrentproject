@@ -555,7 +555,8 @@
 		<!-- JavaScript -->
 		<script src="../js/Loader/language.js"></script>
 		<script src="../js/Loader/constants.js"></script>
-		<script src="../js/Configurations/Config-1-OrderCreation.js">
+		<script src="../js/Configurations/Config-1-OrderCreation.js"></script>
+		<script src="../js/Configurations/Config-2-ComponentCreation.js"></script>
 			
 		</script><script src="../js/Actions/Operations.js"></script>
 
