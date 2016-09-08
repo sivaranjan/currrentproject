@@ -8,6 +8,7 @@ BackboneData.Views.ComponentDetailView = Backbone.View
             var componentDetailHTML  = 	"";
             if (window.language == "EN")
             {
+            	debugger;
                 componentDetailHTML = component.manager.ComponentDetailView(
                 {
                         'paramValue'		: 	window.componentCreation_englishLabelList,
@@ -18,6 +19,7 @@ BackboneData.Views.ComponentDetailView = Backbone.View
             }
             else
             {
+            	debugger;
                 componentDetailHTML = component.manager.ComponentDetailView(
                 {
                      	'paramValue'		: 	window.componentCreation_frenchLabelList,
