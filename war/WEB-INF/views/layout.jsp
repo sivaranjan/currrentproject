@@ -103,7 +103,6 @@
             	
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 	<div class="panel panel-default" id="orderdetailview">
-						<!--  orderdetail-view.soy will be rendereed -->
 					</div>
                 </div>
             </div>
