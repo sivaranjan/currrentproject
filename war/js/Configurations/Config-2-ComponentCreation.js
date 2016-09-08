@@ -11,7 +11,7 @@ navVisibilitySettings = {
 							'duplicate'		: '',
 							'saveorder'		: '',
 							'close'			: '',
-							'validateorder'	: 'hide',
+							'validateorder'	: '',
 							'refuseorder'	: 'hide',
 							'demoteprevious': 'hide',
 							'demoterequester': 'hide',
