@@ -10,14 +10,20 @@ BackboneData.Views.ComponentDetailView = Backbone.View
             {
                 componentDetailHTML = component.manager.ComponentDetailView(
                 {
-                        'paramValue'	: 	window.componentCreation_englishLabelList
+                        'paramValue'		: 	window.componentCreation_englishLabelList,
+                        'visibleconfig'		: 	window.componentCreationVisibilitySettings,
+		                'editableconfig'	: 	window.componentCreationEditableSettings,
+		                'mandatoryconfig'	: 	window.componentCreationMandatorySettings
                  });
             }
             else
             {
                 componentDetailHTML = component.manager.ComponentDetailView(
                 {
-                     	'paramValue'	: 	window.componentCreation_frenchLabelList
+                     	'paramValue'		: 	window.componentCreation_frenchLabelList,
+                     	'visibleconfig'		: 	window.componentCreationVisibilitySettings,
+		                'editableconfig'	: 	window.componentCreationEditableSettings,
+		                'mandatoryconfig'	: 	window.componentCreationMandatorySettings
                 });
             }
             ref.$el.html(componentDetailHTML);
