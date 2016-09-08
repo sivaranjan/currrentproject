@@ -1,6 +1,7 @@
 package com.ths.DAO;
 
 import com.googlecode.objectify.Key;
+import com.ths.JDO.CustomersListJDO;
 import com.ths.JDO.Example;
 import com.ths.JDO.OrderJDO;
 
@@ -21,7 +22,9 @@ public class OrderDAO extends AbstractDao {
     public OrderJDO findByName(String name) {
         return ofy.load().type(OrderJDO.class).filter("name =", name).first().now();
     }
-
+    public List<OrderJDO> findByProtoID(String no_prototype_order) {
+        return ofy.load().type(OrderJDO.class).filter("no_prototype_order =", no_prototype_order).list();
+    }
     public List<OrderJDO> findAllUsers() {
         log.log(FINER, "Loading all examples.");
         return ofy.load().type(OrderJDO.class).list();

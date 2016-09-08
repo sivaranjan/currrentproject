@@ -232,7 +232,26 @@ public class FetchController {
     	}
         return new ResponseEntity<HashMap<String,List<OrderJDO>>>(responseMap, HttpStatus.OK);
     }
-    
+    /*================================ Fetch Order by Prototype ID======================================== */
+    @RequestMapping(value = "/fetchProtypeOrderbasedOnID/{protoID}")
+    public ResponseEntity<HashMap<String,List<OrderJDO>>> fetchProtypeOrderObject(@PathVariable("protoID") String protoID) 
+    {
+    	log.log(FINER, "Visits fetchProtypeOrderObject Controller - protoID :: "+protoID);
+    	List<OrderJDO> OrderObj = null;
+    	HashMap<String,List<OrderJDO>> responseMap = null;
+    	try
+    	{
+    		OrderObj 		= 	orderDao.findByProtoID(protoID);
+        	responseMap 	= 	new HashMap<String,List<OrderJDO>>();
+        	responseMap.put("data", OrderObj);
+        	log.log(FINER, "Response Map from fetchProtypeOrderObject :: "+responseMap);
+    	}
+    	catch(Exception e)
+    	{
+    		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
+    	}
+        return new ResponseEntity<HashMap<String,List<OrderJDO>>>(responseMap, HttpStatus.OK);
+    }
     /*================================ Fetch User Details and Roles ======================================== */
     
     @RequestMapping("/fetchUserDetails/{userEmail:.+}")
