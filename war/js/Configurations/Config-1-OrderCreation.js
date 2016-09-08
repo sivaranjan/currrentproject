@@ -1,9 +1,9 @@
 window.orderCreationVisibilitySettings || (window.orderCreationVisibilitySettings = {});
 window.orderCreationEditableSettings || (window.orderCreationEditableSettings = {});
 window.orderCreationMandatorySettings || (window.orderCreationMandatorySettings = {});
-window.navVisibilitySettings || (window.navVisibilitySettings = {});
+window.ordernavVisibilitySettings || (window.ordernavVisibilitySettings = {});
 
-navVisibilitySettings = {
+ordernavVisibilitySettings = {
 							'closeorder'	: 'hide',
 							'cancelorder'	: 'hide',
 							'breadcrumb'	: 'hide',

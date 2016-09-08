@@ -1,9 +1,9 @@
 window.componentCreationVisibilitySettings || (window.componentCreationVisibilitySettings = {});
 window.componentCreationEditableSettings || (window.componentCreationEditableSettings = {});
 window.componentCreationMandatorySettings || (window.componentCreationMandatorySettings = {});
-window.navVisibilitySettings || (window.navVisibilitySettings = {});
+window.componentnavVisibilitySettings || (window.componentnavVisibilitySettings = {});
 
-navVisibilitySettings = {
+componentnavVisibilitySettings = {
 							'closeorder'	: 'hide',
 							'cancelorder'	: 'hide',
 							'breadcrumb'	: 'hide',
@@ -86,7 +86,7 @@ componentCreationEditableSettings = {
 							'control_management_drpdwn'	:	'readonly disabled',
 							'project_manager_drpdwn'	:	'readonly disabled',
 							'no_prototype_order_comppage_txt':	'readonly disabled', // component page not the order page
-							'order_type_txt'			:	'readonly dsiabled', 
+							'order_type_txt'			:	'readonly disabled', 
 							'customer_order_no_compage_txt'	:	'readonly disabled',
 							'customer_reference_txt'		:	'readonly disabled',
 							'product_type_component_txt':'readonly disabled',

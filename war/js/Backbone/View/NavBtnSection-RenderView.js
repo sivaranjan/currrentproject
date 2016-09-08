@@ -7,19 +7,42 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend(
         var NavBtnSectionHTML 	= 	"";
         if (window.language == "EN")
         {
-            NavBtnSectionHTML 	= 	navigation.manager.NavBtnViewDetail(
-            {
-                'paramValue'	: 	window.navBtnSection_englishLabelList,
-                'visibleconfig'	: 	window.navVisibilitySettings
-            });
+        	if(document.URL.split("#")[1].indexOf("createorder")!=-1)
+        	{
+        		 NavBtnSectionHTML 	= 	navigation.manager.NavBtnViewDetail(
+        		 {
+        		        'paramValue'	: 	window.navBtnSection_englishLabelList,
+        		        'visibleconfig'	: 	window.ordernavVisibilitySettings
+        		 });
+        	}
+        	else if(document.URL.split("#")[1].indexOf("componentdetails")!=-1)
+        	{
+        		 NavBtnSectionHTML 	= 	navigation.manager.NavBtnViewDetail(
+                 {
+                		'paramValue'	: 	window.navBtnSection_englishLabelList,
+                		'visibleconfig'	: 	window.componentnavVisibilitySettings
+                 });
+        	}	
         }
         else
         {
-            NavBtnSectionHTML 	= 	navigation.manager.NavBtnViewDetail(
-            {
-                'paramValue'	: 	window.navBtnSection_frenchLabelList,
-                'visibleconfig'	: 	window.navVisibilitySettings
-            });
+        	if(document.URL.split("#")[1].indexOf("createorder")!=-1)
+        	{
+        		NavBtnSectionHTML 	= 	navigation.manager.NavBtnViewDetail(
+        	    {
+        	          'paramValue'		: 	window.navBtnSection_frenchLabelList,
+        	          'visibleconfig'	: 	window.ordernavVisibilitySettings
+        	    });
+        	}
+        	else if(document.URL.split("#")[1].indexOf("componentdetails")!=-1)
+        	{
+        		 NavBtnSectionHTML 	= 	navigation.manager.NavBtnViewDetail(
+                 {
+                	  'paramValue'	: 	window.navBtnSection_frenchLabelList,
+                	  'visibleconfig'	: 	window.componentnavVisibilitySettings
+                 });
+        	}
+            
         }
         ref.$el.html(NavBtnSectionHTML);
         $('#navfixed-wrapper').removeClass('hide');
@@ -30,3 +53,5 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend(
         _thisView.render();
     },
 });
+
+ 

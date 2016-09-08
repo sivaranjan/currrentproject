@@ -92,7 +92,6 @@ $(document).ready(function()
 				{
 			    	 if(currentPage.get().indexOf("#createorder")!=-1)
 			         {
-			    		 debugger;
 			    		 validateOrder(function()
 						 {
 			    			 validateProtypeID(function()

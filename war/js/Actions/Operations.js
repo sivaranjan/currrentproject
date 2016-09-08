@@ -55,7 +55,7 @@
     												});		
     											});
     										};
-    SetDetails 					= 		function()
+    SetDetails 					= 		function(done)
     									{
     	 										var buildDropDowns 	= 	window.orderDependenciesListObj;
     	 										if(buildDropDowns!=undefined && buildDropDowns!=null)
@@ -99,56 +99,62 @@
     										        $('#Incoterms').html(incotermsListHTML).selectpicker('refresh');
     										        $('#Allocation_of_turnover').html(allocationHTML).selectpicker('refresh');
     	 										}	
-    	 										
+    	 										validateAndDoCallback (done);
     									};
     SetView 					= 		function(currentpage,docallBack)
     									{
 									    	switch(currentpage)
 									    	{
 												case 'createorder' :
-																	 $('#createorder-section,#navbar-1').removeClass('hide');
-														             $('#welcome-section,#admin-section,#component-section,#orderlist-section,#componentlist-section').addClass('hide');
-														             $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
-														             $('#createorder-tab').addClass('active');
-														             validateAndDoCallback(docallBack);
-														             break;
+																			 $('#createorder-section,#navbar-1').removeClass('hide');
+																             $('#welcome-section,#admin-section,#component-section,#orderlist-section,#componentlist-section').addClass('hide');
+																             $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
+																             $('#createorder-tab').addClass('active');
+																             validateAndDoCallback(docallBack);
+																             break;
 												case 'componentdetails' :
-																	$('#component-section,#navfixed-wrapper,#navbar-1').removeClass('hide');
-																	$('#welcome-section,#createorder-section,#admin-section,#componentlist-section').addClass('hide');
-																	$('.selectpicker').selectpicker();
-																	$('.selectpicker').selectpicker('setStyle', 'btn-sm', 'add');
-																	$('#bs-example-navbar-collapse-1 ul li').removeClass('active');
-																	 $('#createorder-tab').addClass('active');
-																	validateAndDoCallback(docallBack);
-																	break;
+																			$('#component-section,#navfixed-wrapper,#navbar-1').removeClass('hide');
+																			$('#welcome-section,#createorder-section,#admin-section,#componentlist-section').addClass('hide');
+																			$('.selectpicker').selectpicker();
+																			$('.selectpicker').selectpicker('setStyle', 'btn-sm', 'add');
+																			$('#bs-example-navbar-collapse-1 ul li').removeClass('active');
+																			 $('#createorder-tab').addClass('active');
+																			validateAndDoCallback(docallBack);
+																			break;
 												case 'adminsetting' 	:
-																	$('#admin-section,#navbar-1').removeClass('hide');
-															        $('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper,#orderlist-section,#componentlist-section').addClass('hide');
-															        $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
-															        $('#adminsetting-tab').addClass('active');
-															        validateAndDoCallback(docallBack);
-															        break;																
+																			$('#admin-section,#navbar-1').removeClass('hide');
+																	        $('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper,#orderlist-section,#componentlist-section').addClass('hide');
+																	        $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
+																	        $('#adminsetting-tab').addClass('active');
+																	        validateAndDoCallback(docallBack);
+																	        break;																
 												case 'orderlisting':
-																	$('#orderlist-section,#navbar-1').removeClass('hide');
-															        $('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper,#admin-section,#componentlist-section').addClass('hide');
-															        $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
-															        $('#orderlist-tab').addClass('active');
-															        validateAndDoCallback(docallBack);
-															        break;
+																			$('#orderlist-section,#navbar-1').removeClass('hide');
+																	        $('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper,#admin-section,#componentlist-section').addClass('hide');
+																	        $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
+																	        $('#orderlist-tab').addClass('active');
+																	        validateAndDoCallback(docallBack);
+																	        break;
 												case 'componentlisting':
-																	$('#componentlist-section').removeClass('hide');
-															        $('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper,#admin-section,#orderlist-section').addClass('hide');
-															        $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
-															        $('#componentlist-tab').addClass('active');
-															        validateAndDoCallback(docallBack);
-															        break;
-												case 'home'		:
-																	$('#createorder-section,#navfixed-wrapper,#component-section,#admin-section,#orderlist-section,#componentlist-section').addClass('hide');
-															        $('#welcome-section').removeClass('hide');
-															        $('#createorder-tab').removeClass('active');
-															        $('#navbar-1').addClass('hide');
-															        validateAndDoCallback(docallBack);
-															        break;
+																			$('#componentlist-section').removeClass('hide');
+																	        $('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper,#admin-section,#orderlist-section').addClass('hide');
+																	        $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
+																	        $('#componentlist-tab').addClass('active');
+																	        validateAndDoCallback(docallBack);
+																	        break;
+												case 'home'			:
+																			 $('#createorder-section,#navfixed-wrapper,#component-section,#admin-section,#orderlist-section,#componentlist-section').addClass('hide');
+																	         $('#welcome-section').removeClass('hide');
+																	         $('#createorder-tab').removeClass('active');
+																	         $('#navbar-1').addClass('hide');
+																	         validateAndDoCallback(docallBack);
+																	         break;
+												case 'orderdetails'	:
+																			 $('#createorder-section,#navbar-1').removeClass('hide');
+																             $('#welcome-section,#admin-section,#component-section,#orderlist-section,#componentlist-section').addClass('hide');
+																             $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
+																             validateAndDoCallback(docallBack);
+																             break;
 									    	}
     									};
     renderBackboneView 			= 		function(currentPage,docallBack)
@@ -158,13 +164,19 @@
 												case 'createorder' :
 																var globalNavbarHTML 		= 	new BackboneData.Views.GlobalNavbarview();
 													            var navBtnSectionHTML 		= 	new BackboneData.Views.NavBtnSectionview();
-													            var orderDetailSectionHTML 	= 	new BackboneData.Views.OrderDetailView();
+													            if($.trim($('#orderdetailview').html())=="" || document.URL.indexOf("orderdetails?")>1)
+													            {
+													            	var orderDetailSectionHTML 	= 	new BackboneData.Views.OrderDetailView();
+													            }
 													            validateAndDoCallback(docallBack);
 													            break;
 												case 'componentdetails' :
 																var globalNavbarHTML 		= 	new BackboneData.Views.GlobalNavbarview();
 														        var navBtnSectionHTML 		= 	new BackboneData.Views.NavBtnSectionview();
-														        var componentDetailHTMl 	= 	new BackboneData.Views.ComponentDetailView();
+														        if($.trim($('#component-section').html())=="")
+													            {
+														        	var componentDetailHTMl 	= 	new BackboneData.Views.ComponentDetailView();
+													            }
 														        validateAndDoCallback(docallBack);
 														        break;
 												case 'adminsetting' :
@@ -247,6 +259,30 @@
 										      $(".language-dropdown:first-child").val(languagefromDB);
 										      validateAndDoCallback(callback);
   										};
+  fetchProtypeOrderObject			 =		function(currentPrototypeID,done)
+  											{
+												  $.ajax({
+											           type: 'get',
+											           url: ApplicationConstants.fetchProtypeOrderObject+currentPrototypeID ,
+											           contentType: "application/json; charset=utf-8",
+											           traditional: true,
+											           success: function (data) 
+											           {
+											        	    var google = data.data;
+											                console.log(google);
+											                console.log("prototype Object");
+											                setOrderDetails(google);
+											                /*google.forEach(function(arrayItem)
+											                {
+											                    $('#Customer_Code').val(arrayItem.customer_Code);
+											                    $('#Branch_Code').val(arrayItem.branch_Code);
+											                    $('#Provider_Code').val(arrayItem.provider_Code);
+											                    $('#Final_Delivery_Address').val(arrayItem.customer_Address);
+											                });*/
+											           }
+												  });
+	  											 validateAndDoCallback(done);
+  											};
   validateAndDoCallback		 		 =		function (done)
   											{
 											   if (typeof done === "function")

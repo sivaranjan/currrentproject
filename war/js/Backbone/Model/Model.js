@@ -90,7 +90,6 @@ BackboneData.Models.OrderDetailModel = Backbone.Model.extend(
         e52							: "",
         intraLE						: "",
         type_of_the_Prototype_Order	: "",
-        date_of_the_Order			: "",
         no_customerOrder			: "",
         customerOrderAttachment		: "",
         customer_Name				: "",

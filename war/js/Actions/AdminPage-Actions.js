@@ -372,30 +372,7 @@
 										                }
 										            }]
 										        });
-										        $('#actorlisttable_footer th').each(function()
-										        {
-										           /* var title = $(this).text();*/
-										        	var title = '';
-										            $(this).html('<input type="text" style="width: 100%;" class="form-control input-sm" placeholder="Search ' + title + '" />');
-										        });
-										
-										        // DataTable
-										        var table = $('#actorsub-table').DataTable();
-										
-										        // Apply the search
-										        table.columns().every(function()
-										        {
-										            var that = this;
-										
-										            $('input', this.footer()).on('keyup change', function()
-										            {
-										                if (that.search() !== this.value)
-										                {
-										                    that.search(this.value).draw();
-										                }
-										            });
-										        });
-										        $('.dt-buttons a.btn').removeClass('dt-button');
+										        buildSearchForTable('actorlisttable_footer th','actorsub-table');
 										  	};
 	buildIncotermsTable					=	function()
 											{
@@ -423,7 +400,7 @@
 										                }
 										            }]
 										        });
-										        $('.dt-buttons a.btn').removeClass('dt-button');
+										        buildSearchForTable('incotermstable_footer th','incoterms-table');
 											};
 	buildCustomersTable					=	function()
 											{
@@ -460,7 +437,7 @@
 										                }
 										            }]
 										        });
-										        $('.dt-buttons a.btn').removeClass('dt-button');
+										        buildSearchForTable('clientstable_footer th','clients-table');
 											};
 	buildPlatformsTable 				= 	function()
 											{
@@ -484,7 +461,7 @@
 										                }
 										            }]
 										        });
-										        $('.dt-buttons a.btn').removeClass('dt-button');
+										        buildSearchForTable('platformstable_footer th','platformssub-table');
 											};
 	buildPlacesTable 					= 	function()
 											{
@@ -509,7 +486,7 @@
 										                }
 										            }]
 										        });
-										        $('.dt-buttons a.btn').removeClass('dt-button');
+										        buildSearchForTable('location_footer th','locationsub-table');
 											};
 	buildProductTypesList				=	function()
 											{
@@ -534,7 +511,7 @@
 												                }
 												            }]
 												  });
-												  $('.dt-buttons a.btn').removeClass('dt-button');
+												  buildSearchForTable('productstypes_footer th','productstypessub-table');
 											};
 	buildPrototypistsList				=	function()
 											{
@@ -559,7 +536,7 @@
 												                }
 												            }]
 												  });
-												  $('.dt-buttons a.btn').removeClass('dt-button');
+												buildSearchForTable('protypist_footer th','protypistsub-table');
 											};
 	buildTechnologyList					=	function()
 											{
@@ -588,7 +565,7 @@
 												                }
 												            }]
 												  });
-												  $('.dt-buttons a.btn').removeClass('dt-button');
+												buildSearchForTable('technolo_footer th','technolosub-table');
 											};
 	buildRandDList					=		function()
 											{
@@ -613,7 +590,7 @@
 												                }
 												            }]
 												  });
-												  $('.dt-buttons a.btn').removeClass('dt-button');
+												buildSearchForTable('rdleadt_footer th','rdleadtsub-table');
 											};
 	buildAllocationTurnOverList		 =		function()
 											{
@@ -638,7 +615,7 @@
 												                }
 												            }]
 												  });
-												  $('.dt-buttons a.btn').removeClass('dt-button');
+												buildSearchForTable('allocationturnover_footer th','allocationturnoversub-table');
 											};
 	 buildClientLaboList		=			function()
 											{
@@ -667,7 +644,7 @@
 												                }
 												            }]
 												  });
-												  $('.dt-buttons a.btn').removeClass('dt-button');
+												buildSearchForTable('clientadd_footer th','clientaddsub-table');
 											};
     buildSitesTable 					= 	function()
 											{
@@ -695,8 +672,29 @@
 											                }
 											            }]
 											        });
-											        $('.dt-buttons a.btn').removeClass('dt-button');
-											}
+											        buildSearchForTable('site_footer th','sitesub-table');
+											};
+	buildSearchForTable					=	function(footer,tablename)
+											{
+												$('#'+footer).each(function()
+												{
+											        var title = '';
+									                $(this).html('<input type="text" style="width: 100%;" class="form-control input-sm" placeholder="Search ' + title + '" />');
+												});
+												var table = $('#'+tablename).DataTable();
+												table.columns().every(function()
+												{
+													var that = this;
+													$('input', this.footer()).on('keyup change', function()
+													{
+														if (that.search() !== this.value)
+														{
+														    that.search(this.value).draw();
+														}
+													});
+												});
+												$('.dt-buttons a.btn').removeClass('dt-button');
+											},
 	validateAdminSection				= 	function(div,done)
 									    	{
 										        if (validate.getInstance().formordiv(div))

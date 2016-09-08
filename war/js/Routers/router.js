@@ -8,7 +8,7 @@ var Router = Backbone.Router.extend(
         'adminsetting'	: 	'admin',
         'componentdetails': 'component',
         'orderlisting'	: 	'orderlist',
-        'orderdetail'	: 	'home',
+        'orderdetails'	: 	'orderdetails',
         'componentlisting'	: 	'componentlist',
     }
 });
@@ -82,18 +82,51 @@ routerTHS.on('route:orderlist', function(action)
     });
 });
 routerTHS.on('route:componentlist', function(action)
+{
+	pullUserInfo(function()
+	{
+		renderBackboneView("componentlisting",function()
 		{
-		    pullUserInfo(function()
+		    SetView("componentlisting",function()
 		    {
-		    	renderBackboneView("componentlisting",function()
-		    	{
-		    		SetView("componentlisting",function()
-		    	    {
 		    			// This does the hide and show of divs    			
-		    	    });	
-		    	});
-		    });
+		    });	
 		});
+	});
+});
+routerTHS.on('route:orderdetails', function(action)
+{
+	var currentPrototypeID = "";
+	if(document.URL.indexOf('?orderid=')!=-1)
+	{
+		currentPrototypeID = document.URL.split('?orderid=')[1];
+		pullUserInfo(function()
+		{
+			 pullOrderDependencies(function()
+		     {
+				 renderBackboneView("createorder",function()
+				 {
+				   	 SetView("orderdetails",function()
+					 {
+				   		  SetDetails(function()
+				   		  {
+				   			   fetchProtypeOrderObject(currentPrototypeID,function()
+							   {
+							   });
+				   		  });
+					  });	
+				  });
+		     });
+		});
+	}	
+	else
+	{
+		bootbox.alert("No Prototype Order ID Found", function() 
+		{
+			  window.location.href="/#orderlisting";
+		});
+	}	
+});
 if (Backbone.history != undefined && Backbone.history != null && Backbone.history != '')
 {
     console.log('backnonhistory has  started!!!');

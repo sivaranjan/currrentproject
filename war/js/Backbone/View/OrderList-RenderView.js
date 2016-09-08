@@ -20,12 +20,29 @@ BackboneData.Views.OrderListview = Backbone.View.extend(
         {
             ajax		: 	ApplicationConstants.fetchOrdersList,
             bDestroy	: 	true,
+            "deferRender": true,
             columns		: 	[
             {
                 "data": "site_Workshop_Prototype"
             },
             {
-                "data": "no_prototype_order"
+                "data": "no_prototype_order",
+                "render" : function(data, type, row, meta)
+                {
+                    if(type === 'display')
+                    {
+                        return $('<a>')
+                            .attr('href','/#orderdetails?orderid='+data)
+                            .text(data)
+                            .wrap('<div></div>')
+                            .parent()
+                            .html();
+                    } 
+                    else 
+                    {
+                        return data;
+                    }
+                }
             },
             {
                 "data": "order_Status"
@@ -50,9 +67,6 @@ BackboneData.Views.OrderListview = Backbone.View.extend(
             },
             {
                 "data": "requester"
-            },
-            {
-                "data": ""
             }],
             responsive:
             {
@@ -69,5 +83,6 @@ BackboneData.Views.OrderListview = Backbone.View.extend(
                 targets		: 	-1
             }]
         });
+        buildSearchForTable('orderlisttable_footer th','orderlist-table');
     }
 });
