@@ -44,7 +44,7 @@ componentCreationVisibilitySettings = {
 						    'unit_selling_price_txt': 'hide',
 						    'direct_delivery_to_the_customer_radiobtn':'hide',
 						    'total_amount_txt'      : 'hide',
-						    'customer_drpdwn'       : 'hide',
+						    'customer_drpdwn'       : 'hide', //
 						    'labo_address_or_other_txtarea':'hide',
 						    'process_deliverable_file': 'hide',
 						    'yes_i_specified_process_req_checkbox':'hide',
@@ -120,12 +120,12 @@ componentCreationEditableSettings = {
 							'creation_validation_test_report_btn':'readonly disabled', // didnt
 							'creation_delivery_billing_btn': 'readonly disabled', //didnt
 							'unit_selling_price_txt'	:	'readonly disabled',
-							'direct_delivery_to_the_customer_radiobtn':'readonly disabled', // didnt have to start from here
-							'customer_order_no_txt'		:	'readonly disabled',
+							'direct_delivery_to_the_customer_radiobtn':'readonly disabled',
+							'customer_order_no_txt'		:	'readonly disabled',//
 							'customer_drpdwn'			:	'readonly disabled',
 							'labo_address_or_other_txtarea':'readonly disabled',
 							'process_deliverable_file'	:	'readonly disabled',
-							'yes_i_specified_process_req_checkbox':'readonly disabled',
+							'yes_i_specified_process_req_checkbox':'readonly disabled', 
 							'comment_process_validation_txtarea':'readonly disabled',
 							
 }
@@ -173,9 +173,9 @@ componentCreationMandatorySettings = {
 							'estimated_unit_internal_cost_txt':	'data-required=yes data-type=text',
 							'estimated_unit_external_cost_txt':	'data-required=yes data-type=text',
 							'mep_study_drpdwn'				:	'data-required=yes data-type=text',
-							'customer_reference_component_description_txt':'data-required=yes data-type=text',
+							'customer_reference_txt':'data-required=yes data-type=text',
 							'product_specification_txtarea'	:	'data-required=yes data-type=text',
-							'direct_delivery_to_the_customer_radiobtn':'data-required=yes data-type=text',
+							'direct_delivery_to_the_customer_radiobtn1':'data-required=yes data-type=text',
 							'product_type_component_description_drpdwn':'data-required=yes data-type=text',
 							
 							
