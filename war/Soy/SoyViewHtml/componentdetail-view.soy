@@ -2,6 +2,9 @@
 /**
  * ComponentDetail View
  * @param paramValue
+ * @param visibleconfig
+ * @param editableconfig
+ * @param mandatoryconfig
  */
 {template .ComponentDetailView}
 		<div class="col-md-12">
@@ -21,11 +24,11 @@
 							</div>
 							<div class="form-group col-md-3 " id="customerOrderNodiv">
 							    <label for="name" >{$paramValue['Customer order N0']}</label>
-							    <input id="customer_order_no_compage_txt" {$editableconfig['customer_order_no_compage_txt']} type="text" class="form-control input-sm" >
+							    <input id="customer_order_no_compage_txt" {$visibleconfig['customer_order_no_component_details_txt']} {$editableconfig['customer_order_no_compage_txt']} type="text" class="form-control input-sm" >
 							</div>
 							<div class="form-group col-md-3">
 							    <label for="name">{$paramValue['Customer reference']}</label>
-							    <input type="text" {$editableconfig['customer_reference_txt']} id="customer_reference_txt" class="form-control input-sm" >
+							    <input type="text" {$mandatoryconfig['customer_reference_txt']} {$editableconfig['customer_reference_txt']} id="customer_reference_txt" class="form-control input-sm" >
 							</div>
 							<div class="form-group col-md-3">
 							    <label for="name">{$paramValue['Product type']}</label>
@@ -33,7 +36,7 @@
 							</div>
 							<div class="form-group col-md-3">
 							    <label for="name">{$paramValue['Component ID']}</label>
-							    <input type="text" {$editableconfig['component_id_txt']} id="component_id_txt" class="form-control input-sm"  >
+							    <input type="text" {$editableconfig['component_id_txt']} {$mandatoryconfig['component_id_txt']} id="component_id_txt" class="form-control input-sm"  >
 							</div>
 							<div class="form-group col-md-3">
 							    <label for="name">{$paramValue['Component status']}</label>
@@ -67,7 +70,7 @@
 										        		</div>
 										        		<div class="form-group col-md-3">
 										        			<label for="name">{$paramValue['Product type']} <span class="text-danger">*</span></label>
-									        				<select class="selectpicker"  data-width="100%" title=" " >
+									        				<select class="selectpicker" id="product_type_component_description_drpdwn" {$mandatoryconfig['product_type_component_description_drpdwn']} data-width="100%" title=" " >
 														        <option>option</option>
 														        <option>option</option>
 														        <option>option</option>
@@ -76,13 +79,13 @@
 														        <option>option</option>
 														    </select>
 										        		</div>
-										        		<div class="form-group col-md-3 " id="unitsellingpriceDiv">
+										        		<div class="form-group col-md-3 " id="unitsellingpriceDiv" {$visibleconfig['unit_selling_price_txt']}>
 										        			<label for="name" >{$paramValue['Unit selling price']}(&#x20AC;)</label>
 									        				<input type="text" class="form-control input-sm" {$editableconfig['unit_selling_price_txt']} id="unit_selling_price_txt"/>
 										        		</div>
 										        		<div class="form-group col-md-3 " id="customerdiv">
 										        			<label for="name">{$paramValue['Customer']}</label>
-									        				<select class="selectpicker" id="customerselect" data-width="100%" title=" " id="customer">
+									        				<select class="selectpicker" id="customer_drpdwn" {$editableconfig['customer_drpdwn']} data-width="100%" title=" " id="customer">
 														        <option>option</option>
 														        <option>option</option>
 														        <option>option</option>
@@ -91,24 +94,24 @@
 														        <option>option</option>
 														    </select>
 										        		</div>
-										        		<div class="form-group col-md-3 " id="directDeliveryDiv">
+										        		<div class="form-group col-md-3 " id="directDeliveryDiv" {$visibleconfig['direct_delivery_to_the_customer_radiobtn']} >
 											      			<label>{$paramValue['Direct delivery to the customer']}? <span class="text-danger">*</span></label>
 											      			<div style="padding: 1.5px 0;">
-											      				<label class="radio-inline"><input type="radio" name="optradio1" style="margin-top: 1px;" value="Yes" >{$paramValue['Yes']}</label>
-																<label class="radio-inline"><input type="radio" name="optradio1" style="margin-top: 1px;" value="No" >{$paramValue['No']}</label>
+											      				<label class="radio-inline"><input type="radio" {$mandatoryconfig['direct_delivery_to_the_customer_radiobtn1']} id="direct_delivery_to_the_customer_radiobtn1" {$editableconfig['direct_delivery_to_the_customer_radiobtn1']} name="optradio1" style="margin-top: 1px;" value="Yes" >{$paramValue['Yes']}</label>
+																<label class="radio-inline"><input type="radio" {$mandatoryconfig['direct_delivery_to_the_customer_radiobtn2']} id="direct_delivery_to_the_customer_radiobtn2" {$editableconfig['direct_delivery_to_the_customer_radiobtn2']} name="optradio1" style="margin-top: 1px;" value="No" >{$paramValue['No']}</label>
 											      			</div>
 											      		</div>
 										        		<div class="form-group col-md-3">
 										        			<label for="name">{$paramValue['Product specification']} <span class="text-danger">*</span></label>
-										        			<textarea  class="form-control" style="height: 65px;resize: none;"></textarea>
+										        			<textarea  class="form-control" id="product_specification_txtarea" {$mandatoryconfig['product_specification_txtarea']} style="height: 65px;resize: none;"></textarea>
 										        		</div>
-											      		<div class="form-group col-md-3 " id="laboaddressdiv">
+											      		<div class="form-group col-md-3 " id="laboaddressdiv" {$visibleconfig['labo_address_or_other_txtarea']} >
 										        			<label for="name" id="labolabel">{$paramValue['Labo address or other']}</label>
-										        			<textarea class="form-control" style="height: 65px;resize: none;" id="laboaddress"></textarea>
+										        			<textarea class="form-control" style="height: 65px;resize: none;" {$editableconfig['labo_address_or_other_txtarea']} id="labo_address_or_other_txtarea"></textarea>
 										        		</div>
 										        		<div class="form-group col-md-3">
 										        			<label for="name">{$paramValue['Comment']}</label>
-										        			<textarea class="form-control" style="height: 65px;resize: none;"></textarea>
+										        			<textarea {$visibleconfig['comment_component_description_txtarea']} id="comment_component_description_txtarea" class="form-control" style="height: 65px;resize: none;"></textarea>
 										        		</div>
 									        		</div>
 									        	</div>
@@ -218,7 +221,7 @@
 													    <label>{$paramValue['Total Quantity']}</label>
 													    <input type="text" id="total_quantity_txt" {$editableconfig['total_quantity_txt']} class="form-control input-sm" />
 													</div>
-													<div class="form-group col-md-6 " id="totalamtDiv">
+													<div class="form-group col-md-6 " id="totalamtDiv" {$visibleconfig['total_amount_txt']}>
 													    <label>{$paramValue['Total amount']}</label>
 													      <input type="text" id="total_amount_txt" {$editableconfig['total_amount_txt']} class="form-control input-sm"  id="totalamount"/>
 													</div>
@@ -406,7 +409,7 @@
 									        	</div>
 									        	
 										</div>
-										<div role="tabpanel" class="tab-pane" id="processvalid-subtab">
+										<div role="tabpanel" class="tab-pane" id="processvalid-subtab" {$visibleconfig['process_deliverable_file']} >
 											<div class="row">
 												<div class="col-md-12" style="padding-top: 15px;">
 													<div class="form-group col-md-6">
@@ -414,7 +417,7 @@
 																<div class="panel-heading" style="background: #fff;">
 																	<h4 class="panel-title">
 																		<label style="margin-bottom: 0;">{$paramValue['Process deliverable']}</label> 
-																		<button type="button" class="btn btn-default btn-sm pull-right" style="margin-top: -5px;padding: 3px 5px;" data-toggle="modal" data-target="#orderattach-modal">
+																		<button type="button" id="process_deliverable_file" {$editableconfig['process_deliverable_file']} class="btn btn-default btn-sm pull-right" style="margin-top: -5px;padding: 3px 5px;" data-toggle="modal" data-target="#orderattach-modal">
 																			<i class="fa fa-paperclip" style="margin-right: 5px;"></i>{$paramValue['Add Attach']}
 																		</button>
 																	</h4>
@@ -435,11 +438,11 @@
 														</div>
 													<div class="form-group col-md-6">
 														<label for="name">{$paramValue['Comment']}</label>
-														<textarea class="form-control" style="height: 67px;resize: none;"></textarea>
+														<textarea class="form-control" id="comment_process_validation_txtarea" {$editableconfig['comment_process_validation_txtarea']} style="height: 67px;resize: none;"></textarea>
 													</div>
 													<div class="checkbox col-md-12">
 													  <label>
-													    <input type="checkbox" value="">
+													    <input type="checkbox" value="" id="yes_i_specified_process_req_checkbox" {$editableconfig['yes_i_specified_process_req_checkbox']}>
 													    {$paramValue['YES (I specified process requirements)']}
 													  </label>
 													</div>
@@ -527,11 +530,11 @@
 										        		</div>
 										        		<div class="form-group col-md-6">
 										        			<label>{$paramValue['Estimated unit internal cost']} (&#x20AC; / {$paramValue['Component']}) <span class="text-danger">*</span></label>
-									        				<input type="text" id="estimated_unit_internal_cost_txt" {$editableconfig['estimated_unit_internal_cost_txt']} class="form-control input-sm"/>
+									        				<input type="text" id="estimated_unit_internal_cost_txt" {$mandatoryconfig['estimated_unit_internal_cost_txt']} {$editableconfig['estimated_unit_internal_cost_txt']} class="form-control input-sm"/>
 										        		</div>
 										        		<div class="form-group col-md-6">
 										        			<label>{$paramValue['Estimated unit external cost']} (&#x20AC; / {$paramValue['Component']}) <span class="text-danger">*</span></label>
-									        				<input type="text" id="estimated_unit_external_cost_txt" {$editableconfig['estimated_unit_external_cost_txt']} class="form-control input-sm"/>
+									        				<input type="text" id="estimated_unit_external_cost_txt" {$mandatoryconfig['estimated_unit_external_cost_txt']} {$editableconfig['estimated_unit_external_cost_txt']} class="form-control input-sm"/>
 										        		</div>
 										        		<div class="form-group col-md-6">
 										        			<label>{$paramValue['Estimated total cost components']} (&#x20AC;) :</label>
@@ -539,15 +542,15 @@
 										        		</div>
 										        		<div class="form-group col-md-6">
 										        			<label>{$paramValue['Estimated time unit of components (hour)']} <span class="text-danger">*</span></label>
-									        				<input type="text" id="estimated_time_unit_of_components_txt" {$editableconfig['estimated_time_unit_of_components_txt']} class="form-control input-sm"/>
+									        				<input type="text" id="estimated_time_unit_of_components_txt" {$mandatoryconfig['estimated_time_unit_of_components_txt']} {$editableconfig['estimated_time_unit_of_components_txt']} class="form-control input-sm"/>
 										        		</div>
 										        		<div class="form-group col-md-3">
 										        			<label>{$paramValue['Hourly rate']} <span class="text-danger">*</span></label>
-									        				<input type="text" id="hourly_rate_txt" {$editableconfig['hourly_rate_txt']} class="form-control input-sm"/>
+									        				<input type="text" id="hourly_rate_txt" {$mandatoryconfig['hourly_rate_txt']} {$editableconfig['hourly_rate_txt']} class="form-control input-sm"/>
 										        		</div>
 										        		<div class="form-group col-md-3">
 										        			<label>{$paramValue['Fixed costs']} <span class="text-danger">*</span></label>
-									        				<input type="text" id="fixed_costs_txt" {$editableconfig['fixed_costs_txt']}  class="form-control input-sm"/>
+									        				<input type="text" id="fixed_costs_txt" {$mandatoryconfig['fixed_costs_txt']} {$editableconfig['fixed_costs_txt']}  class="form-control input-sm"/>
 										        		</div>
 										        		<div class="form-group col-md-6">
 										        			<label>{$paramValue['Estimated time total of components (hour)']}</label>
@@ -561,7 +564,7 @@
 												</div>
 											</div>
 										</div>
-										<div role="tabpanel" class="tab-pane" id="qualdel-subtab">
+										<div role="tabpanel" class="tab-pane" id="qualdel-subtab" {$visibleconfig['quality_deliverable_file']}>
 											<div class="row">
 												<div class="col-md-12" style="padding-top: 15px;">
 													<div class="form-group col-md-6">
