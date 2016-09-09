@@ -2,84 +2,84 @@ $(document).ready(function()
 {
 				$(document).on("click", "#save_actor", function(e) 
 				{
-					validateAdminSection('actor_modal_body').done(function()
+					validateAdminSection('actor_modal_body',function()
 				    {
 						saveActor();
 				    });
 				});
 				$(document).on("click", "#save_incoterms", function(e) 
 				{
-					validateAdminSection('incoterms_modal_body').done(function()
+					validateAdminSection('incoterms_modal_body',function()
 					{
 						saveIncoterms();
 					});
 				});
 				$(document).on("click", "#save_customer", function(e) 
 				{
-					validateAdminSection('customers_modal_body').done(function()
+					validateAdminSection('customers_modal_body',function()
 					{
 						saveCustomer();
 					});
 				});
 		 		$(document).on("click", "#save_plateform", function(e) 
 			    {
-		 			validateAdminSection('platform_modal_body').done(function()
+		 			validateAdminSection('platform_modal_body',function()
 					{
 		 				savePlateform();
 					});
 			    });
 			    $(document).on("click", "#save_places", function(e) 
 			    {
-			    	validateAdminSection('places_modal_body').done(function()
+			    	validateAdminSection('places_modal_body',function()
 					{
 			    		savePlace();
 					});
 			    });
 			    $(document).on("click", "#save_site", function(e) 
 			    {
-			    	validateAdminSection('sites_modal_body').done(function()
+			    	validateAdminSection('sites_modal_body',function()
 					{
 			    		saveSite();
 					});
 			    });
 			    $(document).on("click", "#save_producttype", function(e) 
 			    {
-					validateAdminSection('producttype_modal_body').done(function()
+					validateAdminSection('producttype_modal_body',function()
 				    {
 					    saveProductType();
 					});
 				});
 			    $(document).on("click", "#save_prototypists", function(e) 
 			    {
-						validateAdminSection('Prototypists_modal_body').done(function()
+						validateAdminSection('Prototypists_modal_body',function()
 						{
 							savePrototypists();
 						});
 				});
 			    $(document).on("click", "#save_technology", function(e) 
 			    {
-						validateAdminSection('technology_modal_body').done(function()
+						validateAdminSection('technology_modal_body',function()
 						{
 							saveTechnology();
 						});
 				});
 			    $(document).on("click", "#save_randD", function(e) 
 			    {
-						validateAdminSection('randD_modal_body').done(function()
+						validateAdminSection('randD_modal_body',function()
 						{
 							saveRandD();
 						});
 				});
 			    $(document).on("click", "#save_allocation", function(e) 
 			    {
-					    validateAdminSection('allocation_modal_body').done(function()
+					    validateAdminSection('allocation_modal_body',function()
 						{
 					    	saveAllocation();
 						});
 				});
 			    $(document).on("click", "#save_clientlabo", function(e) 
 				{
-						validateAdminSection('clientlabo_modal_body').done(function()
+						validateAdminSection('clientlabo_modal_body',function()
 						{
 							saveClientLabo();
 						});
@@ -92,9 +92,9 @@ $(document).ready(function()
 				{
 			    	 if(currentPage.get().indexOf("#createorder")!=-1)
 			         {
-			    		 validateOrder().done(function()
+			    		 validateOrder(function()
 						 {
-			    			 validateProtypeID().done(function()
+			    			 validateProtypeID(function()
 			    			 {
 			    				 saveOrder();
 			    			 });
@@ -102,27 +102,22 @@ $(document).ready(function()
 			         }		 
 			    	 else if(currentPage.get().indexOf("#componentdetails")!=-1)
 			    	 {
-			    		 validateComponent().done(function()
+			    		 validateComponent(function()
 						 {
 						   	saveComponent();
 						 });
-			    	 }	 
+			    	 }	
+			    	 else if(currentPage.get().indexOf("#orderdetails")!=-1)
+			    	 {
+			    		 validateOrder(function()
+						 {
+					    	validateProtypeID(function()
+					    	{
+					    		saveOrder();
+					    	});
+						 });
+			    	 }
 				});
-			    $(document).on("click", ".language li a", function(e)
-			    {
-			    	   var languageChanged = $.trim($(this).text());
-			    	   if (window.language != languageChanged)
-			    	        {
-			    	            bootbox.confirm("Any unsaved changes will be lost. Are you sure you want to change the language?", function(result)
-			    	            {
-			    	                if (result)
-			    	                {
-			    	                    console.log("ste ::" + languageChanged);
-			    	                    loadAllViewsAgainBasedOnLanguage(languageChanged);
-			    	                }
-			    	            });
-			    	        }
-			    });
 		    	$('.selectpicker').selectpicker();
 		    	$('.selectpicker').on('changed.bs.select', function(e)
 		    	{

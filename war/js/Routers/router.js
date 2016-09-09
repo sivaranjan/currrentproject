@@ -2,30 +2,28 @@ var Router = Backbone.Router.extend(
 {
     routes:
     {
-        '/*'				: 	'home',
-        'home'				: 	'home',
-        'createorder'		: 	'order',
-        'adminsetting'		: 	'admin',
-        'componentdetails'	: 'component',
-        'orderlisting'		: 	'orderlist',
-        'orderdetails'		: 	'orderdetails',
+        '/*'			: 	'home',
+        'home'			: 	'home',
+        'createorder'	: 	'order',
+        'adminsetting'	: 	'admin',
+        'componentdetails': 'component',
+        'orderlisting'	: 	'orderlist',
+        'orderdetails'	: 	'orderdetails',
         'componentlisting'	: 	'componentlist',
     }
 });
 var routerTHS = new Router();
 routerTHS.on('route:home', function(action)
 {
-//    $('#pleasewait').modal('show');
-    pullUserInfo().done(function()
+	$('#pleasewait').html('<center><img src="/images/loader.gif" style="height: 80px;margin: 24%;"></img></center>');
+    $('#pleasewait').modal('show');
+    pullUserInfo(function()
     {
-    	alert("1");
-        renderBackboneView("home").done(function()
+    	renderBackboneView("home",function()
         {
-        	alert("2");
-            SetView("home").done(function()
+    		SetView("home",function()
             {
-            	alert("3");
-//                $('#pleasewait').modal('hide');
+    			$('#pleasewait').modal('hide');
             });
         });
     });
@@ -33,18 +31,16 @@ routerTHS.on('route:home', function(action)
 routerTHS.on('route:order', function(action)
 {
 	$('#pleasewait').modal('show');
-    pullUserInfo().done(function()
+    pullUserInfo(function()
     {
-        pullOrderDependencies().done(function()
+        pullOrderDependencies(function()
         {
-        	renderBackboneView("createorder").done(function()
+        	renderBackboneView("createorder",function()
         	{
-        		SetView("createorder").done(function()
+        		SetView("createorder",function()
         		{
-                	SetDetails().done(function()
-                	{
-                		$('#pleasewait').modal('hide');                		
-                	})
+                	SetDetails();
+                	$('#pleasewait').modal('hide');
                 });
         	});
         });
@@ -53,11 +49,11 @@ routerTHS.on('route:order', function(action)
 routerTHS.on('route:admin', function(action)
 {
 	$('#pleasewait').modal('show');
-    pullUserInfo().done(function()
+    pullUserInfo(function()
     {
-    	renderBackboneView("adminsetting").done(function()
+    	renderBackboneView("adminsetting",function()
         {
-    		SetView("adminsetting").done(function()
+    		SetView("adminsetting",function()
     	    {
     			$('#pleasewait').modal('hide');
     			// This does the hide and show of divs	
@@ -68,11 +64,11 @@ routerTHS.on('route:admin', function(action)
 routerTHS.on('route:component', function(action)
 {
 	$('#pleasewait').modal('show');
-    pullUserInfo().done(function()
+    pullUserInfo(function()
     {
-    	renderBackboneView("componentdetails").done(function()
+    	renderBackboneView("componentdetails",function()
     	{
-    		SetView("componentdetails").done(function()
+    		SetView("componentdetails",function()
     	    {
     			$('#pleasewait').modal('hide');
     	    	// This does the hide and show of divs    			
@@ -83,11 +79,11 @@ routerTHS.on('route:component', function(action)
 routerTHS.on('route:orderlist', function(action)
 {
 	$('#pleasewait').modal('show');
-    pullUserInfo().done(function()
+    pullUserInfo(function()
     {
-    	renderBackboneView("orderlisting").done(function()
+    	renderBackboneView("orderlisting",function()
     	{
-    		SetView("orderlisting").done(function()
+    		SetView("orderlisting",function()
     	    {
     			$('#pleasewait').modal('hide');
     			// This does the hide and show of divs    			
@@ -98,11 +94,11 @@ routerTHS.on('route:orderlist', function(action)
 routerTHS.on('route:componentlist', function(action)
 {
 	$('#pleasewait').modal('show');
-	pullUserInfo().done(function()
+	pullUserInfo(function()
 	{
-		renderBackboneView("componentlisting").done(function()
+		renderBackboneView("componentlisting",function()
 		{
-		    SetView("componentlisting").done(function()
+		    SetView("componentlisting",function()
 		    {
 		    	$('#pleasewait').modal('hide');		// This does the hide and show of divs    			
 		    });	
@@ -116,19 +112,19 @@ routerTHS.on('route:orderdetails', function(action)
 	if(document.URL.indexOf('?orderid=')!=-1)
 	{
 		currentPrototypeID = document.URL.split('?orderid=')[1];
-		pullUserInfo().done(function()
+		pullUserInfo(function()
 		{
-			 pullOrderDependencies.done(function()
+			 pullOrderDependencies(function()
 		     {
-				 renderBackboneView("createorder").done(function()
+				 renderBackboneView("createorder",function()
 				 {
-				   	 SetView("orderdetails").done(function()
+				   	 SetView("orderdetails",function()
 					 {
-				   		  SetDetails().done(function()
+				   		  SetDetails(function()
 				   		  {
-				   			   fetchProtypeOrderObject(currentPrototypeID).done(function()
+				   			   fetchProtypeOrderObject(currentPrototypeID,function()
 							   {
-				   				   $('#pleasewait').modal('hide');
+				   				$('#pleasewait').modal('hide');
 							   });
 				   		  });
 					  });	

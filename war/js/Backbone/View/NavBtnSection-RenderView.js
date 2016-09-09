@@ -22,7 +22,15 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend(
                 		'paramValue'	: 	window.navBtnSection_englishLabelList,
                 		'visibleconfig'	: 	window.componentnavVisibilitySettings
                  });
-        	}	
+        	}
+        	else
+        	{
+        		 NavBtnSectionHTML 	= 	navigation.manager.NavBtnViewDetail(
+                 {
+                	 'paramValue'	: 	window.navBtnSection_englishLabelList,
+     		        'visibleconfig'	: 	window.ordernavVisibilitySettings
+                 });
+        	}
         }
         else
         {
@@ -40,6 +48,14 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend(
                  {
                 	  'paramValue'	: 	window.navBtnSection_frenchLabelList,
                 	  'visibleconfig'	: 	window.componentnavVisibilitySettings
+                 });
+        	}
+        	else
+        	{
+        		 NavBtnSectionHTML 	= 	navigation.manager.NavBtnViewDetail(
+                 {
+                	 'paramValue'		: 	window.navBtnSection_frenchLabelList,
+       	          	'visibleconfig'	: 	window.ordernavVisibilitySettings
                  });
         	}
             
