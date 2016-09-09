@@ -4,21 +4,7 @@ $(document).ready(function()
     {
         $(this).removeClass('error');
     });
-    $(document).on("click", ".language li a", function(e)
-    {
-        var languageChanged = $.trim($(this).text());
-        if (window.language != languageChanged)
-        {
-            bootbox.confirm("Any unsaved changes will be lost. Are you sure you want to change the language?", function(result)
-            {
-                if (result)
-                {
-                    console.log("ste ::" + languageChanged);
-                    loadAllViewsAgainBasedOnLanguage(languageChanged);
-                }
-            });
-        }
-    });
+    
 });
 
 var showVoiceBox = (function()

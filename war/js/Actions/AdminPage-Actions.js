@@ -1,5 +1,6 @@
 (function()
 {
+	var deferred 					= 			$.Deferred();
 	saveSite 						= 		function()
     										{
 											        var siteName 		= 	$("#site_name").val();
@@ -356,19 +357,24 @@
 										                    var dataAttr = $('ul#addActorUL').find('li.active').data('attr');
 										                    $('#actorLabel').html(dataAttr);
 										                    $('#actor-modal').modal('show');
-										                    var fetchSitesforActors = new BackboneData.Collections.fetchSitesList();
-										                    $.when(fetchSitesforActors.fetch()).done(function(response, xhr)
-															{
-										                    	var responseData = response.data;
-										                    	console.log("sites data down ");
-										                    	console.log(responseData);
-										                    	var sitesHTML 	= "";
-										                    	responseData.forEach(function(arrayItem)
-														        {
-										                    		sitesHTML += '<option>' + arrayItem.site_Name + '</option>';
-														        });
-										                    	$('#actor_site').html(sitesHTML).selectpicker('refresh');
-															}).fail(function() {});
+										                    $.ajax({
+														           type: 'get',
+														           url: ApplicationConstants.fetchSitesList,
+														           contentType: "application/json; charset=utf-8",
+														           traditional: true,
+														           success: function (data) 
+														           {
+														        	    var responseData = data.data;
+												                    	console.log("sites data down ");
+												                    	console.log(responseData);
+												                    	var sitesHTML 	= "";
+												                    	responseData.forEach(function(arrayItem)
+																        {
+												                    		sitesHTML += '<option>' + arrayItem.site_Name + '</option>';
+																        });
+												                    	$('#actor_site').html(sitesHTML).selectpicker('refresh');
+														           }
+										                    });
 										                }
 										            }]
 										        });
@@ -695,11 +701,10 @@
 												});
 												$('.dt-buttons a.btn').removeClass('dt-button');
 											},
-	validateAdminSection				= 	function(div,done)
+	validateAdminSection				= 	function(div)
 									    	{
 										        if (validate.getInstance().formordiv(div))
 										        {
-										            validateAndDoCallback(done);
 										        }
 										        else
 										        {
@@ -711,6 +716,8 @@
 										                }
 										            })
 										        }
+										        deferred.resolve();
+										        return deferred;
 									    	};
 	renderTabClick 						= 	function()
 									    	{

@@ -1,7 +1,8 @@
 (function()
 {
-	saveOrder 						= 		function()
-    										{
+	var deferred 		= 			$.Deferred();
+	saveOrder 			= 			function()
+    								{
 													showVoiceBox.configure("Saving your order",2000);
 											        var Site_Workshop_Prototype 	= 	$('#Site_Workshop_Prototype').val();
 											        var Geosite 					= 	$('#Geosite').val();
@@ -39,7 +40,7 @@
 											        var fotrade 					= 	$('#fotrade').val();
 											        var adv 						= 	$('#adv').val();
 											        var projmanager 				= 	$('#projmanager').val();
-											        var orderDetailsObj 	= 	new BackboneData.Models.OrderDetailModel(
+											        var orderDetailsObj 			= 	new BackboneData.Models.OrderDetailModel(
 										        	{
 										        	            site_Workshop_Prototype		:	Site_Workshop_Prototype,
 										        	            geoSite						: 	Geosite,
@@ -91,19 +92,19 @@
 										        			    	showVoiceBox.configure("Order saved successfully",2000);
 										        			        window.orderStatus = "saved";
 										        			   }
-										        	   });
+										        	  });
     										};
     saveComponent		 			     = 		function()
 		    									{
 												    	showVoiceBox.configure("Component created successfully",2000);
 												        $('#componentidfield').val("C0000001");
 		    									};
-	validateOrder						 =		function(done)
+	validateOrder						 =		function()
 												{
 													var setFlag = false;
 													if (validate.getInstance().formordiv('orderdetailview'))
 											        {
-														validateAndDoCallback(done);
+														deferred.resolve();
 											        }
 											        else
 											        {
@@ -134,47 +135,54 @@
 											            });
 											            if (!setFlag)
 												        {
-											            	validateAndDoCallback(done);
+											            	deferred.resolve();
 												        }
 											        }
+													return deferred;
 												};
-    validateProtypeID					=	function(done)
+    validateProtypeID					=	function()
     										{
-    											var currentProtypeID = $.trim(localStorage.getItem("lastGeneratedID"));
-    											currentProtypeID = parseInt(currentProtypeID)-1;
-    											var  IdListObj 	= 	new BackboneData.Collections.fetchlastPrototypeID();
-    									        $.when(IdListObj.fetch()).done(function(response, xhr)
-    									        {
-    									        	 var lastIDObj = response.data;
-    									        	 lastIDObj.forEach(function(arrayItem)
-    											     {
-    										              var lastGeneratedID 	= 	parseInt(arrayItem.next_id);
-    										              if(lastGeneratedID!=currentProtypeID)
-    										              {
-    										            	  bootbox.confirm("The selected ID has been chosen for other Order. New prototype order number has been created. Do you want to continue saving the order?", function(result)
-    										            	  {
-    										            	       if (result)
-    										            	       {
-    										            	    	   $('#No_Prototype_Order').val();
-    										            	    	   generateNewPrototypeID();
-    										            	    	   validateAndDoCallback(done);
-    										            	       }
-    										            	  });
-    										              } 
-    										              else
-    										              {
-    										            	  validateAndDoCallback(done);
-    										              } 	  
-    											     });
-    									        	 
-    									        }).fail(function() {});
+    											var currentProtypeID 	= 	$.trim(localStorage.getItem("lastGeneratedID"));
+    											currentProtypeID 		= 	parseInt(currentProtypeID)-1;
+    											$.ajax({
+											           type: 'get',
+											           url: ApplicationConstants.fetchlastPrototypeID,
+											           contentType: "application/json; charset=utf-8",
+											           traditional: true,
+											           success: function (data) 
+											           {
+											        	     var lastIDObj 		= 	data.data;
+		    									        	 lastIDObj.forEach(function(arrayItem)
+		    											     {
+		    										              var lastGeneratedID 	= 	parseInt(arrayItem.next_id);
+		    										              if(lastGeneratedID!=currentProtypeID)
+		    										              {
+		    										            	  bootbox.confirm("The selected ID has been chosen for other Order. New prototype order number has been created. Do you want to continue saving the order?", function(result)
+		    										            	  {
+		    										            	       if (result)
+		    										            	       {
+		    										            	    	   $('#No_Prototype_Order').val();
+		    										            	    	   generateNewPrototypeID();
+		    										            	    	  deferred.resolve();
+		    										            	       }
+		    										            	  });
+		    										              } 
+		    										              else
+		    										              {
+		    										            	 deferred.resolve();
+		    										              } 	  
+		    											     });
+		    									    
+											           }
+    											});
+    											return deferred;
     										};
 	validateComponent					= function(done)
 										  {
 												var setFlag = false;
 												if (validate.getInstance().formordiv('component-section'))
 										        {
-										            validateAndDoCallback(done);
+										            deferred.resolve();
 										        }
 										        else
 										        {
@@ -205,9 +213,10 @@
 										            });
 										            if (!setFlag)
 											        {
-										            	validateAndDoCallback(done);
+										            	deferred.resolve();
 											        }
 										        }
+												return deferred;
 										  };
 	setOrderDetails					= function(orderDetailsObj)
 									  {
@@ -222,7 +231,7 @@
 										        $('#Geosite').val(arrayItem.geoSite);
 										        $('#Type_of_the_Prototype_Order').selectpicker('val', arrayItem.type_of_the_Prototype_Order);//drpdwn
 										        $('#Date_of_the_Order').val(arrayItem.date_of_the_Order); 
-										        loadActorsOnOrderDetails(arrayItem.site_Workshop_Prototype,function()
+										        loadActorsOnOrderDetails(arrayItem.site_Workshop_Prototype).done(function()
 										        {
 										        	 /*=========== Actors ==========*/
 											        $('#requester').selectpicker('val', arrayItem.requester);
@@ -281,7 +290,7 @@
 										        checkMandatoryOnLoad(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type);
 									        });
 									  };
-  fetchCustomerDetailsOnLoad    =    function(customerNameSelected,done)
+  fetchCustomerDetailsOnLoad    =    function(customerNameSelected)
   									 {
 									      $.ajax({
 										           type: 'get',
@@ -300,7 +309,6 @@
 										                    $('#Provider_Code').val(arrayItem.provider_Code);
 										                    $('#Final_Delivery_Address').val(arrayItem.customer_Address);
 										                });
-										                validateAndDoCallback(done);
 										           }
 									      });
   									  };
@@ -447,7 +455,7 @@
 												$('#advdiv').addClass('hide');
 											}	
   									};
-  loadActorsOnOrderDetails  	= 	function(Site_Workshop_Prototype,done)
+  loadActorsOnOrderDetails  	= 	function(Site_Workshop_Prototype)
   									{
 										  $.ajax({
 									          type: 'get',
@@ -460,13 +468,13 @@
 									       	   console.log("mini areat");
 									       	   var response = data;
 									       	   response =response.data;
-									               var MEPList 			= 	new Array();
-									               var QualityList 		= 	new Array();
+									               var MEPList 				= 	new Array();
+									               var QualityList 			= 	new Array();
 									               var ProtoWorkshopList 	= 	new Array();
-									               var ControlMgmtList 	= 	new Array();
-									               var foTradeList 		= 	new Array();
-									               var advList 			= 	new Array();
-									               var projectManagerList  = 	new Array();
+									               var ControlMgmtList 		= 	new Array();
+									               var foTradeList 			= 	new Array();
+									               var advList 				= 	new Array();
+									               var projectManagerList  	= 	new Array();
 									               response.forEach(function(arrayItem)
 									               {
 									                       var actorType = arrayItem.actorType;
@@ -565,9 +573,10 @@
 									                   htmllist += '<option>' + projectManagerList[i] + '</option>';
 									               }
 									               $('#projmanager').html(htmllist).selectpicker('refresh');
-									               validateAndDoCallback(done);
+									               deferred.resolve();
 									          }
 										   	  });
+										  return deferred;
   									};
   	buildCompListTable				=	function()
   										{
@@ -604,4 +613,312 @@
 													});
 									  		 		buildSearchForTable('complistTable_footer th','compListTable');
   										};	
+  										pullUserInfo 	= 			function()
+  		    							{
+  										        $.ajax({
+										           type: 'get',
+										           url: ApplicationConstants.fetchUserInfoDetails+useremailid,
+										           contentType: "application/json; charset=utf-8",
+										           traditional: true,
+										           async : false,
+										           success: function (data) 
+										           {
+										        	    var google = data.data;
+ 										                console.log(google);
+ 										                if (data.data.length)
+ 										                {
+ 										                    google.forEach(function(arrayItem)
+ 										                    {
+ 										                    	setLanguageButton(arrayItem.language).done(function(){});
+ 										                    });
+ 										                }
+ 										                else
+ 										                {
+ 										                	window.language = "EN";
+ 										                	setUserDetail("EN").done(function(){});
+ 										                }
+ 										                deferred.resolve();
+										           }
+  										        });
+  										      return deferred;
+  		    								 };
+  		    pullOrderDependencies 			  = 		function()
+  				    									{
+  		    												
+  		    												$.ajax({
+														           type: 'get',
+														           url: ApplicationConstants.fetchOrderDependencies,
+														           contentType: "application/json; charset=utf-8",
+														           traditional: true,
+														           success: function (data) 
+														           {
+														        	   console.log(data);
+	  													        	    window.orderDependenciesListObj || (window.orderDependenciesListObj = {});
+	  													        	    window.orderDependenciesListObj = data;
+	  													        	    SetDetails().done(function()
+	  													        	    {
+	  													        	    	deferred.resolve();	
+	  													        	    });
+														           }
+  		    												});
+  													        return deferred;
+  				    									};
+  		    loadAllViewsAgainBasedOnLanguage 	= 	function(languageChanged)
+  		    										{
+  		    											alert("11");
+  		    											changeLanguageforUser(languageChanged).done(function()
+  		    											{
+  		    												alert("12");
+  		    												renderBackboneView(document.URL.split("#")[1]).done(function()
+  		    												{
+  		    													alert("13");
+  		    												       SetView(document.URL.split("#")[1]).done(function()
+  		    												       {
+  		    												    	   alert("14");
+  		    												        	deferred.resolve();	
+  		    												       });
+  		    												});		
+  		    											});
+  		    											return deferred;
+  		    										};
+  		    SetDetails 					= 		function()
+  		    									{
+  		    											
+  		    	 										var buildDropDowns 	= 	window.orderDependenciesListObj;
+  		    	 										if(buildDropDowns!=undefined && buildDropDowns!=null)
+  		    	 										{
+  		    	 											var customersMap 	= 	buildDropDowns.customersMap.list;
+  		        	 										var incotermsMap 	= 	buildDropDowns.incotermsMap.list;
+  		        	 										var placesMap 		= 	buildDropDowns.placesMap.list;
+  		        	 										var platformMap 	= 	buildDropDowns.platformMap.list;
+  		        	 										var sitesMap 		= 	buildDropDowns.sitesMap.list;
+  		        	 										var allocationTurnOverMap = buildDropDowns.allocationTurnOverMap.list;
+  		    								                var platformlistHTML,sitesListHTML,customersListHTML,placesListHTML,incotermsListHTML,allocationHTML = "";
+  		    								                customersMap.forEach(function(arrayItem)
+  		    								                {
+  		    								                	  	customersListHTML += '<option>' + arrayItem.customer_Name + '</option>';
+  		    								                });
+  		    								                incotermsMap.forEach(function(arrayItem)
+  		    										        {
+  		    								                		incotermsListHTML += '<option>' + arrayItem.incoterms + '</option>';
+  		    										        });
+  		    								                placesMap.forEach(function(arrayItem)
+  		    										        {
+  		    								                		placesListHTML += '<option>' + arrayItem.places + '</option>';
+  		    										        });
+  		    								                platformMap.forEach(function(arrayItem)
+  		    										        {
+  		    								                		platformlistHTML += '<option>' + arrayItem.plateform + '</option>';
+  		    										        });
+  		    								                sitesMap.forEach(function(arrayItem)
+  		    										        {
+  		    								                		sitesListHTML += '<option>' + arrayItem.site_Name + '</option>';
+  		    										        });
+  		    								                allocationTurnOverMap.forEach(function(arrayItem)
+  		    	    										{
+  		    								                	allocationHTML += '<option>' + arrayItem.allocation + '</option>';
+  		    	    										});
+  		    								                $('#Plateform').html(platformlistHTML).selectpicker('refresh');
+  		    										        $('#Site_Workshop_Prototype').html(sitesListHTML).selectpicker('refresh');
+  		    										        $('#Customer_Name').html(customersListHTML).selectpicker('refresh');
+  		    										        $('#Place').html(placesListHTML).selectpicker('refresh');
+  		    										        $('#Incoterms').html(incotermsListHTML).selectpicker('refresh');
+  		    										        $('#Incoterms').html(incotermsListHTML).selectpicker('refresh');
+  		    										        $('#Allocation_of_turnover').html(allocationHTML).selectpicker('refresh');
+  		    	 										}	
+  		    	 										deferred.resolve();
+  		    	 										return deferred;
+  		    									};
+  		    SetView 					= 		function(currentpage)
+  		    									{
+  		    										
+  											    	switch(currentpage)
+  											    	{
+  														case 'createorder' :
+  																					 $('#createorder-section,#navbar-1').removeClass('hide');
+  																		             $('#welcome-section,#admin-section,#component-section,#orderlist-section,#componentlist-section').addClass('hide');
+  																		             $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
+  																		             $('#createorder-tab').addClass('active');
+  																		             deferred.resolve();
+  																		             break;
+  														case 'componentdetails' :
+  																					$('#component-section,#navfixed-wrapper,#navbar-1').removeClass('hide');
+  																					$('#welcome-section,#createorder-section,#admin-section,#componentlist-section').addClass('hide');
+  																					$('.selectpicker').selectpicker();
+  																					$('.selectpicker').selectpicker('setStyle', 'btn-sm', 'add');
+  																					$('#bs-example-navbar-collapse-1 ul li').removeClass('active');
+  																					 $('#createorder-tab').addClass('active');
+  																					deferred.resolve();
+  																					break;
+  														case 'adminsetting' 	:
+  																					$('#admin-section,#navbar-1').removeClass('hide');
+  																			        $('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper,#orderlist-section,#componentlist-section').addClass('hide');
+  																			        $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
+  																			        $('#adminsetting-tab').addClass('active');
+  																			        deferred.resolve();
+  																			        break;																
+  														case 'orderlisting':
+  																					$('#orderlist-section,#navbar-1').removeClass('hide');
+  																			        $('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper,#admin-section,#componentlist-section').addClass('hide');
+  																			        $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
+  																			        $('#orderlist-tab').addClass('active');
+  																			        deferred.resolve();
+  																			        break;
+  														case 'componentlisting':
+  																					$('#componentlist-section').removeClass('hide');
+  																			        $('#welcome-section,#createorder-section,#component-section,#navfixed-wrapper,#admin-section,#orderlist-section').addClass('hide');
+  																			        $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
+  																			        $('#componentlist-tab').addClass('active');
+  																			        deferred.resolve();
+  																			        break;
+  														case 'home'			:
+  																					 $('#createorder-section,#navfixed-wrapper,#component-section,#admin-section,#orderlist-section,#componentlist-section').addClass('hide');
+  																			         $('#welcome-section').removeClass('hide');
+  																			         $('#createorder-tab').removeClass('active');
+  																			         $('#navbar-1').addClass('hide');
+  																			         deferred.resolve();
+  																			         break;
+  														case 'orderdetails'	:
+  																					 $('#createorder-section,#navbar-1').removeClass('hide');
+  																		             $('#welcome-section,#admin-section,#component-section,#orderlist-section,#componentlist-section').addClass('hide');
+  																		             $('#bs-example-navbar-collapse-1 ul li').removeClass('active');
+  																		             deferred.resolve();
+  																		             break;
+  											    	}
+  											    	return deferred;
+  		    									};
+  		    renderBackboneView 			= 		function(currentPage)
+  											    {
+  		    										
+  											    	switch(currentPage)
+  											    	{
+  														case 'createorder' :
+  																		var globalNavbarHTML 		= 	new BackboneData.Views.GlobalNavbarview();
+  															            var navBtnSectionHTML 		= 	new BackboneData.Views.NavBtnSectionview();
+  															            if($.trim($('#orderdetailview').html())=="" || document.URL.indexOf("orderdetails?")>1)
+  															            {
+  															            	var orderDetailSectionHTML 	= 	new BackboneData.Views.OrderDetailView();
+  															            }
+  															            deferred.resolve();
+  															            break;
+  														case 'componentdetails' :
+  																		var globalNavbarHTML 		= 	new BackboneData.Views.GlobalNavbarview();
+  																        var navBtnSectionHTML 		= 	new BackboneData.Views.NavBtnSectionview();
+  																        if($.trim($('#component-section').html())=="")
+  															            {
+  																        	var componentDetailHTMl 	= 	new BackboneData.Views.ComponentDetailView();
+  															            }
+  																        deferred.resolve();
+  																        break;
+  														case 'adminsetting' :
+  																		var globalNavbarHTML 		= 	new BackboneData.Views.GlobalNavbarview();
+  																        var navBtnSectionHTML 		=	new BackboneData.Views.NavBtnSectionview();
+  																        var adminSettingsHTMl 		= 	new BackboneData.Views.AdminDetailView();
+  																        deferred.resolve();
+  																        break;																
+  														case 'orderlisting':
+  																		var globalNavbarHTML 		=	 new BackboneData.Views.GlobalNavbarview();
+  																        var orderListHTMl 			= 	 new BackboneData.Views.OrderListview();
+  																        deferred.resolve();
+  																        break;
+  														case 'home':
+  																		var welcomeSectionHTML 		= 	new BackboneData.Views.WelcomeView();
+  																		deferred.resolve();
+  																		break;
+  														case 'componentlisting':
+  																		var globalNavbarHTML 		=	 new BackboneData.Views.GlobalNavbarview();
+  																		var componentListDetailHTML = 	new BackboneData.Views.ComponentListView();
+  																		deferred.resolve();
+  																		break;
+  														default:
+  																		var componentListDetailHTML = 	new BackboneData.Views.WelcomeView();
+  																		deferred.resolve();
+  																		break;
+  											    	}
+  											    	return deferred;
+  											    };
+  		   changeLanguageforUser		 =		function(languageChanged)	
+  		   										{
+  			   										   setUserDetail(languageChanged).done(function()
+  			   										   {
+  			   											   if (languageChanged == "EN")
+  													       {
+  													           window.language = "EN";
+  													           $(".language-dropdown:first-child").html('<img src="../statics/images/en.png"> EN <span class="caret"></span>');
+  													           $(".language-dropdown:first-child").val("EN");
+  													       }
+  													       else
+  													       {
+  													           $(".language-dropdown:first-child").html('<img src="../statics/images/fr.png"> FR <span class="caret"></span>');
+  													           $(".language-dropdown:first-child").val("FR");
+  													           window.language = "FR";
+  													       }   
+  			   											   		renderBackboneView(document.URL.split("#")[1]).done(function()
+  			   										        	{
+  			   										        		SetView(document.URL.split("#")[1]).done(function()
+  			   										        		{
+  			   										        			pullOrderDependencies().done(function()
+  			   										        			{
+  			   										        					deferred.resolve();
+  			   										        			});
+  			   										                });
+  			   										        	});
+  			   										   });
+  			   										   return deferred;  													  
+  		   										};
+  		   setUserDetail					=	function(languageChanged)
+  		   										{
+  			   										   
+  													   var userModel = new BackboneData.Models.UserModel(
+  													   {
+  													        useremail: useremailid,
+  													        language: languageChanged,
+  													        lastLoggedDate: new Date()
+  													   });
+  													   $.when(userModel.save()).done(function(response, xhr)
+  											           {
+  														   deferred.resolve();
+  											           }).fail(function() 
+  											           {
+  											        	   deferred.reject();
+  											           });
+  													   return deferred;
+  		   										};
+  		  setLanguageButton					=	function(languagefromDB)
+  		  										{
+  			  										  
+  												      window.language = languagefromDB;
+  												      if (languagefromDB == "EN")
+  												      {
+  												          $(".language-dropdown:first-child").html('<img src="../statics/images/en.png"> EN <span class="caret"></span>');
+  												      }
+  												      else
+  												      {
+  												          $(".language-dropdown:first-child").html('<img src="../statics/images/fr.png"> FR <span class="caret"></span>');
+  												      }
+  												      $(".language-dropdown:first-child").val(languagefromDB);
+  												      deferred.resolve();
+  												      return deferred;
+  		  										};
+  		  fetchProtypeOrderObject			 =		function(currentPrototypeID)
+  		  											{
+  			  											  		
+  														  $.ajax({
+  													           type: 'get',
+  													           url: ApplicationConstants.fetchProtypeOrderObject+currentPrototypeID ,
+  													           contentType: "application/json; charset=utf-8",
+  													           traditional: true,
+  													           success: function (data) 
+  													           {
+  													        	    var google = data.data;
+  													                console.log(google);
+  													                console.log("prototype Object");
+  													                setOrderDetails(google).done(function()
+  													                {
+  													                	deferred.resolve();
+  													                });
+  													           }
+  														  });
+  			  											 return deferred;
+  		  											};
 })();

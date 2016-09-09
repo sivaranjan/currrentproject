@@ -49,7 +49,7 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 							    },
     populateDependencies	: 	function()
 							    {  
-    								var ref = this;
+    								var   ref = this;
 							        var  Type_of_the_Prototype_Order 	= 	$.trim($('#Type_of_the_Prototype_Order').val());
 							        var  Site_Workshop_Prototype 		= 	$.trim($('#Site_Workshop_Prototype').val());
 							        var  Proto_Type 					= 	$.trim($('#Proto_Type').val());
@@ -68,10 +68,6 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 							    },
 	loadDefaults				: function()
 	  							  {
-							    			$(document).on("keyup", ".form-control", function(e)
-							    	        {
-							    	            $(this).removeClass('error');
-							    	        });
 							    	        $('.selectpicker').selectpicker();
 							    	        $('.selectpicker').selectpicker('setStyle', 'btn-sm', 'add');
 							    	        $('.selectpicker').on('changed.bs.select', function(e)
@@ -100,71 +96,75 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 	  							  },
     setPrototypeID 				:	function(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type)
     								{
-								            var  IdCollectionObj 	= 	new BackboneData.Collections.IdCollection();
-								            $.when(IdCollectionObj.fetch()).done(function(response, xhr)
-								            {
-								            	    var google = response.data;
-									                console.log(google);
-									                console.log("hello");
-									                var htmllist = "";
-									                google.forEach(function(arrayItem)
-									                {
-								                        var lastGeneratedID 	= 	parseInt(arrayItem.next_id) + 1;
-								                        
-								                        var newPrototypeOrderID = 	"";
-								                        if (typeof(Storage) !== "undefined")
-								                        {
-								                            localStorage.setItem("lastGeneratedID", lastGeneratedID);
-								                        }
-								                        if (Site_Workshop_Prototype.indexOf("La Suze")!=-1)
-								                        {
-								                            newPrototypeOrderID = "LAS";
-								                        }
-								                        else if (Site_Workshop_Prototype.indexOf("La Verr")!=-1)
-								                        {
-								                            newPrototypeOrderID = "LVR";
-								                        }
-								                        else if (Site_Workshop_Prototype.indexOf("Laval")!=-1)
-								                        {
-								                            newPrototypeOrderID = "LVL";
-								                        }
-								                        else if (Site_Workshop_Prototype.indexOf("Nogent")!=-1)
-								                        {
-								                            newPrototypeOrderID = "NOG";
-								                        }
-								                        else if (Site_Workshop_Prototype.indexOf("Reims")!=-1)
-								                        {
-								                            newPrototypeOrderID = "RMS";
-								                        }
-								                        if (lastGeneratedID.toString().length == 4)
-								                        {
-								                            newPrototypeOrderID = newPrototypeOrderID + "000";
-								                        }
-								                        else if (lastGeneratedID.toString().length == 5)
-								                        {
-								                            newPrototypeOrderID = newPrototypeOrderID + "00";
-								                        }
-								                        else if (lastGeneratedID.toString().length == 6)
-								                        {
-								                            newPrototypeOrderID = newPrototypeOrderID + "0";
-								                        }
-								                        else if (lastGeneratedID.toString().length == 7)
-								                        {
-								                            newPrototypeOrderID = newPrototypeOrderID;
-								                        }
-								                        newPrototypeOrderID = newPrototypeOrderID + parseInt(lastGeneratedID) + "-" + Proto_Type;
-								                        if (Type_of_the_Prototype_Order == "VENDU / SOLD")
-								                        {
-								                            newPrototypeOrderID = newPrototypeOrderID + "V";
-								                        }
-								                        else if (Type_of_the_Prototype_Order == "NON VENDU / NOT SOLD")
-								                        {
-								                            newPrototypeOrderID = newPrototypeOrderID + "N";
-								                        }
-								                        $('#No_Prototype_Order').val(newPrototypeOrderID);
-								                    });
-								                })
-								                .fail(function() {});
+								            $.ajax({
+										           type: 'get',
+										           url: ApplicationConstants.fetchIDList,
+										           contentType: "application/json; charset=utf-8",
+										           traditional: true,
+										           success: function (data) 
+										           {
+										        	   var google = data.data;
+										                console.log(google);
+										                console.log("hello");
+										                var htmllist = "";
+										                google.forEach(function(arrayItem)
+										                {
+									                        var lastGeneratedID 	= 	parseInt(arrayItem.next_id) + 1;
+									                        
+									                        var newPrototypeOrderID = 	"";
+									                        if (typeof(Storage) !== "undefined")
+									                        {
+									                            localStorage.setItem("lastGeneratedID", lastGeneratedID);
+									                        }
+									                        if (Site_Workshop_Prototype.indexOf("La Suze")!=-1)
+									                        {
+									                            newPrototypeOrderID = "LAS";
+									                        }
+									                        else if (Site_Workshop_Prototype.indexOf("La Verr")!=-1)
+									                        {
+									                            newPrototypeOrderID = "LVR";
+									                        }
+									                        else if (Site_Workshop_Prototype.indexOf("Laval")!=-1)
+									                        {
+									                            newPrototypeOrderID = "LVL";
+									                        }
+									                        else if (Site_Workshop_Prototype.indexOf("Nogent")!=-1)
+									                        {
+									                            newPrototypeOrderID = "NOG";
+									                        }
+									                        else if (Site_Workshop_Prototype.indexOf("Reims")!=-1)
+									                        {
+									                            newPrototypeOrderID = "RMS";
+									                        }
+									                        if (lastGeneratedID.toString().length == 4)
+									                        {
+									                            newPrototypeOrderID = newPrototypeOrderID + "000";
+									                        }
+									                        else if (lastGeneratedID.toString().length == 5)
+									                        {
+									                            newPrototypeOrderID = newPrototypeOrderID + "00";
+									                        }
+									                        else if (lastGeneratedID.toString().length == 6)
+									                        {
+									                            newPrototypeOrderID = newPrototypeOrderID + "0";
+									                        }
+									                        else if (lastGeneratedID.toString().length == 7)
+									                        {
+									                            newPrototypeOrderID = newPrototypeOrderID;
+									                        }
+									                        newPrototypeOrderID = newPrototypeOrderID + parseInt(lastGeneratedID) + "-" + Proto_Type;
+									                        if (Type_of_the_Prototype_Order == "VENDU / SOLD")
+									                        {
+									                            newPrototypeOrderID = newPrototypeOrderID + "V";
+									                        }
+									                        else if (Type_of_the_Prototype_Order == "NON VENDU / NOT SOLD")
+									                        {
+									                            newPrototypeOrderID = newPrototypeOrderID + "N";
+									                        }
+									                        $('#No_Prototype_Order').val(newPrototypeOrderID);
+									                    });
+										           }
+								            });
     								},
    loadActorsList				 :	function(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type)
    									{
@@ -176,10 +176,10 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
    									},
    	CheckEditableSettings		 :  function(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type)
    									{
-   										checkEditablesettingsOnload(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type);
+   										    checkEditablesettingsOnload(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type);
    									},
    CheckMandatorySettings		 :	function(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type)
    									{
-	   									checkMandatoryOnLoad(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type);		
+	   									   checkMandatoryOnLoad(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type);		
    									}
 });

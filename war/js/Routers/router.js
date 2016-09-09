@@ -2,41 +2,49 @@ var Router = Backbone.Router.extend(
 {
     routes:
     {
-        '/*'			: 	'home',
-        'home'			: 	'home',
-        'createorder'	: 	'order',
-        'adminsetting'	: 	'admin',
-        'componentdetails': 'component',
-        'orderlisting'	: 	'orderlist',
-        'orderdetails'	: 	'orderdetails',
+        '/*'				: 	'home',
+        'home'				: 	'home',
+        'createorder'		: 	'order',
+        'adminsetting'		: 	'admin',
+        'componentdetails'	: 'component',
+        'orderlisting'		: 	'orderlist',
+        'orderdetails'		: 	'orderdetails',
         'componentlisting'	: 	'componentlist',
     }
 });
 var routerTHS = new Router();
 routerTHS.on('route:home', function(action)
 {
-    pullUserInfo(function()
+//    $('#pleasewait').modal('show');
+    pullUserInfo().done(function()
     {
-    	renderBackboneView("home",function()
+    	alert("1");
+        renderBackboneView("home").done(function()
         {
-    		SetView("home",function()
+        	alert("2");
+            SetView("home").done(function()
             {
-    			
+            	alert("3");
+//                $('#pleasewait').modal('hide');
             });
         });
     });
 });
 routerTHS.on('route:order', function(action)
 {
-    pullUserInfo(function()
+	$('#pleasewait').modal('show');
+    pullUserInfo().done(function()
     {
-        pullOrderDependencies(function()
+        pullOrderDependencies().done(function()
         {
-        	renderBackboneView("createorder",function()
+        	renderBackboneView("createorder").done(function()
         	{
-        		SetView("createorder",function()
+        		SetView("createorder").done(function()
         		{
-                	SetDetails();
+                	SetDetails().done(function()
+                	{
+                		$('#pleasewait').modal('hide');                		
+                	})
                 });
         	});
         });
@@ -44,12 +52,14 @@ routerTHS.on('route:order', function(action)
 });
 routerTHS.on('route:admin', function(action)
 {
-    pullUserInfo(function()
+	$('#pleasewait').modal('show');
+    pullUserInfo().done(function()
     {
-    	renderBackboneView("adminsetting",function()
+    	renderBackboneView("adminsetting").done(function()
         {
-    		SetView("adminsetting",function()
+    		SetView("adminsetting").done(function()
     	    {
+    			$('#pleasewait').modal('hide');
     			// This does the hide and show of divs	
     	    });
         });
@@ -57,12 +67,14 @@ routerTHS.on('route:admin', function(action)
 });
 routerTHS.on('route:component', function(action)
 {
-    pullUserInfo(function()
+	$('#pleasewait').modal('show');
+    pullUserInfo().done(function()
     {
-    	renderBackboneView("componentdetails",function()
+    	renderBackboneView("componentdetails").done(function()
     	{
-    		SetView("componentdetails",function()
+    		SetView("componentdetails").done(function()
     	    {
+    			$('#pleasewait').modal('hide');
     	    	// This does the hide and show of divs    			
     	    });
     	});
@@ -70,12 +82,14 @@ routerTHS.on('route:component', function(action)
 });
 routerTHS.on('route:orderlist', function(action)
 {
-    pullUserInfo(function()
+	$('#pleasewait').modal('show');
+    pullUserInfo().done(function()
     {
-    	renderBackboneView("orderlisting",function()
+    	renderBackboneView("orderlisting").done(function()
     	{
-    		SetView("orderlisting",function()
+    		SetView("orderlisting").done(function()
     	    {
+    			$('#pleasewait').modal('hide');
     			// This does the hide and show of divs    			
     	    });	
     	});
@@ -83,35 +97,38 @@ routerTHS.on('route:orderlist', function(action)
 });
 routerTHS.on('route:componentlist', function(action)
 {
-	pullUserInfo(function()
+	$('#pleasewait').modal('show');
+	pullUserInfo().done(function()
 	{
-		renderBackboneView("componentlisting",function()
+		renderBackboneView("componentlisting").done(function()
 		{
-		    SetView("componentlisting",function()
+		    SetView("componentlisting").done(function()
 		    {
-		    			// This does the hide and show of divs    			
+		    	$('#pleasewait').modal('hide');		// This does the hide and show of divs    			
 		    });	
 		});
 	});
 });
 routerTHS.on('route:orderdetails', function(action)
 {
+	$('#pleasewait').modal('show');
 	var currentPrototypeID = "";
 	if(document.URL.indexOf('?orderid=')!=-1)
 	{
 		currentPrototypeID = document.URL.split('?orderid=')[1];
-		pullUserInfo(function()
+		pullUserInfo().done(function()
 		{
-			 pullOrderDependencies(function()
+			 pullOrderDependencies.done(function()
 		     {
-				 renderBackboneView("createorder",function()
+				 renderBackboneView("createorder").done(function()
 				 {
-				   	 SetView("orderdetails",function()
+				   	 SetView("orderdetails").done(function()
 					 {
-				   		  SetDetails(function()
+				   		  SetDetails().done(function()
 				   		  {
-				   			   fetchProtypeOrderObject(currentPrototypeID,function()
+				   			   fetchProtypeOrderObject(currentPrototypeID).done(function()
 							   {
+				   				   $('#pleasewait').modal('hide');
 							   });
 				   		  });
 					  });	
