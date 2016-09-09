@@ -36,9 +36,11 @@
 		<link rel="stylesheet" href="../css/bootstrap-select.min.css">
 		<link rel="stylesheet" href="../css/valeo-graphics.css">
 		<link rel="stylesheet" href="../css/app.css">
+		<link rel="stylesheet" href="../css/pace.css">
 	</head>
 
 <body>
+<div class="modal fade" id="pleasewait" role="dialog"><center><img src="/images/loader.gif" style="height: 80px;margin: 24%;"></img></center></div>
 	<main id="wrap">
 	<div class="status-voicebox hide" id="statusLoader" >
 		<div class="voicebox-content fade">
@@ -557,12 +559,11 @@
 		<script src="../js/Configurations/Config-1-OrderCreation.js"></script>
 		<script src="../js/Configurations/Config-2-ComponentCreation.js"></script>
 			
-		</script><script src="../js/Actions/Operations.js"></script>
-
-        <script src="../js/Library/jquery-3.1.0.min.js"></script>
+		<script src="../js/Library/jquery-3.1.0.min.js"></script>
         <script src="../js/Library/underscore.js"></script>
         <script src="../js/Library/backbone-min.js"></script>
 		<script src="../js/Library/validate.js"></script>		
+		<script src="../js/Library/pace.js"></script>	
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script type="text/javascript" src="../js/Library/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" src="../js/Library/dataTables.bootstrap.min.js"></script>
@@ -585,7 +586,7 @@
           <script src="../Soy/SoyViewJs/admindetail-view.js"></script>
           <script src="../Soy/SoyViewJs/orderlist-view.js"></script>
           <script src="../Soy/SoyViewJs/componentlist-view.js"></script>
-
+		<script src="../js/Actions/OrderPage-Actions.js"></script>
 		<script src="../js/Backbone/Model/Model.js"></script>
          
 		<script src="../js/Backbone/View/GlobalNavBar-RenderView.js"></script>
@@ -599,10 +600,11 @@
 		<script src="../js/Backbone/View/OrderList-RenderView.js"></script>
 		<script src="../js/Backbone/View/ComponentList-RenderView.js"></script>
 		<script src="../js/Loader/initializer.js"></script>
+		<script src="../js/Actions/AdminPage-Actions.js"></script>
+        
         <script src="../js/Routers/router.js?yufyufyufufyu"></script>
         <script src="../js/Actions/clicksandblur-events.js"></script>
-        <script src="../js/Actions/AdminPage-Actions.js"></script>
-        <script src="../js/Actions/OrderPage-Actions.js"></script>
+        
 
         <script>
 			$('#userlabel').html("Welcome "+useremailid);
