@@ -124,6 +124,7 @@ routerTHS.on('route:orderdetails', function(action)
 				   		  {
 				   			   fetchProtypeOrderObject(currentPrototypeID,function()
 							   {
+				   				buildCompListTable();
 				   				$('#pleasewait').modal('hide');
 							   });
 				   		  });
