@@ -27,7 +27,6 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 							        }
 							        ref.$el.html(orderDetailHTML);
 							        ref.loadDefaults();
-							        buildCompListTable();
 							    },
     initialize				: 	function()
 							    {
