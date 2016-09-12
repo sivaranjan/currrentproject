@@ -605,6 +605,7 @@
   										};	
   	BackboneEncode					=   function(formValue)
   									    {
-  		                                    return encodeURIComponent($.trim(formValue));
+  		                                    //return encodeURIComponent($.trim(formValue));
+  											return $.trim(formValue);
   									    };
 })();
