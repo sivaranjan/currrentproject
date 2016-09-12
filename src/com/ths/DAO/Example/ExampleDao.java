@@ -1,7 +1,8 @@
-package com.ths.DAO;
+package com.ths.DAO.Example;
 
 import com.googlecode.objectify.Key;
-import com.ths.JDO.Example;
+import com.ths.DAO.AbstractDao;
+import com.ths.JDO.Example.Example;
 
 import java.util.List;
 import java.util.logging.Logger;

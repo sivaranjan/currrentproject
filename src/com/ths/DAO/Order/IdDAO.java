@@ -1,4 +1,4 @@
-package com.ths.DAO;
+package com.ths.DAO.Order;
 
 import static java.util.logging.Level.FINER;
 
@@ -6,8 +6,9 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import com.googlecode.objectify.Key;
-import com.ths.JDO.IdJDO;
-import com.ths.JDO.UserJDO;
+import com.ths.DAO.AbstractDao;
+import com.ths.JDO.Order.IdJDO;
+
 
 public class IdDAO extends AbstractDao {
 

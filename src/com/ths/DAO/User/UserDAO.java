@@ -1,4 +1,4 @@
-package com.ths.DAO;
+package com.ths.DAO.User;
 
 import static java.util.logging.Level.FINER;
 
@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import com.googlecode.objectify.Key;
-import com.ths.JDO.UserJDO;
+import com.ths.DAO.AbstractDao;
+import com.ths.JDO.User.UserJDO;
 
 public class UserDAO extends AbstractDao {
 

@@ -1,9 +1,8 @@
-package com.ths.DAO;
+package com.ths.DAO.Order;
 
 import com.googlecode.objectify.Key;
-import com.ths.JDO.CustomersListJDO;
-import com.ths.JDO.Example;
-import com.ths.JDO.OrderJDO;
+import com.ths.DAO.AbstractDao;
+import com.ths.JDO.Order.OrderJDO;
 
 import java.util.List;
 import java.util.logging.Logger;
