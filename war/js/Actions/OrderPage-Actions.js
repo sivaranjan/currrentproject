@@ -3,43 +3,43 @@
 	saveOrder 						= 		function()
     										{
 													showVoiceBox.configure("Saving your order",2000);
-											        var Site_Workshop_Prototype 	= 	$('#Site_Workshop_Prototype').val();
-											        var Geosite 					= 	$('#Geosite').val();
-											        var No_Prototype_Order 			= 	$('#No_Prototype_Order').val();
-											        var Proto_Type 					= 	$('#Proto_Type').val();
-											        var pcccheckbox 				= 	$('#pcccheckbox').is(":checked");
-											        var openordercheckbox 			= 	$('#openordercheckbox').is(":checked");
-											        var frittagecheckbox 			= 	$('#frittagecheckbox').is(":checked");
-											        var e52checkbox 				= 	$('#e52checkbox').is(":checked");
-											        var intralecheckbox 			= 	$('#intralecheckbox').is(":checked");
-											        var Type_of_the_Prototype_Order = 	$('#Type_of_the_Prototype_Order').val();
-											        var Date_of_the_Order 			= 	$('#Date_of_the_Order').val();
-											        var no_customer_order 			= 	$('#no_customer_order').val();
-											        var customer_order_list 		=	$('#customer_order_list').val();
-											        var Customer_Name 				= 	$('#Customer_Name').val();
-											        var Customer_Code 				= 	$('#Customer_Code').val();
-											        var Branch_Code 				= 	$('#Branch_Code').val();
-											        var Provider_Code 				= 	$('#Provider_Code').val();
-											        var Final_Delivery_Address 		= 	$('#Final_Delivery_Address').val();
-											        var Additional_Address 			= 	$('#Additional_Address').val();
-											        var Site_Address	 			= 	$('#Site_Address').val();
-											        var Plateform 					= 	$('#Plateform').val();
-											        var Incoterms 					= 	$('#Incoterms').val();
-											        var Place 						= 	$('#Place').val();
-											        var Customer_Receiver_Name 		= 	$('#Customer_Receiver_Name').val();
-											        var Customer_Receiver_Telephone = 	$('#Customer_Receiver_Telephone').val();
-											        var Allocation_of_turnover 		= 	$('#Allocation_of_turnover').val();
-											        var Total_Order_Amount 			= 	$('#Total_Order_Amount').val();
-											        var Order_Status 				= 	$('#Order_Status').val();
-											        var requester 					= 	$('#requester').val();
-											        var mepstudy 					= 	$('#mepstudy').val();
-											        var quality 					= 	$('#quality').val();
-											        var protoworkshop 				= 	$('#protoworkshop').val();
-											        var controlmanagement		 	= 	$('#controlmanagement').val();
-											        var fotrade 					= 	$('#fotrade').val();
-											        var adv 						= 	$('#adv').val();
-											        var projmanager 				= 	$('#projmanager').val();
-											        var orderDetailsObj 	= 	new BackboneData.Models.OrderDetailModel(
+											        var Site_Workshop_Prototype 	= 	BackboneEncode($('#Site_Workshop_Prototype').val());
+											        var Geosite 					= 	BackboneEncode($('#Geosite').val());
+											        var No_Prototype_Order 			= 	BackboneEncode($('#No_Prototype_Order').val());
+											        var Proto_Type 					= 	BackboneEncode($('#Proto_Type').val());
+											        var pcccheckbox 				= 	BackboneEncode($('#pcccheckbox').is(":checked"));
+											        var openordercheckbox 			= 	BackboneEncode($('#openordercheckbox').is(":checked"));
+											        var frittagecheckbox 			= 	BackboneEncode($('#frittagecheckbox').is(":checked"));
+											        var e52checkbox 				= 	BackboneEncode($('#e52checkbox').is(":checked"));
+											        var intralecheckbox 			= 	BackboneEncode($('#intralecheckbox').is(":checked"));
+											        var Type_of_the_Prototype_Order = 	BackboneEncode($('#Type_of_the_Prototype_Order').val());
+											        var Date_of_the_Order 			= 	BackboneEncode($('#Date_of_the_Order').val());
+											        var no_customer_order 			= 	BackboneEncode($('#no_customer_order').val());
+											        var customer_order_list 		=	BackboneEncode($('#customer_order_list').val());
+											        var Customer_Name 				= 	BackboneEncode($('#Customer_Name').val());
+											        var Customer_Code 				= 	BackboneEncode($('#Customer_Code').val());
+											        var Branch_Code 				= 	BackboneEncode($('#Branch_Code').val());
+											        var Provider_Code 				= 	BackboneEncode($('#Provider_Code').val());
+											        var Final_Delivery_Address 		= 	BackboneEncode($('#Final_Delivery_Address').val());
+											        var Additional_Address 			= 	BackboneEncode($('#Additional_Address').val());
+											        var Site_Address	 			= 	BackboneEncode($('#Site_Address').val());
+											        var Plateform 					= 	BackboneEncode($('#Plateform').val());
+											        var Incoterms 					= 	BackboneEncode($('#Incoterms').val());
+											        var Place 						= 	BackboneEncode($('#Place').val());
+											        var Customer_Receiver_Name 		= 	BackboneEncode($('#Customer_Receiver_Name').val());
+											        var Customer_Receiver_Telephone = 	BackboneEncode($('#Customer_Receiver_Telephone').val());
+											        var Allocation_of_turnover 		= 	BackboneEncode($('#Allocation_of_turnover').val());
+											        var Total_Order_Amount 			= 	BackboneEncode($('#Total_Order_Amount').val());
+											        var Order_Status 				= 	BackboneEncode($('#Order_Status').val());
+											        var requester 					= 	BackboneEncode($('#requester').val());
+											        var mepstudy 					= 	BackboneEncode($('#mepstudy').val());
+											        var quality 					= 	BackboneEncode($('#quality').val());
+											        var protoworkshop 				= 	BackboneEncode($('#protoworkshop').val());
+											        var controlmanagement		 	= 	BackboneEncode($('#controlmanagement').val());
+											        var fotrade 					= 	BackboneEncode($('#fotrade').val());
+											        var adv 						= 	BackboneEncode($('#adv').val());
+											        var projmanager 				= 	BackboneEncode($('#projmanager').val());
+											        var orderDetailsObj 			= 	new BackboneData.Models.OrderDetailModel(
 										        	{
 										        	            site_Workshop_Prototype		:	Site_Workshop_Prototype,
 										        	            geoSite						: 	Geosite,
@@ -577,7 +577,6 @@
 													  "ajax"		: ApplicationConstants.fetchAllocationofTurnOverList,
 													  "bDestroy"	: true,
 													  "columns"		: [{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""}],
-													  "order"		: [[0, 'asc']],
 													  buttons		: [{
 																          text		: '<i class="fa fa-refresh" aria-hidden="true"></i> Refresh',
 																          className : 'btn btn-default btn-sm refreshbtn',
@@ -604,4 +603,8 @@
 													});
 									  		 		buildSearchForTable('complistTable_footer th','compListTable');
   										};	
+  	BackboneEncode					=   function(formValue)
+  									    {
+  		                                    return encodeURIComponent($.trim(formValue));
+  									    };
 })();
