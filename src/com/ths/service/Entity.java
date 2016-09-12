@@ -1,23 +1,23 @@
 package com.ths.service;
 
 import com.googlecode.objectify.ObjectifyService;
-import com.ths.JDO.ActorsListJDO;
-import com.ths.JDO.AllocationTurnOverJDO;
-import com.ths.JDO.ClientLaboJDO;
-import com.ths.JDO.ComponentIDJDO;
-import com.ths.JDO.CustomersListJDO;
-import com.ths.JDO.Example;
-import com.ths.JDO.IdJDO;
-import com.ths.JDO.IncotermsJDO;
-import com.ths.JDO.OrderJDO;
-import com.ths.JDO.PlacesJDO;
-import com.ths.JDO.PlateformJDO;
-import com.ths.JDO.ProductTypesJDO;
-import com.ths.JDO.PrototypistsJDO;
-import com.ths.JDO.RandDJDO;
-import com.ths.JDO.SitesListJDO;
-import com.ths.JDO.TechnologyJDO;
-import com.ths.JDO.UserJDO;
+import com.ths.JDO.Component.ComponentIDJDO;
+import com.ths.JDO.Configuration.ActorsListJDO;
+import com.ths.JDO.Configuration.AllocationTurnOverJDO;
+import com.ths.JDO.Configuration.ClientLaboJDO;
+import com.ths.JDO.Configuration.CustomersListJDO;
+import com.ths.JDO.Configuration.IncotermsJDO;
+import com.ths.JDO.Configuration.PlacesJDO;
+import com.ths.JDO.Configuration.PlateformJDO;
+import com.ths.JDO.Configuration.ProductTypesJDO;
+import com.ths.JDO.Configuration.PrototypistsJDO;
+import com.ths.JDO.Configuration.RandDJDO;
+import com.ths.JDO.Configuration.SitesListJDO;
+import com.ths.JDO.Configuration.TechnologyJDO;
+import com.ths.JDO.Example.Example;
+import com.ths.JDO.Order.IdJDO;
+import com.ths.JDO.Order.OrderJDO;
+import com.ths.JDO.User.UserJDO;
 
 public class Entity {
 
