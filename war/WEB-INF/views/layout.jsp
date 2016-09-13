@@ -174,118 +174,7 @@
 		
 		
 		
-		<!-- Planning Laboratory test Modal -->
-		<div class="modal fade" id="planlabtest-modal" tabindex="-1" role="dialog">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title">Add New</h4>
-		      </div>
-		      <div class="modal-body">
-		      	<form role="form">
-		      			<div class="form-group">
-						    <label for="name">Quantity</label>
-						    <input type="text" class="form-control" placeholder="Quantity">
-						</div>
-						<div class="form-group">
-						    <label for="name">Test Type</label>
-						    <input type="text" class="form-control" placeholder="Test Type">
-						</div>
-						<div class="form-group">
-						    <label for="name">Test Request N<sup>&#8728;</sup></label>
-						    <input type="text" class="form-control" placeholder="Test Request">
-						</div>
-						<div class="form-group">
-						    <label for="name">ATP date delivery to Lab</label>
-						    <div class="input-group date">
-							    <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-							</div>
-						</div>
-		      	</form>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-success">Save changes</button>
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-		<!-- Forecast Planning of Workshop Modal -->
-		<div class="modal fade" id="planningworkshop-modal" tabindex="-1" role="dialog">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title">Add New</h4>
-		      </div>
-		      <div class="modal-body">
-		      	<form role="form">
-		      			<div class="form-group">
-						    <label for="name">Quantity</label>
-						    <input type="text" class="form-control" placeholder="Quantity">
-						</div>
-						<div class="form-group">
-						    <label>Date</label>
-						    <div class="input-group date">
-							    <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-							</div>
-						</div>
-						<div class="form-group">
-						    <label for="name">Comment</label>
-						    <textarea class="form-control" rows="3"></textarea>
-						</div>
-		      	</form>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-success">Save changes</button>
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
 		
-		
-		<!-- Order Attachment Modal -->
-		<div class="modal fade" id="orderattach-modal" tabindex="-1" role="dialog">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title">Add Attach</h4>
-		      </div>
-		      <div class="modal-body">
-		      	<form role="form">
-		      			<div class="form-group">
-						    <label for="name">File Path</label>
-						    <div class="input-group">
-						      <input type="text" class="form-control">
-						      <span class="input-group-btn">
-						        <button class="btn btn-success" type="button">
-						        	<i class="glyphicon glyphicon-folder-open" style="margin-right: 10px;"></i>
-						        	<span>Browse ..</span>
-						        	<input class="custom-fileinput" type="file" class="file" />
-						        </button>
-						      </span>
-						    </div><!-- /input-group -->
-						</div>
-						<div class="form-group">
-						    <label for="name">Title <span class="text-danger">*</span></label>
-						    <input type="text" class="form-control" placeholder="Title">
-						</div>
-						<div class="form-group">
-						    <label for="name">Description</label>
-						    <textarea class="form-control" rows="3"></textarea>
-						</div>
-		      	</form>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-success">Save changes</button>
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
 		<!-- Parts Production Modal -->
 		<div class="modal fade" id="partsprod-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog" role="document">
@@ -525,7 +414,7 @@
 		<script src="../js/Configurations/Config-1-OrderCreation.js"></script>
 		<script src="../js/Configurations/Config-2-ComponentCreation.js"></script>
 			
-		</script><script src="../js/Actions/Operations.js"></script>
+		<script src="../js/Actions/Operations.js"></script>
 
         <script src="../js/Library/jquery-3.1.0.min.js"></script>
         <script src="../js/Library/underscore.js"></script>

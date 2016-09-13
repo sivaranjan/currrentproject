@@ -8,13 +8,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.ths.DAO.Configuration.PrototypistsDAO;
 import com.ths.JDO.Configuration.PrototypistsJDO;
 
 
-@Controller
+@RestController
 @RequestMapping("/prototypist")
 public class ProtoTypistsController {
 
