@@ -33,7 +33,7 @@ public class PlanningCustomerDeliveryDAO extends AbstractDao {
         return ofy.load().type(PlanningCustomerDeliveryJDO.class).list();
     }
     
-   public PlanningCustomerDeliveryJDO save(ActorsListJDO actor) {
+   public PlanningCustomerDeliveryJDO save(PlanningCustomerDeliveryJDO actor) {
         log.log(FINER, "Saving example '{0}'");
         ofy.save().entities(actor).now();
         return actor;
