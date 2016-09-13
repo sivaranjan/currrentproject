@@ -16,26 +16,92 @@ public class ComponentJDO {
 	@Index
 	private String componentStatus;
 	@Index
-	private String customerReference;
+	private Long componentDescriptionReference;
 	@Index
-	private String productSpecification;
+	private String technicalDefinitionReference;
 	@Index
-	private String productType;
+	private String qualityDeliverableReference;
 	@Index
-	private String unitSellingPrice;
+	private String processValidationReference;
 	@Index
-	private String directDeliverytoCustomer;
-	@Index
-	private String customer;
-	@Index
-	private String laboAdress;
-	@Index
-	private String comment;
-	/*public ComponentDescriptionJDO()
+	private String estimatingCostReference;
+	
+	public ComponentJDO()
 	{
-		
-	}*/
-	
-	
+		//
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getOrderIDReference() {
+		return orderIDReference;
+	}
+
+	public void setOrderIDReference(String orderIDReference) {
+		this.orderIDReference = orderIDReference;
+	}
+
+	public String getComponentID() {
+		return componentID;
+	}
+
+	public void setComponentID(String componentID) {
+		this.componentID = componentID;
+	}
+
+	public String getComponentStatus() {
+		return componentStatus;
+	}
+
+	public void setComponentStatus(String componentStatus) {
+		this.componentStatus = componentStatus;
+	}
+
+	public Long getComponentDescriptionReference() {
+		return componentDescriptionReference;
+	}
+
+	public void setComponentDescriptionReference(
+			Long componentDescriptionReference) {
+		this.componentDescriptionReference = componentDescriptionReference;
+	}
+
+	public String getQualityDeliverableReference() {
+		return qualityDeliverableReference;
+	}
+
+	public void setQualityDeliverableReference(String qualityDeliverableReference) {
+		this.qualityDeliverableReference = qualityDeliverableReference;
+	}
+
+	public String getProcessValidationReference() {
+		return processValidationReference;
+	}
+
+	public void setProcessValidationReference(String processValidationReference) {
+		this.processValidationReference = processValidationReference;
+	}
+
+	public String getEstimatingCostReference() {
+		return estimatingCostReference;
+	}
+
+	public void setEstimatingCostReference(String estimatingCostReference) {
+		this.estimatingCostReference = estimatingCostReference;
+	}
+
+	public String getTechnicalDefinitionReference() {
+		return technicalDefinitionReference;
+	}
+
+	public void setTechnicalDefinitionReference(String technicalDefinitionReference) {
+		this.technicalDefinitionReference = technicalDefinitionReference;
+	}
 	
 }
