@@ -3,6 +3,7 @@ package com.ths.JDO.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.appengine.api.datastore.Text;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
@@ -29,7 +30,7 @@ public class ComponentDescriptionJDO {
 	@Index
 	private String laboAdress;
 	@Index
-	private String comment;
+	private Text comment;
 	@Index
 	private List<Long> plannigCustomerDeliveryRefernce=new ArrayList<Long>();
 	public ComponentDescriptionJDO()
@@ -90,10 +91,10 @@ public class ComponentDescriptionJDO {
 	public void setLaboAdress(String laboAdress) {
 		this.laboAdress = laboAdress;
 	}
-	public String getComment() {
+	public Text getComment() {
 		return comment;
 	}
-	public void setComment(String comment) {
+	public void setComment(Text comment) {
 		this.comment = comment;
 	}
 	public List<Long> getPlannigCustomerDeliveryRefernce() {
