@@ -1,5 +1,8 @@
 package com.ths.JDO.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
@@ -8,13 +11,9 @@ import com.googlecode.objectify.annotation.Index;
 public class ComponentDescriptionJDO {
 	@Id
 	@Index
-	private Long id;
-	@Index
-	private String orderIDReference;
+	private Long componentDescriptionID;
 	@Index
 	private String componentID;
-	@Index
-	private String componentStatus;
 	@Index
 	private String customerReference;
 	@Index
@@ -31,11 +30,78 @@ public class ComponentDescriptionJDO {
 	private String laboAdress;
 	@Index
 	private String comment;
+	@Index
+	private List<Long> plannigCustomerDeliveryRefernce=new ArrayList<Long>();
 	public ComponentDescriptionJDO()
 	{
 		
 	}
-	
-	
+	public Long getComponentDescriptionID() {
+		return componentDescriptionID;
+	}
+	public void setComponentDescriptionID(Long componentDescriptionID) {
+		this.componentDescriptionID = componentDescriptionID;
+	}
+	public String getComponentID() {
+		return componentID;
+	}
+	public void setComponentID(String componentID) {
+		this.componentID = componentID;
+	}
+	public String getCustomerReference() {
+		return customerReference;
+	}
+	public void setCustomerReference(String customerReference) {
+		this.customerReference = customerReference;
+	}
+	public String getProductSpecification() {
+		return productSpecification;
+	}
+	public void setProductSpecification(String productSpecification) {
+		this.productSpecification = productSpecification;
+	}
+	public String getProductType() {
+		return productType;
+	}
+	public void setProductType(String productType) {
+		this.productType = productType;
+	}
+	public String getUnitSellingPrice() {
+		return unitSellingPrice;
+	}
+	public void setUnitSellingPrice(String unitSellingPrice) {
+		this.unitSellingPrice = unitSellingPrice;
+	}
+	public String getDirectDeliverytoCustomer() {
+		return directDeliverytoCustomer;
+	}
+	public void setDirectDeliverytoCustomer(String directDeliverytoCustomer) {
+		this.directDeliverytoCustomer = directDeliverytoCustomer;
+	}
+	public String getCustomer() {
+		return customer;
+	}
+	public void setCustomer(String customer) {
+		this.customer = customer;
+	}
+	public String getLaboAdress() {
+		return laboAdress;
+	}
+	public void setLaboAdress(String laboAdress) {
+		this.laboAdress = laboAdress;
+	}
+	public String getComment() {
+		return comment;
+	}
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+	public List<Long> getPlannigCustomerDeliveryRefernce() {
+		return plannigCustomerDeliveryRefernce;
+	}
+	public void setPlannigCustomerDeliveryRefernce(
+			List<Long> plannigCustomerDeliveryRefernce) {
+		this.plannigCustomerDeliveryRefernce = plannigCustomerDeliveryRefernce;
+	}
 	
 }
