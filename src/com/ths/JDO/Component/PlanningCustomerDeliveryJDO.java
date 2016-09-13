@@ -2,6 +2,7 @@ package com.ths.JDO.Component;
 
 import java.util.Date;
 
+import com.google.appengine.api.datastore.Text;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
@@ -16,11 +17,11 @@ public class PlanningCustomerDeliveryJDO {
 	@Index
 	private Long componentDescriptionID;
 	@Index
-	private String Quantity;
+	private int Quantity;
 	@Index
 	private Date Dateof = new Date();
 	@Index
-	private String Comment;
+	private Text Comment;
 	@Index
 	private int TotalQuantity;
 	@Index
@@ -47,10 +48,10 @@ public class PlanningCustomerDeliveryJDO {
 	public void setComponentDescriptionID(Long componentDescriptionID) {
 		this.componentDescriptionID = componentDescriptionID;
 	}
-	public String getQuantity() {
+	public int getQuantity() {
 		return Quantity;
 	}
-	public void setQuantity(String quantity) {
+	public void setQuantity(int quantity) {
 		Quantity = quantity;
 	}
 	public Date getDateof() {
@@ -59,10 +60,10 @@ public class PlanningCustomerDeliveryJDO {
 	public void setDateof(Date dateof) {
 		Dateof = dateof;
 	}
-	public String getComment() {
+	public Text getComment() {
 		return Comment;
 	}
-	public void setComment(String comment) {
+	public void setComment(Text comment) {
 		Comment = comment;
 	}
 	public int getTotalQuantity() {
