@@ -19,13 +19,9 @@ public class PlanningCustomerDeliveryJDO {
 	@Index
 	private int Quantity;
 	@Index
-	private Date Dateof = new Date();
+	private Date Dateof ;
 	@Index
 	private Text Comment;
-	@Index
-	private int TotalQuantity;
-	@Index
-	private double TotalAmount;
 	public PlanningCustomerDeliveryJDO()
 	{
 		//
@@ -65,18 +61,6 @@ public class PlanningCustomerDeliveryJDO {
 	}
 	public void setComment(Text comment) {
 		Comment = comment;
-	}
-	public int getTotalQuantity() {
-		return TotalQuantity;
-	}
-	public void setTotalQuantity(int totalQuantity) {
-		TotalQuantity = totalQuantity;
-	}
-	public double getTotalAmount() {
-		return TotalAmount;
-	}
-	public void setTotalAmount(double totalAmount) {
-		TotalAmount = totalAmount;
 	}
 	
 }

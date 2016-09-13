@@ -383,3 +383,274 @@ BackboneData.Models.UserModel = Backbone.Model.extend(
     },
     urlRoot: ApplicationConstants.createorupdateuser
 });
+BackboneData.Models.ComponentCreateModel = Backbone.Model.extend(
+{
+	defaults:
+	{
+		orderIDReference	: 	"",
+		componentID 		:   "",
+		componentStatus		: 	"",
+		TotalQuantity		:	"",
+		TotalAmount			:	""
+	},
+	initialize: function()
+	{
+		console.log('ComponentCreateModel has been initialized');
+		this.on("invalid", function(model, error)
+		{
+			console.log("ComponentCreateModel, we have a problem: " + error)
+		});
+	},
+	constructor: function(attributes, options)
+	{
+		console.log('ComponentCreateModel constructor had been called');
+		Backbone.Model.apply(this, arguments);
+	},
+	urlRoot: ApplicationConstants.createorupdateuser
+});
+BackboneData.Models.ComponentDescriptionModel = Backbone.Model.extend(
+{
+	defaults:
+	{
+		  componentID				: 	"",
+		  customerReference 		:   "",
+		  productSpecification		: 	"",
+		  productType 				:   "",
+	      directDeliverytoCustomer  :	"",
+	      unitSellingPrice 			: 	"",
+	      laboAdress 				: 	"",
+	      customer 					: 	"",
+	      comment_componentDescription : ""
+    },
+    initialize: function()
+	{
+		console.log('ComponentDescriptionModel has been initialized');
+		this.on("invalid", function(model, error)
+		{
+		   console.log("ComponentDescriptionModel, we have a problem: " + error)
+		});
+	},
+	constructor: function(attributes, options)
+	{
+		console.log('ComponentDescriptionModel constructor had been called');
+		Backbone.Model.apply(this, arguments);
+	},
+	urlRoot: ApplicationConstants.createorupdateuser
+});
+BackboneData.Models.PlanningCustomerDeliveryModel = Backbone.Model.extend(
+{
+	defaults:
+	{
+		  componentID					: 	"",
+		  customerReference 			:   "",
+		  componentDescriptionID		: 	"",
+		  Quantity 						:   "",
+		  Dateof  						:	"",
+		  Comment 						: 	""
+    },
+    initialize: function()
+	{
+		console.log('PlanningCustomerDeliveryModel has been initialized');
+		this.on("invalid", function(model, error)
+		{
+		   console.log("PlanningCustomerDeliveryModel, we have a problem: " + error)
+		});
+	},
+	constructor: function(attributes, options)
+	{
+		console.log('PlanningCustomerDeliveryModel constructor had been called');
+		Backbone.Model.apply(this, arguments);
+	},
+	urlRoot: ApplicationConstants.createorupdateuser
+});
+BackboneData.Models.TechnicalDefinitionModel = Backbone.Model.extend(
+{
+	defaults:
+	{
+		componentID			: 	"",
+		projectManager 		:   "",
+		rAndDManager		: 	"",
+		projectPhase 		:   "",
+		valeoReference  	:	"",
+		technology 			: 	"",
+		wbsCode 			:   "",
+		beCode 				:   "",
+		mipPWACode 			:   "",
+		validationProcess 	:   "",
+		planofLabTests 		:	"",
+		nomenClature 		:   "",
+		plan 				:   "",
+		comment				:	""
+    },
+	initialize: function()
+	{
+		console.log('TechnicalDefinitionModel has been initialized');
+		this.on("invalid", function(model, error)
+		{
+			console.log("TechnicalDefinitionModel, we have a problem: " + error)
+		});
+	},
+	constructor: function(attributes, options)
+	{
+		console.log('TechnicalDefinitionModel constructor had been called');
+		Backbone.Model.apply(this, arguments);
+	},
+	urlRoot: ApplicationConstants.createorupdateuser
+});
+
+BackboneData.Models.PlanOfLabTestsModel = Backbone.Model.extend(
+{
+	defaults:
+	{
+		componentID					: 	"",
+		technicalDefinitionID 		:   "",
+		quantity					: 	"",
+		testsType 					:   "",
+		testRequestNumber  			:	"",
+		atpDateOfDelivery 			: 	""
+	},
+	initialize: function()
+	{
+		console.log('planOfLabTestsModel has been initialized');
+		this.on("invalid", function(model, error)
+		{
+			console.log("planOfLabTestsModel, we have a problem: " + error)
+		});
+	},
+	constructor: function(attributes, options)
+	{
+		console.log('planOfLabTestsModel constructor had been called');
+		Backbone.Model.apply(this, arguments);
+	},
+	urlRoot: ApplicationConstants.createorupdateuser
+});
+
+BackboneData.Models.ProcessValidationModel = Backbone.Model.extend(
+{
+	defaults:
+	{
+		componentID					: 	"",
+		processDeliverable 			:   "",
+		yesIspecified				: 	"",
+		comment 					:   ""
+	},
+	initialize: function()
+	{
+		console.log('ProcessValidationModel has been initialized');
+		this.on("invalid", function(model, error)
+		{
+			console.log("ProcessValidationModel, we have a problem: " + error)
+		});
+	},
+	constructor: function(attributes, options)
+	{
+		console.log('ProcessValidationModel constructor had been called');
+		Backbone.Model.apply(this, arguments);
+	},
+	urlRoot: ApplicationConstants.createorupdateuser
+});
+BackboneData.Models.EstimatingCostAndDelayModel = Backbone.Model.extend(
+{
+	defaults:
+	{
+		componentID						: 	"",
+		supportedBy 					:   "",
+		listOfPrototypists				: 	"",
+		estimatedAmountOfWorkshop 		:   "",
+		estimatedUnitInternalCost		: 	"",
+		estimatedUnitExternalCost 		:   "",
+		estimatedTotalCostComponents	: 	"",
+		hourlyRate 						:   "",
+		fixedCosts						: 	"",
+		estimatedTimeUnitOfComponents 	:   "",
+		estimatedTimeTotalOfComponents	: 	"",
+		totalCosts 						:   ""
+	},
+	initialize: function()
+	{
+		console.log('EstimatingCostAndDelayModel has been initialized');
+		this.on("invalid", function(model, error)
+		{
+			console.log("EstimatingCostAndDelayModel, we have a problem: " + error)
+		});
+	},
+	constructor: function(attributes, options)
+	{
+		console.log('EstimatingCostAndDelayModel constructor had been called');
+		Backbone.Model.apply(this, arguments);
+	},
+	urlRoot: ApplicationConstants.createorupdateuser
+});
+BackboneData.Models.ForecastPlanningOfWorkshopModel = Backbone.Model.extend(
+{
+	defaults:
+	{
+		componentID						: 	"",
+		estimatingCostandDelayID 		:   "",
+		Quantity						: 	"",
+		Dateof 							:   "",
+		Comment							: 	""
+	},
+	initialize: function()
+	{
+		console.log('EstimatingCostAndDelayModel has been initialized');
+		this.on("invalid", function(model, error)
+		{
+			console.log("EstimatingCostAndDelayModel, we have a problem: " + error)
+		});
+	},
+	constructor: function(attributes, options)
+	{
+		console.log('EstimatingCostAndDelayModel constructor had been called');
+		Backbone.Model.apply(this, arguments);
+	},
+	urlRoot: ApplicationConstants.createorupdateuser
+});
+BackboneData.Models.ReminderModel = Backbone.Model.extend(
+{
+	defaults:
+	{
+		componentID						: 	"",
+		estimatingCostandDelayID 		:   "",
+		Quantity						: 	"",
+		Dateof 							:   ""
+	},
+	initialize: function()
+	{
+		console.log('ReminderModel has been initialized');
+		this.on("invalid", function(model, error)
+		{
+			console.log("ReminderModel, we have a problem: " + error)
+		});
+	},
+	constructor: function(attributes, options)
+	{
+		console.log('ReminderModel constructor had been called');
+		Backbone.Model.apply(this, arguments);
+	},
+	urlRoot: ApplicationConstants.createorupdateuser
+});
+BackboneData.Models.QualityDeliverableModel = Backbone.Model.extend(
+{
+	defaults:
+	{
+		componentID						: 	"",
+		qualityDeliverable 				:   "",
+		yesISpecified					: 	"",
+		comment 						:   ""
+	},
+	initialize: function()
+	{
+		console.log('QualityDeliverableModel has been initialized');
+		this.on("invalid", function(model, error)
+		{
+			console.log("QualityDeliverableModel, we have a problem: " + error)
+		});
+	},
+	constructor: function(attributes, options)
+	{
+		console.log('QualityDeliverableModel constructor had been called');
+		Backbone.Model.apply(this, arguments);
+	},
+	urlRoot: ApplicationConstants.createorupdateuser
+});

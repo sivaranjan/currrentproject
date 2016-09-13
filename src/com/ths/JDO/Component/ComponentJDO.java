@@ -16,6 +16,10 @@ public class ComponentJDO {
 	@Index
 	private String componentStatus;
 	@Index
+	private int TotalQuantity;
+	@Index
+	private double TotalAmount;
+	@Index
 	private Long componentDescriptionReference;
 	@Index
 	private String technicalDefinitionReference;
@@ -102,6 +106,22 @@ public class ComponentJDO {
 
 	public void setTechnicalDefinitionReference(String technicalDefinitionReference) {
 		this.technicalDefinitionReference = technicalDefinitionReference;
+	}
+
+	public int getTotalQuantity() {
+		return TotalQuantity;
+	}
+
+	public void setTotalQuantity(int totalQuantity) {
+		TotalQuantity = totalQuantity;
+	}
+
+	public double getTotalAmount() {
+		return TotalAmount;
+	}
+
+	public void setTotalAmount(double totalAmount) {
+		TotalAmount = totalAmount;
 	}
 	
 }

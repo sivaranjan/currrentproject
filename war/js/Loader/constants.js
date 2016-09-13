@@ -37,6 +37,16 @@ ApplicationConstants = {
 "saveRandDListURL"				:	"/rAndDController/create",
 "saveAllocationListURL"			:	"/allocationController/create",
 "saveClientLaboListURL"			:	"/clientLabo/create",
+"saveComponentCreation"			:	"/clientLabo/create", //new 
+"saveComponentDescription"		:	"/clientLabo/create",
+"savePlanningCustomerDelivery"	:	"/clientLabo/create",
+"saveTechnicalDefinition"		:	"/clientLabo/create",
+"savePlanofLabTests"			:	"/clientLabo/create",
+"saveProcessValidation"			:	"/clientLabo/create",
+"saveEstimatingCostandDelay"	:	"/clientLabo/create",
+"saveForecastPlanning"			:	"/clientLabo/create",
+"saveReminder"					:	"/clientLabo/create",
+"saveQualitydeliverable"		:	"/clientLabo/create",
 "generateNewId"					:	"/idgenerator/createNewID"
 	
 	

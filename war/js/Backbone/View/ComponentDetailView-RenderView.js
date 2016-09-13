@@ -61,7 +61,11 @@ BackboneData.Views.ComponentDetailView = Backbone.View
                         className	: 'btn btn-default btn-sm newplanbtn',
                         action		: function()
                         {
-                            $('#plancustdevlivery-modal').modal('show');
+                        	bootbox.alert("Save the Component Description before planning customer delivery", function() 
+                        	{
+                        		$('#plancustdevlivery-modal').modal('show');
+                        	});
+                            
                         }
                     }]
                 });

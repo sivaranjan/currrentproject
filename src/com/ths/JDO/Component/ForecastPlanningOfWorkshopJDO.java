@@ -19,7 +19,7 @@ public class ForecastPlanningOfWorkshopJDO {
 	@Index
 	private int Quantity;
 	@Index
-	private Date Dateof = new Date();
+	private Date Dateof;
 	@Index
 	private Text Comment;
 	public ForecastPlanningOfWorkshopJDO()

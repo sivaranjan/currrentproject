@@ -22,7 +22,7 @@ public class ComponentDescriptionJDO {
 	@Index
 	private String productType;
 	@Index
-	private String unitSellingPrice;
+	private double unitSellingPrice;
 	@Index
 	private String directDeliverytoCustomer;
 	@Index
@@ -30,7 +30,7 @@ public class ComponentDescriptionJDO {
 	@Index
 	private String laboAdress;
 	@Index
-	private Text comment;
+	private Text comment_componentDescription;
 	@Index
 	private List<Long> plannigCustomerDeliveryRefernce=new ArrayList<Long>();
 	public ComponentDescriptionJDO()
@@ -67,10 +67,10 @@ public class ComponentDescriptionJDO {
 	public void setProductType(String productType) {
 		this.productType = productType;
 	}
-	public String getUnitSellingPrice() {
+	public double getUnitSellingPrice() {
 		return unitSellingPrice;
 	}
-	public void setUnitSellingPrice(String unitSellingPrice) {
+	public void setUnitSellingPrice(double unitSellingPrice) {
 		this.unitSellingPrice = unitSellingPrice;
 	}
 	public String getDirectDeliverytoCustomer() {
@@ -92,10 +92,10 @@ public class ComponentDescriptionJDO {
 		this.laboAdress = laboAdress;
 	}
 	public Text getComment() {
-		return comment;
+		return comment_componentDescription;
 	}
-	public void setComment(Text comment) {
-		this.comment = comment;
+	public void setComment(Text comment_componentDescription) {
+		this.comment_componentDescription = comment_componentDescription;
 	}
 	public List<Long> getPlannigCustomerDeliveryRefernce() {
 		return plannigCustomerDeliveryRefernce;

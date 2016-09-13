@@ -36,11 +36,11 @@
 							</div>
 							<div class="form-group col-md-3">
 							    <label for="name">{$paramValue['Component ID']}</label>
-							    <input type="text" {$editableconfig['component_id_txt']} {$mandatoryconfig['component_id_txt']} id="component_id_txt" class="form-control input-sm"  >
+							    <input type="text" {$editableconfig['component_id_txt']} {$mandatoryconfig['component_id_txt']} id="componentID" class="form-control input-sm"  >
 							</div>
 							<div class="form-group col-md-3">
 							    <label for="name">{$paramValue['Component status']}</label>
-							    <input type="text" {$editableconfig['component_status_txt']} id="component_status_txt" class="form-control input-sm" >
+							    <input type="text" {$editableconfig['component_status_txt']} id="componentStatus" class="form-control input-sm" >
 							</div>
 						</div>
 						<div class="row" style="margin-top: 15px;">
@@ -66,7 +66,7 @@
 									        		<div class="col-md-12" style="padding-top: 15px;">
 										        		<div class="form-group col-md-3">
 										        			<label for="name">{$paramValue['Customer reference']} <span class="text-danger">*</span></label>
-									        				<input type="text" class="form-control input-sm" />
+									        				<input type="text" id="customerReference_txt" class="form-control input-sm" />
 										        		</div>
 										        		<div class="form-group col-md-3">
 										        			<label for="name">{$paramValue['Product type']} <span class="text-danger">*</span></label>
@@ -75,7 +75,7 @@
 										        		</div>
 										        		<div class="form-group col-md-3 " id="unitsellingpriceDiv" {$visibleconfig['unit_selling_price_txt']}>
 										        			<label for="name" >{$paramValue['Unit selling price']}(&#x20AC;)</label>
-									        				<input type="text" class="form-control input-sm" {$editableconfig['unit_selling_price_txt']} id="unit_selling_price_txt"/>
+									        				<input type="text" id="unit_selling_price_txt" class="form-control input-sm" {$editableconfig['unit_selling_price_txt']} />
 										        		</div>
 										        		<div class="form-group col-md-3 " id="customerdiv">
 										        			<label for="name">{$paramValue['Customer']}</label>
@@ -578,5 +578,38 @@
 						
 					</div>
 				</form>
+			</div>
+			<!-- Planning Customer Devlivery Modal -->
+			<div class="modal fade" id="plancustdevlivery-modal" tabindex="-1" role="dialog">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title">Add New</h4>
+			      </div>
+			      <div class="modal-body">
+			      	<form role="form">
+			      		<div class="form-group">
+							    <label for="name">Quantity</label>
+							    <input type="text" class="form-control" placeholder="Quantity">
+							</div>
+							<div class="form-group">
+							    <label for="name">Date</label>
+							    <div class="input-group date">
+								    <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+								</div>
+							</div>
+							<div class="form-group">
+							    <label for="name">Comment</label>
+							    <textarea class="form-control" rows="3"></textarea>
+							</div>
+			      	</form>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-success">Save changes</button>
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			      </div>
+			    </div>
+			  </div>
 			</div>
 {/template}

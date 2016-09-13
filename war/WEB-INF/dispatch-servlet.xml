@@ -31,4 +31,15 @@
     <bean id="technologyDAO" class="com.ths.DAO.Configuration.TechnologyDAO" />
     <bean id="AllocationTurnOverDAO" class="com.ths.DAO.Configuration.AllocationTurnOverDAO" />
     <bean id="ClientLaboDAO" class="com.ths.DAO.Configuration.ClientLaboDAO" />
+    <bean id="ComponentCreationDAO" class="com.ths.DAO.Configuration.ComponentCreationDAO" />
+    <bean id="ComponentDescriptionDAO" class="com.ths.DAO.Configuration.ComponentDescriptionDAO" />
+    <bean id="EstimatiingCostandDelayDAO" class="com.ths.DAO.Configuration.EstimatiingCostandDelayDAO" />
+    <bean id="ForecastPlanningDAO" class="com.ths.DAO.Configuration.ForecastPlanningDAO" />
+    <bean id="PlanningCustomerDeliveryDAO" class="com.ths.DAO.Configuration.PlanningCustomerDeliveryDAO" />
+    <bean id="PlanofLabTestsDAO" class="com.ths.DAO.Configuration.PlanofLabTestsDAO" />
+    <bean id="ProcessValidationDAO" class="com.ths.DAO.Configuration.ProcessValidationDAO" />
+    <bean id="QualityDeliverableDAO" class="com.ths.DAO.Configuration.QualityDeliverableDAO" />
+    <bean id="ReminderDAO" class="com.ths.DAO.Configuration.ReminderDAO" />
+    <bean id="TechnicalDefinitionDAO" class="com.ths.DAO.Configuration.TechnicalDefinitionDAO" />
+    
 </beans>
