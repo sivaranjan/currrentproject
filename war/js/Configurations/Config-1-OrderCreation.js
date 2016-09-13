@@ -68,29 +68,7 @@ orderCreationEditableSettings = {
 }
 
 orderCreationMandatorySettings = {
-							/*'geosite_txt':'data-required= data-type=',
-							'pcc_checkbox':'data-required= data-type=',
-							'openorder_checkbox':'data-required= data-type=',
-							'frittage_checkbox':'data-required= data-type=',
-							'e52_checkbox':'data-required= data-type=',
-							'intrale_checkbox':'data-required= data-type=',
-							'Date_of_the_order':'data-required= data-type=',
-							'customer_order_no_txt':'data-required= data-type=',
-							'customer_code_txt':'data-required= data-type=',
-							'branch_code_txt':'data-required= data-type=',
-							'provider_code_txt':'data-required= data-type=',
-							'final_delivery_address_txt':'data-required= data-type=',
-							'additional_txt':'data-required= data-type=',
-							'site_address_txt':'data-required= data-type=',
-							'incoterms_drpdwn':'data-required= data-type=',
-							'places_drpdwn':'data-required= data-type=',
-							'customer_receiver_txt':'data-required= data-type=',
-							'customer_receiver_telephone_txt':'data-required= data-type=',
-							'allocation_of_turnover_drpdwn':'data-required= data-type=',
-							'total_order_amt_txt':'data-required= data-type=',
-							'order_status_txt':'data-required= data-type=',
-							'requester_txt':'data-required= data-type=',
-							'mep_study_drpdwn':'data-required= data-type=',*/
+							
 							'no_prototype_order_txt'		:	'data-required=yes data-type=text',
 							'site_workshop_drpdwn'			:	'data-required=yes data-type=text',
 							'prototype_drpdwn'				:	'data-required=yes data-type=text',
@@ -101,7 +79,5 @@ orderCreationMandatorySettings = {
 							'proto_workshop_drpdwn'			:	'data-required=yes data-type=text',
 							'control_management_drpdwn'		:	'data-required=yes data-type=text',
 							'project_manager_drpdwn'		:	'data-required=yes data-type=text',
-							/*'fo_trade_drpdwn'				:	'data-required=yes data-type=text',
-							'adv_drpdwn'					:	'data-required=yes data-type=text'*/
 							
 }

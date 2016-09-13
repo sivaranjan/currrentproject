@@ -47,7 +47,11 @@ ApplicationConstants = {
 "saveForecastPlanning"			:	"/clientLabo/create",
 "saveReminder"					:	"/clientLabo/create",
 "saveQualitydeliverable"		:	"/clientLabo/create",
-"generateNewId"					:	"/idgenerator/createNewID"
+"generateNewId"					:	"/idgenerator/createNewID",
+"deleteAttachment"				: 	"/deleteAttachment",
+"updateAttachmentsURL"			:	"/updateAttachments",
+"getAttachmentsList"			:	"/getAttachmentsList?redID=",
+"getuploadUrl"					:	"/Attachment/getuploadUrl"
 	
 	
 	

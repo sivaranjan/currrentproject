@@ -419,7 +419,8 @@
         <script src="../js/Library/jquery-3.1.0.min.js"></script>
         <script src="../js/Library/underscore.js"></script>
         <script src="../js/Library/backbone-min.js"></script>
-		<script src="../js/Library/validate.js"></script>		
+		<script src="../js/Library/validate.js"></script>
+		<script src="../js/Library/ajaxfileupload.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script type="text/javascript" src="../js/Library/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" src="../js/Library/dataTables.bootstrap.min.js"></script>
@@ -460,6 +461,7 @@
         <script src="../js/Actions/clicksandblur-events.js"></script>
         <script src="../js/Actions/AdminPage-Actions.js"></script>
         <script src="../js/Actions/OrderPage-Actions.js"></script>
+         <script src="../js/Actions/attachments.js"></script>
 
         <script>
 			$('#userlabel').html("Welcome "+useremailid);
