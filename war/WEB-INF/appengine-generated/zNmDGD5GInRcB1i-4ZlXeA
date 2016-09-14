@@ -1,0 +1,129 @@
+ComponentJDO
+==============
+
+private Long id;
+private String orderIDReference;
+private String componentID;
+private String componentStatus;
+private int TotalQuantity;	
+private double TotalAmount;
+private Long componentDescriptionReference;
+private String technicalDefinitionReference;
+private String qualityDeliverableReference;
+private String processValidationReference;
+private String estimatingCostReference;
+
+ComponentDescriptionJDO
+========================
+
+private Long componentDescriptionID;
+private String componentID;
+private String customerReference;
+private String productSpecification;
+private String productType;
+private double unitSellingPrice;
+private String directDeliverytoCustomer; // have to deal sepe
+private String customer;
+private String laboAdress;
+private Text comment_componentDescription;
+private List<Long> plannigCustomerDeliveryRefernce=new ArrayList<Long>();
+
+PlanningCustomerDeliveryJDO
+============================
+
+private Long PlanningCustomerDeliveryID;
+private String componentID;
+private Long componentDescriptionID;
+private int Quantity;
+private Date Dateof = new Date();
+private Text Comment;
+
+
+
+TechnicalDefinitionJDO
+======================
+private Long technicalDefinitionID;
+private String componentID;
+private String projectManager;
+private String rAndDManager;
+private String projectPhase;
+private String valeoReference;
+private String technology;
+private String wbsCode;
+private String beCode;
+private String mipPWACode;
+private boolean validationProcess;
+private boolean planofLabTests;
+private String nomenClature;
+private String plan;
+private Text comment;
+private List<Long> planOfLabTestsReference=new ArrayList<Long>();
+
+PlanOfLabTestsJDO
+=================
+private Long PlanOfLabTestsID;
+private String componentID;
+private Long technicalDefinitionID;
+private int quantity;
+private String testsType;
+private Text testRequestNumber;
+private Date atpDateOfDelivery;
+
+ProcessValidationJDO
+====================
+
+private Long processValidationID;
+private String componentID;
+private String processDeliverable;
+private boolean yesIspecified;
+private Text comment;
+
+EstimatingCostandDelayJDO
+==========================
+
+private Long estimatingCostandDelayID;
+private String componentID;
+private String supportedBy;
+private Text listOfPrototypists;
+private int estimatedAmountOfWorkshop;
+private double estimatedUnitInternalCost;
+private double estimatedUnitExternalCost;
+private double estimatedTotalCostComponents;
+private double hourlyRate;
+private double fixedCosts;
+private double estimatedTimeUnitOfComponents;
+private double estimatedTimeTotalOfComponents;
+private double totalCosts;
+private List<Long> foreCastPlanningOfWorkShopReference=new ArrayList<Long>();
+private List<Long> reminderReference=new ArrayList<Long>();
+
+
+ForecastPlanningOfWorkshopJDO
+============================
+
+private Long forkcastPlanningOfWorkshopID;
+private String componentID;
+private Long estimatingCostandDelayID;
+private int Quantity;
+private Date Dateof = new Date();
+private Text Comment;
+
+ReminderJDO
+=============
+
+private Long reminderID;
+private String componentID;
+private Long estimatingCostandDelayID;
+private int Quantity;
+private Date Dateof = new Date();
+
+
+QualityDeliverableJDO
+=====================
+
+private Long technicalDefinitionID;
+private String componentID;
+private String qualityDeliverable;
+private boolean yesISpecified;
+private Text comment;
+

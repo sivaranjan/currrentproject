@@ -415,13 +415,13 @@
 		<script src="../js/Configurations/Config-2-ComponentCreation.js"></script>
 			
 		<script src="../js/Actions/Operations.js"></script>
-
+		<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="../js/Library/jquery-3.1.0.min.js"></script>
         <script src="../js/Library/underscore.js"></script>
         <script src="../js/Library/backbone-min.js"></script>
 		<script src="../js/Library/validate.js"></script>
 		<script src="../js/Library/ajaxfileupload.js"></script>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script type="text/javascript" src="../js/Library/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" src="../js/Library/dataTables.bootstrap.min.js"></script>
 		<script type="text/javascript" src="../js/Library/dataTables.responsive.min.js"></script>
@@ -434,7 +434,7 @@
         <script src="../js/Library/BackboneData.js"></script>
         <script src="../js/Library/bootbox.js"></script>
         <script src="../Soy/SoyUtils/soyutils.js"></script>
-
+    
  		 <script src="../Soy/SoyViewJs/globalnavbar-view.js"></script>
  		 <script src="../Soy/SoyViewJs/welcomesection-view.js"></script>
  		  <script src="../Soy/SoyViewJs/orderdetail-view.js"></script>

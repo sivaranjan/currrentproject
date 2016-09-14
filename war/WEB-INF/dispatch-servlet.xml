@@ -41,5 +41,6 @@
     <bean id="QualityDeliverableDAO" class="com.ths.DAO.Configuration.QualityDeliverableDAO" />
     <bean id="ReminderDAO" class="com.ths.DAO.Configuration.ReminderDAO" />
     <bean id="TechnicalDefinitionDAO" class="com.ths.DAO.Configuration.TechnicalDefinitionDAO" />
+    <bean id="AttachmentsDAO" class="com.ths.DAO.Attachment.AttachmentsDAO" />
     
 </beans>

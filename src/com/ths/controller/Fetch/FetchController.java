@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ths.DAO.Attachment.AttachmentsDAO;
 import com.ths.DAO.Component.ComponentIDDAO;
 import com.ths.DAO.Configuration.ActorsListDAO;
 import com.ths.DAO.Configuration.AllocationTurnOverDAO;
@@ -84,6 +85,8 @@ public class FetchController {
     private ClientLaboDAO clientLaboDao;
     @Autowired
     private UserDAO userDao;
+    @Autowired
+    private AttachmentsDAO attachmentDao;
     private static final Logger log = Logger.getLogger(FetchController.class.getName());
     
     /*================================ Actors ======================================== */
@@ -417,5 +420,11 @@ public class FetchController {
 	         responseMap.put("data", lastIDList);
 	         return new ResponseEntity<HashMap<String,List<IdJDO>>>(responseMap, HttpStatus.OK);
 	     }
-	     
+	     /*@RequestMapping(value = "/fetchAttachmentListCustomerOrder", method = RequestMethod.GET)
+	     public ResponseEntity<HashMap<String,List<AttachmentsJdo>>> fetchAttachmentListCustomerOrder() {
+	         List<AttachmentsJdo> lastIDList = attachmentDao.findallEntries();
+	         HashMap<String,List<AttachmentsJdo>> responseMap = new HashMap<String,List<AttachmentsJdo>>();
+	         responseMap.put("data", lastIDList);
+	         return new ResponseEntity<HashMap<String,List<AttachmentsJdo>>>(responseMap, HttpStatus.OK);
+	     }*/
 }

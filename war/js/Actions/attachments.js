@@ -1,7 +1,6 @@
 var newURL = window.location.protocol + "//" + window.location.host;
 $('#hiddenhost').val(newURL+'/serve?blob-key=');
 $('#hiddenname').val(useremailid);
-var totalattachments = 0;
 var currentfileID = "";
 $(document).ready(function() 
 {
@@ -21,11 +20,8 @@ var actions_attach =
 		}),
 		$(document).on("click", "#cancelattach", function(event) 
 		{
-					actions_attach.cancelAttachment();
-			    	bootbox.dialog({
-	            		  title: "Info",
-	            		  message: 'Your changes has been discarded.'
-	            	 });
+			actions_attach.cancelAttachment();
+			showVoiceBox.configure("Your changes has been discarded",2000);
 		}),
 		$(document).on("click", "#uploadattachfilebtn", function(event) 
 		{
@@ -33,42 +29,37 @@ var actions_attach =
 		}),
 		$(document).on("click", "#updateattachment", function(event) 
 		{
-				actions_attach.myUploadFunction(currentfileID);
+			actions_attach.myUploadFunction(currentfileID);
 		}),
-		 $(document).on("change", "#inputfile", function(event) 
+		$(document).on("change", "#inputfile", function(event) 
 		{
-					 $('#filepath').val($(this).val());
+			 $('#filepath').val($(this).val());
 		}),
-		 $(document).on("change", ".attachclass", function(event) 
+		$(document).on("change", ".attachclass", function(event) 
 		{
-			 		$('#cancelattach').removeClass('disabled');
+			 $('#cancelattach').removeClass('disabled');
 		}),
 		$(document).on("keypress", ".attachclass", function(event) 
 		{
-					$('#cancelattach').removeClass('disabled');
+			$('#cancelattach').removeClass('disabled');
 		}),
 		$(document).on("click", "#addattachments", function(event) 
 		{
-				 	$('#attachments_div').show();
-				 	$('#modifiedbydiv').hide();
-				 	$('#savebuttonarea').show();
-				 	$('#updatebuttonarea').hide();
-				 	$('#filepath').val("");
-				 	$('#file_Title').val("");
-				 	$('#filenameholder').val("")
-				 	$('#file_Description').val("");
-					$('#revisioncommentdiv').hide();
-					$('#revisioncomment').val("");
-					$('#createdbydiv').hide();
-					$('#modifiedbydiv').hide();
-				 $('html, body').animate({
-				        scrollTop: $("#attachments_div").offset().top
-				    }, 1000);
+			$('#modifiedbydiv').hide();
+			$('#savebuttonarea').show();
+			$('#updatebuttonarea').hide();
+			$('#filepath').val("");
+			$('#file_Title').val("");
+			$('#filenameholder').val("")
+			$('#file_Description').val("");
+			$('#revisioncommentdiv').hide();
+			$('#revisioncomment').val("");
+			$('#createdbydiv').hide();
+			$('#modifiedbydiv').hide();
 	    }),
 		$(document).on("click", ".editattachment", function(event) 
 		{
-			if(checkCurrentuserRights() && $('#status').val()!="Alert closed")
-			{
+			$('#orderattachment-modal').modal('show');
 				var id	=  $(this).attr('id');
 				id		=	id.split('edit_')[1];
 				currentfileID = id;
@@ -77,7 +68,6 @@ var actions_attach =
 				$('#modifiedbydiv').show();
 				$('#revisioncommentdiv').show();
 				$('#revisioncomment').val("");
-				 $('#attachments_div').show();
 				 $('#filepath').val(jsonvar[id].upload_Link);
 				 $('#filenameholder').val(jsonvar[id].file_Name);
 				 $('#file_Title').val(jsonvar[id].title);
@@ -88,47 +78,19 @@ var actions_attach =
 				 $('#modifiedon').html('Last Modified on - ' +new Date(jsonvar[id].modified_Date).toUTCString());
 				 $('#savebuttonarea').hide();
 				 $('#updatebuttonarea').show();
-				 $('html, body').animate({
-				        scrollTop: $("#attachments_div").offset().top
-				    }, 1000);
-			}
-			else
-			{
-				bootbox.dialog({
-  	            	title: "Info",
-  	            	message: 'You do not have the rights to edit the attachment for this alert.'
-    			});
-			}	
 		}),
 		$(document).on("click", ".deleteattachment", function(event) 
 		{ 
-				if(checkCurrentuserRights() && $('#status').val()!="Alert closed")
+			var id= $(this).attr('id');
+			bootbox.confirm('Are you sure you want to delete this attachment ?', function(result)
+			{
+				if(result)
 				{
-					var id= $(this).attr('id');
-					bootbox.confirm('Are you sure you want to delete this attachment ?', function(result) {
-						if(result)
-						{
-							actions_attach.deleteAlertfromDB(id.split('_')[1]);
-							$('#'+id).parent().parent().remove();	
-						}
-					});
+					actions_attach.deleteAlertfromDB(id.split('_')[1]);
+					$('#'+id).parent().remove();	
 				}
-				else
-				{
-					bootbox.dialog({
-	  	            	title: "Info",
-	  	            	message: 'You do not have the rights to delete the attachment for this alert.'
-	    			});
-				}
+			});
 		});
-		
-	},
-	goToByScroll : function()
-	{
-		$('html,body').animate({
-		      scrollTop: $("#filepath").offset().top},
-		      'slow');
-		  $('#filepath').attr('placeholder','Upload your new file');
 	},
 	deleteAlertfromDB : function(attachmentID)
 	{
@@ -142,17 +104,11 @@ var actions_attach =
             {
             	if(data === "success")
     	    	{
-    	    		bootbox.dialog({
-	            		  title: "Info",
-	            		  message: 'Attachment has been deleted successfully.',
-	            	 });
+            		showVoiceBox.configure("Attachment has been deleted successfully.",2000);
     	    	}
     	    	else
     	    	{
-    	    		bootbox.dialog({
-	            		  title: "Info",
-	            		  message: 'Something went wrong. Please try again later.'
-	            	 });
+    	    		showVoiceBox.configure("Oops! Something went wrong. Please try again later",2000);
     	    	}
             	var hiddenredid    	=	$.trim($('#hiddenredid').val());
             	console.log("Fetch attachments for this ID :: "+hiddenredid);
@@ -176,11 +132,7 @@ var actions_attach =
 		            data:{file_Description:file_Description,file_Title:file_Title,hiddenname:hiddenname,hiddenredid:hiddenredid,revisionComment:revisionComment,hiddenhost:hiddenhost,attachmentID:attachmentID},
 		            success: function (data) 
 		            {
-		            	$('#innerModal').modal('hide');
-		            	bootbox.dialog({
-		  	            	title: "Info",
-		  	            	message: 'Your attachment has been successfully saved.'
-		    			});
+		            	showVoiceBox.configure("Attachment has been successfully saved",2000);
 		            	actions_attach.cancelAttachment();
 	    				fetchAttachmentList(ApplicationConstants.getAttachmentsList+hiddenredid);
 		            }
@@ -198,11 +150,8 @@ var actions_attach =
 				    	 fileElementId : 'UploadFile',			    
 				    	 success : function(data) 
 				    	 {
-				    		 	$('#innerModal').modal('hide');
-				    			bootbox.dialog({
-				  	            	title: "Info",
-				  	            	message: 'Your attachment has been successfully saved.'
-				    			});
+				    		 	console.error("sdfdsf ajaxFileUpload edit:: "+data);
+				    		 	showVoiceBox.configure("Attachment has been successfully saved",2000);
 				    			actions_attach.cancelAttachment();
 			    				fetchAttachmentList(ApplicationConstants.getAttachmentsList+hiddenredid);
 				    	 }
@@ -223,7 +172,6 @@ var actions_attach =
 		$('#modifiedbydiv').hide();
 		$('#savebuttonarea').show();
 		 $('#updatebuttonarea').hide();
-		 $('#attachments_div').hide();
 	},
 	myUploadFunction : function(currentID)
 	{
@@ -239,9 +187,9 @@ var actions_attach =
 		 var revisioncomments	=	null;
 		 try
 		 {
-			 	if(actions_attach.validateForm(currentID))
+			 	if(actions_attach.validateForm(currentID)) // Does the validations for file upload
 				{
-			 		previousFilePath 	= 	((currentID!="") ? jsonvar[currentID].upload_Link : "");
+			 		//previousFilePath 	= 	((currentID!="") ? jsonvar[currentID].upload_Link : "");
 		    		currentPath			=	$('#filepath').val();
 			    	file_Title 			= 	$.trim($('#file_Title').val());
 			    	file_Description 	= 	$.trim($('#file_Description').val());
@@ -249,48 +197,47 @@ var actions_attach =
 			    	hiddenredid    		=	$.trim($('#hiddenredid').val());
 			    	hiddenhost 			=	$.trim($('#hiddenhost').val());
 			    	revisioncomments	=	$.trim($('#revisioncomment').val());
-			    	if(currentPath!=previousFilePath)
+			    	if(currentPath!=previousFilePath) // The user changed the previously uploaded file and trying to edit
 					{
-			    		if(currentID!="")
+			    		if(currentID!="")  // For update
 			    		{
 			    			bootbox.prompt("Give your revision comment before editing the attachment", function(result) 
-						    		{
-						    			if($.trim(result)!="")
-										{
-						    				$('#innerModal').html('<img src="/images/loader.gif" style="height: 80px;"></img>');
-									 	    $('#innerModal').modal('show');
-									 	    revisioncomments = result;
-								    		 $.ajax({
-										            type: 'GET',
-										            url: ApplicationConstants.getuploadUrl,
-										            async:false,
-										            success: function (data) 
-										            {
-										            	var urls = data;
-										            	actions_attach.AjaxFileUpload(urls,file_Description,file_Title,hiddenname,hiddenredid,hiddenhost,revisioncomments,currentID);
-										            }
-								    		 });
-										}
-						    			else
-						    			{
-						    				bootbox.dialog({
-												title: "Error",
-												message: 'No revision comment found.'
-						    				});
-						    			}	
-						    			
-						    		});
+						    {
+						    	if($.trim(result)!="")
+								{
+						    		showVoiceBox.configure("Please wait, loading",2000);
+									revisioncomments = result;
+								    $.ajax({
+										    type: 'POST',
+										    url: ApplicationConstants.getuploadUrl,
+										    data : "",
+										    async:false,
+										    success: function (data) 
+										    {
+										        console.error("sdfdsf success edit:: "+data);
+										        var urls = data;
+										        actions_attach.AjaxFileUpload(urls,file_Description,file_Title,hiddenname,hiddenredid,hiddenhost,revisioncomments,currentID);
+										    }
+								    	});
+								}
+						    	else
+						    	{
+						    		showVoiceBox.configure("No revision comment found",2000);
+						    	}	
+						     });
 			    		}
-			    		else
+			    		else   // new attachment added here
 			    		{
-			    			$('#innerModal').html('<img src="/images/loader.gif" style="height: 80px;"></img>');
-					 	    $('#innerModal').modal('show');
+			    			showVoiceBox.configure("Please wait, loading",2000);
 			    			$.ajax({
-					            type: 'GET',
-					            url: ApplicationConstants.getuploadUrl,
-					            async:false,
-					            success: function (data) 
+					            type	: 	'POST',
+					            url		: 	ApplicationConstants.getuploadUrl,
+					            data 	: 	'',
+					            datatype:	'json',
+					            async	:	false,
+					            success	: 	function (data) 
 					            {
+					            	console.error("sdfdsf :: "+data);
 					            	var urls = data;
 					            	actions_attach.AjaxFileUpload(urls,file_Description,file_Title,hiddenname,hiddenredid,hiddenhost,revisioncomments,currentID);
 					            }
@@ -298,32 +245,27 @@ var actions_attach =
 			    		}	
 			    		
 					}
-			    	else
+			    	else  // The user is uploading the new file attachment
 			    	{
-			    		if(currentID!="")
+			    		if(currentID!="") 
 			    		{
 			    			bootbox.prompt("Give your revision comment before editing the attachment !", function(result) 
 						    {
 			    				if($.trim(result)!="")
 								{
-			    					$('#innerModal').html('<img src="/images/loader.gif" style="height: 80px;"></img>');
-							 	    $('#innerModal').modal('show');
+			    					showVoiceBox.configure("Please wait, loading",2000);
 							 	   revisioncomments = result;
 							 	   actions_attach.AjaxFileUpload(ApplicationConstants.updateAttachmentsURL,file_Description,file_Title,hiddenname,hiddenredid,hiddenhost,revisioncomments,currentID);
 								}
 			    				else
 			    				{
-			    					bootbox.dialog({
-										title: "Error",
-										message: 'No revision comment found.'
-				    				});
+			    					showVoiceBox.configure("No revision comment found",2000);
 			    				}	
 						    });
 			    		}
 			    		else
 			    		{
-			    			$('#innerModal').html('<img src="/images/loader.gif" style="height: 80px;"></img>');
-					 	    $('#innerModal').modal('show');
+			    			showVoiceBox.configure("Please wait, loading",2000);
 			    			actions_attach.AjaxFileUpload(ApplicationConstants.updateAttachmentsURL,file_Description,file_Title,hiddenname,hiddenredid,hiddenhost,revisioncomments,currentID);
 			    		}	
 			    	}	
@@ -341,21 +283,14 @@ var actions_attach =
 				var description 	= 	$.trim($('#file_Description').val());
 				var revisioncomment =	$.trim($('#revisioncomment').val());
 										 
-				if (status=="" && (filepath == null || filepath == "")) 
+				if (status=="" && (filepath == null || filepath == ""))  // check for the file selected or not
 				{
-						bootbox.dialog({
-									         title: "Info",
-									         message: 'No file has been chosen yet.'
-									  });
-						return false;
+					showVoiceBox.configure("No file has been chosen yet",2000);
 				}
 				else if (title == null || title == "") 
 				{
-					bootbox.dialog({
-								            title: "Info",
-								            message: 'Please fill the title.'
-								  });
-						return false;
+					showVoiceBox.configure("Please fill the title",2000);
+					$('#file_Title').addClass('error');
 				}
 				else 
 				{

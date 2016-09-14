@@ -122,10 +122,10 @@ componentCreationVisibilitySettings = {
 componentCreationEditableSettings = {
 		
 		
-							'site_workshop_prototype_drpdwn':'readonly disabled',
-							'geosite_txt'			: 'readonly disabled',
-							'no_prototype_order_txt': 'readonly disabled',
-							'proto_type_dprdwn'		: 'readonly disabled',
+							'site_workshop_prototype_drpdwn'	:'readonly disabled',
+							'geosite_txt'						: 'readonly disabled',
+							'no_prototype_order_txt'			: 'readonly disabled',
+							'proto_type_dprdwn'					: 'readonly disabled',
 							'pcc_label'				: 'readonly disabled',
 							'pcc_checkbox'			: 'readonly disabled',
 							'openorder_label'		: 'readonly disabled',

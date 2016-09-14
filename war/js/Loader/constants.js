@@ -51,7 +51,7 @@ ApplicationConstants = {
 "deleteAttachment"				: 	"/deleteAttachment",
 "updateAttachmentsURL"			:	"/updateAttachments",
 "getAttachmentsList"			:	"/getAttachmentsList?redID=",
-"getuploadUrl"					:	"/Attachment/getuploadUrl"
+"getuploadUrl"					:	"/getuploadUrl"
 	
 	
 	

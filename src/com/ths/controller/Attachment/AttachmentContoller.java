@@ -8,11 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.jdo.PersistenceManager;
-import javax.jdo.Query;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,8 +17,8 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.json.JSONException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -33,30 +30,41 @@ import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 import com.google.appengine.api.blobstore.FileInfo;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
+import com.ths.DAO.Attachment.AttachmentsDAO;
 import com.ths.JDO.Attachment.AttachmentsJdo;
-import com.ths.service.PersistenceManagerUtil;
 import com.ths.service.UuidGeneratorHelper;
  
 @Controller
-@RequestMapping("/Attachment")
 public class AttachmentContoller {
-	
+	private @Autowired HttpServletRequest request;
+	private @Autowired HttpServletResponse resp;
+	@Autowired
+    private AttachmentsDAO attachmentDao;
 	private static final 	Logger 	log 				= 	Logger.getLogger(AttachmentContoller.class.getName());
 	private final BlobstoreService 	blobstore 			=   BlobstoreServiceFactory.getBlobstoreService();
 	private BlobstoreService 		blobstoreService 	= 	BlobstoreServiceFactory.getBlobstoreService();
 	
-	@RequestMapping(value = "/serve", method = RequestMethod.GET)
-  	public void  serve(HttpServletRequest request, HttpServletResponse res) throws GeneralSecurityException, IOException, ServletException, ParserConfigurationException, SAXException, JSONException 
+	@RequestMapping(value = "/serve",method = RequestMethod.GET)
+  	public void serve(HttpServletRequest request, HttpServletResponse res) throws GeneralSecurityException, IOException, ServletException, ParserConfigurationException, SAXException, JSONException 
    {
-		  BlobKey blobKey = new BlobKey(request.getParameter("blob-key"));
-		  String blob_key=request.getParameter("blob-key");
-		  System.out.println("blob_keu from hrer"+blob_key);
-		          res.setContentType("APPLICATION/OCTET-STREAM");   
-		          res.setHeader("Content-Disposition","attachment; filename="+request.getParameter("filename"));   
-		          blobstoreService.serve(blobKey, res);
+		BlobKey blobKey 	=   null;
+		String  blob_key	=	null;
+		try
+		{
+			 blobKey 		= 	new BlobKey(request.getParameter("blob-key"));
+			 blob_key		=	request.getParameter("blob-key");
+			 log.info("blob_keu from hrer"+blob_key);
+			 res.setContentType("APPLICATION/OCTET-STREAM");   
+			 res.setHeader("Content-Disposition","attachment; filename="+request.getParameter("filename"));   
+			 blobstoreService.serve(blobKey, resp);
+		}
+		catch(Exception e)
+		{
+			 log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
+		}
    }
     @RequestMapping(value = "/uploadattachments", method = RequestMethod.POST)
-  	public @ResponseBody String uploadattachments(HttpServletRequest req, HttpServletResponse resp) throws GeneralSecurityException, IOException, ServletException, ParserConfigurationException, SAXException, JSONException 
+  	public @ResponseBody String uploadattachments() throws GeneralSecurityException, IOException, ServletException, ParserConfigurationException, SAXException, JSONException 
    {
 	  	String 	file_Name 					= 	null;
 		String 	uploaded_By 				= 	null;
@@ -66,61 +74,55 @@ public class AttachmentContoller {
 		String 	file_Description 			=	null;
 		String 	Title 						= 	null;
 		String  attachment_Id 				= 	null;
-		String  newrevisionList 			= 	null;
-		Query   queryUserDetails			=	null;
-		String    revisionComment				=	null;
+		String    revisionComment			=	null;
 		Map<String, List<BlobKey>> 	blobs 	= 	null;
 		Map<String, List<FileInfo>> uploads = 	null;
 		List<BlobKey>	blobKey  			= 	null;
 		List<FileInfo> fileInfos 			= 	null;
-		PersistenceManager 	pmf  			= 	null;
 		BlobKey blobKey1 					= 	null;
 		boolean isDeleted 					= 	false;
 		Date todate  						= 	new Date();
-		List<AttachmentsJdo> attachmentInfo =		null;
-		List<String> revisionCommentsList	=		null;
+		List<AttachmentsJdo> attachmentInfo =	null;
+		List<String> revisionCommentsList	=	null;
 		long uploaded_Date;
 		try
 		{
 			
-			pmf 				=   PersistenceManagerUtil.getPersistenceManager();
-			blobs				= 	blobstore.getUploads(req);
-			uploads 			= 	blobstore.getFileInfos(req);
+			blobs				= 	blobstore.getUploads(request);
+			uploads 			= 	blobstore.getFileInfos(request);
 			blobKey 			= 	blobs.get("UploadFile");
 			blobKey1			= 	blobKey.get(0);
 			User user 			= 	UserServiceFactory.getUserService().getCurrentUser();
 			fileInfos 			= 	uploads.get("UploadFile");
 			uploaded_By 		= 	user.toString();
-			red_Id				=	req.getParameter("hiddenredid");
-			attachment_Id		=	req.getParameter("attachmentID"); //UUID.randomUUID();
-			file_Description 	=  	req.getParameter("file_Description");
-			Title   			= 	req.getParameter("file_Title");
-			revisionComment		=	req.getParameter("revisionComment");
+			red_Id				=	request.getParameter("hiddenredid");
+			attachment_Id		=	request.getParameter("attachmentID"); //UUID.randomUUID();
+			file_Description 	=  	request.getParameter("file_Description");
+			Title   			= 	request.getParameter("file_Title");
+			revisionComment		=	request.getParameter("revisionComment");
 			uploaded_Date 		= 	todate.getTime();
 			for (FileInfo fileInfo : fileInfos) 
 		    {
 				file_Name = fileInfo.getFilename();
 				upload_Type = fileInfo.getContentType();
 		    }
-			upload_Link 		=   req.getParameter("hiddenhost")+blobKey1.getKeyString()+"&filename="+file_Name.replaceAll("[^a-zA-Z0-9.-]", "_");
+			upload_Link 		=   request.getParameter("hiddenhost")+blobKey1.getKeyString()+"&filename="+file_Name.replaceAll("[^a-zA-Z0-9.-]", "_");
 			
-			System.out.println("the attachment_Id  is this :: "+attachment_Id.toString());
-			System.out.println("isDeleted is this :: "+isDeleted);
-			System.out.println("file_Description is this :: "+file_Description);
-			System.out.println("file_Name ::"+file_Name);
-			System.out.println("red_Id ::"+red_Id);
-			System.out.println("Title ::"+Title);
-			System.out.println("upload_Link ::"+upload_Link);
-			System.out.println("uploaded_By ::"+uploaded_By);
-			System.out.println("uploaded_Date ::"+uploaded_Date);
+			log.info("the attachment_Id  is this :: "+attachment_Id.toString());
+			log.info("isDeleted is this :: "+isDeleted);
+			log.info("file_Description is this :: "+file_Description);
+			log.info("file_Name ::"+file_Name);
+			log.info("red_Id ::"+red_Id);
+			log.info("Title ::"+Title);
+			log.info("upload_Link ::"+upload_Link);
+			log.info("uploaded_By ::"+uploaded_By);
+			log.info("uploaded_Date ::"+uploaded_Date);
 			
 			if(!attachment_Id.isEmpty() && attachment_Id.length()>0)
 			{
-				pmf 				=   PersistenceManagerUtil.getPersistenceManager();
-  			   	queryUserDetails 	=  	pmf.newQuery(AttachmentsJdo.class,"attachment_Id == '"+attachment_Id+"'");
-  			   	attachmentInfo      =   (List<AttachmentsJdo>) queryUserDetails.execute();
+				attachmentInfo = attachmentDao.findByAttachmentID(attachment_Id);
   			    revisionCommentsList	= 	new ArrayList<String>();
-  			   	System.out.println("the attachmentInfo size is this :: "+attachmentInfo.size());	
+  			   	log.info("the attachmentInfo size is this :: "+attachmentInfo.size());	
   			   	for( AttachmentsJdo value:attachmentInfo )
   			   	{
   			   		value.setFile_Description(file_Description);
@@ -136,9 +138,7 @@ public class AttachmentContoller {
   			   		value.setTitle(Title);
   			   		value.setUpload_Link(upload_Link);
   			   		value.setUpload_Type(upload_Type);
-	  			   	pmf.currentTransaction().begin();
-			        pmf.makePersistent(value);
-			        pmf.currentTransaction().commit();
+  			   		attachmentDao.save(value);
   			   	}
 			}
 			else
@@ -157,163 +157,155 @@ public class AttachmentContoller {
 					attachObject.setUploaded_Date(uploaded_Date);
 					attachObject.setModified_By("None");
 					attachObject.setRevisionComment(revisionCommentsList);
-					pmf.currentTransaction().begin();
-			        pmf.makePersistent(attachObject);
-			        pmf.currentTransaction().commit();
+					attachmentDao.save(attachObject);
 			}
 			
 		}
 		catch(Exception e)
 		{
-			System.out.println("Exception is this ::"+e);
-			return "failure";
+			log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
 		}
-		return "success";
+		return attachment_Id;
     }
     @RequestMapping(value = "/updateAttachments", method = RequestMethod.POST)
-  	public @ResponseBody String updateAttachments(HttpServletRequest req, HttpServletResponse resp) throws GeneralSecurityException, IOException, ServletException, ParserConfigurationException, SAXException, JSONException 
+  	public @ResponseBody String updateAttachments() throws GeneralSecurityException, IOException, ServletException, ParserConfigurationException, SAXException, JSONException 
    {
 		String 	file_Description 				=	null;
 		String 	Title 							= 	null;
-		String newrevisionList 					= 	null;
-		PersistenceManager 	pmf  				= 	null;
 		String attachment_Id 					= 	null;
 		Date todate  							= 	new Date();
 		String revisionComment 					=	null;
-		Query queryUserDetails					=	null;
 		List<AttachmentsJdo> attachmentInfo 	=	null;
 		List<String> revisionCommentsList		=	null;
 		long modified_date;
 		try
 		{
-			attachment_Id			=	req.getParameter("attachmentID"); 
-			file_Description 		=  	req.getParameter("file_Description");
-			Title   				= 	req.getParameter("file_Title");
-			System.out.println("the attachment_Id  is this :: "+attachment_Id);
-			System.out.println("file_Description is this :: "+file_Description);
-			System.out.println("Title ::"+Title);
-			pmf 					=   PersistenceManagerUtil.getPersistenceManager();
+			attachment_Id			=	request.getParameter("attachmentID"); 
+			file_Description 		=  	request.getParameter("file_Description");
+			Title   				= 	request.getParameter("file_Title");
+			log.info("the attachment_Id  is this :: "+attachment_Id);
+			log.info("file_Description is this :: "+file_Description);
+			log.info("Title ::"+Title);
 			revisionCommentsList	= 	new ArrayList<String>();
-			   	queryUserDetails 		=  	pmf.newQuery(AttachmentsJdo.class,"attachment_Id == '"+attachment_Id+"'");
-			   	attachmentInfo      	=   (List<AttachmentsJdo>) queryUserDetails.execute();
-			    System.out.println("the attachmentInfo size is this :: "+attachmentInfo.size());
-			   	User user 				= 	UserServiceFactory.getUserService().getCurrentUser();
+			attachmentInfo 			=   attachmentDao.findByAttachmentID(attachment_Id);
+			log.info("the attachmentInfo size is this :: "+attachmentInfo.size());
+			User user 				= 	UserServiceFactory.getUserService().getCurrentUser();
 			modified_date 			= 	todate.getTime();
-			revisionComment			=	req.getParameter("revisionComment");
+			revisionComment			=	request.getParameter("revisionComment");
 			   	for(AttachmentsJdo value:attachmentInfo )
 			   	{
 			   		value.setFile_Description(file_Description);
 			   		value.setTitle(Title);
 			   		value.setModified_By(user.toString());
 			   		value.setModified_Date(modified_date);
-			   	    System.out.println("the revision index is this :: "+value.getRevisionComment());
-			   	    System.out.println("the revision index is this sizes ::"+value.getRevisionComment().size());
+			   	    log.info("the revision index is this :: "+value.getRevisionComment());
+			   	    log.info("the revision index is this sizes ::"+value.getRevisionComment().size());
 			   		if(value.getRevisionComment()!= null)
 			   		{
-  			   		for(String revisionIndex : value.getRevisionComment())
-  			   		{
-  			   				revisionCommentsList.add(revisionIndex);
-  			   		}
+	  			   		for(String revisionIndex : value.getRevisionComment())
+	  			   		{
+	  			   				revisionCommentsList.add(revisionIndex);
+	  			   		}
 			   		}
 			   		revisionCommentsList.add(revisionComment);
 			   		value.setRevisionComment(revisionCommentsList);
-  			   	pmf.currentTransaction().begin();
-		        pmf.makePersistent(value);
-		        pmf.currentTransaction().commit();
+			   		attachmentDao.save(value);
 			   	}
 		}
 		catch(Exception e)
 		{
-			e.printStackTrace();
-			return "failure";
+			log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
 		}
 		return "success";
    }
-    @RequestMapping(value = "/getuploadUrl", method = RequestMethod.GET)
-	public  @ResponseBody String uploadpage(HttpServletRequest req, HttpServletResponse resp,@RequestBody String key) throws	GeneralSecurityException, IOException, ServletException 
-   {
-	  	String uploadUrl;
-	  	System.out.println("Generating upload url");
-	  		String uuid=UuidGeneratorHelper.getUniqueId();
-	  		uploadUrl=  dispatchUploadForm(req, resp, null,"");
-	  	
-	  		return uploadUrl;
+    @RequestMapping(value = "/getuploadUrl")
+	public  @ResponseBody String uploadpage() throws GeneralSecurityException, IOException, ServletException 
+    {
+    	String uploadUrl =  null;
+    	String uuid		 =	null;
+    	log.info("Generating upload url");
+    	try
+    	{
+    		uuid		=	UuidGeneratorHelper.getUniqueId();
+    		uploadUrl	=   dispatchUploadForm(request, resp);
+    	}
+    	catch(Exception e)
+    	{
+    		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
+    	}
+    	return uploadUrl+"uuid="+uuid;
   	}
-  protected String dispatchUploadForm(HttpServletRequest req,HttpServletResponse resp,String errorMsg,String isvpfilename) throws ServletException, IOException 
+    protected String dispatchUploadForm(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException 
+    {
+    	String 	uploadUrl = null;
+    	log.info("THe uploadurl is this :: "+uploadUrl);
+    	try
+    	{
+    		uploadUrl =  blobstore.createUploadUrl("/uploadattachments");
+    		log.info("THe uploadurl (dispatchUploadForm)  is this :: "+uploadUrl);
+    	}
+    	catch(Exception e)
+    	{
+    		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
+    	}
+        return uploadUrl;
+    }
+   public String dispatchUploadForm2() throws ServletException, IOException 
    {
-	    String 	uploadUrl;
-	    uploadUrl =  blobstore.createUploadUrl("/uploadattachments");
-	    System.out.println("THe uploadurl is this :: "+uploadUrl);
-       // uploadUrl  = blobstore.createUploadUrl("/upload", opts);
-       
-       return uploadUrl;
+	    String 	uploadUrl = null;
+	    try
+	    {
+	    	uploadUrl =  blobstore.createUploadUrl("/uploadattachments");
+	    	log.info("THe uploadurl (dispatchUploadForm2) is this :: "+uploadUrl);
+	    }
+	    catch(Exception e)
+	    {
+	    	log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
+	    }
+        return uploadUrl;
    }
-  public String dispatchUploadForm2() throws ServletException, IOException 
-   {
-	    String 	uploadUrl;
-	    uploadUrl =  blobstore.createUploadUrl("/uploadattachments");
-	    System.out.println("THe uploadurl is this :: "+uploadUrl);
-       // uploadUrl  = blobstore.createUploadUrl("/upload", opts);
-       
-       return uploadUrl;
-   }
-  @RequestMapping(value = "/getAttachmentsList", method = RequestMethod.POST)
-  	public  @ResponseBody String getAttachmentsList(HttpServletRequest request, HttpServletResponse resp) throws GeneralSecurityException, IOException, ServletException 
+   @RequestMapping(value = "/getAttachmentsList", method = RequestMethod.POST)
+   public  @ResponseBody String getAttachmentsList() throws GeneralSecurityException, IOException, ServletException 
    {
 	   String 			status 	= 		null;
 	   String 			redID 	=		null;
-	   PersistenceManager 	pm 	= 		null;
-	   Query queryUserDetails	=		null;
-	   List<AttachmentsJdo> attachmentsInfo=		null;
-		
+	   List<AttachmentsJdo> attachmentsInfo=	null;
+	   log.info("Inside fetchtable method !");
 	   try
 	   {
-		   		System.out.println("Inside fetchtable method !");
 		   		redID 	=			request.getParameter("redID");
-		   		pm      =      	PersistenceManagerUtil.getPersistenceManager();
 		   		HashMap<String, AttachmentsJdo> tableEntry 	    =      	new HashMap<String,  AttachmentsJdo>();
-		   		queryUserDetails    =  	 	pm.newQuery(AttachmentsJdo.class,"red_Id == '"+redID+"'");
-		   		attachmentsInfo     =      	(List<AttachmentsJdo>) queryUserDetails.execute();
+		   		attachmentsInfo 		=   attachmentDao.findByAttachmentID(redID);
+//		   		queryUserDetails    	=  	pm.newQuery(AttachmentsJdo.class,"red_Id == '"+redID+"'");
+//		   		attachmentsInfo     	=   (List<AttachmentsJdo>) queryUserDetails.execute();
 		        for( AttachmentsJdo value:attachmentsInfo )
 		        {
 		        		tableEntry.put(value.getAttachment_Id(), value);
 		        }  
-		        status               						   =   	  new ObjectMapper().writeValueAsString(tableEntry);
+		        status          =   	  new ObjectMapper().writeValueAsString(tableEntry);
 	   }
 	   catch(Exception e)
 	   {
-		   log.log( Level.SEVERE  , e.getMessage() ,  e );
+		   log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
 	   }
-	return status;
+	   return status;
    }
   @RequestMapping(value = "/deleteAttachment", method = RequestMethod.POST)
-  public  @ResponseBody String deleteAttachment(HttpServletRequest req, HttpServletResponse resp) throws GeneralSecurityException, IOException, ServletException 
+  public  @ResponseBody String deleteAttachment() throws GeneralSecurityException, IOException, ServletException 
   {
-	    System.out.println("visits deleteAttachment :: "+req.getParameter("attachmentID"));
-		 	String attachmentID					=		req.getParameter("attachmentID");
-		    Query queryUserDetails				=		null;
-		    List<AttachmentsJdo> attachmentInfo	=		null;
-		    PersistenceManager 	pm 				= 		null;
+	    	log.info("visits deleteAttachment :: "+		request.getParameter("attachmentID"));
+		 	String attachmentID					=		request.getParameter("attachmentID");
 		    try
 		    {
 		    	if(attachmentID!=null)
 		    	{
-		    		pm 	=   PersistenceManagerUtil.getPersistenceManager();
- 			   	queryUserDetails =  	 	pm.newQuery(AttachmentsJdo.class,"attachment_Id == '"+attachmentID+"'");
- 			   	attachmentInfo     =      	(List<AttachmentsJdo>) queryUserDetails.execute();
- 			   	System.out.println("the attachmentInfo size is this :: "+attachmentInfo.size());	
- 			   	for( AttachmentsJdo value:attachmentInfo )
- 			   	{
- 			   			pm.deletePersistent(value);
- 			   	}
+		    		 attachmentDao.deleteByAttachmentID(attachmentID);
 		    	}
-		    	
 		    }
 		    catch(Exception e)
 		    {
-		    	e.printStackTrace();
-		    	return "failure";
+		    	log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
 		    }
-		  return "success";
+		    return "success";
   }
 }

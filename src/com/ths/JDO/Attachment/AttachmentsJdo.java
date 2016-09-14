@@ -1,57 +1,44 @@
 package com.ths.JDO.Attachment;
-import java.io.Serializable;
 import java.util.List;
 
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.PrimaryKey;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
+@Entity
+public class AttachmentsJdo 
+{
+	@Id
+	@Index
+	private String attachment_Id;
+	@Index
+	private String red_Id; 
+	@Index
+	private String file_Name ;
+	@Index
+	private String upload_Type ;
+	@Index
+	private String upload_Link ;
+	@Index
+	private String file_Description ;
+	@Index
+	private List<String> revisionComment ;
+	@Index
+	private String Title;
+	@Index
+	private long uploaded_Date ;
+	@Index
+	private String uploaded_By ;
+	@Index
+	private String modified_By ;
+	@Index
+	private long modified_Date ;
+	@Index
+	private boolean isDeleted;
 
-import com.google.appengine.api.datastore.Text;
-@SuppressWarnings("serial")
-@PersistenceCapable(detachable = "true")
-public class AttachmentsJdo implements Serializable {
-	@PrimaryKey
-	String attachment_Id;
-	
- 	String red_Id; 
- 	
-	String file_Name ;
-	
-	String upload_Type ;
-	
-	String upload_Link ;
-	
-	String file_Description ;
-	
-	List<String> revisionComment ;
-	
-	String Title;
-	
-	long uploaded_Date ;
-	
-	String uploaded_By ;
-	
-	String modified_By ;
-	
-	long modified_Date ;
-	
-	boolean isDeleted;
-
-	
-	public String getModified_By() {
-		return modified_By;
-	}
-
-	public void setModified_By(String modified_By) {
-		this.modified_By = modified_By;
-	}
-
-	public long getModified_Date() {
-		return modified_Date;
-	}
-
-	public void setModified_Date(long modified_Date) {
-		this.modified_Date = modified_Date;
-	}
+	public AttachmentsJdo() 
+	{
+		
+    }
 
 	public String getAttachment_Id() {
 		return attachment_Id;
@@ -101,6 +88,22 @@ public class AttachmentsJdo implements Serializable {
 		this.file_Description = file_Description;
 	}
 
+	public List<String> getRevisionComment() {
+		return revisionComment;
+	}
+
+	public void setRevisionComment(List<String> revisionComment) {
+		this.revisionComment = revisionComment;
+	}
+
+	public String getTitle() {
+		return Title;
+	}
+
+	public void setTitle(String title) {
+		Title = title;
+	}
+
 	public long getUploaded_Date() {
 		return uploaded_Date;
 	}
@@ -116,28 +119,29 @@ public class AttachmentsJdo implements Serializable {
 	public void setUploaded_By(String uploaded_By) {
 		this.uploaded_By = uploaded_By;
 	}
+
+	public String getModified_By() {
+		return modified_By;
+	}
+
+	public void setModified_By(String modified_By) {
+		this.modified_By = modified_By;
+	}
+
+	public long getModified_Date() {
+		return modified_Date;
+	}
+
+	public void setModified_Date(long modified_Date) {
+		this.modified_Date = modified_Date;
+	}
+
 	public boolean isDeleted() {
 		return isDeleted;
 	}
 
 	public void setDeleted(boolean isDeleted) {
 		this.isDeleted = isDeleted;
-	}
-
-	public String getTitle() {
-		return Title;
-	}
-
-	public void setTitle(String title) {
-		Title = title;
-	}
-
-	public List<String> getRevisionComment() {
-		return revisionComment;
-	}
-
-	public void setRevisionComment(List<String> revisionComment) {
-		this.revisionComment = revisionComment;
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.ths.service;
 
 import com.googlecode.objectify.ObjectifyService;
+import com.ths.JDO.Attachment.AttachmentsJdo;
 import com.ths.JDO.Component.ComponentIDJDO;
 import com.ths.JDO.Configuration.ActorsListJDO;
 import com.ths.JDO.Configuration.AllocationTurnOverJDO;
@@ -47,7 +48,7 @@ public class Entity {
         ObjectifyService.register(TechnologyJDO.class);
         ObjectifyService.register(AllocationTurnOverJDO.class);
         ObjectifyService.register(ClientLaboJDO.class);
-        
+        ObjectifyService.register(AttachmentsJdo.class);
     }
 
 }
