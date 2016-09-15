@@ -354,7 +354,7 @@
 									 			$('#openorderlabel,#openordercheckbox,#no_customer_order,#customer_order_file button,#incotermsdiv,#placediv,#allocationdiv,#fodiv').attr('readonly',true);
 									 			$('#openorderlabel,#openordercheckbox,#no_customer_order,#customer_order_file button,#incotermsdiv,#placediv,#allocationdiv,#fodiv').attr('disabled',true);
 									 		}
-									 		if(Site_Workshop_Prototype.indexOf("La Verriere")!=-1 && Proto_Type=="P0" && Type_of_the_Prototype_Order == "VENDU/SOLD")
+									 		if(Site_Workshop_Prototype.indexOf("La Verr")!=-1 && Proto_Type=="P0" && Type_of_the_Prototype_Order == "VENDU / SOLD")
 											{
 												$('#frittagelabel,#frittagecheckbox').removeAttr('readonly');
 												$('#frittagelabel,#frittagecheckbox').removeAttr('disabled');
