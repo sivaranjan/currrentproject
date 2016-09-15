@@ -65,7 +65,7 @@ public class OrderJDO {
 	/*=============================================== Customers JDO ==================================================*/
 	private String no_customerOrder;
 	@Index
-	private String customerOrderAttachment;
+	private List<String> customerOrderAttachment=new ArrayList<String>();
 	@Index
 	private String customer_Name;
 	@Index
@@ -301,11 +301,11 @@ public class OrderJDO {
 		this.no_customerOrder = no_customerOrder;
 	}
 
-	public String getCustomerOrderAttachment() {
+	public List<String> getCustomerOrderAttachment() {
 		return customerOrderAttachment;
 	}
 
-	public void setCustomerOrderAttachment(String customerOrderAttachment) {
+	public void setCustomerOrderAttachment(List<String> customerOrderAttachment) {
 		this.customerOrderAttachment = customerOrderAttachment;
 	}
 

@@ -111,6 +111,7 @@ public class AttachmentContoller {
 			log.info("uploaded_By ::"+uploaded_By);
 			log.info("uploaded_Date ::"+uploaded_Date);
 			AttachmentsJdo attachObject = new AttachmentsJdo();
+			attachObject.setID(UuidGeneratorHelper.getUniqueId());
 			attachObject.setAttachment_Id(attachmentID);
 			attachObject.setDeleted(isDeleted);
 			attachObject.setFile_Description(file_Description);

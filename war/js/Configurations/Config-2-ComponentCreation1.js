@@ -1,9 +1,10 @@
 window.componentCreationVisibilitySettings || (window.componentCreationVisibilitySettings = {});
 window.componentCreationEditableSettings || (window.componentCreationEditableSettings = {});
 window.componentCreationMandatorySettings || (window.componentCreationMandatorySettings = {});
-window.navVisibilitySettings || (window.navVisibilitySettings = {});
+window.componentnavVisibilitySettings || (window.componentnavVisibilitySettings = {});
 
-navVisibilitySettings = {
+componentnavVisibilitySettings = {
+							'breadcrumb'	: 'hide',
 							'print'			: '',
 							'duplicate'		: '',
 							'saveorder'		: '',
@@ -14,7 +15,6 @@ navVisibilitySettings = {
 							'refuseorder'	: 'hide',
 							'demoteprevious': 'hide', 
 							'demoterequester': 'hide',
-							'breadcrumb'	: 'hide',
 							'fixednavbar'	: 'hide'
 						}
 

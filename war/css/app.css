@@ -169,6 +169,7 @@ ul.orderstabcol > li > a {
 .attachcustomer > li > a {
     cursor: pointer;
 	font-size: 12px;
+	word-break: break-all;
 }
 select.input-sm {
     height: 23px;

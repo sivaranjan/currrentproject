@@ -341,17 +341,18 @@
 									 		}	
 									 		if (Type_of_the_Prototype_Order == 'VENDU / SOLD')
 									 		{
-									 			$('#openorderlabel,#openordercheckbox,#no_customer_order,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').removeAttr('readonly');
-									 			$('#openorderlabel,#openordercheckbox,#no_customer_order,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').removeAttr('disabled');
+									 			$('#openorderlabel,#openordercheckbox,#no_customer_order,#customer_order_file button,#incotermsdiv,#placediv,#allocationdiv,#fodiv').removeAttr('readonly');
+									 			$('#openorderlabel,#openordercheckbox,#no_customer_order,#customer_order_file button,#incotermsdiv,#placediv,#allocationdiv,#fodiv').removeAttr('disabled');
 									 			$('#fotrade,#incotermsdiv,#placediv,#allocationdiv').removeAttr('readonly');
 									 			$('#fotrade,#Place,#Incoterms,#Allocation_of_turnover').removeAttr('disabled');
 									 			$('#fodiv .bootstrap-select,#incotermsdiv .bootstrap-select,#placediv .bootstrap-select,#allocationdiv .bootstrap-select').removeClass('disabled');
 									 			$('#fodiv .dropdown-toggle,#incotermsdiv .dropdown-toggle,#placediv .dropdown-toggle,#allocationdiv .dropdown-toggle').removeClass('disabled');
+									 			
 									 		}
 									 		else
 									 		{
-									 			$('#openorderlabel,#openordercheckbox,#no_customer_order,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').attr('readonly',true);
-									 			$('#openorderlabel,#openordercheckbox,#no_customer_order,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').attr('disabled',true);
+									 			$('#openorderlabel,#openordercheckbox,#no_customer_order,#customer_order_file button,#incotermsdiv,#placediv,#allocationdiv,#fodiv').attr('readonly',true);
+									 			$('#openorderlabel,#openordercheckbox,#no_customer_order,#customer_order_file button,#incotermsdiv,#placediv,#allocationdiv,#fodiv').attr('disabled',true);
 									 		}
 									 		if(Site_Workshop_Prototype.indexOf("La Verriere")!=-1 && Proto_Type=="P0" && Type_of_the_Prototype_Order == "VENDU/SOLD")
 											{
@@ -414,7 +415,7 @@
 											{
 												$('#totalorderamountdiv,#openorderlabel,#openordercheckbox,#customer_order_no,#customer_order_file,#incotermsdiv,#placediv,#allocationdiv,#fodiv').addClass('hide');
 											}	
-											if(Site_Workshop_Prototype.indexOf("La Verriere")!=-1 && Proto_Type=="P0" && Type_of_the_Prototype_Order == "VENDU/SOLD")
+											if(Site_Workshop_Prototype.indexOf("La Verr")!=-1 && Proto_Type=="P0" && Type_of_the_Prototype_Order == "VENDU / SOLD")
 											{
 												$('#frittagelabel,#frittagecheckbox').removeClass('hide');
 											}

@@ -46,12 +46,7 @@ var actions_attach =
 			       $('#file_Title').val('');
 			       $('#file_Description').val('');
 			       attachmentIDArray.push(attachmentID);
-			       //$('#customer_order_list').html();
-//			       var attachmentHTML = '<li>'+
-//					'<i class="fa fa-file-text-o" aria-hidden="true"></i>'+
-//					'<a class="editattachment" id="edit_"'+attachmentID+'>teste</a>'+
-//					'<a class="pull-right fa fa-cloud-download" href="http://localhost:8888/serve?blob-key=mcvZIxdxhqbHmuOnot-Cng&filename=Capture4.PNG"></a>'+
-//					'<a class="pull-right fa fa-times" id="remove_d6a6239d-0360-4afe-ac09-2dc10c8f8e64"></a></li>';
+			       actions_attach.pullAttachmentList(attachmentID);
 			   },
 			   error: function(data)
 			   {
@@ -83,6 +78,30 @@ var actions_attach =
 	            }
 			});
 		}	
+	},
+	pullAttachmentList  : function(attachmentID)
+	{
+		$.ajax({
+	           type: 'get',
+	           url: ApplicationConstants.fetchAttachmentListCustomerOrderbyID+attachmentID,
+	           contentType: "application/json; charset=utf-8",
+	           traditional: true,
+	           success: function (data) 
+	           {
+	        	   var google = data.data;
+	                console.log(google);
+	                console.log("hello");
+	                google.forEach(function(arrayItem)
+	                {
+	 			         var attachmentHTML = '<li>'+
+	 					'<i class="fa fa-file-text-o" aria-hidden="true"></i>'+
+	 					'<a class="editattachment" id="edit_'+arrayItem.attachment_Id+'">'+arrayItem.file_Name+'</a>'+
+	 					'<a class="pull-right fa fa-cloud-download" href='+arrayItem.upload_Link+'></a>'+
+	 					'<a class="pull-right fa fa-times" id="remove_'+arrayItem.attachment_Id+'"></a></li>';
+	 			        $('#customer_order_list').append(attachmentHTML);
+	                });
+	           }
+		});
 	},
 	validateForm 	: function()
 	{

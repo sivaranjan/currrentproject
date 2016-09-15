@@ -31,6 +31,7 @@ import com.ths.DAO.Configuration.TechnologyDAO;
 import com.ths.DAO.Order.IdDAO;
 import com.ths.DAO.Order.OrderDAO;
 import com.ths.DAO.User.UserDAO;
+import com.ths.JDO.Attachment.AttachmentsJdo;
 import com.ths.JDO.Component.ComponentIDJDO;
 import com.ths.JDO.Configuration.ActorsListJDO;
 import com.ths.JDO.Configuration.AllocationTurnOverJDO;
@@ -420,11 +421,25 @@ public class FetchController {
 	         responseMap.put("data", lastIDList);
 	         return new ResponseEntity<HashMap<String,List<IdJDO>>>(responseMap, HttpStatus.OK);
 	     }
-	     /*@RequestMapping(value = "/fetchAttachmentListCustomerOrder", method = RequestMethod.GET)
-	     public ResponseEntity<HashMap<String,List<AttachmentsJdo>>> fetchAttachmentListCustomerOrder() {
-	         List<AttachmentsJdo> lastIDList = attachmentDao.findallEntries();
-	         HashMap<String,List<AttachmentsJdo>> responseMap = new HashMap<String,List<AttachmentsJdo>>();
-	         responseMap.put("data", lastIDList);
+	     
+	     @RequestMapping("/fetchAttachmentListCustomerOrderbyID/{attachmentID}")
+	     public ResponseEntity<HashMap<String,List<AttachmentsJdo>>> fetchAttachmentListCustomerOrder(@PathVariable("attachmentID") String attachmentID) 
+	     {
+	     	log.log(FINER, "Visits fetchAttachmentListCustomerOrderbyID Controller - attachmentID :: "+attachmentID);
+	     	List<AttachmentsJdo> actors = null;
+	     	HashMap<String,List<AttachmentsJdo>> responseMap = null;
+	     	try
+	     	{
+	     		actors = attachmentDao.findByAttachmentID(attachmentID);
+	         	responseMap = new HashMap<String,List<AttachmentsJdo>>();
+	         	responseMap.put("data", actors);
+	         	log.log(FINER, "Response Map from fetchCustomerDetailsbyName :: "+responseMap);
+	     	}
+	     	catch(Exception e)
+	     	{
+	     		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
+	     	}
 	         return new ResponseEntity<HashMap<String,List<AttachmentsJdo>>>(responseMap, HttpStatus.OK);
-	     }*/
+	     }
+	     
 }

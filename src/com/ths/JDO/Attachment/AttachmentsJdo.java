@@ -9,6 +9,8 @@ public class AttachmentsJdo
 {
 	@Id
 	@Index
+	private String ID;
+	@Index
 	private String attachment_Id;
 	@Index
 	private String red_Id; 
@@ -142,6 +144,14 @@ public class AttachmentsJdo
 
 	public void setDeleted(boolean isDeleted) {
 		this.isDeleted = isDeleted;
+	}
+
+	public String getID() {
+		return ID;
+	}
+
+	public void setID(String iD) {
+		ID = iD;
 	}
 
 }

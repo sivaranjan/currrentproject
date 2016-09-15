@@ -23,6 +23,7 @@ ApplicationConstants = {
 "fetchAllocationofTurnOverList"	: 	"/fetchController/fetchAllocationofTurnOverList",
 "fetchlastPrototypeID"			:	"/fetchController/fetchlastPrototypeID",
 "fetchProtypeOrderObject"		:	"/fetchController/fetchProtypeOrderbasedOnID/",
+"fetchAttachmentListCustomerOrderbyID": "/fetchController/fetchAttachmentListCustomerOrderbyID/",
 "saveOrderUrl"					:	"/order/create",
 "createorupdateuser"			:	"/users/createorupdate",
 "saveActorsListURL"				:	"/actorsList/create",

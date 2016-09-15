@@ -194,7 +194,7 @@ orderDetails_englishLabelList = {
     'Additional address': 'Additional Address',
     'Site address': 'Site Address',
     'Customer order': 'Customer Order',
-    'Add Attach': 'Add Attach',
+    'Add Attach': 'Attach File',
     'Component': 'Component',
     'Link': 'Link',
     'Customer ref': 'Customer reference',
