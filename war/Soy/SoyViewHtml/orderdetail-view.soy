@@ -17,11 +17,11 @@
 							  	  		<div class="panel-heading col-md-12" role="tab">
 							  				<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">{$paramValue['Order Detail']}</h2>
 							  			</div>
-									  <div class="form-group col-md-6">
+									  <div class="form-group col-md-6 {$visibleconfig['no_prototype_order_txt']}">
 									    <label for="name">N<sup>&#8728;</sup>  {$paramValue['Prototype Order']}<span class="text-danger">*</span></label>
 									    <input type="text" {$editableconfig['no_prototype_order_txt']} {$mandatoryconfig['no_prototype_order_txt']} class="form-control input-sm"  id="No_Prototype_Order" >
 									  </div>
-									  <div class="form-group col-md-6">
+									  <div class="form-group col-md-6 {$visibleconfig['order_status_txt']}">
 										    <label for="name">{$paramValue['Order Status']}</label>
 										    <input type="text" {$editableconfig['order_status_txt']} {$mandatoryconfig['order_status_txt']} class="form-control input-sm"  id="Order_Status"  aria-describedby="basic-addon2">
 										</div>
@@ -29,12 +29,12 @@
 									    <label for="name">{$paramValue['Geosite']}<span class="text-danger">*</span></label>
 									    <input type="text" id="Geosite" {$mandatoryconfig['geosite_txt']} {$editableconfig['geosite_txt']} class="form-control input-sm"  >
 									  </div>
-										<div class="form-group col-md-6">
+										<div class="form-group col-md-6 {$visibleconfig['site_workshop_prototype_drpdwn']}">
 										    <label>{$paramValue['Site/Workshop Prototype']}<span class="text-danger">*</span></label>
 										    <select class="selectpicker"   title=" " {$mandatoryconfig['site_workshop_drpdwn']} {$editableconfig['site_workshop_drpdwn']} id="Site_Workshop_Prototype" data-width="100%" data-live-search="true">
 										    </select>
 									  </div>
-									  <div class="form-group col-md-6">
+									  <div class="form-group col-md-6 {$visibleconfig['proto_type_dprdwn']}">
 									    <label>{$paramValue['Proto Type']}<span class="text-danger">*</span></label>
 									    <select class="selectpicker"  {$mandatoryconfig['prototype_drpdwn']} {$editableconfig['proto_type_drpdwn']} title=" " id="Proto_Type" data-width="100%">
 									        <option>P0</option>
@@ -42,14 +42,14 @@
 									        <option>P2</option>
 									    </select>
 									  </div>
-									  <div class="form-group col-md-6">
+									  <div class="form-group col-md-6 {$visibleconfig['type_of_the_prototype_order_drpdwn']}">
 									    <label>{$paramValue['Type of the prototype order']}<span class="text-danger">*</span></label>
 									    <select class="selectpicker" {$editableconfig['type_of_the_prototype_order_drpdwn']}  title=" " {$mandatoryconfig['Type_of_the_Prototype_Order_drpdwn']} id="Type_of_the_Prototype_Order" data-width="100%">
 									        <option>VENDU / SOLD</option>
 									        <option>NON VENDU / NOT SOLD</option>
 									    </select>
 									  </div>
-									  <div class="form-group col-md-6">
+									  <div class="form-group col-md-6 {$visibleconfig['date_of_the_order']}">
 									    <label for="name">{$paramValue['Date of the order']}</label>
 									    <div class="input-group date">
 										    <input type="text" {$editableconfig['Date_of_the_order']} id="Date_of_the_Order" {$mandatoryconfig['Date_of_the_order']} class="form-control input-sm"  ><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
@@ -70,26 +70,26 @@
 									  <div class="panel-heading col-md-12" role="tab" style="margin-top: 5px;">
 									  	<h2 style="color: #97D045;margin-top: 0px;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">{$paramValue['Actor']}</h2>
 									  </div>
-									  <div class="form-group col-md-6">
+									  <div class="form-group col-md-6 {$visibleconfig['requester_text']}">
 									    <label for="name">{$paramValue['Requester']}</label>
 									    <input type="text" {$editableconfig['requester_txt']} {$mandatoryconfig['requester_txt']} id="requester" class="form-control input-sm " >
 									  </div>
-									  <div class="form-group col-md-6">
+									  <div class="form-group col-md-6 {$visibleconfig['mep_study_drpdwn']}">
 									    <label>{$paramValue['MEP Study']} <span class="text-danger ">*</span></label>
 									    <select class="selectpicker" {$editableconfig['mep_study_drpdwn']} {$mandatoryconfig['mep_study_drpdwn']} id="mepstudy" title=" " data-width="100%" data-live-search="true">
 									    </select>
 									  </div>
-									  <div class="form-group col-md-6">
+									  <div class="form-group col-md-6 {$visibleconfig['quality_drpdwn']}">
 									    <label>{$paramValue['Quality']} <span class="text-danger">*</span></label>
 									    <select class="selectpicker" {$editableconfig['quality_drpdwn']}  {$mandatoryconfig['quality_drpdwn']} id="quality" title=" " data-width="100%" data-live-search="true">
 									    </select>
 									  </div>
-									  <div class="form-group col-md-6">
+									  <div class="form-group col-md-6 {$visibleconfig['proto_workshop_drpdwn']}">
 									    <label>{$paramValue['Proto workshop']}<span class="text-danger">*</span></label>
 									    <select class="selectpicker" {$mandatoryconfig['proto_workshop_drpdwn']} {$editableconfig['proto_workshop_drpdwn']}   id="protoworkshop" title=" " data-width="100%" data-live-search="true">
 									    </select>
 									  </div>
-									  <div class="form-group col-md-6">
+									  <div class="form-group col-md-6 {$visibleconfig['control_management_drpdwn']}">
 									    <label>{$paramValue['Control management']}<span class="text-danger">*</span></label>
 									    <select class="selectpicker"  {$mandatoryconfig['control_management_drpdwn']} {$editableconfig['control_management_drpdwn']}   id="controlmanagement" title=" " data-width="100%" data-live-search="true">
 									    </select>
@@ -104,7 +104,7 @@
 									    <select class="selectpicker" {$mandatoryconfig['adv_drpdwn']} {$editableconfig['adv_drpdwn']} id="adv" title=" " data-width="100%" data-live-search="true">
 									    </select>
 									  </div>
-									  <div class="form-group col-md-6">
+									  <div class="form-group col-md-6 {$visibleconfig['project_manager_drpdwn']}">
 									    <label>{$paramValue['Project manager']}<span class="text-danger">*</span></label>
 									    <select class="selectpicker" {$mandatoryconfig['project_manager_drpdwn']} {$editableconfig['project_manager_drpdwn']}  id="projmanager" title=" " data-width="100%" data-live-search="true">
 									    </select>
@@ -122,27 +122,27 @@
 									    	<input type="text" {$mandatoryconfig['customer_order_no_txt']}  class="form-control input-sm" id="no_customer_order" {$editableconfig['customer_order_no_txt']}>
 									  	</div>
 									  	
-						        		<div class="form-group col-md-6">
+						        		<div class="form-group col-md-6 {$visibleconfig['customer_name_drpdwn']}">
 										    <label for="name">{$paramValue['Customer name']} <span class="text-danger">*</span></label>
 										    <select class="selectpicker"   title=" " {$mandatoryconfig['customer_name_drpdwn']} id="Customer_Name" data-width="100%" data-live-search="true">
 										    </select>
 										</div>
 										
-										<div class="form-group col-md-6">
+										<div class="form-group col-md-6 {$visibleconfig['customer_code_txt']}">
 										    <label for="name">{$paramValue['Customer code']}</label>
 										    <input type="text" {$mandatoryconfig['customer_code_txt']} class="form-control input-sm" id="Customer_Code">
 							  			</div>
 							  			
-									  	<div class="form-group col-md-6">
+									  	<div class="form-group col-md-6 {$visibleconfig['branch_code_txt']}">
 										    <label for="name">{$paramValue['Branch code']}</label>
 										    <input type="text" {$editableconfig['branch_code_txt']} {$mandatoryconfig['branch_code_txt']} class="form-control input-sm" id="Branch_Code">
 									  	</div>
-									  	<div class="form-group col-md-6">
+									  	<div class="form-group col-md-6 {$visibleconfig['provider_code_txt']}">
 										    <label for="name">{$paramValue['Provider code']}</label>
 										    <input type="text" class="form-control input-sm" {$mandatoryconfig['provider_code_txt']} id="Provider_Code">
 									  	</div>
 							  
-									  	<div class="form-group col-md-6">
+									  	<div class="form-group col-md-6 {$visibleconfig['plateform_drpdwn']}">
 										    <label for="name">{$paramValue['Plateform']} <span class="text-danger">*</span></label>
 										    <select class="selectpicker"   title=" " {$mandatoryconfig['plateform_drpdwn']} id="Plateform" data-width="100%" data-live-search="true">
 										    </select>
@@ -158,11 +158,11 @@
 										    </select>
 										</div>
 							  
-										<div class="form-group col-md-6">
+										<div class="form-group col-md-6 {$visibleconfig['customer_receiver_name_txt']}">
 										    <label for="name">{$paramValue['Customer receiver name']}</label>
 										    <input type="text" class="form-control input-sm" {$mandatoryconfig['customer_receiver_txt']} id="Customer_Receiver_Name" aria-describedby="basic-addon2">
 										</div>
-										<div class="form-group col-md-6">
+										<div class="form-group col-md-6 {$visibleconfig['customer_receiver_telephone_txt']}">
 										    <label for="name">{$paramValue['Customer receiver telephone']}</label>
 										    <input type="text" class="form-control input-sm" {$mandatoryconfig['customer_receiver_telephone_txt']} id="Customer_Receiver_Telephone" aria-describedby="basic-addon2">
 										</div>
@@ -171,11 +171,11 @@
 										    <select class="selectpicker" title=" " {$mandatoryconfig['allocation_of_turnover_drpdwn']} {$editableconfig['allocation_of_turnover_drpdwn']} id="Allocation_of_turnover" data-width="100%" data-live-search="true">
 										    </select>
 										</div>
-										<div class="form-group col-md-6">
+										<div class="form-group col-md-6 {$visibleconfig['final_delivery_address_txtarea']}">
 										    <label for="name">{$paramValue['Final delivery Address']}</label>
 										    <textarea class="form-control" {$mandatoryconfig['final_delivery_address_txt']} id="Final_Delivery_Address" style="height: 65px;resize: none;" id="comment"></textarea>
 										</div>
-									  	<div class="form-group col-md-6">
+									  	<div class="form-group col-md-6 {$visibleconfig['additional_address_txtarea']}">
 									    	<label for="name">{$paramValue['Additional address']}</label>
 									    	<textarea class="form-control" {$mandatoryconfig['additional_txt']}  id="Additional_Address" style="height: 65px;resize: none;" id="comment"></textarea>
 									  	</div>

@@ -105,8 +105,8 @@
 21.Prototype order N0 (textbox) /* component description*/
 22.Order type (textbox)
 23.Customer order N0 (textbox)
-24.Customer reference (texbox)
-25.Product type (textbox)
+24.Customer reference (texbox)  /* component details */
+25.Product type (textbox)      /* component details */ 
 26.Component id (textbox)
 27.Component status (textbox)
 28.Total quantity (textbox)
