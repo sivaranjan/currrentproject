@@ -417,7 +417,7 @@
 		<script src="../js/Actions/Operations.js"></script>
 		<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="../js/Library/jquery-3.1.0.min.js"></script>
+        
         <script src="../js/Library/underscore.js"></script>
         <script src="../js/Library/backbone-min.js"></script>
 		<script src="../js/Library/validate.js"></script>
@@ -461,7 +461,7 @@
         <script src="../js/Actions/clicksandblur-events.js"></script>
         <script src="../js/Actions/AdminPage-Actions.js"></script>
         <script src="../js/Actions/OrderPage-Actions.js"></script>
-         <script src="../js/Actions/attachments.js"></script>
+         <script src="../js/Actions/attachment1.js"></script>
 
         <script>
 			$('#userlabel').html("Welcome "+useremailid);

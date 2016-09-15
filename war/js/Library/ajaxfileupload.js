@@ -164,7 +164,6 @@ jQuery.extend({
         }
         try 
 		{
-
 			var form = jQuery('#' + formId);
 			jQuery(form).attr('action', s.url);
 			jQuery(form).attr('method', 'POST');
@@ -184,7 +183,7 @@ jQuery.extend({
             jQuery.handleError(s, xml, null, e);
         }
 		
-		jQuery('#' + frameId).load(uploadCallback	);
+		jQuery('#' + frameId).load(uploadCallback);
         return {abort: function () {}};	
 
     },

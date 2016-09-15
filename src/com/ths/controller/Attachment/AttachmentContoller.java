@@ -64,17 +64,16 @@ public class AttachmentContoller {
 		}
    }
     @RequestMapping(value = "/uploadattachments", method = RequestMethod.POST)
-  	public @ResponseBody String uploadattachments() throws GeneralSecurityException, IOException, ServletException, ParserConfigurationException, SAXException, JSONException 
+  	public void uploadattachments() throws GeneralSecurityException, IOException, ServletException, ParserConfigurationException, SAXException, JSONException 
    {
+    	System.out.println("hgggfhfhfgftytfyfytfyfyf");
 	  	String 	file_Name 					= 	null;
 		String 	uploaded_By 				= 	null;
-		String  red_Id						=	null;
 		String 	upload_Type 				=	null;
 		String 	upload_Link     			=   null;
 		String 	file_Description 			=	null;
 		String 	Title 						= 	null;
-		String  attachment_Id 				= 	null;
-		String    revisionComment			=	null;
+		String  attachmentID 				= 	null;
 		Map<String, List<BlobKey>> 	blobs 	= 	null;
 		Map<String, List<FileInfo>> uploads = 	null;
 		List<BlobKey>	blobKey  			= 	null;
@@ -82,8 +81,6 @@ public class AttachmentContoller {
 		BlobKey blobKey1 					= 	null;
 		boolean isDeleted 					= 	false;
 		Date todate  						= 	new Date();
-		List<AttachmentsJdo> attachmentInfo =	null;
-		List<String> revisionCommentsList	=	null;
 		long uploaded_Date;
 		try
 		{
@@ -95,77 +92,42 @@ public class AttachmentContoller {
 			User user 			= 	UserServiceFactory.getUserService().getCurrentUser();
 			fileInfos 			= 	uploads.get("UploadFile");
 			uploaded_By 		= 	user.toString();
-			red_Id				=	request.getParameter("hiddenredid");
-			attachment_Id		=	request.getParameter("attachmentID"); //UUID.randomUUID();
 			file_Description 	=  	request.getParameter("file_Description");
 			Title   			= 	request.getParameter("file_Title");
-			revisionComment		=	request.getParameter("revisionComment");
 			uploaded_Date 		= 	todate.getTime();
+			attachmentID        =   request.getParameter("attachmentID");
 			for (FileInfo fileInfo : fileInfos) 
 		    {
 				file_Name = fileInfo.getFilename();
 				upload_Type = fileInfo.getContentType();
 		    }
-			upload_Link 		=   request.getParameter("hiddenhost")+blobKey1.getKeyString()+"&filename="+file_Name.replaceAll("[^a-zA-Z0-9.-]", "_");
+			upload_Link 		=   request.getParameter("fileServeLink")+"="+blobKey1.getKeyString()+"&filename="+file_Name.replaceAll("[^a-zA-Z0-9.-]", "_");
 			
-			log.info("the attachment_Id  is this :: "+attachment_Id.toString());
 			log.info("isDeleted is this :: "+isDeleted);
 			log.info("file_Description is this :: "+file_Description);
 			log.info("file_Name ::"+file_Name);
-			log.info("red_Id ::"+red_Id);
 			log.info("Title ::"+Title);
 			log.info("upload_Link ::"+upload_Link);
 			log.info("uploaded_By ::"+uploaded_By);
 			log.info("uploaded_Date ::"+uploaded_Date);
-			
-			if(!attachment_Id.isEmpty() && attachment_Id.length()>0)
-			{
-				attachmentInfo = attachmentDao.findByAttachmentID(attachment_Id);
-  			    revisionCommentsList	= 	new ArrayList<String>();
-  			   	log.info("the attachmentInfo size is this :: "+attachmentInfo.size());	
-  			   	for( AttachmentsJdo value:attachmentInfo )
-  			   	{
-  			   		value.setFile_Description(file_Description);
-  			   		value.setFile_Name(file_Name);
-  			   		value.setModified_By(user.toString());
-  			   		value.setModified_Date(uploaded_Date);
-	  			   	for(String revisionIndex : value.getRevisionComment())
-  			   		{
-  			   				revisionCommentsList.add(revisionIndex);
-  			   		}
-	  			    revisionCommentsList.add(revisionComment);
-  			   		value.setRevisionComment(revisionCommentsList);
-  			   		value.setTitle(Title);
-  			   		value.setUpload_Link(upload_Link);
-  			   		value.setUpload_Type(upload_Type);
-  			   		attachmentDao.save(value);
-  			   	}
-			}
-			else
-			{
-					AttachmentsJdo attachObject = new AttachmentsJdo();
-					attachment_Id = UUID.randomUUID().toString();
-					attachObject.setAttachment_Id(attachment_Id);
-					attachObject.setDeleted(isDeleted);
-					attachObject.setFile_Description(file_Description);
-					attachObject.setFile_Name(file_Name);
-					attachObject.setRed_Id(red_Id);
-					attachObject.setTitle(Title);
-					attachObject.setUpload_Link(upload_Link);
-					attachObject.setUpload_Type(upload_Type);
-					attachObject.setUploaded_By(uploaded_By);
-					attachObject.setUploaded_Date(uploaded_Date);
-					attachObject.setModified_By("None");
-					attachObject.setRevisionComment(revisionCommentsList);
-					attachmentDao.save(attachObject);
-			}
-			
+			AttachmentsJdo attachObject = new AttachmentsJdo();
+			attachObject.setAttachment_Id(attachmentID);
+			attachObject.setDeleted(isDeleted);
+			attachObject.setFile_Description(file_Description);
+			attachObject.setFile_Name(file_Name);
+			attachObject.setTitle(Title);
+			attachObject.setUpload_Link(upload_Link);
+			attachObject.setUpload_Type(upload_Type);
+			attachObject.setUploaded_By(uploaded_By);
+			attachObject.setUploaded_Date(uploaded_Date);
+			attachObject.setModified_By("None");
+			attachObject.setRevisionComment(null);
+			attachmentDao.save(attachObject);
 		}
 		catch(Exception e)
 		{
 			log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
 		}
-		return attachment_Id;
     }
     @RequestMapping(value = "/updateAttachments", method = RequestMethod.POST)
   	public @ResponseBody String updateAttachments() throws GeneralSecurityException, IOException, ServletException, ParserConfigurationException, SAXException, JSONException 
@@ -233,7 +195,7 @@ public class AttachmentContoller {
     	{
     		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
     	}
-    	return uploadUrl+"uuid="+uuid;
+    	return uploadUrl+"?uuid_"+uuid;
   	}
     protected String dispatchUploadForm(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException 
     {

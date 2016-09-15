@@ -1,6 +1,5 @@
 var newURL = window.location.protocol + "//" + window.location.host;
 $('#hiddenhost').val(newURL+'/serve?blob-key=');
-$('#hiddenname').val(useremailid);
 var currentfileID = "";
 $(document).ready(function() 
 {
@@ -121,7 +120,7 @@ var actions_attach =
             }
         });
 	},
-	AjaxFileUpload   : function(urls,file_Description,file_Title,hiddenname,hiddenredid,hiddenhost,revisionComment,attachmentID)
+	AjaxFileUpload   : function(urls,file_Description,file_Title,hiddenredid,hiddenhost,revisionComment,attachmentID)
 	{
 		if(urls==ApplicationConstants.updateAttachmentsURL)
 		{
@@ -129,7 +128,7 @@ var actions_attach =
 		            type: 'POST',
 		            url: urls,
 		            async:false,
-		            data:{file_Description:file_Description,file_Title:file_Title,hiddenname:hiddenname,hiddenredid:hiddenredid,revisionComment:revisionComment,hiddenhost:hiddenhost,attachmentID:attachmentID},
+		            data:{file_Description:file_Description,file_Title:file_Title,hiddenredid:hiddenredid,revisionComment:revisionComment,hiddenhost:hiddenhost,attachmentID:attachmentID},
 		            success: function (data) 
 		            {
 		            	showVoiceBox.configure("Attachment has been successfully saved",2000);
@@ -146,10 +145,11 @@ var actions_attach =
 				    	 secureuri:false,
 				    	 url : urls,
 				    	 datatype:'json',
-				    	 data:{file_Description:file_Description,file_Title:file_Title,hiddenname:hiddenname,hiddenredid:hiddenredid,revisionComment:revisionComment,hiddenhost:hiddenhost,attachmentID:attachmentID},
+				    	 data:{file_Description:file_Description,file_Title:file_Title,hiddenredid:hiddenredid,revisionComment:revisionComment,hiddenhost:hiddenhost,attachmentID:attachmentID},
 				    	 fileElementId : 'UploadFile',			    
 				    	 success : function(data) 
 				    	 {
+				    		    console.log(data);
 				    		 	console.error("sdfdsf ajaxFileUpload edit:: "+data);
 				    		 	showVoiceBox.configure("Attachment has been successfully saved",2000);
 				    			actions_attach.cancelAttachment();
@@ -181,7 +181,6 @@ var actions_attach =
 		 var filepath 			= 	null;
 		 var file_Title 		= 	null;
 		 var file_Description 	= 	null;
-		 var hiddenname			=	null;
 		 var hiddenredid    	=	null;
 		 var hiddenhost 		=	null;
 		 var revisioncomments	=	null;
@@ -193,7 +192,6 @@ var actions_attach =
 		    		currentPath			=	$('#filepath').val();
 			    	file_Title 			= 	$.trim($('#file_Title').val());
 			    	file_Description 	= 	$.trim($('#file_Description').val());
-			    	hiddenname			=	$.trim($('#hiddenname').val());
 			    	hiddenredid    		=	$.trim($('#hiddenredid').val());
 			    	hiddenhost 			=	$.trim($('#hiddenhost').val());
 			    	revisioncomments	=	$.trim($('#revisioncomment').val());
@@ -216,7 +214,7 @@ var actions_attach =
 										    {
 										        console.error("sdfdsf success edit:: "+data);
 										        var urls = data;
-										        actions_attach.AjaxFileUpload(urls,file_Description,file_Title,hiddenname,hiddenredid,hiddenhost,revisioncomments,currentID);
+										        actions_attach.AjaxFileUpload(urls,file_Description,file_Title,hiddenredid,hiddenhost,revisioncomments,currentID);
 										    }
 								    	});
 								}
@@ -239,7 +237,7 @@ var actions_attach =
 					            {
 					            	console.error("sdfdsf :: "+data);
 					            	var urls = data;
-					            	actions_attach.AjaxFileUpload(urls,file_Description,file_Title,hiddenname,hiddenredid,hiddenhost,revisioncomments,currentID);
+					            	actions_attach.AjaxFileUpload(urls,file_Description,file_Title,hiddenredid,hiddenhost,revisioncomments,currentID);
 					            }
 			    			});
 			    		}	
@@ -255,7 +253,7 @@ var actions_attach =
 								{
 			    					showVoiceBox.configure("Please wait, loading",2000);
 							 	   revisioncomments = result;
-							 	   actions_attach.AjaxFileUpload(ApplicationConstants.updateAttachmentsURL,file_Description,file_Title,hiddenname,hiddenredid,hiddenhost,revisioncomments,currentID);
+							 	   actions_attach.AjaxFileUpload(ApplicationConstants.updateAttachmentsURL,file_Description,file_Title,hiddenredid,hiddenhost,revisioncomments,currentID);
 								}
 			    				else
 			    				{
@@ -266,7 +264,7 @@ var actions_attach =
 			    		else
 			    		{
 			    			showVoiceBox.configure("Please wait, loading",2000);
-			    			actions_attach.AjaxFileUpload(ApplicationConstants.updateAttachmentsURL,file_Description,file_Title,hiddenname,hiddenredid,hiddenhost,revisioncomments,currentID);
+			    			actions_attach.AjaxFileUpload(ApplicationConstants.updateAttachmentsURL,file_Description,file_Title,hiddenredid,hiddenhost,revisioncomments,currentID);
 			    		}	
 			    	}	
 				}	
