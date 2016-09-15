@@ -412,7 +412,7 @@
 		<script src="../js/Loader/language.js"></script>
 		<script src="../js/Loader/constants.js"></script>
 		<script src="../js/Configurations/Config-1-OrderCreation.js"></script>
-		<script src="../js/Configurations/Config-2-ComponentCreation.js"></script>
+		<script src="../js/Configurations/Config-2-ComponentCreation1.js"></script>
 			
 		<script src="../js/Actions/Operations.js"></script>
 		<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
