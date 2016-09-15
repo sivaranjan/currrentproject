@@ -15,7 +15,7 @@
 											        var Type_of_the_Prototype_Order = 	BackboneEncode($('#Type_of_the_Prototype_Order').val());
 											        var Date_of_the_Order 			= 	BackboneEncode($('#Date_of_the_Order').val());
 											        var no_customer_order 			= 	BackboneEncode($('#no_customer_order').val());
-											        var customer_order_list 		=	BackboneEncode($('#customer_order_list').val());
+											        var customer_order_list 		=	attachmentIDArray;
 											        var Customer_Name 				= 	BackboneEncode($('#Customer_Name').val());
 											        var Customer_Code 				= 	BackboneEncode($('#Customer_Code').val());
 											        var Branch_Code 				= 	BackboneEncode($('#Branch_Code').val());
@@ -221,7 +221,7 @@
 									            $('#Proto_Type').selectpicker('val', arrayItem.proto_Type);  //drpdwn
 										        $('#Geosite').val(arrayItem.geoSite);
 										        $('#Type_of_the_Prototype_Order').selectpicker('val', arrayItem.type_of_the_Prototype_Order);//drpdwn
-										        $('#Date_of_the_Order').val(arrayItem.date_of_the_Order); 
+										        $('#Date_of_the_Order').val(new Date(arrayItem.date_of_the_Order).toUTCString()); 
 										        loadActorsOnOrderDetails(arrayItem.site_Workshop_Prototype,function()
 										        {
 										        	 /*=========== Actors ==========*/
@@ -270,7 +270,10 @@
 										        $('#Allocation_of_turnover').selectpicker('val', arrayItem.allocation_of_turnover); //drpdwn
 										        $('#Final_Delivery_Address').val(arrayItem.final_Delivery_Address);
 										        $('#Additional_Address').val(arrayItem.additional_Address);
-										        $('#customer_order_list').val(arrayItem.customerOrderAttachment);
+										        for(var totalfiles=0;totalfiles<arrayItem.customerOrderAttachment.length;totalfiles++)
+										        {
+										        	actions_attach.pullAttachmentList(arrayItem.customerOrderAttachment[totalfiles]);
+										        }	
 										        $('#Site_Address').val(arrayItem.site_Address);
 										        $('#Total_Order_Amount').val(arrayItem.total_Order_Amount);
 										        var  Type_of_the_Prototype_Order 	= 	$.trim($('#Type_of_the_Prototype_Order').val());

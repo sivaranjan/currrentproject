@@ -92,7 +92,10 @@ input.custom-fileinput {
     display: block;
     cursor: pointer;
 }
-
+/* Modal changes */
+.modal-header {
+    background-color: #eee;
+}
 /* Table Component */
 
 #component-table .table thead tr th,

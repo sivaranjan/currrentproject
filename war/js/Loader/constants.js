@@ -50,9 +50,12 @@ ApplicationConstants = {
 "saveQualitydeliverable"		:	"/clientLabo/create",
 "generateNewId"					:	"/idgenerator/createNewID",
 "deleteAttachment"				: 	"/deleteAttachment",
+"deleteCustomerOrderAttachment" :   "/deleteCustomerOrderAttachment",
 "updateAttachmentsURL"			:	"/updateAttachments",
 "getAttachmentsList"			:	"/getAttachmentsList?redID=",
-"getuploadUrl"					:	"/getuploadUrl"
+"getuploadUrl"					:	"/getuploadUrl",
+"getuploadUrlOnUpdate"			:	"/getuploadUrlOnUpdate",
+"updateAttachment"				:	"/updateAttachments"
 	
 	
 	

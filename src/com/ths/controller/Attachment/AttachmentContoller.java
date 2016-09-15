@@ -7,7 +7,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
@@ -136,6 +135,8 @@ public class AttachmentContoller {
 		String 	file_Description 				=	null;
 		String 	Title 							= 	null;
 		String attachment_Id 					= 	null;
+		String  fileServeLink					=	null;
+		String filename							=	null;
 		Date todate  							= 	new Date();
 		String revisionComment 					=	null;
 		List<AttachmentsJdo> attachmentInfo 	=	null;
@@ -143,9 +144,11 @@ public class AttachmentContoller {
 		long modified_date;
 		try
 		{
-			attachment_Id			=	request.getParameter("attachmentID"); 
+			attachment_Id			=	request.getParameter("attachment_Id"); 
 			file_Description 		=  	request.getParameter("file_Description");
 			Title   				= 	request.getParameter("file_Title");
+			fileServeLink			=	request.getParameter("fileServeLink");
+			filename				=	request.getParameter("filename");
 			log.info("the attachment_Id  is this :: "+attachment_Id);
 			log.info("file_Description is this :: "+file_Description);
 			log.info("Title ::"+Title);
@@ -154,13 +157,15 @@ public class AttachmentContoller {
 			log.info("the attachmentInfo size is this :: "+attachmentInfo.size());
 			User user 				= 	UserServiceFactory.getUserService().getCurrentUser();
 			modified_date 			= 	todate.getTime();
-			revisionComment			=	request.getParameter("revisionComment");
+			revisionComment			=	request.getParameter("revision_comment");
 			   	for(AttachmentsJdo value:attachmentInfo )
 			   	{
 			   		value.setFile_Description(file_Description);
 			   		value.setTitle(Title);
 			   		value.setModified_By(user.toString());
 			   		value.setModified_Date(modified_date);
+			   		value.setUpload_Link(fileServeLink);
+			   		value.setFile_Name(filename);
 			   	    log.info("the revision index is this :: "+value.getRevisionComment());
 			   	    log.info("the revision index is this sizes ::"+value.getRevisionComment().size());
 			   		if(value.getRevisionComment()!= null)
@@ -198,6 +203,23 @@ public class AttachmentContoller {
     	}
     	return uploadUrl+"?uuid_"+uuid;
   	}
+    @RequestMapping(value = "/getuploadUrlOnUpdate")
+	public  @ResponseBody String getuploadUrlOnUpdate() throws GeneralSecurityException, IOException, ServletException 
+    {
+    	String uploadUrl =  null;
+    	String uuid		 =	null;
+    	log.info("Generating upload url");
+    	try
+    	{
+    		uuid		=	UuidGeneratorHelper.getUniqueId();
+    		uploadUrl	=   dispatchUploadForm2(request, resp);
+    	}
+    	catch(Exception e)
+    	{
+    		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
+    	}
+    	return uploadUrl;
+  	}
     protected String dispatchUploadForm(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException 
     {
     	String 	uploadUrl = null;
@@ -213,20 +235,21 @@ public class AttachmentContoller {
     	}
         return uploadUrl;
     }
-   public String dispatchUploadForm2() throws ServletException, IOException 
-   {
-	    String 	uploadUrl = null;
-	    try
-	    {
-	    	uploadUrl =  blobstore.createUploadUrl("/uploadattachments");
-	    	log.info("THe uploadurl (dispatchUploadForm2) is this :: "+uploadUrl);
-	    }
-	    catch(Exception e)
-	    {
-	    	log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
-	    }
+    protected String dispatchUploadForm2(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException 
+    {
+    	String 	uploadUrl = null;
+    	log.info("THe uploadurl is this :: "+uploadUrl);
+    	try
+    	{
+    		uploadUrl =  blobstore.createUploadUrl("/updateAttachments");
+    		log.info("THe uploadurl (dispatchUploadForm)  is this :: "+uploadUrl);
+    	}
+    	catch(Exception e)
+    	{
+    		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
+    	}
         return uploadUrl;
-   }
+    }
    @RequestMapping(value = "/getAttachmentsList", method = RequestMethod.POST)
    public  @ResponseBody String getAttachmentsList() throws GeneralSecurityException, IOException, ServletException 
    {
@@ -271,4 +294,23 @@ public class AttachmentContoller {
 		    }
 		    return "success";
   }
+  @RequestMapping(value = "/deleteCustomerOrderAttachment", method = RequestMethod.POST)
+  public  @ResponseBody String deleteCustomerOrderAttachment() throws GeneralSecurityException, IOException, ServletException 
+  {
+	    	log.info("visits deleteAttachment :: "+		request.getParameter("attachmentID"));
+		 	String attachmentID					=		request.getParameter("attachmentID");
+		    try
+		    {
+		    	if(attachmentID!=null)
+		    	{
+		    		 attachmentDao.deleteByAttachmentID(attachmentID);
+		    	}
+		    }
+		    catch(Exception e)
+		    {
+		    	log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
+		    }
+		    return "success";
+  }
+  
 }

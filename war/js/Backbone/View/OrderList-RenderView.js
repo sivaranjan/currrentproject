@@ -63,24 +63,25 @@ BackboneData.Views.OrderListview = Backbone.View.extend(
                 "data": "type_of_the_Prototype_Order"
             },
             {
-                "data": "date_of_the_Order"
+                "data": "date_of_the_Order",
+                "render" : function(data, type, row, meta)
+                 {
+                     if(type === 'display')
+                     {
+                    	 return $('<a style="color: black;text-decoration: initial;">')
+                         .text(new Date(data).toUTCString())
+                         .wrap('<div></div>')
+                         .parent()
+                         .html();
+                     } 
+                     else 
+                     {
+                         return data;
+                     }
+                }
             },
             {
                 "data": "requester"
-            }],
-            responsive:
-            {
-                details:
-                {
-                    type	: 'column',
-                    target	: -1
-                }
-            },
-            columnDefs		: [
-            {
-                className	: 	'control',
-                orderable	: 	false,
-                targets		: 	-1
             }]
         });
         buildSearchForTable('orderlisttable_footer th','orderlist-table');
