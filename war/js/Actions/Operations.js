@@ -112,7 +112,7 @@
 																			$('.selectpicker').selectpicker();
 																			$('.selectpicker').selectpicker('setStyle', 'btn-sm', 'add');
 																			$('#bs-example-navbar-collapse-1 ul li').removeClass('active');
-																			 $('#createorder-tab').addClass('active');
+																			 //$('#createorder-tab').addClass('active');
 																			validateAndDoCallback(docallBack);
 																			break;
 												case 'adminsetting' 	:
@@ -158,19 +158,21 @@
 												case 'createorder' :
 																var globalNavbarHTML 		= 	new BackboneData.Views.GlobalNavbarview();
 													            var navBtnSectionHTML 		= 	new BackboneData.Views.NavBtnSectionview();
-													            if($.trim($('#orderdetailview').html())=="" || document.URL.indexOf("orderdetails?")>1 || window.langstatusChanged)
+													            var orderDetailSectionHTML 	= 	new BackboneData.Views.OrderDetailView();
+													           /* if($.trim($('#orderdetailview').html())=="" || document.URL.indexOf("orderdetails?")>1 || window.langstatusChanged)
 													            {
 													            	var orderDetailSectionHTML 	= 	new BackboneData.Views.OrderDetailView();
-													            }
+													            }*/
 													            validateAndDoCallback(docallBack);
 													            break;
 												case 'componentdetails' :
 																var globalNavbarHTML 		= 	new BackboneData.Views.GlobalNavbarview();
 														        var navBtnSectionHTML 		= 	new BackboneData.Views.NavBtnSectionview();
-														        if($.trim($('#component-section').html())=="")
+														        var componentDetailHTMl 	= 	new BackboneData.Views.ComponentDetailView();
+														       /* if($.trim($('#component-section').html())=="")
 													            {
 														        	var componentDetailHTMl 	= 	new BackboneData.Views.ComponentDetailView();
-													            }
+													            }*/
 														        validateAndDoCallback(docallBack);
 														        break;
 												case 'adminsetting' :
@@ -278,7 +280,31 @@
 												  });
 	  											 
   											};
-  validateAndDoCallback		 		 =		function (done)
+  setAdjustablePropertiesforCompPage		=   function(done)
+  												{
+	  													var currentOrderObject = window.currentOrderObject;
+	  													currentOrderObject.forEach(function(arrayItem)
+	  													{
+	  														if(arrayItem.type_of_the_Prototype_Order == "VENDU / SOLD")
+	  														{
+	  															$('#unitsellingpriceDiv').removeClass('hide');
+	  															$('#directDeliveryDiv').removeClass('hide');
+	  															$('#totalamtDiv').removeClass('hide');
+	  															$('#direct_delivery_to_the_customer_radiobtn1').removeAttr('disabled');
+	  															$('#direct_delivery_to_the_customer_radiobtn1').removeAttr('readonly');
+	  															$('#direct_delivery_to_the_customer_radiobtn2').removeAttr('disabled');
+	  															$('#direct_delivery_to_the_customer_radiobtn2').removeAttr('readonly');
+	  															$('#unit_selling_price_txt').removeAttr('disabled');
+	  															$('#unit_selling_price_txt').removeAttr('readonly');
+	  															$('#customer_order_no_compage_txt').removeAttr('disabled');
+	  															$('#customer_order_no_compage_txt').removeAttr('readonly');
+	  															$('#unit_selling_price_txt').attr('data-type',"text");
+	  															$('#unit_selling_price_txt').attr('data-required',true);
+	  														}	
+	  													});
+	  													validateAndDoCallback(done);
+  												};
+  validateAndDoCallback		 		 		=		function (done)
   											{
 											   if (typeof done === "function")
 										       {

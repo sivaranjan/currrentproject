@@ -25,8 +25,8 @@ public class ComponentIdController {
     @RequestMapping(value = "/createNewID", method = RequestMethod.POST)
     public ResponseEntity<Void> createUser(@RequestBody ComponentIDJDO genID, UriComponentsBuilder ucBuilder) 
     {
-        System.out.println("Actor details");
-        genID.setNext_id(2000);
+        System.out.println("ComponentIDDetails");
+        genID.setNext_id(0);
         componentIDDAO.save(genID);
   
         HttpHeaders headers = new HttpHeaders();

@@ -14,11 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.appengine.api.blobstore.FileInfo;
 import com.ths.DAO.Attachment.AttachmentsDAO;
 import com.ths.DAO.Component.ComponentIDDAO;
 import com.ths.DAO.Configuration.ActorsListDAO;
 import com.ths.DAO.Configuration.AllocationTurnOverDAO;
 import com.ths.DAO.Configuration.ClientLaboDAO;
+import com.ths.DAO.Configuration.ComponentCreationDAO;
+import com.ths.DAO.Configuration.ComponentDescriptionDAO;
 import com.ths.DAO.Configuration.CustomersListDAO;
 import com.ths.DAO.Configuration.IncotermsDAO;
 import com.ths.DAO.Configuration.PlacesDAO;
@@ -32,7 +35,9 @@ import com.ths.DAO.Order.IdDAO;
 import com.ths.DAO.Order.OrderDAO;
 import com.ths.DAO.User.UserDAO;
 import com.ths.JDO.Attachment.AttachmentsJdo;
+import com.ths.JDO.Component.ComponentDescriptionJDO;
 import com.ths.JDO.Component.ComponentIDJDO;
+import com.ths.JDO.Component.ComponentJDO;
 import com.ths.JDO.Configuration.ActorsListJDO;
 import com.ths.JDO.Configuration.AllocationTurnOverJDO;
 import com.ths.JDO.Configuration.ClientLaboJDO;
@@ -88,6 +93,10 @@ public class FetchController {
     private UserDAO userDao;
     @Autowired
     private AttachmentsDAO attachmentDao;
+    @Autowired
+    private ComponentCreationDAO componentDao;
+    @Autowired
+    private ComponentDescriptionDAO componentDescriptionDao;
     private static final Logger log = Logger.getLogger(FetchController.class.getName());
     
     /*================================ Actors ======================================== */
@@ -175,7 +184,7 @@ public class FetchController {
     }
     
     @RequestMapping(value = "/fetchComponentIDList", method = RequestMethod.GET)
-    public ResponseEntity<List<ComponentIDJDO>> listallComponentIDlist() 
+    public ResponseEntity<HashMap<String,List<ComponentIDJDO>>> listallComponentIDlist()
     {
     	log.log(FINER, "Visits fetchComponentIDList Controller");
     	List<ComponentIDJDO> componentidlist = null;
@@ -191,7 +200,7 @@ public class FetchController {
     	{
     		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
     	}
-        return new ResponseEntity<List<ComponentIDJDO>>(componentidlist, HttpStatus.OK);
+    	return new ResponseEntity<HashMap<String,List<ComponentIDJDO>>>(responseMap, HttpStatus.OK);
     }
     
     /*================================ Customers ======================================== */
@@ -334,7 +343,54 @@ public class FetchController {
     	}
         return new ResponseEntity<HashMap<String,Object>>(responseMap, HttpStatus.OK);
     }
+/*================================ Fetch Component dependencies ======================================== */
     
+    @RequestMapping(value ="/fetchComponentdependencies",method = RequestMethod.GET)
+    public ResponseEntity<HashMap<String,Object>> fetchComponentdependencies() 
+    {
+    	log.log(FINER, "Visits fetchComponentdependencies Controller");
+    	HashMap<String,Object> responseMap = null;
+    	HashMap<String,List<ProductTypesJDO>> productTypeMap= null;
+    	HashMap<String,List<ClientLaboJDO>> laboCustomerMap = null;
+    	HashMap<String,List<RandDJDO>> rAndDMap = null;
+    	HashMap<String,List<TechnologyJDO>> technologyMap = null;
+    	HashMap<String,List<PrototypistsJDO>> protypistsMap = null;
+    	List<ProductTypesJDO> productTypesList = null;
+    	List<ClientLaboJDO> clientLaboList = null;
+    	List<RandDJDO> ranDList = null;
+    	List<TechnologyJDO> technologyList = null;
+    	List<PrototypistsJDO> prototypistList = null;
+    	try
+    	{
+    		productTypeMap 	= new HashMap<String,List<ProductTypesJDO>>();
+    		laboCustomerMap = new HashMap<String,List<ClientLaboJDO>>();
+    		rAndDMap 		= new HashMap<String,List<RandDJDO>>();
+    		technologyMap 	= new HashMap<String,List<TechnologyJDO>>();
+    		protypistsMap 	= new HashMap<String,List<PrototypistsJDO>>();
+    		responseMap 	= new HashMap<String,Object>();
+    		productTypesList  = productTypeDao.findAllUsers();
+    		clientLaboList 	= clientLaboDao.findAllUsers();
+    		ranDList 		= rAndDao.findAllUsers();
+    		technologyList 	= technologyDao.findAllUsers();
+    		prototypistList = prototypistDao.findAllUsers();
+    		productTypeMap.put("list", productTypesList);
+    		laboCustomerMap.put("list", clientLaboList);
+    		rAndDMap.put("list", ranDList);
+    		technologyMap.put("list", technologyList);
+    		protypistsMap.put("list", prototypistList);
+        	responseMap.put("productTypeMap", productTypeMap);
+        	responseMap.put("laboCustomerMap", laboCustomerMap);
+        	responseMap.put("rAndDMap", rAndDMap);
+        	responseMap.put("technologyMap", technologyMap);
+        	responseMap.put("protypistsMap", protypistsMap);
+        	log.log(FINER, "Response Map from fetchComponentdependencies :: "+responseMap);
+    	}
+    	catch(Exception e)
+    	{
+    		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
+    	}
+        return new ResponseEntity<HashMap<String,Object>>(responseMap, HttpStatus.OK);
+    }
      /*===================== List of services for future =============================== */ 
      
     		 @RequestMapping(value = "/fetchIncotermsList", method = RequestMethod.GET)
@@ -440,6 +496,39 @@ public class FetchController {
 	     		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
 	     	}
 	         return new ResponseEntity<HashMap<String,List<AttachmentsJdo>>>(responseMap, HttpStatus.OK);
+	     }
+	     @RequestMapping("/fetchComponentListforOrder/{orderprototypeID}")
+	     public ResponseEntity<HashMap<String,Object>> fetchComponentListforOrder(@PathVariable("orderprototypeID") String orderprototypeID) 
+	     {
+	     	log.log(FINER, "Visits fetchComponentListforOrder Controller - orderprototypeID :: "+orderprototypeID);
+	     	List<ComponentJDO> ComponentJDOList = null;
+	     	List<ComponentDescriptionJDO> ComponentDescriptionJDOList = null;
+	     	HashMap<String,List<ComponentJDO>> ComponentJDOListMap = null;
+	     	HashMap<String,List<ComponentDescriptionJDO>> ComponentDescriptionListMap = null;
+	     	HashMap<String,Object> finalMap = null;
+	     	try
+	     	{
+	     		ComponentJDOListMap = new HashMap<String,List<ComponentJDO>>();
+	         	ComponentDescriptionListMap =  new HashMap<String,List<ComponentDescriptionJDO>>();
+	         	finalMap = new HashMap<String,Object>();
+	         	
+	     		ComponentJDOList = componentDao.findByOrderID(orderprototypeID);
+	     		ComponentJDOListMap.put("componentlist", ComponentJDOList);
+	     		for (ComponentJDO compInfo : ComponentJDOList) 
+			    {
+	     			ComponentDescriptionJDOList.addAll(componentDescriptionDao.findByComponentID(compInfo.getComponentID()));
+			    }
+	         	ComponentDescriptionListMap.put("componentdescriptionlist", ComponentDescriptionJDOList);
+	         	
+	         	finalMap.put("componentmap", ComponentJDOListMap);
+	         	finalMap.put("componentDescriptionMap", ComponentDescriptionListMap);
+	         	log.log(FINER, "Response Map from fetchAttachmentList :: "+finalMap);
+	     	}
+	     	catch(Exception e)
+	     	{
+	     		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
+	     	}
+	         return new ResponseEntity<HashMap<String,Object>>(finalMap, HttpStatus.OK);
 	     }
 	     
 }

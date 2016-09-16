@@ -61,11 +61,17 @@ BackboneData.Views.ComponentDetailView = Backbone.View
                         className	: 'btn btn-default btn-sm newplanbtn',
                         action		: function()
                         {
-                        	bootbox.alert("Save the Component Description before planning customer delivery", function() 
+                        	if(window.componentstatus !="saved")
+                        	{
+                        		bootbox.alert("Save the Component Description before planning customer delivery", function() 
+                                {
+                                    		
+                                });
+                        	}	
+                        	else
                         	{
                         		$('#plancustdevlivery-modal').modal('show');
-                        	});
-                            
+                        	}	
                         }
                     }]
                 });
@@ -216,20 +222,22 @@ BackboneData.Views.ComponentDetailView = Backbone.View
         },
         populateDependencies	: 	function()
         {
-            /*var direct_delivery = $('#directDeliveryDiv input[name="optradio1"]:checked').val();
-            if (direct_delivery == "No")
-            {
-                $('#customerOrderNodiv,#unitsellingpriceDiv,#directDeliveryDiv,#totalamtDiv,#customerdiv,#laboaddressdiv').removeClass('hide');
-                $('#customerselect').attr('data-required', 'yes');
-                $('#customerselect').attr('data-type', 'text');
-                $('#laboaddress').attr('data-required', 'yes');
-                $('#laboaddress').attr('data-type', 'text');
-            }
-            else
-            {
-                $('#customerdiv,#laboaddressdiv').addClass('hide');
-                $('#customerselect,#laboaddress').removeAttr('data-required');
-                $('#customerselect,#laboaddress').removeAttr('data-type');
-            }*/
+            var direct_delivery = $('#directDeliveryDiv input[name="optradio1"]:checked').val();
+            var componentObject = window.componentDependenciesListObj;
+				componentObject.forEach(function(arrayItem)
+				{
+					if(arrayItem.type_of_the_Prototype_Order == "VENDU / SOLD" && direct_delivery == "No")
+					{
+						$('#customerdiv,#laboaddressdiv').removeClass('hide');
+						$('#customerselect,#laboaddress').attr('data-type',"text");
+		                $('#customerselect,#laboaddress').attr('data-required',true);
+					}
+					else
+					{
+						$('#customerdiv,#laboaddressdiv').addClass('hide');
+		                $('#customerselect,#laboaddress').removeAttr('data-required');
+		                $('#customerselect,#laboaddress').removeAttr('data-type');
+					}	
+				});
         }
     });

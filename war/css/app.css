@@ -309,6 +309,9 @@ tfoot input {
 tfoot {
     display: table-header-group;
 }
+.dropdown-menu > li > a {
+    font-size: 11px;
+}
 @-webkit-keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);

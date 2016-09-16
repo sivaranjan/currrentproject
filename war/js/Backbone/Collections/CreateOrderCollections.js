@@ -137,6 +137,18 @@ BackboneData.Collections.fetchOrderDependencies = Backbone.Collection.extend(
     },
     url	: ApplicationConstants.fetchOrderDependencies
 });	
+BackboneData.Collections.fetchComponentdependencies = Backbone.Collection.extend(
+{
+	initialize	: function()
+	{
+		this.bind("reset", function(model, options)
+		{
+		    console.log("Inside fetchComponentdependencies collection");
+		    console.log(model);
+		});
+	},
+	url	: ApplicationConstants.fetchComponentdependencies
+});
 BackboneData.Collections.fetchlastPrototypeID = Backbone.Collection.extend(
 {
 		    initialize	: function()

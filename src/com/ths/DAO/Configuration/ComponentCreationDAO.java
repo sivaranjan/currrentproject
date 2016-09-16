@@ -25,8 +25,8 @@ public class ComponentCreationDAO extends AbstractDao {
     public List<ComponentJDO> findBySite(String site) {
         return ofy.load().type(ComponentJDO.class).filter("site =", site).list();
     }
-    public List<ComponentJDO> findByType(String actorType) {
-        return ofy.load().type(ComponentJDO.class).filter("actorType =", actorType).list();
+    public List<ComponentJDO> findByOrderID(String orderIDReference) {
+        return ofy.load().type(ComponentJDO.class).filter("orderIDReference =", orderIDReference).list();
     }
     public List<ComponentJDO> findWholeActorsList() {
         log.log(FINER, "Loading all examples.");

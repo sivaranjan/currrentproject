@@ -64,14 +64,29 @@ routerTHS.on('route:admin', function(action)
 routerTHS.on('route:component', function(action)
 {
 	$('#pleasewait').modal('show');
+	var currentPrototypeID = document.URL.split('?orderid=')[1];
     pullUserInfo(function()
     {
     	renderBackboneView("componentdetails",function()
     	{
     		SetView("componentdetails",function()
     	    {
-    			$('#pleasewait').modal('hide');
-    	    	// This does the hide and show of divs    			
+    			fetchProtypeOrderObject(currentPrototypeID,function()
+				{
+    				pullComponentDependencies(function()
+					{
+					       setComponentDropdowns(function()
+					       {
+					        		fetchComponentIDList();
+					        		buildCompListTable(currentPrototypeID);
+					        		setAdjustablePropertiesforCompPage(function()
+					        		{
+					        			$('#pleasewait').modal('hide');
+					        		})
+					       });
+					});
+			   		
+				});
     	    });
     	});
     });
@@ -124,7 +139,7 @@ routerTHS.on('route:orderdetails', function(action)
 				   		  {
 				   			   fetchProtypeOrderObject(currentPrototypeID,function()
 							   {
-				   				 //buildCompListTable();
+				   				 buildCompListTable(currentPrototypeID);
 				   				 $('#pleasewait').modal('hide');
 							   });
 				   		  });

@@ -1,5 +1,8 @@
 package com.ths.controller.Component;
 
+import java.util.List;
+import java.util.logging.Logger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -21,7 +24,10 @@ import com.ths.DAO.Configuration.ProcessValidationDAO;
 import com.ths.DAO.Configuration.QualityDeliverableDAO;
 import com.ths.DAO.Configuration.ReminderDAO;
 import com.ths.DAO.Configuration.TechnicalDefinitionDAO;
+import com.ths.JDO.Component.ComponentDescriptionJDO;
 import com.ths.JDO.Component.ComponentIDJDO;
+import com.ths.JDO.Component.ComponentJDO;
+import com.ths.JDO.Order.IdJDO;
 
 
 
@@ -51,15 +57,28 @@ public class ComponentDetailController {
     private ReminderDAO reminderDao;
     @Autowired 
     private TechnicalDefinitionDAO technicalDefintionDao;
-
-    @RequestMapping(value = "/createNewID", method = RequestMethod.POST)
-    public ResponseEntity<Void> createUser(@RequestBody ComponentIDJDO genID, UriComponentsBuilder ucBuilder) 
+    private static final Logger log = Logger.getLogger(ComponentIDDAO.class.getName());
+    @RequestMapping(value = "/createcomponent", method = RequestMethod.POST)
+    public ResponseEntity<Void> createUser(@RequestBody ComponentJDO compObject, UriComponentsBuilder ucBuilder) 
     {
-        System.out.println("Actor details");
-        genID.setNext_id(2000);
-        componentIDDAO.save(genID);
-  
-        HttpHeaders headers = new HttpHeaders();
-        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+    	 System.out.println("Creating User ");
+         List<ComponentIDJDO> idlist = null;
+         try
+         {
+        	 componentCreationDao.save(compObject);
+         	 idlist = componentIDDAO.findAllUsers();
+         	 for (ComponentIDJDO obj :idlist )
+         	 {
+         		 obj.setNext_id(obj.getNext_id()+1);
+         		 componentIDDAO.save(obj);
+         	 }
+         }
+         catch(Exception e)
+         {
+         	log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
+         }
+        
+         HttpHeaders headers = new HttpHeaders();
+         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
 }

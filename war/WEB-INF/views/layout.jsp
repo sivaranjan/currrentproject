@@ -39,6 +39,7 @@
 	</head>
 
 <body>
+<div class="modal fade" id="pleasewait" role="dialog"></div>
 	<main id="wrap">
 	<div class="status-voicebox hide" id="statusLoader" >
 		<div class="voicebox-content fade">

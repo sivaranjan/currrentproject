@@ -14,6 +14,7 @@ ApplicationConstants = {
 "fetchCustomerDetailsbyName"	:	"/fetchController/fetchCustomerDetailsbyName/",
 "fetchUserInfoDetails"			:	"/fetchController/fetchUserDetails/",
 "fetchOrderDependencies"		: 	"/fetchController/fetchOrderDependencies",
+"fetchComponentdependencies"	:	"/fetchController/fetchComponentdependencies",
 "fetchOrdersList"				: 	"/fetchController/fetchOrders",
 "fetchProductTypeList"			: 	"/fetchController/fetchProductTypeList",
 "fetchPrototypitsList"			: 	"/fetchController/fetchPrototypitsList",
@@ -24,8 +25,9 @@ ApplicationConstants = {
 "fetchlastPrototypeID"			:	"/fetchController/fetchlastPrototypeID",
 "fetchProtypeOrderObject"		:	"/fetchController/fetchProtypeOrderbasedOnID/",
 "fetchAttachmentList"			:   "/fetchController/fetchAttachmentList/",
+"fetchComponentListforOrder"	:	"/fetchController/fetchComponentListforOrder/",
 "saveOrderUrl"					:	"/order/create",
-"createorupdateuser"			:	"/users/createorupdate",
+"createcomponent"				:	"/saveComponent/createcomponent",
 "saveActorsListURL"				:	"/actorsList/create",
 "saveCustomersListURL"			:	"/customerslist/create",
 "saveIncotermsListURL"			:	"/incoterm/create",
@@ -49,17 +51,12 @@ ApplicationConstants = {
 "saveReminder"					:	"/clientLabo/create",
 "saveQualitydeliverable"		:	"/clientLabo/create",
 "generateNewId"					:	"/idgenerator/createNewID",
+"generateNewComponentID"		:	"/compidgenerator/createNewID",
 "deleteAttachmentbyID" 			:   "/deleteAttachmentbyID",
 "updateAttachmentsURL"			:	"/updateAttachments",
 "getuploadUrl"					:	"/getuploadUrl",
 "getuploadUrlOnUpdate"			:	"/getuploadUrlOnUpdate",
 "updateAttachment"				:	"/updateAttachments"
-	
-	
-	
-	
-	
-	
 	
 }
 

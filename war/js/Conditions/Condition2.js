@@ -21,9 +21,9 @@
 //Condition 2: Prototype order-VENDU/SOLD
 1.Total order amount (textbox)
 2.Customer Order N0 (textbox)
-3.Unit selling price (textbox)                        
-4.Direct delivery to the customer (radio buttons)      
-5.Total amount (textbox)
+3.Unit selling price (textbox)            unitsellingpriceDiv            
+4.Direct delivery to the customer (radio buttons)       directDeliveryDiv
+5.Total amount (textbox)  totalamtDiv
 
 //Condition 2: Prototype order-VENDU/SOLD [Access-REQUESTER]
 1.Open order (checkbox)
@@ -141,7 +141,7 @@
 //Condition 2:Prototype order-VENDU/SOLD
 
 1.Unit selling price (textbox)
-2.Direct delivery to the customer (radio buttons)
+2.Direct delivery to the customer (radio buttons) 
 3.Open order (checkbox)
 4.N0 customer order (textbox)
 5.Customer order (file)

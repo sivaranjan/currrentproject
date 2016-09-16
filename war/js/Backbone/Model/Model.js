@@ -358,7 +358,27 @@ var Book = Backbone.Model.extend(
     },
     urlRoot: ApplicationConstants.generateNewId
 });
-
+var genCompID = Backbone.Model.extend(
+{
+    defaults:
+	{
+		name	: ""
+	},
+    initialize: function()
+	{
+    	console.log('Book has been initialized');
+		this.on("invalid", function(model, error)
+		{
+		   console.log("Houston, we have a problem: " + error)
+		});
+	},
+    constructor: function(attributes, options)
+    {
+		console.log('Book\'s constructor had been called');
+		Backbone.Model.apply(this, arguments);
+    },
+    urlRoot: ApplicationConstants.generateNewComponentID
+});
 BackboneData.Models.UserModel = Backbone.Model.extend(
 {
     defaults:
@@ -406,7 +426,7 @@ BackboneData.Models.ComponentCreateModel = Backbone.Model.extend(
 		console.log('ComponentCreateModel constructor had been called');
 		Backbone.Model.apply(this, arguments);
 	},
-	urlRoot: ApplicationConstants.createorupdateuser
+	urlRoot: ApplicationConstants.createcomponent
 });
 BackboneData.Models.ComponentDescriptionModel = Backbone.Model.extend(
 {
@@ -435,7 +455,7 @@ BackboneData.Models.ComponentDescriptionModel = Backbone.Model.extend(
 		console.log('ComponentDescriptionModel constructor had been called');
 		Backbone.Model.apply(this, arguments);
 	},
-	urlRoot: ApplicationConstants.createorupdateuser
+	urlRoot: ApplicationConstants.ComponentDescriptionModel
 });
 BackboneData.Models.PlanningCustomerDeliveryModel = Backbone.Model.extend(
 {

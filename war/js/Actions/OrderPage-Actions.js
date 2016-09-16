@@ -90,13 +90,46 @@
 										        			  {
 										        			    	showVoiceBox.configure("Order saved successfully",2000);
 										        			        window.orderStatus = "saved";
+										        			        buildCompListTable(No_Prototype_Order);
 										        			   }
 										        	   });
     											};
     saveComponent		 			     = 		function()
 		    									{
-												    	showVoiceBox.configure("Component created successfully",2000);
-												        $('#componentidfield').val("C0000001");
+												    	var orderIDReference	= 	$('#no_prototype_order_comppage_txt').val();
+														var componentID 		=   $('#componentID').val();
+														var componentStatus		= 	$('#componentStatus').val();
+														var TotalQuantity		=	$('#total_quantity_txt').val();
+														var TotalAmount			=	$('#total_amount_txt').val();
+														
+														var customerReference_txt = $('#customerReference_txt').val();
+														var product_type_component_description_drpdwn = $('#product_type_component_description_drpdwn').val();
+														var product_specification_txtarea = $('#product_specification_txtarea').val();
+														var comment_component_description_txtarea = $('#comment_component_description_txtarea').val();
+														
+														
+														var componentcreationObject 			= 	new BackboneData.Models.ComponentCreateModel(
+													    {
+													    	orderIDReference		:	orderIDReference,
+													    	componentID				: 	componentID,
+													    	componentStatus			: 	componentStatus,
+													    	TotalQuantity			: 	TotalQuantity,
+													    	TotalAmount				: 	TotalAmount,
+													    });
+														componentcreationObject.save(
+													    {},
+													    {
+													        success: function(model, respose, options)
+													        {
+													        	console.log("The model has been saved to the server");
+													        },
+													        error: function(model, xhr, options)
+													        {
+													        	window.componentstatus = "saved";
+													        	showVoiceBox.configure("Component saved successfully",2000);
+													            //buildCompListTable(No_Prototype_Order);
+													        }
+													    });
 		    									};
 	validateOrder						 =		function(done)
 												{
@@ -213,6 +246,8 @@
 									  {
 											console.error("dog");
 											console.log(orderDetailsObj);
+											window.currentOrderObject || (window.currentOrderObject = {});
+								        	window.currentOrderObject = orderDetailsObj;
 											orderDetailsObj.forEach(function(arrayItem)
 									        {
 												$('#No_Prototype_Order').val(arrayItem.no_prototype_order);
@@ -282,8 +317,107 @@
 										        checkVisibilityOnload(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type);
 										        checkEditablesettingsOnload(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type);
 										        checkMandatoryOnLoad(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type);
+										        
+										        /*===================== Component Details Filling ======================*/
+										        $('#no_prototype_order_comppage_txt').val(arrayItem.no_prototype_order);
+										        $('#order_type_txt').val(arrayItem.type_of_the_Prototype_Order);
+										        $('#orderinCompPage a').html(arrayItem.no_prototype_order);
+										        $('#orderinCompPage').removeClass('hide');
+										        $('#orderinCompPage a').attr('href','/#orderdetails?orderid='+arrayItem.no_prototype_order);
+										        //$('#customer_reference_txt').val();
+										        $('#product_type_component_txt').val();
+										        $('#componentStatus').val('Draft');
 									        });
 									  };
+  setComponentDropdowns			=	  function(calldone)
+  									 {
+										    var buildDropDowns 	= 	window.componentDependenciesListObj;
+											if(buildDropDowns!=undefined && buildDropDowns!=null)
+											{
+												var productTypeMap 	    = 	buildDropDowns.productTypeMap.list;
+												var laboCustomerMap 	= 	buildDropDowns.laboCustomerMap.list;
+												var rAndDMap 			= 	buildDropDowns.rAndDMap.list;
+												var technologyMap 		= 	buildDropDowns.technologyMap.list;
+												var protypistsMap 		= 	buildDropDowns.protypistsMap.list;
+									            var productTypeListHTML,lablCustomertHTML,randDlistHTML,technologyListHTML,prototypistListHTML = "";
+									          	productTypeMap.forEach(function(arrayItem)
+									          	{
+									        	  productTypeListHTML += '<option>' + arrayItem.productType + '</option>';
+									          	});
+									          	laboCustomerMap.forEach(function(arrayItem)
+										        {
+									        	  lablCustomertHTML += '<option>' + arrayItem.clientName + '</option>';
+										        });
+									          	rAndDMap.forEach(function(arrayItem)
+										        {
+									        	  randDlistHTML += '<option>' + arrayItem.randD + '</option>';
+										        });
+									          	technologyMap.forEach(function(arrayItem)
+										        {
+									        	  technologyListHTML += '<option>' + arrayItem.technology + '</option>';
+										        });
+									          	protypistsMap.forEach(function(arrayItem)
+										        {
+									        	   prototypistListHTML += '<option>' + arrayItem.prototypist + '</option>';
+										        });
+									            $('#product_type_component_description_drpdwn').html(productTypeListHTML).selectpicker('refresh');
+										        $('#customer_drpdwn').html(lablCustomertHTML).selectpicker('refresh');
+										        $('#r_d_manager_dprdwn').html(randDlistHTML).selectpicker('refresh');
+										        $('#technology_drpdwn').html(technologyListHTML).selectpicker('refresh');
+										        $('#supported_by_drpdwn').html(prototypistListHTML).selectpicker('refresh');
+										        validateAndDoCallback (calldone);
+											}	
+  									 }
+  fetchComponentIDList			=	 function()	
+  									 {
+										  $.ajax({
+									          type: 'get',
+									          url: ApplicationConstants.fetchComponentIDList,
+									          contentType: "application/json; charset=utf-8",
+									          traditional: true,
+									          async:false,
+									          success: function (data) 
+									          {
+									        	    var google = data.data;
+									                console.log(google);
+									                console.log("generating compoenent ID please wait..");
+									                google.forEach(function(arrayItem)
+											        {
+									                	var compID = parseInt(arrayItem.next_id)+1;
+									                	var newComponentID = 'C';
+									                	if (compID.toString().length == 7)
+									                	{
+									                		newComponentID = newComponentID+compID;
+									                	}
+									                	else if (compID.toString().length == 6)
+									                	{
+									                		newComponentID = newComponentID+"0"+compID;
+									                	}
+									                	else if (compID.toString().length == 5)
+									                	{
+									                		newComponentID = newComponentID+"00"+compID;
+									                	}
+									                	else if (compID.toString().length == 4)
+									                	{
+									                		newComponentID = newComponentID+"000"+compID;
+									                	}
+									                	else if (compID.toString().length == 3)
+									                	{
+									                		newComponentID = newComponentID+"0000"+compID;
+									                	}
+									                	else if (compID.toString().length == 2)
+									                	{
+									                		newComponentID = newComponentID+"00000"+compID;
+									                	}
+									                	else if (compID.toString().length == 1)
+									                	{
+									                		newComponentID = newComponentID+"000000"+compID;
+									                	}
+									                	$('#componentID').val(newComponentID);
+											        });
+									          }
+										  });
+  									 }
   fetchCustomerDetailsOnLoad    =    function(customerNameSelected,done)
   									 {
 									      $.ajax({
@@ -573,12 +707,12 @@
 									          }
 										   	  });
   									};
-  	buildCompListTable				=	function()
+  	buildCompListTable				=	function(No_Prototype_Order)
   										{
 									  		$('#compListTable').DataTable(
 											{
 													  dom			: 'Bfrtip',
-													  "ajax"		: ApplicationConstants.fetchAllocationofTurnOverList,
+													  "ajax"		: ApplicationConstants.fetchComponentListforOrder+No_Prototype_Order,
 													  "bDestroy"	: true,
 													  "columns"		: [{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""}],
 													  buttons		: [{
@@ -596,17 +730,38 @@
 																                {
 																                    if (window.orderStatus != "saved")
 																                    {
-																                    	showVoiceBox.configure("Please save the order before creating component",2000);
+																                    	if(document.URL.indexOf('orderdetails')!=-1)
+																                    	{
+																                    		window.location.href = "/#componentdetails?orderid="+No_Prototype_Order;
+																                    	}
+																                    	else
+																                    	{
+																                    		showVoiceBox.configure("Please save the order before creating component",2000);
+																                    	}	
 																                    }
 																                    else
 																                    {
-																                        window.location.href = "/#componentdetails";
+																                    	//$('#saveorderbtn').trigger('click');
+																                    	window.location.href = "/#componentdetails?orderid="+No_Prototype_Order;
 																                    }
 																                }
 																      }]
 													});
+									  				$('#complistTable_footer').removeClass('hide');
 									  		 		buildSearchForTable('complistTable_footer th','compListTable');
   										};	
+  pullComponentDependencies 		=   function(calldone)
+    									{
+									        var fetchComponentDependenciesObj = new BackboneData.Collections.fetchComponentdependencies();
+									        $.when(fetchComponentDependenciesObj.fetch()).done(function(response, xhr)
+									        {
+									        	    console.log(response);
+									        	    window.componentDependenciesListObj || (window.componentDependenciesListObj = {});
+									        	    window.componentDependenciesListObj = response;
+									        	    validateAndDoCallback (calldone);
+									        }).fail(function() {});
+									        
+    									};
   	BackboneEncode					=   function(formValue)
   									    {
   		                                    //return encodeURIComponent($.trim(formValue));

@@ -13,7 +13,7 @@
 					<div class="panel panel-default col-md-12" style="padding: 10px 15px;">
 						<div class="row">
 							<div class="panel-heading col-md-12">
-								<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;">{$paramValue['Order Details']}</h2>
+								<h2 style="color: #97D045;margin-top: 0;font-size: 16px;margin-bottom: 0;font-weight: 500;border-bottom: 1px solid #eee;padding-bottom: 5px;line-height: 26px;">{$paramValue['Order Details']}<span class="label label-success hide" id="orderinCompPage" style="display: inline-block;position: relative;top: -3px;margin-left: 10px;padding-top: 4px;cursor: pointer;"><a style="color: white;"></a></span></h2>
 							</div>
 							<div class="form-group col-md-3 {$visibleconfig['no_prototype_order_comppage_txt']}">
 							    <label for="name">N<sup>&#8728;</sup>  {$paramValue['Prototype Order']}</label>
@@ -145,12 +145,16 @@
 												  		</div>
 												  		<div class="form-group col-md-3 {$visibleconfig['r_d_manager_dprdwn']}">
 														    <label>{$paramValue['R&D manager']} <span class="text-danger">*</span></label>
-														    <select class="selectpicker" {$editableconfig['r_d_manager_dprdwn']} {$mandatoryconfig['r_d_manager_dprdwn']} data-width="100%" title=" ">
+														    <select class="selectpicker" {$editableconfig['r_d_manager_dprdwn']} {$mandatoryconfig['r_d_manager_dprdwn']} id="r_d_manager_dprdwn" data-width="100%" title=" ">
 														    </select>
 														</div>
 														<div class="form-group col-md-3 {$visibleconfig['project_phase_drpdwn']}">
 														    <label>{$paramValue['Project phase']} <span class="text-danger">*</span></label>
 														    <select class="selectpicker" {$editableconfig['project_phase_drpdwn']} {$mandatoryconfig['project_phase_drpdwn']} data-width="100%" title=" ">
+																    <option>Model/Maquette</option>
+																    <option>Protos/Protos</option>
+																    <option>Pre-serie/Preserie</option>
+																    <option>Serie/Serie</option>
 														    </select>
 														</div>
 														<div class="form-group col-md-3 {$visibleconfig['valeo_reference_txt']}">
@@ -159,7 +163,7 @@
 														</div>
 														<div class="form-group col-md-3 {$visibleconfig['technology_drpdwn']}">
 														    <label>{$paramValue['Technology']} <span class="text-danger">*</span></label>
-														    <select class="selectpicker" {$editableconfig['technology_drpdwn']} {$mandatoryconfig['technology_drpdwn']} data-width="100%" title=" ">
+														    <select class="selectpicker" {$editableconfig['technology_drpdwn']} {$mandatoryconfig['technology_drpdwn']} id="technology_drpdwn" data-width="100%" title=" ">
 														    </select>
 														</div>
 														<div class="form-group col-md-3 {$visibleconfig['wbs_oi_code_txt']}">
@@ -290,7 +294,7 @@
 														<label for="name">{$paramValue['Comment']}</label>
 														<textarea class="form-control" {$editableconfig['comment_process_validation_txtarea']} {$mandatoryconfig['comment_process_validation_txtarea']} id="comment_process_validation_txtarea" style="height: 67px;resize: none;"></textarea>
 													</div>
-													<div class="checkbox col-md-12 {$visibleconfig['yes_i_specified_process_req_checkbox']}">
+													<div class="checkbox col-md-12 {$visibleconfig['yes_i_specified_process_req_checkbox']}" id="processyesispecifiedcheckbox">
 													  <label>
 													    <input type="checkbox" {$editableconfig['yes_i_specified_process_req_checkbox']} {$mandatoryconfig['yes_i_specified_process_req_checkbox']} value="" id="yes_i_specified_process_req_checkbox">
 													    {$paramValue['YES (I specified process requirements)']}
