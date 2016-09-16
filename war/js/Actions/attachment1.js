@@ -133,7 +133,7 @@ var actions_attach =
 	 			        	$('#customer_order_list').append(attachmentHTML);
 	 			        	 attachmentIDArray.push(attachmentID);
 	 			         }
-	 			         else if(localStorage.getItem("currentfileuploader")=="nomenclature")
+	 			         else if(localStorage.getItem("currentfileuploader")=="nomenclature" )
 	 			         {
 	 			        	$('#nomenclaturelist').append(attachmentHTML);
 	 			        	nomenIDArray.push(attachmentID);
