@@ -129,7 +129,7 @@ public class AttachmentContoller {
 			log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
 		}
     }
-    @RequestMapping(value = "/updateAttachments", method = RequestMethod.POST)
+    @RequestMapping(value = "/updateAttachments", method = RequestMethod.GET)
   	public @ResponseBody String updateAttachments() throws GeneralSecurityException, IOException, ServletException, ParserConfigurationException, SAXException, JSONException 
    {
 		String 	file_Description 				=	null;
@@ -203,23 +203,7 @@ public class AttachmentContoller {
     	}
     	return uploadUrl+"?uuid_"+uuid;
   	}
-    @RequestMapping(value = "/getuploadUrlOnUpdate")
-	public  @ResponseBody String getuploadUrlOnUpdate() throws GeneralSecurityException, IOException, ServletException 
-    {
-    	String uploadUrl =  null;
-    	String uuid		 =	null;
-    	log.info("Generating upload url");
-    	try
-    	{
-    		uuid		=	UuidGeneratorHelper.getUniqueId();
-    		uploadUrl	=   dispatchUploadForm2(request, resp);
-    	}
-    	catch(Exception e)
-    	{
-    		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
-    	}
-    	return uploadUrl;
-  	}
+   
     protected String dispatchUploadForm(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException 
     {
     	String 	uploadUrl = null;
@@ -235,70 +219,11 @@ public class AttachmentContoller {
     	}
         return uploadUrl;
     }
-    protected String dispatchUploadForm2(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException 
-    {
-    	String 	uploadUrl = null;
-    	log.info("THe uploadurl is this :: "+uploadUrl);
-    	try
-    	{
-    		uploadUrl =  blobstore.createUploadUrl("/updateAttachments");
-    		log.info("THe uploadurl (dispatchUploadForm)  is this :: "+uploadUrl);
-    	}
-    	catch(Exception e)
-    	{
-    		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
-    	}
-        return uploadUrl;
-    }
-   @RequestMapping(value = "/getAttachmentsList", method = RequestMethod.POST)
-   public  @ResponseBody String getAttachmentsList() throws GeneralSecurityException, IOException, ServletException 
-   {
-	   String 			status 	= 		null;
-	   String 			redID 	=		null;
-	   List<AttachmentsJdo> attachmentsInfo=	null;
-	   log.info("Inside fetchtable method !");
-	   try
-	   {
-		   		redID 	=			request.getParameter("redID");
-		   		HashMap<String, AttachmentsJdo> tableEntry 	    =      	new HashMap<String,  AttachmentsJdo>();
-		   		attachmentsInfo 		=   attachmentDao.findByAttachmentID(redID);
-//		   		queryUserDetails    	=  	pm.newQuery(AttachmentsJdo.class,"red_Id == '"+redID+"'");
-//		   		attachmentsInfo     	=   (List<AttachmentsJdo>) queryUserDetails.execute();
-		        for( AttachmentsJdo value:attachmentsInfo )
-		        {
-		        		tableEntry.put(value.getAttachment_Id(), value);
-		        }  
-		        status          =   	  new ObjectMapper().writeValueAsString(tableEntry);
-	   }
-	   catch(Exception e)
-	   {
-		   log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
-	   }
-	   return status;
-   }
-  @RequestMapping(value = "/deleteAttachment", method = RequestMethod.POST)
-  public  @ResponseBody String deleteAttachment() throws GeneralSecurityException, IOException, ServletException 
-  {
-	    	log.info("visits deleteAttachment :: "+		request.getParameter("attachmentID"));
-		 	String attachmentID					=		request.getParameter("attachmentID");
-		    try
-		    {
-		    	if(attachmentID!=null)
-		    	{
-		    		 attachmentDao.deleteByAttachmentID(attachmentID);
-		    	}
-		    }
-		    catch(Exception e)
-		    {
-		    	log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
-		    }
-		    return "success";
-  }
-  @RequestMapping(value = "/deleteCustomerOrderAttachment", method = RequestMethod.POST)
+  @RequestMapping(value = "/deleteAttachmentbyID", method = RequestMethod.POST)
   public  @ResponseBody String deleteCustomerOrderAttachment() throws GeneralSecurityException, IOException, ServletException 
   {
-	    	log.info("visits deleteAttachment :: "+		request.getParameter("attachmentID"));
-		 	String attachmentID					=		request.getParameter("attachmentID");
+	    	log.info("visits deleteAttachmentbyID :: "+		request.getParameter("attachmentID"));
+		 	String attachmentID			=		request.getParameter("attachmentID");
 		    try
 		    {
 		    	if(attachmentID!=null)

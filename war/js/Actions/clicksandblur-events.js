@@ -1,5 +1,11 @@
 $(document).ready(function() 
 {
+				$(document).on("click", ".openfilemodal", function(e) 
+				{
+					var hello = $(this).data('type');
+					localStorage.setItem("currentfileuploader",hello );
+					$('#attachment-modal').modal('show');
+				});
 				$(document).on("click", "#save_actor", function(e) 
 				{
 					validateAdminSection('actor_modal_body',function()

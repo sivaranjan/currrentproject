@@ -422,10 +422,10 @@ public class FetchController {
 	         return new ResponseEntity<HashMap<String,List<IdJDO>>>(responseMap, HttpStatus.OK);
 	     }
 	     
-	     @RequestMapping("/fetchAttachmentListCustomerOrderbyID/{attachmentID}")
-	     public ResponseEntity<HashMap<String,List<AttachmentsJdo>>> fetchAttachmentListCustomerOrder(@PathVariable("attachmentID") String attachmentID) 
+	     @RequestMapping("/fetchAttachmentList/{attachmentID}")
+	     public ResponseEntity<HashMap<String,List<AttachmentsJdo>>> fetchAttachmentList(@PathVariable("attachmentID") String attachmentID) 
 	     {
-	     	log.log(FINER, "Visits fetchAttachmentListCustomerOrderbyID Controller - attachmentID :: "+attachmentID);
+	     	log.log(FINER, "Visits fetchAttachmentList Controller - attachmentID :: "+attachmentID);
 	     	List<AttachmentsJdo> actors = null;
 	     	HashMap<String,List<AttachmentsJdo>> responseMap = null;
 	     	try
@@ -433,7 +433,7 @@ public class FetchController {
 	     		actors = attachmentDao.findByAttachmentID(attachmentID);
 	         	responseMap = new HashMap<String,List<AttachmentsJdo>>();
 	         	responseMap.put("data", actors);
-	         	log.log(FINER, "Response Map from fetchCustomerDetailsbyName :: "+responseMap);
+	         	log.log(FINER, "Response Map from fetchAttachmentList :: "+responseMap);
 	     	}
 	     	catch(Exception e)
 	     	{
