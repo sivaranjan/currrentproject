@@ -15,22 +15,21 @@ var Router = Backbone.Router.extend(
 var routerTHS = new Router();
 routerTHS.on('route:home', function(action)
 {
-	$('#pleasewait').html('<center><img src="/images/loader.gif" style="height: 80px;margin: 24%;"></img></center>');
-    $('#pleasewait').modal('show');
+	loader.show();
     pullUserInfo(function()
     {
     	renderBackboneView("home",function()
         {
     		SetView("home",function()
             {
-    			$('#pleasewait').modal('hide');
+    			loader.hide();
             });
         });
     });
 });
 routerTHS.on('route:order', function(action)
 {
-	$('#pleasewait').modal('show');
+	loader.show();
     pullUserInfo(function()
     {
         pullOrderDependencies(function()
@@ -40,7 +39,7 @@ routerTHS.on('route:order', function(action)
         		SetView("createorder",function()
         		{
                 	SetDetails();
-                	$('#pleasewait').modal('hide');
+                	loader.hide();
                 });
         	});
         });
@@ -48,14 +47,14 @@ routerTHS.on('route:order', function(action)
 });
 routerTHS.on('route:admin', function(action)
 {
-	$('#pleasewait').modal('show');
+	loader.show();
     pullUserInfo(function()
     {
     	renderBackboneView("adminsetting",function()
         {
     		SetView("adminsetting",function()
     	    {
-    			$('#pleasewait').modal('hide');
+    			loader.hide();
     			// This does the hide and show of divs	
     	    });
         });
@@ -63,7 +62,7 @@ routerTHS.on('route:admin', function(action)
 });
 routerTHS.on('route:component', function(action)
 {
-	$('#pleasewait').modal('show');
+	loader.show();
 	var currentPrototypeID = document.URL.split('?orderid=')[1];
     pullUserInfo(function()
     {
@@ -81,7 +80,7 @@ routerTHS.on('route:component', function(action)
 					        		buildCompListTable(currentPrototypeID);
 					        		setAdjustablePropertiesforCompPage(function()
 					        		{
-					        			$('#pleasewait').modal('hide');
+					        			loader.hide();
 					        		})
 					       });
 					});
@@ -93,14 +92,16 @@ routerTHS.on('route:component', function(action)
 });
 routerTHS.on('route:orderlist', function(action)
 {
-	$('#pleasewait').modal('show');
+	loader.show();
+	showVoiceBox.configure("Fetching Orders List",'');
     pullUserInfo(function()
     {
     	renderBackboneView("orderlisting",function()
     	{
     		SetView("orderlisting",function()
     	    {
-    			$('#pleasewait').modal('hide');
+    			loader.hide();
+    			showVoiceBox.configure("Orders List Fetched Successfully",10);
     			// This does the hide and show of divs    			
     	    });	
     	});
@@ -108,21 +109,21 @@ routerTHS.on('route:orderlist', function(action)
 });
 routerTHS.on('route:componentlist', function(action)
 {
-	$('#pleasewait').modal('show');
+	loader.show();
 	pullUserInfo(function()
 	{
 		renderBackboneView("componentlisting",function()
 		{
 		    SetView("componentlisting",function()
 		    {
-		    	$('#pleasewait').modal('hide');		// This does the hide and show of divs    			
+		    	loader.hide();		// This does the hide and show of divs    			
 		    });	
 		});
 	});
 });
 routerTHS.on('route:orderdetails', function(action)
 {
-	$('#pleasewait').modal('show');
+	loader.show();
 	var currentPrototypeID = "";
 	if(document.URL.indexOf('?orderid=')!=-1)
 	{
@@ -137,10 +138,12 @@ routerTHS.on('route:orderdetails', function(action)
 					 {
 				   		  SetDetails(function()
 				   		  {
+				   			   showVoiceBox.configure("Fetching Order Details",'');
 				   			   fetchProtypeOrderObject(currentPrototypeID,function()
 							   {
+				   				 showVoiceBox.configure("Order Loaded Successfully",1000);
 				   				 buildCompListTable(currentPrototypeID);
-				   				 $('#pleasewait').modal('hide');
+				   				 loader.hide();
 							   });
 				   		  });
 					  });	

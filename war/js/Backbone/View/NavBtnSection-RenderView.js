@@ -7,7 +7,7 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend(
         var NavBtnSectionHTML 	= 	"";
         if (window.language == "EN")
         {
-        	if(document.URL.split("#")[1].indexOf("createorder")!=-1)
+        	if(currentPage.get().indexOf("createorder")!=-1)
         	{
         		 NavBtnSectionHTML 	= 	navigation.manager.NavBtnViewDetail(
         		 {
@@ -15,7 +15,7 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend(
         		        'visibleconfig'	: 	window.ordernavVisibilitySettings
         		 });
         	}
-        	else if(document.URL.split("#")[1].indexOf("componentdetails")!=-1)
+        	else if(currentPage.get().indexOf("componentdetails")!=-1)
         	{
         		 NavBtnSectionHTML 	= 	navigation.manager.NavBtnViewDetail(
                  {
@@ -34,7 +34,7 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend(
         }
         else
         {
-        	if(document.URL.split("#")[1].indexOf("createorder")!=-1)
+        	if(currentPage.get().indexOf("createorder")!=-1)
         	{
         		NavBtnSectionHTML 	= 	navigation.manager.NavBtnViewDetail(
         	    {
@@ -42,7 +42,7 @@ BackboneData.Views.NavBtnSectionview = Backbone.View.extend(
         	          'visibleconfig'	: 	window.ordernavVisibilitySettings
         	    });
         	}
-        	else if(document.URL.split("#")[1].indexOf("componentdetails")!=-1)
+        	else if(currentPage.get().indexOf("componentdetails")!=-1)
         	{
         		 NavBtnSectionHTML 	= 	navigation.manager.NavBtnViewDetail(
                  {

@@ -30,7 +30,9 @@ import com.google.appengine.api.blobstore.FileInfo;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
 import com.ths.DAO.Attachment.AttachmentsDAO;
+import com.ths.DAO.Order.OrderDAO;
 import com.ths.JDO.Attachment.AttachmentsJdo;
+import com.ths.JDO.Order.OrderJDO;
 import com.ths.service.UuidGeneratorHelper;
  
 @Controller
@@ -39,6 +41,8 @@ public class AttachmentContoller {
 	private @Autowired HttpServletResponse resp;
 	@Autowired
     private AttachmentsDAO attachmentDao;
+	@Autowired
+    private OrderDAO orderDao;
 	private static final 	Logger 	log 				= 	Logger.getLogger(AttachmentContoller.class.getName());
 	private final BlobstoreService 	blobstore 			=   BlobstoreServiceFactory.getBlobstoreService();
 	private BlobstoreService 		blobstoreService 	= 	BlobstoreServiceFactory.getBlobstoreService();
@@ -224,12 +228,35 @@ public class AttachmentContoller {
   {
 	    	log.info("visits deleteAttachmentbyID :: "+		request.getParameter("attachmentID"));
 		 	String attachmentID			=		request.getParameter("attachmentID");
+		 	String prototypeOrderID			=		request.getParameter("prototypeID");
+		 	List<OrderJDO> orderBasedonID = null;
+		 	List<String> customerOrderAttachment=new ArrayList<String>();
 		    try
 		    {
-		    	if(attachmentID!=null)
-		    	{
-		    		 attachmentDao.deleteByAttachmentID(attachmentID);
-		    	}
+		    	 if(prototypeOrderID!=null)
+	        	 {
+	        		 orderBasedonID = orderDao.findByProtoID(prototypeOrderID);
+	        		 log.info("orderBasedonID ::"+orderBasedonID);
+	        		 for (OrderJDO obj :orderBasedonID )
+	            	 {
+	        			 customerOrderAttachment = obj.getCustomerOrderAttachment();
+	        			 log.info("ipa va ::"+customerOrderAttachment);
+	        			 for(int i=0;i<customerOrderAttachment.size();i++)
+	        			 {
+	        				 String attachmrntValue = customerOrderAttachment.get(i);
+	        				 log.info("trying ..."+attachmrntValue);
+	        				 log.info("checking.. ..."+attachmrntValue+" :: housing .."+attachmentID);
+	        				 if(attachmrntValue.equalsIgnoreCase(attachmentID))
+	        				 {
+	        					 log.info("joo");
+	        					 customerOrderAttachment.remove(attachmrntValue);
+	        				 }
+	        			 }
+	        			 obj.setCustomerOrderAttachment(customerOrderAttachment);
+	        			 orderDao.save(obj);
+	            	 }
+	        	 }
+		    	 attachmentDao.deleteByAttachmentID(attachmentID);
 		    }
 		    catch(Exception e)
 		    {

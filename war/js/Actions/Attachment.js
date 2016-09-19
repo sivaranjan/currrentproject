@@ -35,8 +35,14 @@ var actions_attach =
 		{
 			var attachID = $(this).attr('id').split("remove_")[1];
 			var hello = $(this).data('type');
-			localStorage.setItem("currentfileuploader",hello );
-			actions_attach.deleteAttachmentbyID(attachID);
+			bootbox.confirm("Are you sure that you want to delete the attachment?", function(result)
+			{
+				if (result)
+				{
+					localStorage.setItem("currentfileuploader",hello );
+					actions_attach.deleteAttachmentbyID(attachID);
+				}
+			});
 		}),
 		$(document).on("click", "#updateattachment", function(event) 
 		{
@@ -65,6 +71,7 @@ var actions_attach =
 			   success : function(data) 
 			   {
 			       showVoiceBox.configure("Attachment has been successfully saved",2000);
+			       loader.hide();
 			       $('#filenameholder').val('');
 			       $('#filepath').val('');
 			       $('#file_Title').val('');
@@ -87,9 +94,10 @@ var actions_attach =
 		
 	},
 	myUploadFunction : function()
-	{
+	{   
 		if(actions_attach.validateForm())
 		{
+			loader.show();
 			$.ajax({
 	            type	: 	'POST',
 	            url		: 	ApplicationConstants.getuploadUrl,
@@ -123,12 +131,16 @@ var actions_attach =
 	                console.log("hello");
 	                google.forEach(function(arrayItem)
 	                {
+	                	if(currentPage.get().indexOf('orderdetails')!=-1)
+	                	{
+	                		localStorage.setItem("currentfileuploader","orderpage");
+	                	}	
 	 			         var attachmentHTML = '<li>'+
 	 					'<i class="fa fa-file-text-o" aria-hidden="true"></i>'+
 	 					'<a class="editattachment" data-type='+localStorage.getItem("currentfileuploader")+' id="edit_'+arrayItem.attachment_Id+'">'+arrayItem.file_Name+'</a>'+
 	 					'<a class="pull-right fa fa-cloud-download" href='+arrayItem.upload_Link+'></a>'+
 	 					'<a class="deleteattachment pull-right fa fa-times" data-type='+localStorage.getItem("currentfileuploader")+' id="remove_'+arrayItem.attachment_Id+'"></a></li>';
-	 			         if(localStorage.getItem("currentfileuploader")=="orderpage" || document.URL.indexOf('orderdetails')!=-1)
+	 			         if(localStorage.getItem("currentfileuploader")=="orderpage" || currentPage.get().indexOf('orderdetails')!=-1)
 	 			         {
 	 			        	$('#customer_order_list').append(attachmentHTML);
 	 			        	 attachmentIDArray.push(attachmentID);
@@ -173,54 +185,55 @@ var actions_attach =
 	},
 	deleteAttachmentbyID : function(attachmentID)
 	{
+		var prototypeID = localStorage.getItem("lastPrototypeOrderID");
 		$.ajax({
 	           type: 'POST',
 	           url: ApplicationConstants.deleteAttachmentbyID,
-	           data:{attachmentID:attachmentID},
+	           data:{attachmentID:attachmentID,prototypeID:prototypeID},
 	           success: function (data) 
 	           {
 	        	   showVoiceBox.configure("Attachment deleted successfully",2000);
 	        	   $('#remove_'+attachmentID).parent().remove();
-	        	     if(localStorage.getItem("currentfileuploader")=="orderpage")
-			         {
-	        	    	 var arrayIndex = attachmentIDArray.indexOf(attachmentID);
-	        	    	 if (arrayIndex > -1) 
-	        	    	 {
-	        	    		 attachmentIDArray.splice(arrayIndex, 1);
-	        	    	 }
-			         }
-			         else if(localStorage.getItem("currentfileuploader")=="nomenclature")
-			         {
-			        	 var arrayIndex = nomenIDArray.indexOf(attachmentID);
-	        	    	 if (arrayIndex > -1) 
-	        	    	 {
-	        	    		 nomenIDArray.splice(arrayIndex, 1);
-	        	    	 }
-			         }	 
-			         else if(localStorage.getItem("currentfileuploader")=="planmodal")
-			         {
-			        	 var arrayIndex = planIDArray.indexOf(attachmentID);
-	        	    	 if (arrayIndex > -1) 
-	        	    	 {
-	        	    		 planIDArray.splice(arrayIndex, 1);
-	        	    	 }
-			         }
-			         else if(localStorage.getItem("currentfileuploader")=="processmodal")
-			         {
-			        	 var arrayIndex = processdeliverIDArray.indexOf(attachmentID);
-	        	    	 if (arrayIndex > -1) 
-	        	    	 {
-	        	    		 processdeliverIDArray.splice(arrayIndex, 1);
-	        	    	 }
-			         }
-			         else if(localStorage.getItem("currentfileuploader")=="qualitymodal")
-			         {
-			        	 var arrayIndex = qualityIDArray.indexOf(attachmentID);
-	        	    	 if (arrayIndex > -1) 
-	        	    	 {
-	        	    		 qualityIDArray.splice(arrayIndex, 1);
-	        	    	 }
-			         }
+	      	     if(localStorage.getItem("currentfileuploader")=="orderpage")
+	              {
+	      	    	 var arrayIndex = attachmentIDArray.indexOf(attachmentID);
+	      	    	 if (arrayIndex > -1) 
+	      	    	 {
+	      	    		 attachmentIDArray.splice(arrayIndex, 1);
+	      	    	 }
+	              }
+	              else if(localStorage.getItem("currentfileuploader")=="nomenclature")
+	              {
+	             	 var arrayIndex = nomenIDArray.indexOf(attachmentID);
+	      	    	 if (arrayIndex > -1) 
+	      	    	 {
+	      	    		 nomenIDArray.splice(arrayIndex, 1);
+	      	    	 }
+	              }	 
+	              else if(localStorage.getItem("currentfileuploader")=="planmodal")
+	              {
+	             	 var arrayIndex = planIDArray.indexOf(attachmentID);
+	      	    	 if (arrayIndex > -1) 
+	      	    	 {
+	      	    		 planIDArray.splice(arrayIndex, 1);
+	      	    	 }
+	              }
+	              else if(localStorage.getItem("currentfileuploader")=="processmodal")
+	              {
+	             	 var arrayIndex = processdeliverIDArray.indexOf(attachmentID);
+	      	    	 if (arrayIndex > -1) 
+	      	    	 {
+	      	    		 processdeliverIDArray.splice(arrayIndex, 1);
+	      	    	 }
+	              }
+	              else if(localStorage.getItem("currentfileuploader")=="qualitymodal")
+	              {
+	             	 var arrayIndex = qualityIDArray.indexOf(attachmentID);
+	      	    	 if (arrayIndex > -1) 
+	      	    	 {
+	      	    		 qualityIDArray.splice(arrayIndex, 1);
+	      	    	 }
+	              }
 	           }
 		});
 	},

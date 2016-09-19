@@ -34,7 +34,13 @@ public class OrderJDO {
 	@Index
 	private String type_of_the_Prototype_Order;
 	@Index
-	private Date date_of_the_Order  = new Date();
+	private Date date_of_the_Order;
+	@Index
+	private Date lastModifiedDate;
+	@Index
+	private String lastModifiedBy;
+	@Index
+	private String lastPrototypeOrderID;
 	
 	/*============================================== Actors JDO ===============================================*/
 	@Index
@@ -411,6 +417,30 @@ public class OrderJDO {
 
 	public void setAllocation_of_turnover(String allocation_of_turnover) {
 		this.allocation_of_turnover = allocation_of_turnover;
+	}
+
+	public Date getLastModifiedDate() {
+		return lastModifiedDate;
+	}
+
+	public void setLastModifiedDate(Date lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
+	}
+
+	public String getLastModifiedBy() {
+		return lastModifiedBy;
+	}
+
+	public void setLastModifiedBy(String lastModifiedBy) {
+		this.lastModifiedBy = lastModifiedBy;
+	}
+
+	public String getLastPrototypeOrderID() {
+		return lastPrototypeOrderID;
+	}
+
+	public void setLastPrototypeOrderID(String lastPrototypeOrderID) {
+		this.lastPrototypeOrderID = lastPrototypeOrderID;
 	}
 	
 	

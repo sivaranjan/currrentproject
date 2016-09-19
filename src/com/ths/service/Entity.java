@@ -3,6 +3,7 @@ package com.ths.service;
 import com.googlecode.objectify.ObjectifyService;
 import com.ths.JDO.Attachment.AttachmentsJdo;
 import com.ths.JDO.Component.ComponentIDJDO;
+import com.ths.JDO.Component.ComponentJDO;
 import com.ths.JDO.Configuration.ActorsListJDO;
 import com.ths.JDO.Configuration.AllocationTurnOverJDO;
 import com.ths.JDO.Configuration.ClientLaboJDO;
@@ -42,6 +43,7 @@ public class Entity {
         ObjectifyService.register(IdJDO.class);
         ObjectifyService.register(UserJDO.class);
         ObjectifyService.register(ComponentIDJDO.class);
+        ObjectifyService.register(ComponentJDO.class);
         ObjectifyService.register(ProductTypesJDO.class);
         ObjectifyService.register(PrototypistsJDO.class);
         ObjectifyService.register(RandDJDO.class);

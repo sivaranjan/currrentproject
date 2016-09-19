@@ -27,6 +27,22 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 							        }
 							        ref.$el.html(orderDetailHTML);
 							        ref.loadDefaults();
+							        $('#compListTable').DataTable(
+									{
+										 dom		: 'Bfrtip',
+										"bDestroy"	: true,
+										 buttons	: [{
+															text		: '<i class="fa fa-plus" aria-hidden="true"></i> New component',
+															className	: 'btn btn-default btn-sm newcompbtn',
+															action		: function()
+															{
+																	                    
+															}
+														}]
+									});
+							        $('.newcompbtn').attr('readonly',true);
+							        $('.newcompbtn').attr('disabled',true);
+							        $('.newcompbtn').css('cursor','not-allowed');
 							    },
     initialize				: 	function()
 							    {
@@ -58,21 +74,30 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 							        
 							        if(Site_Workshop_Prototype !="" && Type_of_the_Prototype_Order!="" && Proto_Type!="")
 							        {
-							        	ref.setPrototypeID(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type);
+							        	if(currentPage.get().indexOf("orderdetails")!=-1)
+							        	{
+							        		setPrototypeIDOnUpdate(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type);
+							        	}
+							        	else
+							        	{
+							        		setPrototypeID(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type);							        		
+							        	}	
 							        }	
-							        ref.CheckVisibilitySettings(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type);
-							        ref.CheckEditableSettings(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type);
-							        ref.CheckMandatorySettings(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type);
-							        ref.loadActorsList(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type);
+							        checkVisibilityOnload(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type,function()
+							        {
+							        	checkEditablesettingsOnload(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type,function()
+							        	{
+							        		checkMandatoryOnLoad(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type,function()
+							        		{
+							        			
+							        		});
+							        	});
+							        });
 							    },
 	loadDefaults				: function()
 	  							  {
 							    	        $('.selectpicker').selectpicker();
 							    	        $('.selectpicker').selectpicker('setStyle', 'btn-sm', 'add');
-							    	        $('.selectpicker').on('changed.bs.select', function(e)
-							    	        {
-							    	            $(this).selectpicker('setStyle', 'error', 'remove');
-							    	        });
 							    	        $('.refreshbtn,.newcompbtn').removeClass('dt-button');
 									        $('.bs-searchbox input').addClass('input-sm');
 									        $('#Date_of_the_Order').val(new Date());
@@ -92,93 +117,5 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 						                    $('#adv').attr('disabled',true);
 						                    $('#projmanager').attr('readonly',true);
 						                    $('#projmanager').attr('disabled',true);
-	  							  },
-    setPrototypeID 				:	function(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type)
-    								{
-								            $.ajax({
-										           type: 'get',
-										           url: ApplicationConstants.fetchIDList,
-										           contentType: "application/json; charset=utf-8",
-										           traditional: true,
-										           success: function (data) 
-										           {
-										        	   var google = data.data;
-										                console.log(google);
-										                console.log("hello");
-										                var htmllist = "";
-										                google.forEach(function(arrayItem)
-										                {
-									                        var lastGeneratedID 	= 	parseInt(arrayItem.next_id) + 1;
-									                        
-									                        var newPrototypeOrderID = 	"";
-									                        if (typeof(Storage) !== "undefined")
-									                        {
-									                            localStorage.setItem("lastGeneratedID", lastGeneratedID);
-									                        }
-									                        if (Site_Workshop_Prototype.indexOf("La Suze")!=-1)
-									                        {
-									                            newPrototypeOrderID = "LAS";
-									                        }
-									                        else if (Site_Workshop_Prototype.indexOf("La Verr")!=-1)
-									                        {
-									                            newPrototypeOrderID = "LVR";
-									                        }
-									                        else if (Site_Workshop_Prototype.indexOf("Laval")!=-1)
-									                        {
-									                            newPrototypeOrderID = "LVL";
-									                        }
-									                        else if (Site_Workshop_Prototype.indexOf("Nogent")!=-1)
-									                        {
-									                            newPrototypeOrderID = "NOG";
-									                        }
-									                        else if (Site_Workshop_Prototype.indexOf("Reims")!=-1)
-									                        {
-									                            newPrototypeOrderID = "RMS";
-									                        }
-									                        if (lastGeneratedID.toString().length == 4)
-									                        {
-									                            newPrototypeOrderID = newPrototypeOrderID + "000";
-									                        }
-									                        else if (lastGeneratedID.toString().length == 5)
-									                        {
-									                            newPrototypeOrderID = newPrototypeOrderID + "00";
-									                        }
-									                        else if (lastGeneratedID.toString().length == 6)
-									                        {
-									                            newPrototypeOrderID = newPrototypeOrderID + "0";
-									                        }
-									                        else if (lastGeneratedID.toString().length == 7)
-									                        {
-									                            newPrototypeOrderID = newPrototypeOrderID;
-									                        }
-									                        newPrototypeOrderID = newPrototypeOrderID + parseInt(lastGeneratedID) + "-" + Proto_Type;
-									                        if (Type_of_the_Prototype_Order == "VENDU / SOLD")
-									                        {
-									                            newPrototypeOrderID = newPrototypeOrderID + "V";
-									                        }
-									                        else if (Type_of_the_Prototype_Order == "NON VENDU / NOT SOLD")
-									                        {
-									                            newPrototypeOrderID = newPrototypeOrderID + "N";
-									                        }
-									                        $('#No_Prototype_Order').val(newPrototypeOrderID);
-									                    });
-										           }
-								            });
-    								},
-   loadActorsList				 :	function(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type)
-   									{
-	   										loadActorsOnOrderDetails(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type);
-   									},
-   CheckVisibilitySettings		 :  function(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type)
-   									{
-	   										checkVisibilityOnload(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type);
-   									},
-   	CheckEditableSettings		 :  function(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type)
-   									{
-   										    checkEditablesettingsOnload(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type);
-   									},
-   CheckMandatorySettings		 :	function(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type)
-   									{
-	   									   checkMandatoryOnLoad(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type);		
-   									}
+	  							  }
 });

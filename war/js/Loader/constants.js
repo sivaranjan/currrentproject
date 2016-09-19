@@ -27,6 +27,7 @@ ApplicationConstants = {
 "fetchAttachmentList"			:   "/fetchController/fetchAttachmentList/",
 "fetchComponentListforOrder"	:	"/fetchController/fetchComponentListforOrder/",
 "saveOrderUrl"					:	"/order/create",
+"updateOrderURL"				:	"/order/updateOrder",
 "createcomponent"				:	"/saveComponent/createcomponent",
 "saveActorsListURL"				:	"/actorsList/create",
 "saveCustomersListURL"			:	"/customerslist/create",
@@ -56,7 +57,7 @@ ApplicationConstants = {
 "updateAttachmentsURL"			:	"/updateAttachments",
 "getuploadUrl"					:	"/getuploadUrl",
 "getuploadUrlOnUpdate"			:	"/getuploadUrlOnUpdate",
-"updateAttachment"				:	"/updateAttachments"
-	
+"updateAttachment"				:	"/updateAttachments",
+"createorupdateuser"			:	"/users/createorupdate"
 }
 

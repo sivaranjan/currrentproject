@@ -699,7 +699,7 @@
 									    	{
 										        if (validate.getInstance().formordiv(div))
 										        {
-										            validateAndDoCallback(done);
+										            Do.validateAndDoCallback(done);
 										        }
 										        else
 										        {

@@ -1,9 +1,31 @@
 $(document).ready(function() 
 {
+				$(document).on("keyup", ".form-control", function(e)
+				{
+					$(this).removeClass('error');
+				});
+				$(document).on("click", ".language li a", function(e)
+		        {
+					var languageChanged = $.trim($(this).text());
+					if (window.language != languageChanged)
+					{
+						bootbox.confirm("Any unsaved changes will be lost. Are you sure you want to change the language?", function(result)
+						{
+							if (result)
+							{
+								console.log("ste ::" + languageChanged);
+								loadAllViewsAgainBasedOnLanguage(languageChanged);
+							}
+						});
+					}
+		        });
 				$(document).on("click", ".openfilemodal", function(e) 
 				{
 					var hello = $(this).data('type');
 					localStorage.setItem("currentfileuploader",hello );
+					$('#attachment-modal').html('');
+					var attachmentHTML = Build.attachmentModal();
+					$('#attachment-modal').html(attachmentHTML);
 					$('#attachment-modal').modal('show');
 				});
 				$(document).on("click", "#save_actor", function(e) 
@@ -96,7 +118,7 @@ $(document).ready(function()
 		    	});
 			    $(document).on("click", "#saveorderbtn", function(e)
 				{
-			    	 if(currentPage.get().indexOf("#createorder")!=-1)
+			    	 if(currentPage.get().indexOf("createorder")!=-1)
 			         {
 			    		 validateOrder(function()
 						 {
@@ -106,27 +128,33 @@ $(document).ready(function()
 			    			 });
 						 });
 			         }		 
-			    	 else if(currentPage.get().indexOf("#componentdetails")!=-1)
+			    	 else if(currentPage.get().indexOf("componentdetails")!=-1)
 			    	 {
 			    		 validateComponent(function()
 						 {
 						   	saveComponent();
 						 });
 			    	 }	
-			    	 else if(currentPage.get().indexOf("#orderdetails")!=-1)
+			    	 else if(currentPage.get().indexOf("orderdetails")!=-1)
 			    	 {
 			    		 validateOrder(function()
 						 {
-					    	validateProtypeID(function()
-					    	{
-					    		saveOrder();
-					    	});
+					    	 saveOrder();
 						 });
 			    	 }
 				});
-		    	$('.selectpicker').selectpicker();
-		    	$('.selectpicker').on('changed.bs.select', function(e)
-		    	{
-		    	       $(this).selectpicker('setStyle', 'error', 'remove');
-		    	});
+		    	$(document).on("change", ".selectpicker", function(e)
+				{
+		    		 $(this).selectpicker('setStyle', 'error', 'remove');
+				});
+		    	$(document).on("change", "#Site_Workshop_Prototype", function(e)
+				{
+			        var  Site_Workshop_Prototype 		= 	$.trim($('#Site_Workshop_Prototype').val());
+			        showVoiceBox.configure("Loading Actors",'');
+		    		loadActorsOnOrderDetails(Site_Workshop_Prototype,function()
+		    		{
+		    			showVoiceBox.configure("Actors Loaded Successfully",10);
+		    		});
+				});
+		    	
 });

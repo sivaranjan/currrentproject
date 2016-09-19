@@ -12,22 +12,6 @@ BackboneData.Collections.IdCollection = Backbone.Collection.extend(
     }
 });
 
-BackboneData.Collections.fetchActorsListBySite = Backbone.Collection.extend(
-{
-    site_type	: 	'',
-    initialize	: 	function()
-    {
-        this.bind("reset", function(model, options)
-        {
-            var self = this;
-            console.log("Inside fetchactorslistbysite collection");
-            console.log(model);
-        });
-    },
-    url: ApplicationConstants.fetchActorsListBySite + $('#Site_Workshop_Prototype').val(),
-
-});
-
 BackboneData.Collections.fetchIncotermsList = Backbone.Collection.extend(
 {
 
@@ -97,20 +81,6 @@ BackboneData.Collections.fetchSitesList = Backbone.Collection.extend(
         });
     },
     url	: ApplicationConstants.fetchSitesList
-});
-
-BackboneData.Collections.fetchCustomerDetailsbyName = Backbone.Collection.extend(
-{
-    initialize	: 	function()
-    {
-        this.bind("reset", function(model, options)
-        {
-            console.log("Inside fetchcustomerdetailsbyname collection");
-            console.log(model);
-            this.id = options.customerNameSelected;
-        });
-    },
-    url	: ApplicationConstants.fetchCustomerDetailsbyName + this.id
 });
 
 BackboneData.Collections.fetchUserInfoDetails = Backbone.Collection.extend(

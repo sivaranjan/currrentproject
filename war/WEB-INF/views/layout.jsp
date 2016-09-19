@@ -23,23 +23,26 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-		Welcome to THS France Prototype Database
+		THS France Prototype Database
     </title>
     <!-- CSS -->
     	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="http://storage.googleapis.com/valeo-design/css/bootstrap.css">
+		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-design/css/bootstrap.css">
 		<link rel="stylesheet" href="../css/dataTables.bootstrap.min.css">
 		<link rel="stylesheet" href="../css/responsive.bootstrap.min.css">
 		<link rel="stylesheet" href="../css/buttons.dataTables.min.css">
-		<link rel="stylesheet" href="http://storage.googleapis.com/valeo-design/css/datepicker3.css">
+		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-design/css/datepicker3.css">
 		<link rel="stylesheet" href="../css/bootstrap-select.min.css">
 		<link rel="stylesheet" href="../css/valeo-graphics.css">
 		<link rel="stylesheet" href="../css/app.css">
+		<link rel="shortcut icon" href="/myicon.ico" type="image/x-icon"/>
 	</head>
 
 <body>
-<div class="modal fade" id="pleasewait" role="dialog"></div>
+<div class="modal fade" id="pleasewait" role="dialog">
+	<center><img src="/images/loader.gif" style="height: 48px;margin: 24%;"></img></center>
+</div>
 	<main id="wrap">
 	<div class="status-voicebox hide" id="statusLoader" >
 		<div class="voicebox-content fade">
@@ -410,89 +413,7 @@
 		  </div>
 		</div>
 		<div class="modal fade" id="attachment-modal" tabindex="-1" role="dialog">
-		  				<div class="modal-dialog" role="document">
-		    				<div class="modal-content">
-		      					<div class="modal-header">
-		        					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        						<h4 class="modal-title" id="attachmenth4">Add Customer Order</h4>
-		     					 </div>
-		      		<div class="modal-body">
-		      			<form role="form">
-							<div class="row">
-								<div class="col-md-6">
-									<h5><b style="color: #97d045;">Attachment Details</b></h5>
-										<div class="form-group" style="margin-bottom: 20px;">
-											<label for="name">File name</label>
-											<input type="text" id="filenameholder" class="form-control input-sm" readonly="">
-										</div>
-										<div class="form-group hide">
-											<label for="name">File path</label>
-											<input type="text" id="filepath" class="form-control" readonly="">
-										</div>
-										<div class="form-group">
-											<label for="inputfile">Upload Attachments</label>
-											<input class="attachclass" type="file" id="UploadFile" name="UploadFile">
-										</div>
-										<div class="form-group hide" id="filedownloadarea" style="margin-top: 17px;">
-											<label for="name">Download File : </label>
-												<a class="ellipsis" href="" id="filedownloadlink" style="text-decoration: initial;">
-												</a>
-										</div>
-										<div class="form-group hide" id="revisioncomment">
-											<label for="usr">Revision Comment</label>
-											<textarea class="form-control attachclass"  rows="3" id="revision_comment" style="resize: none;"></textarea>
-										</div>
-								 </div>
-								<div class="col-md-6" style="border-left: 1px solid #eee;">
-									<h5><b style="color: #97d045;">Additional Details</b></h5>
-									<div class="form-group" style="margin-bottom: 20px;">
-										<label for="name">Title*</label>
-										<input type="text" class="form-control attachclass input-sm" id="file_Title">
-									</div>
-									<div class="form-group">
-										<label for="usr">Description</label>
-										<textarea class="form-control attachclass" name="file_Description" rows="3" id="file_Description" style="resize: none;"></textarea>
-									</div>
-								</div>
-								<hr class="col-md-12 hide" id="anothersection" style="box-sizing: border-box;">
-									<div class="col-md-6 form-horizontal hide" id="createdbydiv">
-										<div class="form-group"> 
-											<label class="col-sm-4 control-label">Created By :</label> 
-											<div class="col-sm-8"> 
-												<p class="form-control-static ellipsis" id="createdby"></p> 
-											</div> 
-										</div>
-										<div class="form-group"> 
-											<label class="col-sm-4 control-label">Created on :</label> 
-											<div class="col-sm-8"> 
-												<p class="form-control-static" id="createdon"></p> 
-											</div> 
-										</div>
-									</div>
-								<div class="col-md-6 form-horizontal hide" id="modifiedbydiv">
-									<div class="form-group"> 
-										<label class="col-sm-5 control-label" style="padding-left: 0;padding-right: 0;">Last Modified by : </label> 
-										<div class="col-sm-7"> 
-											<p class="form-control-static ellipsis" id="modifiedby"></p> 
-										</div> 
-									</div>
-									<div class="form-group"> 
-										<label class="col-sm-5 control-label" style="padding-left: 0;padding-right: 0;">Last Modified on : </label> 
-										<div class="col-sm-7"> 
-											<p class="form-control-static" id="modifiedon"></p> 
-										</div> 
-									</div>
-								</div>
-						</div>
-				</form>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" id="uploadattachfilebtn" class="btn btn-success">Save changes</button>
-		        <button id="updateattachment" type="button" class="btn btn-success hide"><i class="fa fa-floppy-o"></i><span>&nbsp;&nbsp; Update Attachment</span></button>
-		        <button type="button" id="cancelattach" class="btn btn-default" data-dismiss="modal">Close</button>
-		      </div>
-		    </div>
-		  </div>
+		  				
 		</div>
 
 
@@ -503,9 +424,9 @@
 		<script src="../js/Configurations/Config-1-OrderCreation.js"></script>
 		<script src="../js/Configurations/Config-2-ComponentCreation1.js"></script>
 			
-		<script src="../js/Actions/Operations.js"></script>
+		
 		<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         
         <script src="../js/Library/underscore.js"></script>
         <script src="../js/Library/backbone-min.js"></script>
@@ -516,8 +437,8 @@
 		<script type="text/javascript" src="../js/Library/dataTables.responsive.min.js"></script>
 		<script type="text/javascript" src="../js/Library/responsive.bootstrap.min.js"></script>
 		<script type="text/javascript" src="../js/Library/dataTables.buttons.min.js"></script> 
-		<script type="text/javascript" src="http://storage.googleapis.com/valeo-design/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="http://storage.googleapis.com/valeo-design/js/bootstrap-datepicker.js"></script>
+		<script type="text/javascript" src="https://storage.googleapis.com/valeo-design/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://storage.googleapis.com/valeo-design/js/bootstrap-datepicker.js"></script>
 		<script type="text/javascript" src="../js/Library/valeo-graphics.js"></script>
 		<script type="text/javascript" src="../js/Library/bootstrap-select.min.js"></script>
         <script src="../js/Library/BackboneData.js"></script>
@@ -546,11 +467,11 @@
 		<script src="../js/Backbone/View/OrderList-RenderView.js"></script>
 		<script src="../js/Backbone/View/ComponentList-RenderView.js"></script>
 		<script src="../js/Loader/initializer.js"></script>
-        <script src="../js/Routers/router.js?yufyufyufufyu"></script>
         <script src="../js/Actions/clicksandblur-events.js"></script>
         <script src="../js/Actions/AdminPage-Actions.js"></script>
-        <script src="../js/Actions/OrderPage-Actions.js"></script>
-         <script src="../js/Actions/attachment1.js"></script>
+        <script src="../js/Actions/actions.js"></script>
+        <script src="../js/Actions/Attachment.js"></script>
+        <script src="../js/Routers/router.js?yufyufyufufyu"></script>
 
         <script>
 			$('#userlabel').html("Welcome "+useremailid);
