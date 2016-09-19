@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.google.appengine.api.blobstore.FileInfo;
 import com.ths.DAO.Attachment.AttachmentsDAO;
 import com.ths.DAO.Component.ComponentIDDAO;
 import com.ths.DAO.Configuration.ActorsListDAO;
@@ -529,6 +528,27 @@ public class FetchController {
 	     		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
 	     	}
 	         return new ResponseEntity<HashMap<String,Object>>(finalMap, HttpStatus.OK);
+	     }
+	     /*================================ Customers ======================================== */
+	     
+	     @RequestMapping("/fetchLaboAddressOnLoad/{customerName}")
+	     public ResponseEntity<HashMap<String,List<ClientLaboJDO>>> fetchLaboAddressOnLoad(@PathVariable("customerName") String customerName) 
+	     {
+	     	log.log(FINER, "Visits fetchLaboAddressOnLoad Controller - Customer Name :: "+customerName);
+	     	List<ClientLaboJDO> actors = null;
+	     	HashMap<String,List<ClientLaboJDO>> responseMap = null;
+	     	try
+	     	{
+	     		actors = clientLaboDao.findByClientNameOnLoad(customerName);
+	         	responseMap = new HashMap<String,List<ClientLaboJDO>>();
+	         	responseMap.put("data", actors);
+	         	log.log(FINER, "Response Map from fetchLaboAddressOnLoad :: "+responseMap);
+	     	}
+	     	catch(Exception e)
+	     	{
+	     		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
+	     	}
+	         return new ResponseEntity<HashMap<String,List<ClientLaboJDO>>>(responseMap, HttpStatus.OK);
 	     }
 	     
 }

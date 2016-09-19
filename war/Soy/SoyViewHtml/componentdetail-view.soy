@@ -71,7 +71,7 @@
 										        		</div>
 										        		<div class="form-group col-md-3 {$visibleconfig['product_type_component_description_drpdwn']}">
 										        			<label for="name">{$paramValue['Product type']} <span class="text-danger">*</span></label>
-									        				<select class="selectpicker" {$editableconfig['product_type_component_description_drpdwn']} {$mandatoryconfig['product_type_component_description_drpdwn']} id="product_type_component_description_drpdwn"  data-width="100%" title=" " >
+									        				<select class="selectpicker" size="7" {$editableconfig['product_type_component_description_drpdwn']} {$mandatoryconfig['product_type_component_description_drpdwn']} id="product_type_component_description_drpdwn"  data-width="100%" title=" " >
 														    </select>
 										        		</div>
 										        		<div class="form-group col-md-3 {$visibleconfig['unit_selling_price_txt']}" id="unitsellingpriceDiv" >
@@ -80,12 +80,12 @@
 										        		</div>
 										        		<div class="form-group col-md-3 {$visibleconfig['customer_drpdwn']}" id="customerdiv">
 										        			<label for="name">{$paramValue['Customer']}</label>
-									        				<select class="selectpicker" {$editableconfig['customer_drpdwn']} {$mandatoryconfig['customer_drpdwn']} id="customer_drpdwn" data-width="100%" title=" " id="customer">
+									        				<select class="selectpicker" size="7" {$editableconfig['customer_drpdwn']} {$mandatoryconfig['customer_drpdwn']} id="customer_drpdwn" data-width="100%" title=" " id="customer">
 														    </select>
 										        		</div>
 										        		<div class="form-group col-md-3 {$visibleconfig['direct_delivery_to_the_customer_radiobtn']}" id="directDeliveryDiv" >
 											      			<label>{$paramValue['Direct delivery to the customer']}? <span class="text-danger">*</span></label>
-											      			<div style="padding: 1.5px 0;">
+											      			<div style="padding: 3px 0;">
 											      				<label class="radio-inline"><input type="radio" {$editableconfig['direct_delivery_to_the_customer_radiobtn']} id="direct_delivery_to_the_customer_radiobtn1" name="optradio1" style="margin-top: 1px;" value="Yes" >{$paramValue['Yes']}</label>
 																<label class="radio-inline"><input type="radio" {$editableconfig['direct_delivery_to_the_customer_radiobtn']} id="direct_delivery_to_the_customer_radiobtn2" name="optradio1" style="margin-top: 1px;" value="No" >{$paramValue['No']}</label>
 											      			</div>
@@ -145,12 +145,12 @@
 												  		</div>
 												  		<div class="form-group col-md-3 {$visibleconfig['r_d_manager_dprdwn']}">
 														    <label>{$paramValue['R&D manager']} <span class="text-danger">*</span></label>
-														    <select class="selectpicker" {$editableconfig['r_d_manager_dprdwn']} {$mandatoryconfig['r_d_manager_dprdwn']} id="r_d_manager_dprdwn" data-width="100%" title=" ">
+														    <select class="selectpicker" size="7" {$editableconfig['r_d_manager_dprdwn']} {$mandatoryconfig['r_d_manager_dprdwn']} id="r_d_manager_dprdwn" data-width="100%" title=" ">
 														    </select>
 														</div>
 														<div class="form-group col-md-3 {$visibleconfig['project_phase_drpdwn']}">
 														    <label>{$paramValue['Project phase']} <span class="text-danger">*</span></label>
-														    <select class="selectpicker" {$editableconfig['project_phase_drpdwn']} {$mandatoryconfig['project_phase_drpdwn']} data-width="100%" title=" ">
+														    <select class="selectpicker" size="7" {$editableconfig['project_phase_drpdwn']} {$mandatoryconfig['project_phase_drpdwn']} data-width="100%" title=" ">
 																    <option>Model/Maquette</option>
 																    <option>Protos/Protos</option>
 																    <option>Pre-serie/Preserie</option>
@@ -163,7 +163,7 @@
 														</div>
 														<div class="form-group col-md-3 {$visibleconfig['technology_drpdwn']}">
 														    <label>{$paramValue['Technology']} <span class="text-danger">*</span></label>
-														    <select class="selectpicker" {$editableconfig['technology_drpdwn']} {$mandatoryconfig['technology_drpdwn']} id="technology_drpdwn" data-width="100%" title=" ">
+														    <select class="selectpicker" size="7" {$editableconfig['technology_drpdwn']} {$mandatoryconfig['technology_drpdwn']} id="technology_drpdwn" data-width="100%" title=" ">
 														    </select>
 														</div>
 														<div class="form-group col-md-3 {$visibleconfig['wbs_oi_code_txt']}">
@@ -201,7 +201,7 @@
 													  		</div>
 													  		<div class="form-group col-md-6 {$visibleconfig['process_team_member_drpdwn']}">
 															    <label>{$paramValue['Process Team Member']} <span class="text-danger">*</span></label>
-															    <select class="selectpicker" {$editableconfig['process_team_member_drpdwn']} {$mandatoryconfig['process_team_member_drpdwn']} data-width="100%" title=" ">
+															    <select class="selectpicker" size="7" {$editableconfig['process_team_member_drpdwn']} {$mandatoryconfig['process_team_member_drpdwn']} data-width="100%" title=" ">
 															    </select>
 															</div>
 														</div>
@@ -339,7 +339,7 @@
 														
 										        		<div class="form-group col-md-6 {$visibleconfig['supported_by_drpdwn']}">
 										        			<label>{$paramValue['Supported by']}</label>
-									        				<select class="selectpicker" {$editableconfig['supported_by_drpdwn']} {$mandatoryconfig['supported_by_drpdwn']} id="supported_by_drpdwn" data-live-search="true" data-width="100%" title=" " >
+									        				<select class="selectpicker" size="7" {$editableconfig['supported_by_drpdwn']} {$mandatoryconfig['supported_by_drpdwn']} id="supported_by_drpdwn" data-live-search="true" data-width="100%" title=" " >
 														    </select>
 										        		</div>
 										        		<div class="form-group col-md-6 {$visibleconfig['list_of_prototypists_txtarea']}">
@@ -578,7 +578,7 @@
 							</div>
 							<div class="form-group">
 							    <label for="name">Comment</label>
-							    <textarea class="form-control" rows="3"></textarea>
+							    <textarea class="form-control" rows="3" id="comment_plancustomerdelivery"></textarea>
 							</div>
 			      	</form>
 			      </div>

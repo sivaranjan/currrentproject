@@ -495,7 +495,7 @@ BackboneData.Models.ComponentDescriptionModel = Backbone.Model.extend(
 	      unitSellingPrice 			: 	"",
 	      laboAdress 				: 	"",
 	      customer 					: 	"",
-	      comment_componentDescription : ""
+	      comment_componentDescription : "",
     },
     initialize: function()
 	{
@@ -510,18 +510,17 @@ BackboneData.Models.ComponentDescriptionModel = Backbone.Model.extend(
 		console.log('ComponentDescriptionModel constructor had been called');
 		Backbone.Model.apply(this, arguments);
 	},
-	urlRoot: ApplicationConstants.ComponentDescriptionModel
+	urlRoot: ApplicationConstants.saveComponentDescription
 });
 BackboneData.Models.PlanningCustomerDeliveryModel = Backbone.Model.extend(
 {
 	defaults:
 	{
 		  componentID					: 	"",
-		  customerReference 			:   "",
-		  componentDescriptionID		: 	"",
-		  Quantity 						:   "",
-		  Dateof  						:	"",
-		  Comment 						: 	""
+		  componentDescriptionID 		:   "",
+		  Quantity						: 	"",
+		  Dateof 						:   "",
+		  Comment  						:	"",
     },
     initialize: function()
 	{
@@ -536,7 +535,7 @@ BackboneData.Models.PlanningCustomerDeliveryModel = Backbone.Model.extend(
 		console.log('PlanningCustomerDeliveryModel constructor had been called');
 		Backbone.Model.apply(this, arguments);
 	},
-	urlRoot: ApplicationConstants.createorupdateuser
+	urlRoot: ApplicationConstants.savePlanningandCustomerDelivery
 });
 BackboneData.Models.TechnicalDefinitionModel = Backbone.Model.extend(
 {

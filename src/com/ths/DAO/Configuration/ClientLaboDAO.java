@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import com.googlecode.objectify.Key;
 import com.ths.DAO.AbstractDao;
 import com.ths.JDO.Configuration.ClientLaboJDO;
+import com.ths.JDO.Configuration.CustomersListJDO;
 
 public class ClientLaboDAO extends AbstractDao {
 
@@ -25,7 +26,9 @@ public class ClientLaboDAO extends AbstractDao {
     public ClientLaboJDO findByAddress(String address) {
         return ofy.load().type(ClientLaboJDO.class).filter("address =", address).first().now();
     }
-
+    public List<ClientLaboJDO> findByClientNameOnLoad(String customer_Name) {
+        return ofy.load().type(ClientLaboJDO.class).filter("clientName =", customer_Name).list();
+    }
     public List<ClientLaboJDO> findAllUsers() {
         log.log(FINER, "Loading all examples.");
         return ofy.load().type(ClientLaboJDO.class).list();

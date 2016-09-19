@@ -21,7 +21,7 @@ public class PlanOfLabTestsJDO {
 	@Index
 	private String testsType;
 	@Index
-	private Text testRequestNumber;
+	private String testRequestNumber;
 	@Index
 	private Date atpDateOfDelivery;
 	public PlanOfLabTestsJDO()
@@ -58,10 +58,10 @@ public class PlanOfLabTestsJDO {
 	public void setTestsType(String testsType) {
 		this.testsType = testsType;
 	}
-	public Text getTestRequestNumber() {
+	public String getTestRequestNumber() {
 		return testRequestNumber;
 	}
-	public void setTestRequestNumber(Text testRequestNumber) {
+	public void setTestRequestNumber(String testRequestNumber) {
 		this.testRequestNumber = testRequestNumber;
 	}
 	public Date getAtpDateOfDelivery() {

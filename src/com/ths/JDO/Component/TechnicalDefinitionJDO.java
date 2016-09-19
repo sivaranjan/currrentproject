@@ -40,7 +40,7 @@ public class TechnicalDefinitionJDO {
 	@Index
 	private String plan;
 	@Index
-	private Text comment;
+	private String comment;
 	
 	@Index
 	private List<Long> planOfLabTestsReference=new ArrayList<Long>();
@@ -132,10 +132,10 @@ public class TechnicalDefinitionJDO {
 	public void setPlan(String plan) {
 		this.plan = plan;
 	}
-	public Text getComment() {
+	public String getComment() {
 		return comment;
 	}
-	public void setComment(Text comment) {
+	public void setComment(String comment) {
 		this.comment = comment;
 	}
 	public List<Long> getPlanOfLabTestsReference() {

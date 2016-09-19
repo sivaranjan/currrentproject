@@ -17,7 +17,7 @@ public class ProcessValidationJDO {
 	@Index
 	private boolean yesIspecified;
 	@Index
-	private Text comment;
+	private String comment;
 	
 	public ProcessValidationJDO()
 	{
@@ -56,11 +56,11 @@ public class ProcessValidationJDO {
 		this.yesIspecified = yesIspecified;
 	}
 
-	public Text getComment() {
+	public String getComment() {
 		return comment;
 	}
 
-	public void setComment(Text comment) {
+	public void setComment(String comment) {
 		this.comment = comment;
 	}
 }

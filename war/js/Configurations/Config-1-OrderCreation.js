@@ -2,8 +2,13 @@ window.orderCreationVisibilitySettings || (window.orderCreationVisibilitySetting
 window.orderCreationEditableSettings || (window.orderCreationEditableSettings = {});
 window.orderCreationMandatorySettings || (window.orderCreationMandatorySettings = {});
 window.ordernavVisibilitySettings || (window.ordernavVisibilitySettings = {});
-
-ordernavVisibilitySettings = {
+/*
+if(currentWorkflow == "TechnicalDefinieiton")
+{
+	
+}	*/
+ordernavVisibilitySettings = 
+						{
 							'closeorder'	: 'hide',
 							'cancelorder'	: 'hide',
 							'breadcrumb'	: 'hide',
@@ -142,7 +147,7 @@ orderCreationMandatorySettings = {
 							'total_order_amt_txt'					: '',
 							'order_status_txt'						: '',
 							'requester_text'						: '',
-							'mep_study_drpdwn'						: '',
+							'mep_study_drpdwn'						: 'data-required=yes data-type=text',
 							'quality_drpdwn'						: 'data-required=yes data-type=text',
 							'proto_workshop_drpdwn'					: 'data-required=yes data-type=text',
 							'control_management_drpdwn'				: 'data-required=yes data-type=text',

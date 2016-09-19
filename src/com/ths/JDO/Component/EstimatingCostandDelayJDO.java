@@ -18,7 +18,7 @@ public class EstimatingCostandDelayJDO {
 	@Index
 	private String supportedBy;
 	@Index
-	private Text listOfPrototypists;
+	private String listOfPrototypists;
 	@Index
 	private int estimatedAmountOfWorkshop;
 	@Index
@@ -71,11 +71,11 @@ public class EstimatingCostandDelayJDO {
 		this.supportedBy = supportedBy;
 	}
 
-	public Text getListOfPrototypists() {
+	public String getListOfPrototypists() {
 		return listOfPrototypists;
 	}
 
-	public void setListOfPrototypists(Text listOfPrototypists) {
+	public void setListOfPrototypists(String listOfPrototypists) {
 		this.listOfPrototypists = listOfPrototypists;
 	}
 

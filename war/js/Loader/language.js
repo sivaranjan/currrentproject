@@ -187,7 +187,7 @@ orderDetails_englishLabelList = {
     'Plateform': 'Plateform',
     'Incoterms': 'Incoterms',
     'Place': 'Place',
-    'Customer receiver name': 'Customer Receiver Name',
+    'Customer receiver name': 'Customer Name Receiver',
     'Customer receiver telephone': 'Customer Receiver Telephone',
     'Allocation of turnover': 'Allocation of Turnover',
     'Final delivery Address': 'Final Delivery Address',

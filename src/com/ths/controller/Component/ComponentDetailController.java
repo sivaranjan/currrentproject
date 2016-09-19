@@ -27,6 +27,7 @@ import com.ths.DAO.Configuration.TechnicalDefinitionDAO;
 import com.ths.JDO.Component.ComponentDescriptionJDO;
 import com.ths.JDO.Component.ComponentIDJDO;
 import com.ths.JDO.Component.ComponentJDO;
+import com.ths.JDO.Component.PlanningCustomerDeliveryJDO;
 import com.ths.JDO.Order.IdJDO;
 
 
@@ -72,6 +73,48 @@ public class ComponentDetailController {
          		 obj.setNext_id(obj.getNext_id()+1);
          		 componentIDDAO.save(obj);
          	 }
+         }
+         catch(Exception e)
+         {
+         	log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
+         }
+        
+         HttpHeaders headers = new HttpHeaders();
+         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+    }
+    @RequestMapping(value = "/saveComponentDescription", method = RequestMethod.POST)
+    public ResponseEntity<Void> saveComponentDescription(@RequestBody ComponentDescriptionJDO compObject, UriComponentsBuilder ucBuilder) 
+    {
+    	 System.out.println("Saving ComponentDescription ");
+         try
+         {
+        	 log.info("compObject is this "+compObject.getComment_componentDescription());
+        	 componentDescriptionDao.save(compObject);
+         }
+         catch(Exception e)
+         {
+         	log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
+         }
+        
+         HttpHeaders headers = new HttpHeaders();
+         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+    }
+    @RequestMapping(value = "/savePlanningandCustomerDelivery", method = RequestMethod.POST)
+    public ResponseEntity<Void> savePlanningandCustomerDelivery(@RequestBody PlanningCustomerDeliveryJDO planningCusObject, UriComponentsBuilder ucBuilder) 
+    {
+    	 System.out.println("Saving savePlanningandCustomerDelivery ");
+    	 List<ComponentDescriptionJDO> compDescriptionList = null;
+    	 Long componentDescriptionID = null;
+         try
+         {
+        	 String componentID = planningCusObject.getComponentID();
+        	 compDescriptionList = componentDescriptionDao.findByComponentID(componentID);
+        	 for(ComponentDescriptionJDO compObj : compDescriptionList)
+        	 {
+        		 componentDescriptionID = compObj.getComponentDescriptionID();
+        	 }
+        	 planningCusObject.setComponentDescriptionID(componentDescriptionID);
+        	 planningcustomerDeliveryDao.save(planningCusObject);
          }
          catch(Exception e)
          {

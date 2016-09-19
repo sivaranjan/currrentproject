@@ -17,7 +17,7 @@ public class QualityDeliverableJDO {
 	@Index
 	private boolean yesISpecified;
 	@Index
-	private Text comment;
+	private String comment;
 	
 	public QualityDeliverableJDO()
 	{
@@ -56,11 +56,11 @@ public class QualityDeliverableJDO {
 		this.yesISpecified = yesISpecified;
 	}
 
-	public Text getComment() {
+	public String getComment() {
 		return comment;
 	}
 
-	public void setComment(Text comment) {
+	public void setComment(String comment) {
 		this.comment = comment;
 	}
 	

@@ -21,7 +21,7 @@ public class ForecastPlanningOfWorkshopJDO {
 	@Index
 	private Date Dateof;
 	@Index
-	private Text Comment;
+	private String Comment;
 	public ForecastPlanningOfWorkshopJDO()
 	{
 		//
@@ -50,10 +50,10 @@ public class ForecastPlanningOfWorkshopJDO {
 	public void setDateof(Date dateof) {
 		Dateof = dateof;
 	}
-	public Text getComment() {
+	public String getComment() {
 		return Comment;
 	}
-	public void setComment(Text comment) {
+	public void setComment(String comment) {
 		Comment = comment;
 	}
 	public Long getForkcastPlanningOfWorkshopID() {

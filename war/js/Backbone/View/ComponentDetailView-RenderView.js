@@ -61,17 +61,13 @@ BackboneData.Views.ComponentDetailView = Backbone.View
                         className	: 'btn btn-default btn-sm newplanbtn',
                         action		: function()
                         {
-                        	if(window.componentstatus !="saved")
-                        	{
-                        		bootbox.alert("Save the Component Description before planning customer delivery", function() 
-                                {
-                                    		
-                                });
-                        	}	
-                        	else
-                        	{
-                        		$('#plancustdevlivery-modal').modal('show');
-                        	}	
+                        	 validateComponent(function()
+            				 {
+            					  saveComponent(function()
+            					  {
+            						  $('#plancustdevlivery-modal').modal('show');
+            					  });
+            				 });
                         }
                     }]
                 });
@@ -207,8 +203,14 @@ BackboneData.Views.ComponentDetailView = Backbone.View
         },
         events:
         {
-            'change #directDeliveryDiv input[type=radio]': "populateDependencies"
+            'change #directDeliveryDiv input[type=radio]': "populateDependencies",
+            'change #customer_drpdwn'	: 'fetchLaboAddress'
         },
+        fetchLaboAddress	:   function()
+	    {
+	        var customerNameSelected 	= 	encodeURIComponent($.trim($('#customer_drpdwn').val())); //doubt
+	        fetchLaboAddressOnLoad(customerNameSelected);
+	    },
         initialize		: 	function()
         {
             _.bindAll(this, 'cleanup');
@@ -223,20 +225,38 @@ BackboneData.Views.ComponentDetailView = Backbone.View
         populateDependencies	: 	function()
         {
             var direct_delivery = $('#directDeliveryDiv input[name="optradio1"]:checked').val();
-            var componentObject = window.componentDependenciesListObj;
-				componentObject.forEach(function(arrayItem)
+            var currentOrderObject = window.currentOrderObject;
+                currentOrderObject.forEach(function(arrayItem)
 				{
 					if(arrayItem.type_of_the_Prototype_Order == "VENDU / SOLD" && direct_delivery == "No")
 					{
 						$('#customerdiv,#laboaddressdiv').removeClass('hide');
-						$('#customerselect,#laboaddress').attr('data-type',"text");
-		                $('#customerselect,#laboaddress').attr('data-required',true);
+						$('#customer_drpdwn,#labo_address_or_other_txtarea').attr('data-type',"text");
+		                $('#customer_drpdwn,#labo_address_or_other_txtarea').attr('data-required',true);
+		                $('#customerdiv button').removeClass('disabled');
+		                $('#customerdiv .bootstrap-select').removeClass('disabled');
+		                $('#customerdiv .dropdown-toggle').removeClass('disabled');
+		                $('#labo_address_or_other_txtarea').removeAttr('readonly');
+		                $('#labo_address_or_other_txtarea').removeAttr('disabled');
+		                $('#customer_drpdwn').removeAttr('disabled');
+		                $('#customer_drpdwn').removeAttr('readonly');
 					}
 					else
 					{
 						$('#customerdiv,#laboaddressdiv').addClass('hide');
-		                $('#customerselect,#laboaddress').removeAttr('data-required');
-		                $('#customerselect,#laboaddress').removeAttr('data-type');
+		                $('#customer_drpdwn,#labo_address_or_other_txtarea').removeAttr('data-required');
+		                $('#customer_drpdwn,#labo_address_or_other_txtarea').removeAttr('data-type');
+		                $('#labo_address_or_other_txtarea').val('');
+		                $('#customer_drpdwn').selectpicker('deselectAll')
+						$('#customer_drpdwn').selectpicker('val', '');
+						$('#customer_drpdwn').selectpicker('refresh');
+						$('#customerdiv button').addClass('disabled');
+						$('#customerdiv .dropdown-toggle').addClass('disabled');
+						$('#customerdiv .bootstrap-select').addClass('disabled');
+						$('#labo_address_or_other_txtarea').attr('disabled',true);
+						$('#labo_address_or_other_txtarea').attr('readonly',true);
+						$('#customer_drpdwn').attr('disabled',true);
+		                $('#customer_drpdwn').attr('readonly',true);
 					}	
 				});
         }

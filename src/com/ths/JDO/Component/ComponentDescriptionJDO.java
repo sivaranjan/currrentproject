@@ -91,10 +91,10 @@ public class ComponentDescriptionJDO {
 	public void setLaboAdress(String laboAdress) {
 		this.laboAdress = laboAdress;
 	}
-	public Text getComment() {
+	public Text getComment_componentDescription() {
 		return comment_componentDescription;
 	}
-	public void setComment(Text comment_componentDescription) {
+	public void setComment_componentDescription(Text comment_componentDescription) {
 		this.comment_componentDescription = comment_componentDescription;
 	}
 	public List<Long> getPlannigCustomerDeliveryRefernce() {
@@ -104,5 +104,4 @@ public class ComponentDescriptionJDO {
 			List<Long> plannigCustomerDeliveryRefernce) {
 		this.plannigCustomerDeliveryRefernce = plannigCustomerDeliveryRefernce;
 	}
-	
 }

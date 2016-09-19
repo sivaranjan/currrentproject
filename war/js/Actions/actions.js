@@ -166,9 +166,12 @@
 														
 														var customerReference_txt = $('#customerReference_txt').val();
 														var product_type_component_description_drpdwn = $('#product_type_component_description_drpdwn').val();
+														var unit_selling_price_txt = $('#unit_selling_price_txt').val();
+														var customer_drpdwn = $('#customer_drpdwn').val();
+														var DirecedeliverytoCustomer = $('#directDeliveryDiv input[name="optradio1"]:checked').val();
 														var product_specification_txtarea = $('#product_specification_txtarea').val();
+														var labo_address_or_other_txtarea = $('#labo_address_or_other_txtarea').val();
 														var comment_component_description_txtarea = $('#comment_component_description_txtarea').val();
-														
 														
 														var componentcreationObject 			= 	new BackboneData.Models.ComponentCreateModel(
 													    {
@@ -178,6 +181,18 @@
 													    	TotalQuantity			: 	TotalQuantity,
 													    	TotalAmount				: 	TotalAmount,
 													    });
+														var componentDescriptionModelObject   = new BackboneData.Models.ComponentDescriptionModel({
+															
+															  componentID				: 	componentID,
+															  customerReference 		:   customerReference_txt,
+															  productType 				:   product_type_component_description_drpdwn,
+															  unitSellingPrice 			: 	unit_selling_price_txt,
+															  customer 					: 	customer_drpdwn,
+															  directDeliverytoCustomer  :	DirecedeliverytoCustomer,
+															  productSpecification		: 	product_specification_txtarea,
+														      laboAdress 				: 	labo_address_or_other_txtarea,
+														      comment_componentDescription : comment_component_description_txtarea,
+														});
 														componentcreationObject.save(
 													    {},
 													    {
@@ -187,12 +202,46 @@
 													        },
 													        error: function(model, xhr, options)
 													        {
-													        	window.componentstatus = "saved";
-													        	showVoiceBox.configure("Component saved successfully",2000);
-													            //buildCompListTable(No_Prototype_Order);
+													        			componentDescriptionModelObject.save(
+																	    {},
+																	    {
+																	        success: function(model, respose, options)
+																	        {
+																	        	console.log("The model has been saved to the server");
+																	        },
+																	        error: function(model, xhr, options)
+																	        {
+																	        	showVoiceBox.configure("Component saved successfully",2000);
+																	        	 Do.validateAndDoCallback(callback);
+																	            //buildCompListTable(No_Prototype_Order);
+																	        }
+																	    });
 													        }
 													    });
 		    									};
+    savePlanningCustomerDelivery		 =      function(qty_plancustdelivery,date_plancustdelivery,comment_plancustomerdelivery,done)
+    											{
+    												  var componentID = $('#componentID').val();
+												      var planningDeliveryModelObject   = new BackboneData.Models.PlanningCustomerDeliveryModel({
+															
+												    	  componentID					: 	componentID,
+														  Quantity						: 	qty_plancustdelivery,
+														  Dateof 						:   date_plancustdelivery,
+														  Comment  						:	comment_plancustomerdelivery,
+													  });
+												      planningDeliveryModelObject.save(
+													  {},
+													  {
+															success: function(model, respose, options)
+															{
+															    console.log("The model has been saved to the server");
+															},
+															error: function(model, xhr, options)
+															{
+																Do.validateAndDoCallback(done);
+															}
+													  });	     
+    											};
 	validateOrder						 =		function(done)
 												{
 													var setFlag = false;
@@ -269,8 +318,27 @@
 										            });
 										            if (!setFlag)
 											        {
-										            	Do.validateAndDoCallback(done);
+										            	var isDirectDeliveryMandatory = $('#direct_delivery_to_the_customer_radiobtn2').data('required');
+										            	if(isDirectDeliveryMandatory)
+										            	{
+										            		if($('#directDeliveryDiv input[name="optradio1"]:checked').val()!=undefined)
+										            		{
+										            			Do.validateAndDoCallback(done);
+										            		}
+										            		else
+										            		{
+										            			showVoiceBox.configure("Please select your option for 'Direct Delivery to Customer' ",2000);
+										            		}
+										            	}
+										            	else
+										            	{
+										            		Do.validateAndDoCallback(done);
+										            	}	
 											        }
+										            else
+										            {
+										            	showVoiceBox.configure("Please fill the mandatory fields",2000);
+										            }	
 										        }
 										  };
 	setOrderDetails					= function(orderDetailsObj)
@@ -363,6 +431,20 @@
 													        //$('#customer_reference_txt').val();
 													        $('#product_type_component_txt').val();
 													        $('#componentStatus').val('Draft');	
+													        if(arrayItem.type_of_the_Prototype_Order=="VENDU / SOLD")
+													        {
+													        	$('#direct_delivery_to_the_customer_radiobtn1').attr('data-type',"text");
+													        	$('#direct_delivery_to_the_customer_radiobtn1').attr('data-required',true);
+													        	$('#direct_delivery_to_the_customer_radiobtn2').attr('data-type',"text");
+													        	$('#direct_delivery_to_the_customer_radiobtn2').attr('data-required',true);
+													        }
+													        else
+													        {
+													        	$('#direct_delivery_to_the_customer_radiobtn1').removeAttr('data-type');
+													        	$('#direct_delivery_to_the_customer_radiobtn1').attr('data-required',false);
+													        	$('#direct_delivery_to_the_customer_radiobtn2').removeAttr('data-type');
+													        	$('#direct_delivery_to_the_customer_radiobtn2').attr('data-required',false);
+													        }	
 														});  	
 													});
 										        });
@@ -457,7 +539,7 @@
 									          }
 										  });
   									 }
-  fetchCustomerDetailsOnLoad    =    function(customerNameSelected,done)
+  fetchCustomerDetailsOnLoad    =    function(customerNameSelected)
   									 {
 									      $.ajax({
 										           type: 'get',
@@ -476,10 +558,29 @@
 										                    $('#Provider_Code').val(arrayItem.provider_Code);
 										                    $('#Final_Delivery_Address').val(arrayItem.customer_Address);
 										                });
-										                Do.validateAndDoCallback(done);
 										           }
 									      });
   									  };
+  fetchLaboAddressOnLoad      	=   function(customerNameSelected)
+ 									 {
+									      $.ajax({
+										           type: 'get',
+										           url: ApplicationConstants.fetchLaboAddressOnLoad+customerNameSelected ,
+										           contentType: "application/json; charset=utf-8",
+										           traditional: true,
+										           success: function (data) 
+										           {
+										        	   var google = data.data;
+										                console.log(google);
+										                console.log("hello");
+										                google.forEach(function(arrayItem)
+										                {
+										                    $('#labo_address_or_other_txtarea').val(arrayItem.address);
+										                    $('#labo_address_or_other_txtarea').removeClass('error');
+										                });
+										           }
+									      });
+ 									 };
   setPrototypeIDOnUpdate		=	 function(Site_Workshop_Prototype,Type_of_the_Prototype_Order,Proto_Type)
   									 {
 	  									   var currentPrototypeOrderID 	= 	$.trim(localStorage.getItem("prototypeIDOnupdate"));
@@ -1224,7 +1325,7 @@
 		 		   									{
 		 		   										SetView(currentPage.get(),function()
 		 		   										{
-		 		   										    pullOrderDependencies();
+		 		   										    pullOrderDepvalidateComponentendencies();
 		 		   										});
 		 		   									 }); 
 		   										 });   

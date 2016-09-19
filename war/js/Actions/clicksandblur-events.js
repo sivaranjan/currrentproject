@@ -156,5 +156,16 @@ $(document).ready(function()
 		    			showVoiceBox.configure("Actors Loaded Successfully",10);
 		    		});
 				});
+		    	$(document).on("click", "#saveplancustdelivery", function(e)
+				{
+					  var  qty_plancustdelivery 		= 	$.trim($('#qty_plancustdelivery').val());
+					  var date_plancustdelivery			=	$.trim($('#date_plancustdelivery').val());
+					  var comment_plancustomerdelivery	=	$.trim($('#comment_plancustomerdelivery').val());
+					  showVoiceBox.configure("Saving details",'');
+				      savePlanningCustomerDelivery(qty_plancustdelivery,date_plancustdelivery,comment_plancustomerdelivery,function()
+				      {
+				    	showVoiceBox.configure("Saved Successfully",10);
+				      });
+				});
 		    	
 });
