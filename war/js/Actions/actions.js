@@ -156,7 +156,7 @@
 													        });  
 											          }	
     											};
-    saveComponent		 			     = 		function()
+    saveComponent		 			     = 		function(callback)
 		    									{
 												    	var orderIDReference	= 	$('#no_prototype_order_comppage_txt').val();
 														var componentID 		=   $('#componentID').val();
