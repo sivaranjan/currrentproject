@@ -22,8 +22,8 @@ public class PlanningCustomerDeliveryDAO extends AbstractDao {
     public PlanningCustomerDeliveryJDO findByName(String name) {
         return ofy.load().type(PlanningCustomerDeliveryJDO.class).filter("name =", name).first().now();
     }
-    public List<PlanningCustomerDeliveryJDO> findBySite(String site) {
-        return ofy.load().type(PlanningCustomerDeliveryJDO.class).filter("site =", site).list();
+    public List<PlanningCustomerDeliveryJDO> findByComponentID(String componentID) {
+        return ofy.load().type(PlanningCustomerDeliveryJDO.class).filter("componentID =", componentID).list();
     }
     public List<PlanningCustomerDeliveryJDO> findByType(String actorType) {
         return ofy.load().type(PlanningCustomerDeliveryJDO.class).filter("actorType =", actorType).list();

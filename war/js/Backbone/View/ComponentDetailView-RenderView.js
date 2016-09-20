@@ -31,30 +31,6 @@ BackboneData.Views.ComponentDetailView = Backbone.View
             $('#planningcust-table').DataTable(
             {
                     dom				:	'Bfrtip',
-                    responsive:
-                    {
-                        details:
-                        {
-                            type	: 	'column',
-                            target	: 	-1
-                        }
-                    },
-                    columnDefs: [
-                    {
-                        className	: 	'control',
-                        orderable	: 	false,
-                        targets		: 	-1
-                    },
-                    {
-                        targets		: 	[3],
-                        orderable	: 	false,
-                        width		: 	"40px",
-                    },
-                    {
-                        targets		: 	[4],
-                        orderable	: 	false,
-                        width		: 	"40px",
-                    }],
                     buttons: [
                     {
                         text		: '<i class="fa fa-plus" aria-hidden="true"></i> New',

@@ -225,9 +225,9 @@
 												      var planningDeliveryModelObject   = new BackboneData.Models.PlanningCustomerDeliveryModel({
 															
 												    	  componentID	: 	componentID,
-														  Quantity		: 	qty_plancustdelivery,
-														  Dateof 		:   new Date(),
-														  Comment  		:	comment_plancustomerdelivery,
+												    	  quantity		: 	qty_plancustdelivery,
+												    	  dateOf 		:   new Date(),
+												    	  comment  		:	comment_plancustomerdelivery,
 													  });
 												      planningDeliveryModelObject.save(
 													  {},
@@ -238,10 +238,10 @@
 													      },
 														  error: function(model, xhr, options)
 														  {
-															  alert("Sd");
-															    showVoiceBox.configure("Component saved successfully",2000);
-															    Do.validateAndDoCallback(callback);
-															            //buildCompListTable(No_Prototype_Order);
+															  buildPlanningCusDeliveryTable(componentID,function()
+															  {
+																  Do.validateAndDoCallback(callback);
+															  });
 														   }
 													   });	     
     											};
@@ -1056,6 +1056,37 @@
 													});
 									  				$('#complistTable_footer').removeClass('hide');
 									  		 		buildSearchForTable('complistTable_footer th','compListTable');
+  										};
+  buildPlanningCusDeliveryTable			=	function(componentID)
+  										{
+									  		$('#planningcust-table').DataTable(
+											{
+													  dom			: 'Bfrtip',
+													  "ajax"		: ApplicationConstants.fetchPlanningCustomerDeliveryDetails+componentID,
+													  "bDestroy"	: true,
+													  "columns"		: [
+													           		   {"data"	: "quantity"},
+													           		   {"data"	: "dateOf"},
+													           		   {"data"	: "comment"}
+													           		  ],
+													           		  buttons: [
+													                          {
+													                              text		: '<i class="fa fa-plus" aria-hidden="true"></i> New',
+													                              className	: 'btn btn-default btn-sm newplanbtn',
+													                              action		: function()
+													                              {
+													                              	 validateComponent(function()
+													                  				 {
+													                  					  saveComponent(function()
+													                  					  {
+													                  						  $('#plancustdevlivery-modal').modal('show');
+													                  					  });
+													                  				 });
+													                              }
+													                          }]
+													});
+									  				$('#planningcust_footer').removeClass('hide');
+									  		 		buildSearchForTable('planningcust_footer th','planningcust-table');
   										};	
   pullComponentDependencies 		=   function(calldone)
     									{

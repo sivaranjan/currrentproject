@@ -24,6 +24,7 @@ import com.ths.DAO.Configuration.ComponentDescriptionDAO;
 import com.ths.DAO.Configuration.CustomersListDAO;
 import com.ths.DAO.Configuration.IncotermsDAO;
 import com.ths.DAO.Configuration.PlacesDAO;
+import com.ths.DAO.Configuration.PlanningCustomerDeliveryDAO;
 import com.ths.DAO.Configuration.PlateformDAO;
 import com.ths.DAO.Configuration.ProductTypeDAO;
 import com.ths.DAO.Configuration.PrototypistsDAO;
@@ -37,6 +38,7 @@ import com.ths.JDO.Attachment.AttachmentsJdo;
 import com.ths.JDO.Component.ComponentDescriptionJDO;
 import com.ths.JDO.Component.ComponentIDJDO;
 import com.ths.JDO.Component.ComponentJDO;
+import com.ths.JDO.Component.PlanningCustomerDeliveryJDO;
 import com.ths.JDO.Configuration.ActorsListJDO;
 import com.ths.JDO.Configuration.AllocationTurnOverJDO;
 import com.ths.JDO.Configuration.ClientLaboJDO;
@@ -96,6 +98,8 @@ public class FetchController {
     private ComponentCreationDAO componentDao;
     @Autowired
     private ComponentDescriptionDAO componentDescriptionDao;
+    @Autowired
+    private PlanningCustomerDeliveryDAO planningcustDeliveryDao;
     private static final Logger log = Logger.getLogger(FetchController.class.getName());
     
     /*================================ Actors ======================================== */
@@ -549,6 +553,27 @@ public class FetchController {
 	     		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
 	     	}
 	         return new ResponseEntity<HashMap<String,List<ClientLaboJDO>>>(responseMap, HttpStatus.OK);
+	     }
+/*================================ fetchPlanningCustomerDeliveryDetails ======================================== */
+	     
+	     @RequestMapping("/fetchPlanningCustomerDeliveryDetails/{componentID}")
+	     public ResponseEntity<HashMap<String,List<PlanningCustomerDeliveryJDO>>> fetchPlanningCustomerDeliveryDetails(@PathVariable("componentID") String componentID) 
+	     {
+	     	log.log(FINER, "Visits fetchPlanningCustomerDeliveryDetails Controller - componentID :: "+componentID);
+	     	List<PlanningCustomerDeliveryJDO> planingCusList = null;
+	     	HashMap<String,List<PlanningCustomerDeliveryJDO>> responseMap = null;
+	     	try
+	     	{
+	     		planingCusList = planningcustDeliveryDao.findByComponentID(componentID);
+	         	responseMap = new HashMap<String,List<PlanningCustomerDeliveryJDO>>();
+	         	responseMap.put("data", planingCusList);
+	         	log.log(FINER, "Response Map from fetchPlanningCustomerDeliveryDetails :: "+responseMap);
+	     	}
+	     	catch(Exception e)
+	     	{
+	     		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
+	     	}
+	         return new ResponseEntity<HashMap<String,List<PlanningCustomerDeliveryJDO>>>(responseMap, HttpStatus.OK);
 	     }
 	     
 }

@@ -107,7 +107,7 @@ public class ComponentDetailController {
     	 log.info("planningCusObject :: "+planningCusObject.getComponentID());
     	 log.info("planningCusObject :: "+planningCusObject.getQuantity());
     	 log.info("planningCusObject :: "+planningCusObject.getComment());
-    	 log.info("planningCusObject :: "+planningCusObject.getDateof());
+    	 log.info("planningCusObject :: "+planningCusObject.getDateOf());
     	 Long componentDescriptionID = null;
          try
          {

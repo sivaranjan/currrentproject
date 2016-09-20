@@ -16,6 +16,7 @@ ApplicationConstants = {
 "fetchUserInfoDetails"			:	"/fetchController/fetchUserDetails/",
 "fetchOrderDependencies"		: 	"/fetchController/fetchOrderDependencies",
 "fetchComponentdependencies"	:	"/fetchController/fetchComponentdependencies",
+"fetchPlanningCustomerDeliveryDetails" : "/fetchController/fetchPlanningCustomerDeliveryDetails/",
 "fetchOrdersList"				: 	"/fetchController/fetchOrders",
 "fetchProductTypeList"			: 	"/fetchController/fetchProductTypeList",
 "fetchPrototypitsList"			: 	"/fetchController/fetchPrototypitsList",

@@ -17,11 +17,11 @@ public class PlanningCustomerDeliveryJDO {
 	@Index
 	private Long componentDescriptionID;
 	@Index
-	private int Quantity;
+	private int quantity;
 	@Index
-	private Date Dateof ;
+	private Date dateOf ;
 	@Index
-	private Text Comment;
+	private Text comment;
 	public PlanningCustomerDeliveryJDO()
 	{
 		//
@@ -45,22 +45,23 @@ public class PlanningCustomerDeliveryJDO {
 		this.componentDescriptionID = componentDescriptionID;
 	}
 	public int getQuantity() {
-		return Quantity;
+		return quantity;
 	}
 	public void setQuantity(int quantity) {
-		Quantity = quantity;
+		this.quantity = quantity;
 	}
-	public Date getDateof() {
-		return Dateof;
+	public Date getDateOf() {
+		return dateOf;
 	}
-	public void setDateof(Date dateof) {
-		Dateof = dateof;
+	public void setDateOf(Date dateOf) {
+		this.dateOf = dateOf;
 	}
 	public Text getComment() {
-		return Comment;
+		return comment;
 	}
 	public void setComment(Text comment) {
-		Comment = comment;
+		this.comment = comment;
 	}
+	
 	
 }
