@@ -261,7 +261,6 @@ var actions_attach =
 		}
 		else if (title == null || title == "") 
 		{
-			showVoiceBox.configure("Please fill the title",2000);
 			$('#file_Title').addClass('error');
 		}
 		else 

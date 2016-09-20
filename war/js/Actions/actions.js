@@ -219,7 +219,7 @@
 													        }
 													    });
 		    									};
-    savePlanningCustomerDelivery		 =      function(qty_plancustdelivery,date_plancustdelivery,comment_plancustomerdelivery,done)
+    savePlanningCustomerDelivery		 =      function(qty_plancustdelivery,date_plancustdelivery,comment_plancustomerdelivery,callback)
     											{
     												  var componentID = $('#componentID').val();
 												      var planningDeliveryModelObject   = new BackboneData.Models.PlanningCustomerDeliveryModel({
@@ -240,10 +240,31 @@
 														  {
 															  buildPlanningCusDeliveryTable(componentID,function()
 															  {
+																  $('.dt-buttons a.btn').removeClass('dt-button');
+																  $('#planningcust_footer').removeClass('hide');
 																  Do.validateAndDoCallback(callback);
 															  });
 														   }
 													   });	     
+    											};
+    calculateTotalQuantityandPrice		 = 		function()
+    											{
+    												var componentID = $('#componentID').val();
+    												var unitSellingPrice = $('#unit_selling_price_txt').val();
+											    	$.ajax({
+													           type: 'get',
+													           url: ApplicationConstants.fetchQuantityBasedonComponentID+componentID ,
+													           contentType: "application/json; charset=utf-8",
+													           traditional: true,
+													           success: function (data) 
+													           {
+													        	   var totalQuantity = data.data;
+													                console.log("total quantity is this ::"+totalQuantity);
+													                $('#total_quantity_txt').val(totalQuantity);
+													                var total_amount = parseInt(unitSellingPrice*totalQuantity);
+											           				$('#total_amount_txt').val(total_amount);
+													           }
+											    		});
     											};
 	validateOrder						 =		function(done)
 												{
@@ -275,7 +296,7 @@
 											                    }
 											                    else
 											                    {
-											                        $(this).removeClass('error');
+											                        	$(this).removeClass('error');
 											                    }
 											                }
 											            });
@@ -364,7 +385,7 @@
 										        loadActorsOnOrderDetails(arrayItem.site_Workshop_Prototype,function()
 										        {
 										        	 /*=========== Actors ==========*/
-											        $('#requester').selectpicker('val', arrayItem.requester);
+											        $('#requester').val(arrayItem.requester);
 											        $('#mepstudy').selectpicker('val', arrayItem.cadTeamMember_MEPStudy); //drpdwn
 											        $('#quality').selectpicker('val', arrayItem.qualityTeamMember); //drpdwn
 											        $('#protoworkshop').selectpicker('val', arrayItem.protoWorkshop); //drpdwn
@@ -1057,37 +1078,92 @@
 									  				$('#complistTable_footer').removeClass('hide');
 									  		 		buildSearchForTable('complistTable_footer th','compListTable');
   										};
-  buildPlanningCusDeliveryTable			=	function(componentID)
-  										{
-									  		$('#planningcust-table').DataTable(
-											{
-													  dom			: 'Bfrtip',
-													  "ajax"		: ApplicationConstants.fetchPlanningCustomerDeliveryDetails+componentID,
-													  "bDestroy"	: true,
-													  "columns"		: [
-													           		   {"data"	: "quantity"},
-													           		   {"data"	: "dateOf"},
-													           		   {"data"	: "comment"}
-													           		  ],
-													           		  buttons: [
-													                          {
-													                              text		: '<i class="fa fa-plus" aria-hidden="true"></i> New',
-													                              className	: 'btn btn-default btn-sm newplanbtn',
-													                              action		: function()
-													                              {
-													                              	 validateComponent(function()
-													                  				 {
-													                  					  saveComponent(function()
-													                  					  {
-													                  						  $('#plancustdevlivery-modal').modal('show');
-													                  					  });
-													                  				 });
-													                              }
-													                          }]
-													});
-									  				$('#planningcust_footer').removeClass('hide');
-									  		 		buildSearchForTable('planningcust_footer th','planningcust-table');
-  										};	
+  buildPlanningCusDeliveryTable			=	function(componentID,done)
+  											{
+										  		$('#planningcust-table').DataTable(
+												{
+														  dom			: 'Bfrtip',
+														  "ajax"		: ApplicationConstants.fetchPlanningCustomerDeliveryDetails+componentID,
+														  "bDestroy"	: true,
+														  "deferRender" : true,
+														  "columns"		: [
+														           		   {
+														           			   "data"	: "quantity",
+														           		   },
+														           		   {
+														           			    "data"	: "dateOf",
+															           			"render" : function(data, type, row, meta)
+															                    {
+															                        if(type === 'display')
+															                        {
+															                       	 return $('<a style="color: black;text-decoration: initial;">')
+															                            .text(new Date(data).toUTCString())
+															                            .wrap('<div></div>')
+															                            .parent()
+															                            .html();
+															                        } 
+															                        else 
+															                        {
+															                            return data;
+															                        }
+															                   }   
+														           		   },
+														           		   {"data"	: "comment",
+															           			"render" : function(data, type, row, meta)
+															                    {
+															                        if(type === 'display')
+															                        {
+															                       	 return $('<a style="color: black;text-decoration: initial;">')
+															                            .text(data.value)
+															                            .wrap('<div></div>')
+															                            .parent()
+															                            .html();
+															                        } 
+															                        else 
+															                        {
+															                            return data;
+															                        }
+															                   }    
+														           		   }
+														           		  ],
+															           		initComplete: function () 
+															    	        { 
+															    	            this.api().columns().every( function () 
+															    	            {
+															    	                var column = this;
+															    	                var select = $('<select class="selectpicker show-tick" title="Search" data-size="9" size="7" data-live-search="true" data-width="100%"><option value="" class="btn btn-default btn-sm text-center">No Filter</option></select>').appendTo( $(column.footer()).empty()).on( 'change', function () 
+															    	                			 {
+															    	                        			var val = $.fn.dataTable.util.escapeRegex($(this).val());
+															    	                        			column.search( val ? '^'+val+'$' : '', true, false ).draw();
+															    	                			 });
+															    				                	column.data().unique().sort().each( function ( d, j ) 
+															    				                	{
+															    				                		select.append( '<option value="'+d+'">'+d+'</option>' )
+															    				                	});
+															    				                	$('.selectpicker').selectpicker().selectpicker('setStyle', 'btn-sm', 'add');
+															    				                    $('.bs-searchbox input').addClass('input-sm');
+															    				                    Do.validateAndDoCallback(done);
+															    	             });
+															    	          },
+															    	          "columnDefs": [
+															    	                         { "width": "20%", "targets": 0 }
+															    	                       ],
+															    	          buttons: [{
+														                              text		: '<i class="fa fa-plus" aria-hidden="true"></i> Add New',
+														                              className	: 'btn btn-sucess btn-sm newplanbtn',
+														                              action		: function()
+														                              {
+														                              	 validateComponent(function()
+														                  				 {
+														                  					  saveComponent(function()
+														                  					  {
+														                  						  $('#plancustdevlivery-modal').modal('show');
+														                  					  });
+														                  				 });
+														                              }
+														                          }]
+														});
+  										}
   pullComponentDependencies 		=   function(calldone)
     									{
 									        var fetchComponentDependenciesObj = new BackboneData.Collections.fetchComponentdependencies();

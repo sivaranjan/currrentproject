@@ -101,8 +101,8 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 							    	        $('.refreshbtn,.newcompbtn').removeClass('dt-button');
 									        $('.bs-searchbox input').addClass('input-sm');
 									        $('#Date_of_the_Order').val(new Date());
-									        $('#Order_Status').val("Draft");
 									        $('#requester').val(useremailid);
+									        $('#Order_Status').val("Draft");
 									        $('#mepstudy').attr('readonly',true);
 									        $('#mepstudy').attr('disabled',true);
 									        $('#quality').attr('readonly',true);

@@ -575,5 +575,29 @@ public class FetchController {
 	     	}
 	         return new ResponseEntity<HashMap<String,List<PlanningCustomerDeliveryJDO>>>(responseMap, HttpStatus.OK);
 	     }
-	     
+/*==================================== fetchQuantityBasedonComponentID ======================================== */
+	     @RequestMapping("/fetchQuantityBasedonComponentID/{componentID}")
+	     public ResponseEntity<HashMap<String,String>> fetchQuantityBasedonComponentID(@PathVariable("componentID") String componentID) 
+	     {
+	     	log.log(FINER, "Visits fetchQuantityBasedonComponentID Controller - componentID :: "+componentID);
+	     	List<PlanningCustomerDeliveryJDO> planingCusList = null;
+	     	HashMap<String,String> responseMap = null;
+	     	try
+	     	{
+	     		planingCusList = planningcustDeliveryDao.findByComponentID(componentID);
+	     		int quantity = 0;
+	     		for (PlanningCustomerDeliveryJDO qtyInfo : planingCusList) 
+			    {
+	     			quantity = quantity+qtyInfo.getQuantity();
+			    }
+	         	responseMap = new HashMap<String,String>();
+	         	responseMap.put("data", Integer.toString(quantity));
+	         	log.log(FINER, "Response Map from fetchQuantityBasedonComponentID :: "+responseMap);
+	     	}
+	     	catch(Exception e)
+	     	{
+	     		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
+	     	}
+	         return new ResponseEntity<HashMap<String,String>>(responseMap, HttpStatus.OK);
+	     }
 }

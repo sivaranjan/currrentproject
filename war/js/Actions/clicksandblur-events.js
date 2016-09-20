@@ -165,7 +165,17 @@ $(document).ready(function()
 				      savePlanningCustomerDelivery(qty_plancustdelivery,date_plancustdelivery,comment_plancustomerdelivery,function()
 				      {
 				    	showVoiceBox.configure("Saved Successfully",10);
+					    	calculateTotalQuantityandPrice(function()
+					    	{
+					    		console.log("total quantity fetched");
+					    	});
 				      });
 				});
-		    	
+		    	$(document).on("keyup", "#unit_selling_price_txt", function(e)
+				{
+					  var  total_quantity_txt= 	$.trim($('#total_quantity_txt').val());
+		              var unit_selling_price_txt = $('#unit_selling_price_txt').val();
+					  total_quantity_txt = parseInt(total_quantity_txt*unit_selling_price_txt);
+		              $('#total_amount_txt').val(total_quantity_txt);
+				});
 });
