@@ -516,11 +516,10 @@ BackboneData.Models.PlanningCustomerDeliveryModel = Backbone.Model.extend(
 {
 	defaults:
 	{
-		  componentID					: 	"",
-		  componentDescriptionID 		:   "",
-		  Quantity						: 	"",
-		  Dateof 						:   "",
-		  Comment  						:	"",
+		  componentID	: 	"",
+		  Quantity		: 	"",
+		  Dateof 		:   "",
+		  Comment  		:	"",
     },
     initialize: function()
 	{

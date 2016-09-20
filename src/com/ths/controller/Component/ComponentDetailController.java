@@ -104,6 +104,10 @@ public class ComponentDetailController {
     {
     	 System.out.println("Saving savePlanningandCustomerDelivery ");
     	 List<ComponentDescriptionJDO> compDescriptionList = null;
+    	 log.info("planningCusObject :: "+planningCusObject.getComponentID());
+    	 log.info("planningCusObject :: "+planningCusObject.getQuantity());
+    	 log.info("planningCusObject :: "+planningCusObject.getComment());
+    	 log.info("planningCusObject :: "+planningCusObject.getDateof());
     	 Long componentDescriptionID = null;
          try
          {

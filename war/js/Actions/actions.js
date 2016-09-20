@@ -224,23 +224,26 @@
     												  var componentID = $('#componentID').val();
 												      var planningDeliveryModelObject   = new BackboneData.Models.PlanningCustomerDeliveryModel({
 															
-												    	  componentID					: 	componentID,
-														  Quantity						: 	qty_plancustdelivery,
-														  Dateof 						:   date_plancustdelivery,
-														  Comment  						:	comment_plancustomerdelivery,
+												    	  componentID	: 	componentID,
+														  Quantity		: 	qty_plancustdelivery,
+														  Dateof 		:   new Date(),
+														  Comment  		:	comment_plancustomerdelivery,
 													  });
 												      planningDeliveryModelObject.save(
 													  {},
 													  {
-															success: function(model, respose, options)
-															{
+														  success: function(model, respose, options)
+														  {
 															    console.log("The model has been saved to the server");
-															},
-															error: function(model, xhr, options)
-															{
-																Do.validateAndDoCallback(done);
-															}
-													  });	     
+													      },
+														  error: function(model, xhr, options)
+														  {
+															  alert("Sd");
+															    showVoiceBox.configure("Component saved successfully",2000);
+															    Do.validateAndDoCallback(callback);
+															            //buildCompListTable(No_Prototype_Order);
+														   }
+													   });	     
     											};
 	validateOrder						 =		function(done)
 												{
