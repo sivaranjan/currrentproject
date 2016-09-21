@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
     <application>valeo-ths-prototype-acp</application>
-    <version>15</version>
+    <version>16</version>
     <threadsafe>true</threadsafe>
     <system-properties>
         <property name="java.util.logging.config.file" value="WEB-INF/logging.properties" />
     </system-properties>
 	 <static-files>
-      	<include path="/js/Library/**.*" expiration="30d" /> 
-      	<include path="/css/**.*" expiration="30d" />
-      	<include path="/images/**.*" expiration="30d" />
-      	<include path="/resources/**.*" expiration="30d" />
-      	<include path="/statics/**.*" expiration="30d" />
-      	<include path="/Soy/**.*" expiration="30d" />
-      	<include path="/myicon.ico" expiration="30d" />
-      	<include path="/**.*" />
+	     <include path="/**.png" expiration="30d" />
+	     <include path="/**.js" expiration="30d" />
+	     <include path="/**.css" expiration="30d" />
+	     <include path="/**.jpg" expiration="30d" />
+	     <include path="/**.png" expiration="30d" />
+	     <include path="/**.*" />
     </static-files>
 </appengine-web-app>

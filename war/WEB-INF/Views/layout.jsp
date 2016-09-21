@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page
 	import ="com.google.appengine.api.users.UserServiceFactory"
-	import =" com.google.appengine.api.users.User;"		
+	import ="com.google.appengine.api.users.User"	
+	import ="com.ths.service.WebServiceURLUtil"	
 	 %> 
  	<%
 	 	String useremailid = "";
@@ -25,23 +26,23 @@
     <title>
 		THS France Prototype Database
     </title>
-    <!-- CSS -->
-    	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css">
+    	<link rel="stylesheet" href="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/CSS/fonts_googleapis_com.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-design/css/bootstrap.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/dataTables.bootstrap.min.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/responsive.bootstrap.min.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/buttons.dataTables.min.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-design/css/datepicker3.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/bootstrap-select.min.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/valeo-graphics.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/app.css">
-		<link rel="shortcut icon" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/statics/images/myicon.ico" type="image/x-icon"/>
+		<link rel="stylesheet" href="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/CSS/bootstrap.css">
+		<link rel="stylesheet" href="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/CSS/dataTables.bootstrap.min.css">
+		<link rel="stylesheet" href="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/CSS/responsive.bootstrap.min.css">
+		<link rel="stylesheet" href="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/CSS/buttons.dataTables.min.css">
+		<link rel="stylesheet" href="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/CSS/datepicker3.css">
+		<link rel="stylesheet" href="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/CSS/bootstrap-select.min.css">
+		<link rel="stylesheet" href="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/CSS/valeo-graphics.css">
+		<link rel="stylesheet" href="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/CSS/app.css">
+		<link rel="stylesheet" href="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/CSS/pace.css">
+		<link rel="shortcut icon" href="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/statics/images/myicon.ico" type="image/x-icon"/>
 	</head>
 
 <body>
 <div class="modal fade" id="pleasewait" role="dialog">
-	<center><img src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/statics/images/loader.gif" style="height: 48px;margin: 24%;"></img></center>
+	<center><img src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/statics/images/loader.gif" style="height: 48px;margin: 24%;"></img></center>
 </div>
 	<main id="wrap">
 	<div class="status-voicebox hide" id="statusLoader" >
@@ -53,7 +54,7 @@
     <header class="header">
             
             <div class="col-md-2 col-sm-2 col-xs-12">
-                <a href="/"><img src="../statics/images/Valeo_Logo.svg.png" ></a>
+                <a href="/"><img src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/statics/images/Valeo_Logo.svg.png" ></a>
             </div>
             <div class="col-md-6 col-sm-10 col-xs-12">
                 <h3 id="headtitle" class="valeo-app-title">THS France Prototype Database</h3>
@@ -66,12 +67,12 @@
                     </div>
                     <div class="btn-group pull-right">
 				        <button id='lang' type="button" class="btn btn-link dropdown-toggle language-dropdown" data-toggle="dropdown" aria-expanded="false" value="EN">
-				        <img src="../statics/images/en.png"> EN <span class="caret"></span>
+				        <img src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/statics/images/en.png"> EN <span class="caret"></span>
 				        </button>
 				        <ul class="dropdown-menu language" role="menu">
-				          <li class="languageli" data-language="EN"><a style="cursor:pointer"><img src="../statics/images/en.png"> EN</a></li>
+				          <li class="languageli" data-language="EN"><a style="cursor:pointer"><img src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/statics/images/en.png"> EN</a></li>
 				          <li class="divider"></li>
-				          <li class="languageli" data-language="FR"><a style="cursor:pointer"><img src="../statics/images/fr.png"> FR</a></li>
+				          <li class="languageli" data-language="FR"><a style="cursor:pointer"><img src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/statics/images/fr.png"> FR</a></li>
 				        </ul>
 				    </div>
                 </div>
@@ -129,7 +130,7 @@
         <footer>
 		    <div class="col-md-12 col-xs-12 logo">
 		        <div class="col-md-2 col-xs-4">
-		            <img src="../statics/images/logo-valeo-2.png" alt="Valeo">
+		            <img src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/statics/images/logo-valeo-2.png" alt="Valeo">
 		            <span>&#x40;</span>
 		        </div>
 		    </div>
@@ -419,59 +420,59 @@
 
 		
 		<!-- JavaScript -->
-		<script src="../js/Loader/language.js"></script>
-		<script src="../js/Loader/constants.js"></script>
-		<script src="../js/Configurations/Config-1-OrderCreation.js"></script>
-		<script src="../js/Configurations/Config-2-ComponentCreation1.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Loader/language.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Loader/constants.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Configurations/Config-1-OrderCreation.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Configurations/Config-2-ComponentCreation1.js"></script>
 			
 		
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/jquery-1.11.3.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/jquery.min.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/jquery-1.11.3.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/jquery.min.js"></script>
         
-        <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/underscore.js"></script>
-        <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/backbone-min.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/validate.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/ajaxfileupload.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/jquery.dataTables.min.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/dataTables.bootstrap.min.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/dataTables.responsive.min.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/responsive.bootstrap.min.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/dataTables.buttons.min.js"></script> 
-		<script src="https://storage.googleapis.com/valeo-design/js/bootstrap.min.js"></script>
-		<script src="https://storage.googleapis.com/valeo-design/js/bootstrap-datepicker.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/valeo-graphics.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/bootstrap-select.min.js"></script>
-        <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/BackboneData.js"></script>
-        <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/BackboneData.js"></script>
-        <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/SOY/SoyUtils/soyutils.js"></script>
-    
- 		 <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/SOY/SoyViewJs/globalnavbar-view.js"></script>
- 		 <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/SOY/SoyViewJs/welcomesection-view.js"></script>
- 		  <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/SOY/SoyViewJs/orderdetail-view.js"></script>
-          <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/SOY/SoyViewJs/navbtn-view.js"></script>
-         <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/SOY/SoyViewJs/componentdetail-view.js"></script>
-          <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/SOY/SoyViewJs/admindetail-view.js"></script>
-          <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/SOY/SoyViewJs/orderlist-view.js"></script>
-          <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/SOY/SoyViewJs/componentlist-view.js"></script>
+        <script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/underscore.js"></script>
+        <script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/backbone-min.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/validate.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/ajaxfileupload.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/jquery.dataTables.min.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/dataTables.bootstrap.min.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/dataTables.responsive.min.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/responsive.bootstrap.min.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/dataTables.buttons.min.js"></script> 
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/bootstrap.min.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/bootstrap-datepicker.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/valeo-graphics.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/bootstrap-select.min.js"></script>
+        <script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/BackboneData.js"></script>
+        <script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/pace.js"></script>
+        
+        <script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/SOY/SoyUtils/soyutils.js"></script>
+ 		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/SOY/SoyViewJs/globalnavbar-view.js"></script>
+ 		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/SOY/SoyViewJs/welcomesection-view.js"></script>
+ 		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/SOY/SoyViewJs/orderdetail-view.js"></script>
+        <script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/SOY/SoyViewJs/navbtn-view.js"></script>
+        <script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/SOY/SoyViewJs/componentdetail-view.js"></script>
+        <script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/SOY/SoyViewJs/admindetail-view.js"></script>
+        <script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/SOY/SoyViewJs/orderlist-view.js"></script>
+        <script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/SOY/SoyViewJs/componentlist-view.js"></script>
 
-		<script src="../js/Backbone/Model/Model.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Backbone/Model/Model.js"></script>
          
-		<script src="../js/Backbone/View/GlobalNavBar-RenderView.js"></script>
-		<script src="../js/Backbone/Collections/CreateOrderCollections.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Backbone/View/GlobalNavBar-RenderView.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Backbone/Collections/CreateOrderCollections.js"></script>
 		
-		<script src="../js/Backbone/View/Welcome-RenderView.js"></script>
-		<script src="../js/Backbone/View/NavBtnSection-RenderView.js"></script>
-		<script src="../js/Backbone/View/OrderDetail-RenderView.js"></script>
-		<script src="../js/Backbone/View/ComponentDetailView-RenderView.js"></script>
-		<script src="../js/Backbone/View/AdminDetailView-RenderView.js"></script>
-		<script src="../js/Backbone/View/OrderList-RenderView.js"></script>
-		<script src="../js/Backbone/View/ComponentList-RenderView.js"></script>
-		<script src="../js/Loader/initializer.js"></script>
-        <script src="../js/Actions/clicksandblur-events.js"></script>
-        <script src="../js/Actions/AdminPage-Actions.js"></script>
-        <script src="../js/Actions/actions.js"></script>
-        <script src="../js/Actions/Attachment.js"></script>
-        <script src="../js/Routers/router.js?yufyufyufufyu"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Backbone/View/Welcome-RenderView.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Backbone/View/NavBtnSection-RenderView.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Backbone/View/OrderDetail-RenderView.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Backbone/View/ComponentDetailView-RenderView.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Backbone/View/AdminDetailView-RenderView.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Backbone/View/OrderList-RenderView.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Backbone/View/ComponentList-RenderView.js"></script>
+		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Loader/initializer.js"></script>
+        <script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Actions/clicksandblur-events.js"></script>
+        <script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Actions/AdminPage-Actions.js"></script>
+        <script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Actions/actions.js"></script>
+        <script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Actions/Attachment.js"></script>
+        <script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Routers/router.js?yufyufyufufyu"></script>
 
         <script>
 			$('#userlabel').html("Welcome "+useremailid);

@@ -1,0 +1,87 @@
+{namespace welcome.manager}
+/**
+ * WelcomeDetail View
+ * @param paramValue
+ */
+{template .WelcomeDetailView}
+
+		<h2 class="col-md-12 text-center"> {$paramValue['Welcome to']}<span class="valeo-green"> THS France Prototype Database </span></h2>        
+        	<div class="home-sections">
+        		<div class="col-md-2 col-md-offset-2 col-xs-12">
+		        				<a href="/#createorder" style="cursor: pointer;">
+		        				<div class="well text-center" style="min-height: auto;padding: 0;">
+		        						<div style="background-color: #FFFFFF;padding: 50px 0px;color: #787878;">
+		        							<i class="glyphicon glyphicon-plus home-glyphicon" style="border-color: #787878;"></i>
+		        						</div>
+		        						
+		       	 								<div class="glyphicon-title text-center" style="font-size: 16px;margin-top: 0px;padding: 10px;color: white;border-top: 1px solid #ddd;background-color: #99ca3c;">
+		       	 									<b> {$paramValue['Create new order']} </b>
+		       	 									//<p style="font-size: 14px;margin-bottom: 0;">New orders and Components</p>
+		       	 									</div>
+		        									  
+		        					</div>
+		        				</a>
+		      			</div>
+		      			<div class="col-md-2 col-xs-12">
+		        				<a href="/#orderlisting" style="cursor: pointer;">
+		        				<div class="well text-center" style="min-height: auto;padding: 0;">
+		        						<div style="background-color: #FFFFFF;padding: 50px 0px;color: #787878;">
+		        							<i class="glyphicon glyphicon-list-alt home-glyphicon" style="border-color: #787878;"></i>
+		        						</div>
+		       	 								<div class="glyphicon-title text-center" style="font-size: 16px;margin-top: 0px;padding: 10px;color: white;border-top: 1px solid #ddd;background-color: #99ca3c;">
+		       	 									<b> {$paramValue['List Orders']}</b>
+		       	 									/*<p style="font-size: 14px;margin-bottom: 0;">
+		            												{$paramValue['View list of orders']}
+		          											</p>*/
+		       	 								</div>
+		        					</div>
+		        				</a>
+		      			</div>
+		      			<div class="col-md-2 col-xs-12">
+		        				<a href="/#componentlisting" style="cursor: pointer;">
+		        				<div class="well text-center" style="min-height: auto;padding: 0;">
+		        						<div style="background-color: #FFFFFF;padding: 50px 0px;color: #787878;">
+		        							<i class="glyphicon glyphicon-list-alt home-glyphicon" style="border-color: #787878;"></i>
+		        						</div>
+		       	 								<div class="glyphicon-title text-center" style="font-size: 16px;margin-top: 0px;padding: 10px;color: white;border-top: 1px solid #ddd;background-color: #99ca3c;">
+		       	 									<b>{$paramValue['List components']}</b>
+		       	 									/*<p style="font-size: 14px;margin-bottom: 0;">
+		            												View list of Component
+		          											</p>*/
+		       	 								</div>
+		        					</div>
+		        				</a>
+		      			</div>
+		      			<div class="col-md-2 col-xs-12 hide">
+		        				<a href="#" style="cursor: pointer;">
+		        				<div class="well text-center" style="min-height: auto;padding: 0;">
+		        						<div style="background-color: #FFFFFF;padding: 50px 0px;color: #787878;">
+		        							<i class="glyphicon glyphicon-list-alt home-glyphicon" style="border-color: #787878;"></i>
+		        						</div>
+		       	 								<div class="glyphicon-title text-center" style="font-size: 16px;margin-top: 0px;padding: 10px;color: white;border-top: 1px solid #ddd;background-color: #99ca3c;">
+		       	 									<b>{$paramValue['Configure workflow']}</b>
+		       	 									/*<p style="font-size: 14px;margin-bottom: 0;">
+		            												Configure workflow list test
+		          											</p>*/
+		       	 								</div>
+		        					</div>
+		        				</a>
+		      			</div>
+		      			<div class="col-md-2 col-xs-12">
+		        				<a href="/#adminsetting" style="cursor: pointer;">
+		        				<div class="well text-center" style="min-height: auto;padding: 0;">
+		        						<div style="background-color: #FFFFFF;padding: 50px 0px;color: #787878;">
+		        							<i class="glyphicon glyphicon-cog home-glyphicon" style="border-color: #787878;"></i>
+		        						</div>
+		       	 								<div class="glyphicon-title text-center" style="font-size: 16px;margin-top: 0px;padding: 10px;color: white;border-top: 1px solid #ddd;background-color: #99ca3c;">
+		       	 									<b> {$paramValue['Admin settings']} </b>
+		       	 									/*<p style="font-size: 14px;margin-bottom: 0;">
+		            												{$paramValue['Configure roles and privileges']}
+		          											</p>*/
+		       	 								</div>
+		        									  
+		        					</div>
+		        				</a>
+		      			</div>
+        	</div>
+{/template}
