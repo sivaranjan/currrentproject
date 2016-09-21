@@ -1,5 +1,7 @@
 package com.ths.controller.Component;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.google.appengine.api.users.User;
+import com.google.appengine.api.users.UserServiceFactory;
 import com.ths.DAO.Component.ComponentIDDAO;
 import com.ths.DAO.Configuration.ComponentCreationDAO;
 import com.ths.DAO.Configuration.ComponentDescriptionDAO;
@@ -28,7 +32,6 @@ import com.ths.JDO.Component.ComponentDescriptionJDO;
 import com.ths.JDO.Component.ComponentIDJDO;
 import com.ths.JDO.Component.ComponentJDO;
 import com.ths.JDO.Component.PlanningCustomerDeliveryJDO;
-import com.ths.JDO.Order.IdJDO;
 
 
 
@@ -66,13 +69,26 @@ public class ComponentDetailController {
          List<ComponentIDJDO> idlist = null;
          try
          {
-        	 componentCreationDao.save(compObject);
-         	 idlist = componentIDDAO.findAllUsers();
-         	 for (ComponentIDJDO obj :idlist )
-         	 {
-         		 obj.setNext_id(obj.getNext_id()+1);
-         		 componentIDDAO.save(obj);
-         	 }
+        	 String componentID = compObject.getComponentID();
+        	 User user 				= 	UserServiceFactory.getUserService().getCurrentUser();
+        	 if(componentCreationDao.findByComponentID(componentID).size()>0)
+        	 {
+        		 callUpdate(componentID,compObject);
+        	 }
+        	 else
+        	 {
+        		 SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        		 Date date = new Date();
+        		 compObject.setCreatedBy(user.toString());
+        		 compObject.setCreatedDate(date.getTime());
+        		 componentCreationDao.save(compObject);
+             	 idlist = componentIDDAO.findAllUsers();
+             	 for (ComponentIDJDO obj :idlist )
+             	 {
+             		 obj.setNext_id(obj.getNext_id()+1);
+             		 componentIDDAO.save(obj);
+             	 }
+        	 }
          }
          catch(Exception e)
          {
@@ -88,8 +104,14 @@ public class ComponentDetailController {
     	 System.out.println("Saving ComponentDescription ");
          try
          {
-        	 log.info("compObject is this "+compObject.getComment_componentDescription());
-        	 componentDescriptionDao.save(compObject);
+        	 if(componentDescriptionDao.findByComponentID(compObject.getComponentID()).size()>0)
+        	 {
+        		 updateComponentDescription(compObject);
+        	 }
+        	 else
+        	 {
+        		 componentDescriptionDao.save(compObject);
+        	 }
          }
          catch(Exception e)
          {
@@ -118,5 +140,42 @@ public class ComponentDetailController {
         
          HttpHeaders headers = new HttpHeaders();
          return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+    }
+    public void callUpdate(String componentID,ComponentJDO compObject)
+    {
+    	List<ComponentJDO> compList = null;
+    	compList = componentCreationDao.findByComponentID(componentID);
+    	User user 				= 	UserServiceFactory.getUserService().getCurrentUser();
+    	 SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+		 Date date = new Date();
+    	 for (ComponentJDO obj :compList )
+    	 {
+    		obj.setComponentID(componentID);
+    		obj.setComponentStatus(compObject.getComponentStatus());
+    		obj.setOrderIDReference(compObject.getOrderIDReference());
+    		obj.setTotalAmount(obj.getTotalAmount());
+    		obj.setTotalQuantity(obj.getTotalQuantity());
+    		obj.setModifiedDate(date.getTime());
+    		obj.setLastModifiedBy(user.toString());
+    		componentCreationDao.save(obj);
+    	 }
+    }
+    public void updateComponentDescription(ComponentDescriptionJDO compObject)
+    {
+    	List<ComponentDescriptionJDO> compDescriptionList = null;
+    	compDescriptionList = componentDescriptionDao.findByComponentID(compObject.getComponentID());
+    	 for (ComponentDescriptionJDO obj :compDescriptionList )
+    	 {
+    		obj.setComponentID(compObject.getComponentID());
+    		obj.setCustomerReference(compObject.getCustomerReference());
+    		obj.setProductSpecification(compObject.getProductSpecification());
+    		obj.setProductType(compObject.getProductType());
+    		obj.setUnitSellingPrice(compObject.getUnitSellingPrice());
+    		obj.setDirectDeliverytoCustomer(compObject.getDirectDeliverytoCustomer());
+    		obj.setCustomer(compObject.getCustomer());
+    		obj.setLaboAdress(compObject.getLaboAdress());
+    		obj.setComment_componentDescription(compObject.getComment_componentDescription());
+    		componentDescriptionDao.save(obj);
+    	 }
     }
 }

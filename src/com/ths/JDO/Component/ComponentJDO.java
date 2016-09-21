@@ -16,19 +16,17 @@ public class ComponentJDO {
 	@Index
 	private String componentStatus;
 	@Index
-	private int TotalQuantity;
+	private int totalQuantity;
 	@Index
-	private double TotalAmount;
+	private double totalAmount;
 	@Index
-	private Long componentDescriptionReference;
+	private long createdDate;
 	@Index
-	private String technicalDefinitionReference;
+	private long modifiedDate;
 	@Index
-	private String qualityDeliverableReference;
+	private String createdBy;
 	@Index
-	private String processValidationReference;
-	@Index
-	private String estimatingCostReference;
+	private String lastModifiedBy;
 	
 	public ComponentJDO()
 	{
@@ -67,61 +65,52 @@ public class ComponentJDO {
 		this.componentStatus = componentStatus;
 	}
 
-	public Long getComponentDescriptionReference() {
-		return componentDescriptionReference;
-	}
-
-	public void setComponentDescriptionReference(
-			Long componentDescriptionReference) {
-		this.componentDescriptionReference = componentDescriptionReference;
-	}
-
-	public String getQualityDeliverableReference() {
-		return qualityDeliverableReference;
-	}
-
-	public void setQualityDeliverableReference(String qualityDeliverableReference) {
-		this.qualityDeliverableReference = qualityDeliverableReference;
-	}
-
-	public String getProcessValidationReference() {
-		return processValidationReference;
-	}
-
-	public void setProcessValidationReference(String processValidationReference) {
-		this.processValidationReference = processValidationReference;
-	}
-
-	public String getEstimatingCostReference() {
-		return estimatingCostReference;
-	}
-
-	public void setEstimatingCostReference(String estimatingCostReference) {
-		this.estimatingCostReference = estimatingCostReference;
-	}
-
-	public String getTechnicalDefinitionReference() {
-		return technicalDefinitionReference;
-	}
-
-	public void setTechnicalDefinitionReference(String technicalDefinitionReference) {
-		this.technicalDefinitionReference = technicalDefinitionReference;
-	}
-
 	public int getTotalQuantity() {
-		return TotalQuantity;
+		return totalQuantity;
 	}
 
 	public void setTotalQuantity(int totalQuantity) {
-		TotalQuantity = totalQuantity;
+		this.totalQuantity = totalQuantity;
 	}
 
 	public double getTotalAmount() {
-		return TotalAmount;
+		return totalAmount;
 	}
 
 	public void setTotalAmount(double totalAmount) {
-		TotalAmount = totalAmount;
+		this.totalAmount = totalAmount;
+	}
+
+	public long getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(long createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public long getModifiedDate() {
+		return modifiedDate;
+	}
+
+	public void setModifiedDate(long modifiedDate) {
+		this.modifiedDate = modifiedDate;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getLastModifiedBy() {
+		return lastModifiedBy;
+	}
+
+	public void setLastModifiedBy(String lastModifiedBy) {
+		this.lastModifiedBy = lastModifiedBy;
 	}
 	
 }

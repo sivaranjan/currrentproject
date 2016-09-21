@@ -22,9 +22,14 @@ public class ComponentCreationDAO extends AbstractDao {
     public ComponentJDO findByName(String name) {
         return ofy.load().type(ComponentJDO.class).filter("name =", name).first().now();
     }
+    
     public List<ComponentJDO> findBySite(String site) {
         return ofy.load().type(ComponentJDO.class).filter("site =", site).list();
     }
+    public List<ComponentJDO> findByComponentID(String componentID) {
+        return ofy.load().type(ComponentJDO.class).filter("componentID =", componentID).list();
+    }
+    
     public List<ComponentJDO> findByOrderID(String orderIDReference) {
         return ofy.load().type(ComponentJDO.class).filter("orderIDReference =", orderIDReference).list();
     }

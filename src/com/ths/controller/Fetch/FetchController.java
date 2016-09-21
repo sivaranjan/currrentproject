@@ -505,7 +505,7 @@ public class FetchController {
 	     public ResponseEntity<HashMap<String,List<HashMap<String,String>>>> fetchComponentListforOrder(@PathVariable("orderprototypeID") String orderprototypeID) 
 	     {
 	     	log.log(FINER, "Visits fetchComponentListforOrder Controller - orderprototypeID :: "+orderprototypeID);
-	     	List<HashMap<String,String>> compDetailsList = new ArrayList();;
+	     	List<HashMap<String,String>> compDetailsList = new ArrayList();
 	     	List<ComponentJDO> ComponentJDOList = null;
 	     	List<ComponentDescriptionJDO> ComponentDescriptionJDOList = null;
 	     	HashMap<String,String> tempList = null;
@@ -533,8 +533,11 @@ public class FetchController {
 			         	tempList.put("qty_DFI", "");
 			         	tempList.put("qty_delivered", "");
 			         	tempList.put("invoicedAmt", "");
+			         	log.info("tempList before loading ::"+tempList);
+		         		compDetailsList.add(tempList);
+		         		log.info("And compmap is here :: "+compDetailsList);
 	         		}
-	         		compDetailsList.add(tempList);
+	         		
 			    }
 	         	responseMap.put("data",compDetailsList);
 	         	log.info("responseMap is this :: "+responseMap);
@@ -612,4 +615,29 @@ public class FetchController {
 	     	}
 	         return new ResponseEntity<HashMap<String,String>>(responseMap, HttpStatus.OK);
 	     }
+/*==================================== fetchQuantityBasedonComponentID ======================================== */
+	     @RequestMapping("/fetchComponentObjectbasedOnComponentID/{componentID}")
+	     public ResponseEntity<HashMap<String,List<Object>>> fetchComponentObjectbasedOnComponentID(@PathVariable("componentID") String componentID) 
+	     {
+	     	log.log(FINER, "Visits fetchQuantityBasedonComponentID Controller - componentID :: "+componentID);
+	     	List<ComponentJDO> ComponentJDOList = null;
+	     	List<ComponentDescriptionJDO> compDescriptionList = null;
+	     	HashMap<String,List<Object>> responseMap = null;
+	     	List<Object> tempList =  new ArrayList();
+	     	try
+	     	{
+	     		ComponentJDOList 	= componentDao.findByComponentID(componentID);
+	     		compDescriptionList = componentDescriptionDao.findByComponentID(componentID);
+	     		responseMap = new HashMap<String,List<Object>>();
+	     		tempList.add(ComponentJDOList);
+	     		tempList.add(compDescriptionList);
+	     		responseMap.put("data", tempList);
+	     	}
+	     	catch(Exception e)
+	     	{
+	     		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
+	     	}
+	     	return new ResponseEntity<HashMap<String,List<Object>>>(responseMap, HttpStatus.OK);
+	     }
+	     
 }

@@ -11,6 +11,7 @@ var showVoiceBox = (function()
                 setTimeout(function()
                 {
                     $('#statusLoader .voicebox-content').removeClass('in');
+                    $('#statusLoader').addClass('hide');
                 }, timeoutlimit);
             }
         },

@@ -24,7 +24,8 @@ public class WebServiceURLUtil
 		{
 			GOOGLESTORAGEDOMAIN 		=   "https://storage.googleapis.com";
 			GOOGLESTORAGEBUCKET 		= 	"valeo-ths-prototype-acp.appspot.com";
-			GOOGLESTORAGEDOMAINPATH		=	 GOOGLESTORAGEDOMAIN+"/"+GOOGLESTORAGEBUCKET;
+			//GOOGLESTORAGEDOMAINPATH		=	 GOOGLESTORAGEDOMAIN+"/"+GOOGLESTORAGEBUCKET;
+			GOOGLESTORAGEDOMAINPATH     =   "..";
 			
 		}
 		else if(appId.toLowerCase().contains("localhost"))

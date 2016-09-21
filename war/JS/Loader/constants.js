@@ -29,6 +29,7 @@ ApplicationConstants = {
 "fetchAttachmentList"			:   "/fetchController/fetchAttachmentList/",
 "fetchComponentListforOrder"	:	"/fetchController/fetchComponentListforOrder/",
 "fetchQuantityBasedonComponentID":	"/fetchController/fetchQuantityBasedonComponentID/",
+"fetchComponentObjectbasedOnComponentID":"/fetchController/fetchComponentObjectbasedOnComponentID/",
 "saveOrderUrl"					:	"/order/create",
 "updateOrderURL"				:	"/order/updateOrder",
 "createcomponent"				:	"/saveComponent/createcomponent",

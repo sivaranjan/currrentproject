@@ -64,6 +64,8 @@ routerTHS.on('route:component', function(action)
 {
 	loader.show();
 	var currentPrototypeID = document.URL.split('?orderid=')[1];
+	currentPrototypeID = currentPrototypeID.split('&compId=')[0];
+	var componentID =  document.URL.split('?orderid=')[1].split('&compId=')[1];
     pullUserInfo(function()
     {
     	renderBackboneView("componentdetails",function()
@@ -76,12 +78,18 @@ routerTHS.on('route:component', function(action)
 					{
 					       setComponentDropdowns(function()
 					       {
-					        		fetchComponentIDList();
-					        		buildCompListTable(currentPrototypeID);
-					        		setAdjustablePropertiesforCompPage(function()
-					        		{
+					    	   if(componentID!=undefined && componentID!='' && componentID!=null)
+					    	   {
+					    		    fetchComponentObjectbasedOnComponentID(componentID);
+					    	   }
+					    	   else
+					    	   {
+					    		   fetchComponentIDList();
+					    	   }
+					           setAdjustablePropertiesforCompPage(function()
+					           {
 					        			loader.hide();
-					        		})
+					           })
 					       });
 					});
 			   		
@@ -144,6 +152,7 @@ routerTHS.on('route:orderdetails', function(action)
 				   				 showVoiceBox.configure("Order Loaded Successfully",1000);
 				   				 buildCompListTable(currentPrototypeID,function()
 				   				 {
+				   					$('.dt-buttons a.btn').removeClass('dt-button');
 				   					loader.hide();
 				   				 });
 							   });

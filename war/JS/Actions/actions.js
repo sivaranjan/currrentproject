@@ -180,8 +180,8 @@
 													    	orderIDReference		:	orderIDReference,
 													    	componentID				: 	componentID,
 													    	componentStatus			: 	componentStatus,
-													    	TotalQuantity			: 	TotalQuantity,
-													    	TotalAmount				: 	TotalAmount,
+													    	totalQuantity			: 	TotalQuantity,
+													    	totalAmount				: 	TotalAmount,
 													    });
 														var componentDescriptionModelObject   = new BackboneData.Models.ComponentDescriptionModel({
 															
@@ -213,6 +213,8 @@
 																	        },
 																	        error: function(model, xhr, options)
 																	        {
+																	        	$('#customer_reference_txt').val(customerReference_txt);
+															        	        $('#product_type_component_txt').val(product_type_component_description_drpdwn);
 																	        	showVoiceBox.configure("Component saved successfully",2000);
 																	        	 Do.validateAndDoCallback(callback);
 																	        }
@@ -1051,8 +1053,26 @@
 													  dom			: 'Bfrtip',
 													  "ajax"		: ApplicationConstants.fetchComponentListforOrder+No_Prototype_Order,
 													  "bDestroy"	: true,
+													  "deferRender" : true,
 													  "columns"		: [
-													           		   {"data"	: "link"},
+													           		   {"data"	: "link",
+													           			 "render" : function(data, type, row, meta)
+													                     {
+													                         if(type === 'display')
+													                         {
+													                             return $('<a>')
+													                                 .attr('href','/#componentdetails?orderid='+No_Prototype_Order+'&compId='+data)
+													                                 .text(data)
+													                                 .wrap('<div></div>')
+													                                 .parent()
+													                                 .html();
+													                         } 
+													                         else 
+													                         {
+													                             return data;
+													                         }
+													                     }   
+													           		   },
 													           		   {"data"	: "customerref"},
 													           		   {"data"	: "prod_designation"},
 													           		   {"data"	: "prod_type"},
@@ -1303,12 +1323,47 @@
 													  });
 		  											 
 	  											};
-	loadAllViewsAgainBasedOnLanguage 	= 	function(languageChanged)
-	    									{
-	    										changeLanguageforUser(languageChanged);
-	    									};
-	SetDetails 							= 	function(done)
-	    									{
+	fetchComponentObjectbasedOnComponentID   =  function(componentID,done)
+											    {
+													$.ajax({
+												           type: 'get',
+												           url: ApplicationConstants.fetchComponentObjectbasedOnComponentID+componentID ,
+												           contentType: "application/json; charset=utf-8",
+												           traditional: true,
+												           async : false,
+												           success: function (data) 
+												           {
+												        	    var google = data.data;
+												        	    var componentList = google[0];
+												        	    var componentDescriptionList = google[1];
+												                console.log(google);
+												                console.log("Component Object is here");
+												                componentList.forEach(function(arrayItem){
+												                	$('#componentID').val(arrayItem.componentID);
+												                	$('#componentStatus').val(arrayItem.componentStatus);
+												                	$('#total_quantity_txt').val(arrayItem.totalQuantity);
+												                	$('#total_amount_txt').val(arrayItem.totalAmount);
+												                });
+												                componentDescriptionList.forEach(function(arrayItem){
+												                	$('#customerReference_txt').val(arrayItem.customerReference);
+												                	$('#customer_reference_txt').val(arrayItem.customerReference);
+												                	$('#product_type_component_txt').val(arrayItem.productType);
+												                	$('#product_type_component_description_drpdwn').selectpicker('val', arrayItem.productType);
+												                	$('#product_specification_txtarea').val(arrayItem.productSpecification);
+												                	$('#comment_component_description_txtarea').val(arrayItem.comment_componentDescription.value);
+												                });
+												                buildPlanningCusDeliveryTable($('#componentID').val(),function(){
+												                	Do.validateAndDoCallback(done);
+												                });
+												           }
+													  });
+											    };
+	loadAllViewsAgainBasedOnLanguage 		 = 	function(languageChanged)
+		    									{
+		    										changeLanguageforUser(languageChanged);
+		    									};
+	SetDetails 								= 	function(done)
+	    										{
 	    	 										var buildDropDowns 	= 	window.orderDependenciesListObj;
 	    	 										if(buildDropDowns!=undefined && buildDropDowns!=null)
 	    	 										{
@@ -1352,7 +1407,6 @@
 	    										        $('#Allocation_of_turnover').html(allocationHTML).selectpicker('refresh');
 	    										        Do.validateAndDoCallback (done);
 	    	 										}	
-	    	 										
 	    									};
 	    SetView 					= 		function(currentpage,docallBack)
 	    									{

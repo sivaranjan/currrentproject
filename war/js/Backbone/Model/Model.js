@@ -465,8 +465,8 @@ BackboneData.Models.ComponentCreateModel = Backbone.Model.extend(
 		orderIDReference	: 	"",
 		componentID 		:   "",
 		componentStatus		: 	"",
-		TotalQuantity		:	"",
-		TotalAmount			:	""
+		totalQuantity		:	"",
+		totalAmount			:	""
 	},
 	initialize: function()
 	{

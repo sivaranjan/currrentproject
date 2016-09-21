@@ -56,13 +56,13 @@
             <div class="col-md-2 col-sm-2 col-xs-12">
                 <a href="/"><img src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/statics/images/Valeo_Logo.svg.png" ></a>
             </div>
-            <div class="col-md-6 col-sm-10 col-xs-12">
+            <div class="col-md-4 col-sm-10 col-xs-12" style="padding:0"> 
                 <h3 id="headtitle" class="valeo-app-title">THS France Prototype Database</h3>
             </div>
-            <div class="col-md-4 col-xs-12">
+            <div class="col-md-6 col-xs-12">
                 
                 <div class="col-md-10 hidden-xs hidden-sm">
-                    <div class="btn-group pull-right" style="margin-left: 30px;">
+                    <div class="btn-group pull-right" style="margin-left: 15px;">
                         <span id="userlabel" class="header-text">Welcome </span>
                     </div>
                     <div class="btn-group pull-right">
@@ -443,6 +443,7 @@
 		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/valeo-graphics.js"></script>
 		<script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/bootstrap-select.min.js"></script>
         <script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/BackboneData.js"></script>
+         <script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/bootbox.js"></script>
         <script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/JS/Library/pace.js"></script>
         
         <script src="<%=WebServiceURLUtil.getGOOGLESTORAGEDOMAINPATH()%>/SOY/SoyUtils/soyutils.js"></script>

@@ -43,6 +43,7 @@ BackboneData.Views.OrderDetailView = Backbone.View.extend(
 							        $('.newcompbtn').attr('readonly',true);
 							        $('.newcompbtn').attr('disabled',true);
 							        $('.newcompbtn').css('cursor','not-allowed');
+							        $('.dt-buttons a.btn').removeClass('dt-button');
 							    },
     initialize				: 	function()
 							    {

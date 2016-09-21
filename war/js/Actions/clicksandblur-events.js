@@ -178,4 +178,12 @@ $(document).ready(function()
 					  total_quantity_txt = parseInt(total_quantity_txt*unit_selling_price_txt);
 		              $('#total_amount_txt').val(total_quantity_txt);
 				});
+		    	$(document).on("click", "#techdef", function(e)
+				{
+		    		 validateComponent(function()
+					 {
+		    			 saveComponent();
+					 });
+				});
+		    	
 });
