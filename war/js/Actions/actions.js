@@ -150,8 +150,10 @@
 														          {
 														            	showVoiceBox.configure("Order saved successfully",2000);
 														                window.orderStatus = "saved";
-														                buildCompListTable(No_Prototype_Order);
-														                Do.validateAndDoCallback(callback);
+														                buildCompListTable(No_Prototype_Order,function()
+														                {
+														                	 Do.validateAndDoCallback(callback);
+														                });
 														          }
 													        });  
 											          }	
@@ -213,7 +215,6 @@
 																	        {
 																	        	showVoiceBox.configure("Component saved successfully",2000);
 																	        	 Do.validateAndDoCallback(callback);
-																	            //buildCompListTable(No_Prototype_Order);
 																	        }
 																	    });
 													        }
@@ -1043,21 +1044,53 @@
 									          }
 										   	  });
   									};
-  	buildCompListTable				=	function(No_Prototype_Order)
+  	buildCompListTable				=	function(No_Prototype_Order,done)
   										{
 									  		$('#compListTable').DataTable(
 											{
 													  dom			: 'Bfrtip',
 													  "ajax"		: ApplicationConstants.fetchComponentListforOrder+No_Prototype_Order,
 													  "bDestroy"	: true,
-													  "columns"		: [{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""},{"data"	: ""}],
-													  buttons		: [{
-																          text		: '<i class="fa fa-refresh" aria-hidden="true"></i> Refresh',
-																          className : 'btn btn-default btn-sm refreshbtn',
-																          action	: function() 
-																          			  {	
-																        	  
-																          			  }
+													  "columns"		: [
+													           		   {"data"	: "link"},
+													           		   {"data"	: "customerref"},
+													           		   {"data"	: "prod_designation"},
+													           		   {"data"	: "prod_type"},
+													           		   {"data"	: "usp"},
+													           		   {"data"	: "total_qty"},
+													           		   {"data"	: "total_amt"},
+													           		   {"data"	: "comp_status"},
+													           		   {"data"	: "qty_produced"},
+													           		   {"data"	: "qty_App_quqlity"},
+													           		   {"data"	: "qty_DFI"},
+													           		   {"data"	: "qty_delivered"},
+													           		   {"data"	: "invoicedAmt"}],
+													  initComplete: function () 
+										    	        { 
+										    	            this.api().columns().every( function () 
+										    	            {
+										    	                var column = this;
+										    	                var select = $('<select class="selectpicker show-tick" title="Search" data-size="9" size="7" data-live-search="true" data-width="100%"><option value="" class="btn btn-default btn-sm text-center">No Filter</option></select>').appendTo( $(column.footer()).empty()).on( 'change', function () 
+										    	                			 {
+										    	                        			var val = $.fn.dataTable.util.escapeRegex($(this).val());
+										    	                        			column.search( val ? '^'+val+'$' : '', true, false ).draw();
+										    	                			 });
+										    				                	column.data().unique().sort().each( function ( d, j ) 
+										    				                	{
+										    				                		select.append( '<option value="'+d+'">'+d+'</option>' )
+										    				                	});
+										    				                	$('.selectpicker').selectpicker().selectpicker('setStyle', 'btn-sm', 'add');
+										    				                    $('.bs-searchbox input').addClass('input-sm');
+										    				                    $('#complistTable_footer').removeClass('hide');
+										    	             });
+										    	          },
+													   buttons		: [    {
+																	          text		: '<i class="fa fa-refresh" aria-hidden="true"></i> Refresh',
+																	          className : 'btn btn-default btn-sm refreshbtn',
+																	          action	: function() 
+																	          			  {	
+																	        	  
+																	          			  }
 																            },
 																            {
 																                text		: '<i class="fa fa-plus" aria-hidden="true"></i> New component',
@@ -1073,10 +1106,11 @@
 																                		 });
 																    				});
 																                }
-																      }]
+																            }
+																      ]
 													});
-									  				$('#complistTable_footer').removeClass('hide');
-									  		 		buildSearchForTable('complistTable_footer th','compListTable');
+									  		      Do.validateAndDoCallback(done);
+									  		 		//buildSearchForTable('complistTable_footer th','compListTable');
   										};
   buildPlanningCusDeliveryTable			=	function(componentID,done)
   											{
@@ -1147,7 +1181,7 @@
 															    	          },
 															    	          "columnDefs": [
 															    	                         { "width": "20%", "targets": 0 }
-															    	                       ],
+															    	                        ],
 															    	          buttons: [{
 														                              text		: '<i class="fa fa-plus" aria-hidden="true"></i> Add New',
 														                              className	: 'btn btn-sucess btn-sm newplanbtn',
@@ -1250,6 +1284,7 @@
 												           url: ApplicationConstants.fetchProtypeOrderObject+currentPrototypeID ,
 												           contentType: "application/json; charset=utf-8",
 												           traditional: true,
+												           async : false,
 												           success: function (data) 
 												           {
 												        	    var google = data.data;

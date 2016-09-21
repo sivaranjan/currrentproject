@@ -12,6 +12,7 @@
       	<include path="/images/**.*" expiration="30d" />
       	<include path="/resources/**.*" expiration="30d" />
       	<include path="/statics/**.*" expiration="30d" />
+      	<include path="/Soy/**.*" expiration="30d" />
       	<include path="/myicon.ico" expiration="30d" />
       	<include path="/**.*" />
     </static-files>

@@ -142,8 +142,10 @@ routerTHS.on('route:orderdetails', function(action)
 				   			   fetchProtypeOrderObject(currentPrototypeID,function()
 							   {
 				   				 showVoiceBox.configure("Order Loaded Successfully",1000);
-				   				 buildCompListTable(currentPrototypeID);
-				   				 loader.hide();
+				   				 buildCompListTable(currentPrototypeID,function()
+				   				 {
+				   					loader.hide();
+				   				 });
 							   });
 				   		  });
 					  });	

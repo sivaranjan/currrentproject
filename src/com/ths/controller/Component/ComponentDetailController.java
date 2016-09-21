@@ -103,21 +103,12 @@ public class ComponentDetailController {
     public ResponseEntity<Void> savePlanningandCustomerDelivery(@RequestBody PlanningCustomerDeliveryJDO planningCusObject, UriComponentsBuilder ucBuilder) 
     {
     	 System.out.println("Saving savePlanningandCustomerDelivery ");
-    	 List<ComponentDescriptionJDO> compDescriptionList = null;
     	 log.info("planningCusObject :: "+planningCusObject.getComponentID());
     	 log.info("planningCusObject :: "+planningCusObject.getQuantity());
     	 log.info("planningCusObject :: "+planningCusObject.getComment());
     	 log.info("planningCusObject :: "+planningCusObject.getDateOf());
-    	 Long componentDescriptionID = null;
          try
          {
-        	 String componentID = planningCusObject.getComponentID();
-        	 compDescriptionList = componentDescriptionDao.findByComponentID(componentID);
-        	 for(ComponentDescriptionJDO compObj : compDescriptionList)
-        	 {
-        		 componentDescriptionID = compObj.getComponentDescriptionID();
-        	 }
-        	 planningCusObject.setComponentDescriptionID(componentDescriptionID);
         	 planningcustomerDeliveryDao.save(planningCusObject);
          }
          catch(Exception e)

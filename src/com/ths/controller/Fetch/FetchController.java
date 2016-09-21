@@ -2,6 +2,7 @@ package com.ths.controller.Fetch;
 
 import static java.util.logging.Level.FINER;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Logger;
@@ -501,37 +502,42 @@ public class FetchController {
 	         return new ResponseEntity<HashMap<String,List<AttachmentsJdo>>>(responseMap, HttpStatus.OK);
 	     }
 	     @RequestMapping("/fetchComponentListforOrder/{orderprototypeID}")
-	     public ResponseEntity<HashMap<String,Object>> fetchComponentListforOrder(@PathVariable("orderprototypeID") String orderprototypeID) 
+	     public ResponseEntity<HashMap<String,List<HashMap<String,String>>>> fetchComponentListforOrder(@PathVariable("orderprototypeID") String orderprototypeID) 
 	     {
 	     	log.log(FINER, "Visits fetchComponentListforOrder Controller - orderprototypeID :: "+orderprototypeID);
-	     	List<ComponentJDO> ComponentJDOList = null;
-	     	List<ComponentDescriptionJDO> ComponentDescriptionJDOList = null;
-	     	HashMap<String,List<ComponentJDO>> ComponentJDOListMap = null;
-	     	HashMap<String,List<ComponentDescriptionJDO>> ComponentDescriptionListMap = null;
-	     	HashMap<String,Object> finalMap = null;
+	     	List<HashMap<String,String>> compDetailsList = new ArrayList();;
+	     	HashMap<String,String> teset = null;
+	     	HashMap<String,List<HashMap<String,String>>> responseMap = null;
 	     	try
 	     	{
-	     		ComponentJDOListMap = new HashMap<String,List<ComponentJDO>>();
-	         	ComponentDescriptionListMap =  new HashMap<String,List<ComponentDescriptionJDO>>();
-	         	finalMap = new HashMap<String,Object>();
-	         	
-	     		ComponentJDOList = componentDao.findByOrderID(orderprototypeID);
-	     		ComponentJDOListMap.put("componentlist", ComponentJDOList);
-	     		for (ComponentJDO compInfo : ComponentJDOList) 
-			    {
-	     			ComponentDescriptionJDOList.addAll(componentDescriptionDao.findByComponentID(compInfo.getComponentID()));
-			    }
-	         	ComponentDescriptionListMap.put("componentdescriptionlist", ComponentDescriptionJDOList);
-	         	
-	         	finalMap.put("componentmap", ComponentJDOListMap);
-	         	finalMap.put("componentDescriptionMap", ComponentDescriptionListMap);
-	         	log.log(FINER, "Response Map from fetchAttachmentList :: "+finalMap);
+	         	responseMap = new HashMap<String,List<HashMap<String,String>>>();
+	         	for(int i=0;i<5;i++)
+	         	{	
+		         	teset = new HashMap<String,String>();
+		         	teset.put("link", "link");
+		         	teset.put("customerref", "cusref");
+		         	teset.put("prod_designation", "prod_designation");
+		         	teset.put("prod_type", "prod_designation");
+		         	teset.put("usp", "usp");
+		         	teset.put("total_qty", "total_qty");
+		         	teset.put("total_amt", "total_amt");
+		         	teset.put("comp_status", "comp_status");
+		         	teset.put("qty_produced", "qty_produced");
+		         	teset.put("qty_App_quqlity", "qty_App_quqlity");
+		         	teset.put("qty_DFI", "qty_DFI");
+		         	teset.put("qty_delivered", "qty_delivered");
+		         	teset.put("invoicedAmt", "invoicedAmt");
+		         	compDetailsList.add(teset);
+	         	}
+	         	responseMap.put("data",compDetailsList);
+	         	log.info("responseMap is this :: "+responseMap);
+	         	log.info("resp :: "+new ResponseEntity<HashMap<String,List<HashMap<String,String>>>>(responseMap, HttpStatus.OK));
 	     	}
 	     	catch(Exception e)
 	     	{
 	     		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
 	     	}
-	         return new ResponseEntity<HashMap<String,Object>>(finalMap, HttpStatus.OK);
+	         return new ResponseEntity<HashMap<String,List<HashMap<String,String>>>>(responseMap, HttpStatus.OK);
 	     }
 	     /*================================ Customers ======================================== */
 	     

@@ -29,19 +29,19 @@
     	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-design/css/bootstrap.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/dataTables.bootstrap.min.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/responsive.bootstrap.min.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/buttons.dataTables.min.css">
+		<link rel="stylesheet" href="../css/dataTables.bootstrap.min.css">
+		<link rel="stylesheet" href="../css/responsive.bootstrap.min.css">
+		<link rel="stylesheet" href="../css/buttons.dataTables.min.css">
 		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-design/css/datepicker3.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/bootstrap-select.min.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/valeo-graphics.css">
-		<link rel="stylesheet" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/CSS/app.css">
-		<link rel="shortcut icon" href="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/statics/images/myicon.ico" type="image/x-icon"/>
+		<link rel="stylesheet" href="../css/bootstrap-select.min.css">
+		<link rel="stylesheet" href="../css/valeo-graphics.css">
+		<link rel="stylesheet" href="../css/app.css">
+		<link rel="shortcut icon" href="/myicon.ico" type="image/x-icon"/>
 	</head>
 
 <body>
 <div class="modal fade" id="pleasewait" role="dialog">
-	<center><img src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/statics/images/loader.gif" style="height: 48px;margin: 24%;"></img></center>
+	<center><img src="/images/loader.gif" style="height: 48px;margin: 24%;"></img></center>
 </div>
 	<main id="wrap">
 	<div class="status-voicebox hide" id="statusLoader" >
@@ -425,34 +425,34 @@
 		<script src="../js/Configurations/Config-2-ComponentCreation1.js"></script>
 			
 		
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/jquery-1.11.3.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/jquery.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         
-        <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/underscore.js"></script>
-        <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/backbone-min.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/validate.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/ajaxfileupload.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/jquery.dataTables.min.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/dataTables.bootstrap.min.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/dataTables.responsive.min.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/responsive.bootstrap.min.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/dataTables.buttons.min.js"></script> 
-		<script src="https://storage.googleapis.com/valeo-design/js/bootstrap.min.js"></script>
-		<script src="https://storage.googleapis.com/valeo-design/js/bootstrap-datepicker.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/valeo-graphics.js"></script>
-		<script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/bootstrap-select.min.js"></script>
-        <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/BackboneData.js"></script>
-        <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/JS/BackboneData.js"></script>
-        <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/SOY/SoyUtils/soyutils.js"></script>
+        <script src="../js/Library/underscore.js"></script>
+        <script src="../js/Library/backbone-min.js"></script>
+		<script src="../js/Library/validate.js"></script>
+		<script src="../js/Library/ajaxfileupload.js"></script>
+		<script type="text/javascript" src="../js/Library/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="../js/Library/dataTables.bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/Library/dataTables.responsive.min.js"></script>
+		<script type="text/javascript" src="../js/Library/responsive.bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/Library/dataTables.buttons.min.js"></script> 
+		<script type="text/javascript" src="https://storage.googleapis.com/valeo-design/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://storage.googleapis.com/valeo-design/js/bootstrap-datepicker.js"></script>
+		<script type="text/javascript" src="../js/Library/valeo-graphics.js"></script>
+		<script type="text/javascript" src="../js/Library/bootstrap-select.min.js"></script>
+        <script src="../js/Library/BackboneData.js"></script>
+        <script src="../js/Library/bootbox.js"></script>
+        <script src="../Soy/SoyUtils/soyutils.js"></script>
     
- 		 <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/SOY/SoyViewJs/globalnavbar-view.js"></script>
- 		 <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/SOY/SoyViewJs/welcomesection-view.js"></script>
- 		  <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/SOY/SoyViewJs/orderdetail-view.js"></script>
-          <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/SOY/SoyViewJs/navbtn-view.js"></script>
-         <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/SOY/SoyViewJs/componentdetail-view.js"></script>
-          <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/SOY/SoyViewJs/admindetail-view.js"></script>
-          <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/SOY/SoyViewJs/orderlist-view.js"></script>
-          <script src="https://storage.googleapis.com/valeo-ths-prototype-acp.appspot.com/SOY/SoyViewJs/componentlist-view.js"></script>
+ 		 <script src="../Soy/SoyViewJs/globalnavbar-view.js"></script>
+ 		 <script src="../Soy/SoyViewJs/welcomesection-view.js"></script>
+ 		  <script src="../Soy/SoyViewJs/orderdetail-view.js"></script>
+          <script src="../Soy/SoyViewJs/navbtn-view.js"></script>
+         <script src="../Soy/SoyViewJs/componentdetail-view.js"></script>
+          <script src="../Soy/SoyViewJs/admindetail-view.js"></script>
+          <script src="../Soy/SoyViewJs/orderlist-view.js"></script>
+          <script src="../Soy/SoyViewJs/componentlist-view.js"></script>
 
 		<script src="../js/Backbone/Model/Model.js"></script>
          

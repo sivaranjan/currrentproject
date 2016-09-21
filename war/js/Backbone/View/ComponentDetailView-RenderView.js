@@ -31,6 +31,7 @@ BackboneData.Views.ComponentDetailView = Backbone.View
             $('#planningcust-table').DataTable(
             {
                     dom				:	'Bfrtip',
+                    "bDestroy"	: true,
                     buttons: [
                     {
                         text		: '<i class="fa fa-plus" aria-hidden="true"></i> New',

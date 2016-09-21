@@ -15,8 +15,6 @@ public class PlanningCustomerDeliveryJDO {
 	@Index
 	private String componentID;
 	@Index
-	private Long componentDescriptionID;
-	@Index
 	private int quantity;
 	@Index
 	private Date dateOf ;
@@ -37,12 +35,6 @@ public class PlanningCustomerDeliveryJDO {
 	}
 	public void setComponentID(String componentID) {
 		this.componentID = componentID;
-	}
-	public Long getComponentDescriptionID() {
-		return componentDescriptionID;
-	}
-	public void setComponentDescriptionID(Long componentDescriptionID) {
-		this.componentDescriptionID = componentDescriptionID;
 	}
 	public int getQuantity() {
 		return quantity;
