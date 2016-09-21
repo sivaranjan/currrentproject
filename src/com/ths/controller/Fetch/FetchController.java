@@ -506,32 +506,38 @@ public class FetchController {
 	     {
 	     	log.log(FINER, "Visits fetchComponentListforOrder Controller - orderprototypeID :: "+orderprototypeID);
 	     	List<HashMap<String,String>> compDetailsList = new ArrayList();;
-	     	HashMap<String,String> teset = null;
+	     	List<ComponentJDO> ComponentJDOList = null;
+	     	List<ComponentDescriptionJDO> ComponentDescriptionJDOList = null;
+	     	HashMap<String,String> tempList = null;
 	     	HashMap<String,List<HashMap<String,String>>> responseMap = null;
 	     	try
 	     	{
 	         	responseMap = new HashMap<String,List<HashMap<String,String>>>();
-	         	for(int i=0;i<5;i++)
-	         	{	
-		         	teset = new HashMap<String,String>();
-		         	teset.put("link", "link");
-		         	teset.put("customerref", "cusref");
-		         	teset.put("prod_designation", "prod_designation");
-		         	teset.put("prod_type", "prod_designation");
-		         	teset.put("usp", "usp");
-		         	teset.put("total_qty", "total_qty");
-		         	teset.put("total_amt", "total_amt");
-		         	teset.put("comp_status", "comp_status");
-		         	teset.put("qty_produced", "qty_produced");
-		         	teset.put("qty_App_quqlity", "qty_App_quqlity");
-		         	teset.put("qty_DFI", "qty_DFI");
-		         	teset.put("qty_delivered", "qty_delivered");
-		         	teset.put("invoicedAmt", "invoicedAmt");
-		         	compDetailsList.add(teset);
-	         	}
+	         	ComponentJDOList = componentDao.findByOrderID(orderprototypeID);
+	         	tempList = new HashMap<String,String>();
+	         	for (ComponentJDO compInfo : ComponentJDOList) 
+			    {
+	         		tempList.put("link", compInfo.getComponentID());
+	         		tempList.put("comp_status", compInfo.getComponentStatus());
+	         		tempList.put("total_qty", String.valueOf(compInfo.getTotalQuantity()));
+	         		tempList.put("total_amt", String.valueOf(compInfo.getTotalAmount()));
+	         		ComponentDescriptionJDOList = componentDescriptionDao.findByComponentID(compInfo.getComponentID());
+	         		for(ComponentDescriptionJDO compDescriptionObj : ComponentDescriptionJDOList)
+	         		{
+	         			tempList.put("customerref", compDescriptionObj.getCustomerReference());
+			         	tempList.put("prod_designation", compDescriptionObj.getProductSpecification());
+			         	tempList.put("prod_type", compDescriptionObj.getProductType());
+			         	tempList.put("usp", String.valueOf(compDescriptionObj.getUnitSellingPrice()));
+			         	tempList.put("qty_produced", "");
+			         	tempList.put("qty_App_quqlity", "");
+			         	tempList.put("qty_DFI", "");
+			         	tempList.put("qty_delivered", "");
+			         	tempList.put("invoicedAmt", "");
+	         		}
+	         		compDetailsList.add(tempList);
+			    }
 	         	responseMap.put("data",compDetailsList);
 	         	log.info("responseMap is this :: "+responseMap);
-	         	log.info("resp :: "+new ResponseEntity<HashMap<String,List<HashMap<String,String>>>>(responseMap, HttpStatus.OK));
 	     	}
 	     	catch(Exception e)
 	     	{
