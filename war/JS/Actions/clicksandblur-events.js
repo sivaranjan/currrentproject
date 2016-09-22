@@ -155,6 +155,10 @@ $(document).ready(function()
 		    		{
 		    			showVoiceBox.configure("Actors Loaded Successfully",10);
 		    		});
+		    		fetchAddressforSite(Site_Workshop_Prototype,function()
+		    		{
+		    		
+		    		});
 				});
 		    	$(document).on("click", "#saveplancustdelivery", function(e)
 				{
@@ -185,5 +189,17 @@ $(document).ready(function()
 		    			 saveComponent();
 					 });
 				});
+		    	$(document).on("click", "#closenowbtn", function(e)
+				{
+		    		bootbox.confirm("Are you sure you want to leave this page ?", function(result)
+					{
+								if (result)
+								{
+									window.location.href="/#home";
+								}
+					});
+				    
+				});
+		    	
 		    	
 });

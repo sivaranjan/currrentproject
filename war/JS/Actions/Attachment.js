@@ -72,6 +72,7 @@ var actions_attach =
 			   {
 			       showVoiceBox.configure("Attachment has been successfully saved",2000);
 			       loader.hide();
+			       $('#attachment-modal').css('z-index','666666');
 			       $('#filenameholder').val('');
 			       $('#filepath').val('');
 			       $('#file_Title').val('');
@@ -98,6 +99,7 @@ var actions_attach =
 		if(actions_attach.validateForm())
 		{
 			loader.show();
+			$('#attachment-modal').css('z-index','666');
 			$.ajax({
 	            type	: 	'POST',
 	            url		: 	ApplicationConstants.getuploadUrl,

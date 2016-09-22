@@ -1351,6 +1351,19 @@
 												                	$('#product_type_component_description_drpdwn').selectpicker('val', arrayItem.productType);
 												                	$('#product_specification_txtarea').val(arrayItem.productSpecification);
 												                	$('#comment_component_description_txtarea').val(arrayItem.comment_componentDescription.value);
+												                	if(arrayItem.directDeliverytoCustomer=="Yes")
+												                	{
+												                		$("#direct_delivery_to_the_customer_radiobtn1").prop("checked", true);
+												                	}
+												                	else if(arrayItem.directDeliverytoCustomer=="No")
+												                	{
+												                		$('#laboaddressdiv').removeClass('hide');
+												                		$('#customerdiv').removeClass('hide');
+												                		$("#direct_delivery_to_the_customer_radiobtn2").prop("checked", true);
+												                	}
+												                	$('#unit_selling_price_txt').val(arrayItem.unitSellingPrice);
+												                	$('#customer_drpdwn').selectpicker('val', arrayItem.customer);
+												                	$('#labo_address_or_other_txtarea').val(arrayItem.laboAdress);
 												                });
 												                buildPlanningCusDeliveryTable($('#componentID').val(),function(){
 												                	Do.validateAndDoCallback(done);
@@ -1546,4 +1559,21 @@
 										        	Do.validateAndDoCallback(callback);
 										        });
 	   									};
+   fetchAddressforSite				  = function(Site_Workshop_Prototype)
+   										{
+											$.ajax({
+										           type: 'get',
+										           url: ApplicationConstants.fetchAddressforSite+Site_Workshop_Prototype,
+										           contentType: "application/json; charset=utf-8",
+										           traditional: true,
+										           success: function (data) 
+										           {
+										        	    var siteRespoonse = data.data;
+										        	    siteRespoonse.forEach(function(arrayItem)
+			    								                {
+										        	    	$('#Site_Address').val(arrayItem.site_Address)
+			    								                });
+										           }
+											});
+   										}
 })();

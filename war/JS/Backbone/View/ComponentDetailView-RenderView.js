@@ -34,7 +34,7 @@ BackboneData.Views.ComponentDetailView = Backbone.View
                     "bDestroy"	: true,
                     buttons: [
                     {
-                        text		: '<i class="fa fa-plus" aria-hidden="true"></i> New',
+                        text		: '<i class="fa fa-plus" aria-hidden="true"></i> Add New',
                         className	: 'btn btn-default btn-sm newplanbtn',
                         action		: function()
                         {
