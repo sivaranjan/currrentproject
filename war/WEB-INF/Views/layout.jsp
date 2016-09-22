@@ -413,7 +413,7 @@
 		    </div>
 		  </div>
 		</div>
-		<div class="modal fade" id="attachment-modal" tabindex="-1" role="dialog">
+		<div class="modal fade" id="attachment-modal" tabindex="-1" role="dialog" >
 		  				
 		</div>
 

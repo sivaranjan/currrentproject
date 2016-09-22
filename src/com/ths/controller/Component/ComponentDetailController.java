@@ -174,6 +174,7 @@ public class ComponentDetailController {
     		obj.setDirectDeliverytoCustomer(compObject.getDirectDeliverytoCustomer());
     		obj.setCustomer(compObject.getCustomer());
     		obj.setLaboAdress(compObject.getLaboAdress());
+    		log.info("before parse ::"+compObject.getComment_componentDescription());
     		obj.setComment_componentDescription(compObject.getComment_componentDescription());
     		componentDescriptionDao.save(obj);
     	 }

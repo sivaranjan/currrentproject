@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 import com.googlecode.objectify.Key;
 import com.ths.DAO.AbstractDao;
+import com.ths.JDO.Configuration.ActorsListJDO;
 import com.ths.JDO.Configuration.SitesListJDO;
 
 public class SitesListDAO extends AbstractDao {
@@ -19,9 +20,11 @@ public class SitesListDAO extends AbstractDao {
     }
 
     public SitesListJDO findByName(String name) {
-        return ofy.load().type(SitesListJDO.class).filter("name =", name).first().now();
+        return ofy.load().type(SitesListJDO.class).filter("site_Name =", name).first().now();
     }
-
+    public List<SitesListJDO> findBySite(String site) {
+        return ofy.load().type(SitesListJDO.class).filter("site_Name =", site).list();
+    }
     public List<SitesListJDO> findAllUsers() {
         log.log(FINER, "Loading all examples.");
         return ofy.load().type(SitesListJDO.class).list();

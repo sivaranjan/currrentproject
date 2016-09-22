@@ -505,18 +505,17 @@ public class FetchController {
 	     public ResponseEntity<HashMap<String,List<HashMap<String,String>>>> fetchComponentListforOrder(@PathVariable("orderprototypeID") String orderprototypeID) 
 	     {
 	     	log.log(FINER, "Visits fetchComponentListforOrder Controller - orderprototypeID :: "+orderprototypeID);
-	     	List<HashMap<String,String>> compDetailsList = new ArrayList();
+	     	List<HashMap<String,String>> compDetailsList = new ArrayList<HashMap<String,String>>();
 	     	List<ComponentJDO> ComponentJDOList = null;
 	     	List<ComponentDescriptionJDO> ComponentDescriptionJDOList = null;
-	     	HashMap<String,String> tempList = null;
 	     	HashMap<String,List<HashMap<String,String>>> responseMap = null;
 	     	try
 	     	{
 	         	responseMap = new HashMap<String,List<HashMap<String,String>>>();
 	         	ComponentJDOList = componentDao.findByOrderID(orderprototypeID);
-	         	tempList = new HashMap<String,String>();
 	         	for (ComponentJDO compInfo : ComponentJDOList) 
 			    {
+	         		HashMap<String,String> tempList = new HashMap<String,String>();
 	         		tempList.put("link", compInfo.getComponentID());
 	         		tempList.put("comp_status", compInfo.getComponentStatus());
 	         		tempList.put("total_qty", String.valueOf(compInfo.getTotalQuantity()));
@@ -639,5 +638,26 @@ public class FetchController {
 	     	}
 	     	return new ResponseEntity<HashMap<String,List<Object>>>(responseMap, HttpStatus.OK);
 	     }
+/*==================================== fetchAddressforSite ======================================== */
+	     @RequestMapping("/fetchAddressforSite/{Site_Workshop_Prototype}")
+	     public ResponseEntity<HashMap<String,List<SitesListJDO>>> fetchAddressforSite(@PathVariable("Site_Workshop_Prototype") String Site_Workshop_Prototype) 
+	     {
+	     	log.log(FINER, "Visits fetchAddressforSite Controller - Site_Workshop_Prototype :: "+Site_Workshop_Prototype);
+	    	List<SitesListJDO> SiteList = null;
+	    	HashMap<String,List<SitesListJDO>> responseMap = null;
+	    	try
+	    	{
+	    		SiteList = sitesListDao.findBySite(Site_Workshop_Prototype);
+	    		responseMap = new HashMap<String,List<SitesListJDO>>();
+	    		responseMap.put("data", SiteList);
+	    		log.log(FINER, "Response Map from fetchActorsListBySite :: "+responseMap);
+	    	}
+	    	catch(Exception e)
+	    	{
+	    		log.log(java.util.logging.Level.SEVERE, e.getMessage(), e);
+	    	}
+	        return new ResponseEntity<HashMap<String,List<SitesListJDO>>>(responseMap, HttpStatus.OK);
+	     }
+	     
 	     
 }
