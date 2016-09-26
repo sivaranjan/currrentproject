@@ -559,8 +559,8 @@ buildPlanningCusDeliveryTable			=	function(componentID,done)
 									            	  								break;
 									              case "Estimation Costs and Delays"		:
 									            	  								validateComponent(function()
-									            	  								{
-									            	  									saveEstimationDelays();
+									            	  								{ 
+									            	  									 saveEstimationDelays();
 									            	  								});
 //									            	  								else
 //									            	  								{
