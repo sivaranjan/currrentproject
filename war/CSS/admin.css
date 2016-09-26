@@ -1,0 +1,113 @@
+.table thead {
+    background-color: rgb(253, 199, 69);
+    background: -webkit-linear-gradient(top, rgb(253, 199, 69) 0%, rgb(228, 180, 63) 100%);
+    background: -o-linear-gradient(top, rgb(253, 199, 69) 0%, rgb(228, 180, 63) 100%);
+    background: -ms-linear-gradient(top, rgb(253, 199, 69) 0%, rgb(228, 180, 63) 100%);
+    background: -moz-linear-gradient(top, rgb(253, 199, 69) 0%, rgb(228, 180, 63) 100%);
+    background: linear-gradient(to bottom, rgb(253, 199, 69) 0%, rgb(228, 180, 63) 100%);
+}
+
+.table tbody td>span {
+    display: block;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 1px;
+}
+
+.table tbody td>span {
+    margin: 3px 5px;
+}
+
+.table-condensed>thead>tr>th {
+    padding-left: 10px;
+}
+
+.input-sm,
+select.input-sm {
+    height: 25px;
+    padding: 3px 5px;
+}
+
+select.input-sm {
+    padding: 3px 1px;
+}
+
+.blue-gradient {
+    background: -webkit-linear-gradient(top, rgb(102, 143, 213) 0%, rgb(63, 112, 194) 91%, rgb(45, 88, 162) 99%, rgb(35, 71, 129) 100%);
+    background: -o-linear-gradient(top, rgb(102, 143, 213) 0%, rgb(63, 112, 194) 91%, rgb(45, 88, 162) 99%, rgb(35, 71, 129) 100%);
+    background: -ms-linear-gradient(top, rgb(102, 143, 213) 0%, rgb(63, 112, 194) 91%, rgb(45, 88, 162) 99%, rgb(35, 71, 129) 100%);
+    background: -moz-linear-gradient(top, rgb(102, 143, 213) 0%, rgb(63, 112, 194) 91%, rgb(45, 88, 162) 99%, rgb(35, 71, 129) 100%);
+    background: linear-gradient(to bottom, rgb(102, 143, 213) 0%, rgb(63, 112, 194) 91%, rgb(45, 88, 162) 99%, rgb(35, 71, 129) 100%);
+}
+
+.btn-info {
+    background-color: #538ad1;
+    border-color: rgb(35, 71, 129);
+}
+
+.btn-info:hover {
+    background-color: rgb(35, 71, 129);
+}
+
+textarea.form-control {
+    height: 74px;
+}
+
+.error {
+    background-color: rgba(222, 11, 11, 0.08);
+    border-color: red;
+}
+
+.btn-primary {
+    border: none !important;
+    background-color: #97D045 !important;
+}
+
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+    background-color: rgba(128, 128, 128, 0.18);
+    opacity: 1;
+    cursor: not-allowed;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 12px;
+    font-family: sans-serif;
+}
+
+input[type='radio'] {
+    background-color: rgba(205, 199, 206, 0.71);
+}
+
+.navbar-inverse {
+    line-height: 1.42857143;
+    background-color: #97D045;
+    border-color: #080808;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+
+.navbar-brand {
+    font-size: 15px;
+}
+
+.highlighedtab {
+    font-weight: 800;
+    font-size: 18px;
+    font-family: inherit;
+}
+
+.sscdataitem {
+    cursor: pointer;
+}
+
+.editadmindataitem {
+    cursor: pointer;
+}

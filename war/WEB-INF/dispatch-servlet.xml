@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation="         http://www.springframework.org/schema/beans              http://www.springframework.org/schema/beans/spring-beans-4.0.xsd         http://www.springframework.org/schema/context         http://www.springframework.org/schema/context/spring-context-4.0.xsd         http://www.springframework.org/schema/mvc         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+    <context:component-scan base-package="com.ths.controller" />
+    <context:component-scan base-package="com.ths.DAO" />
+    <context:component-scan base-package="com.ths.JDO" />
+    <mvc:annotation-driven />
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix">
+            <value>/WEB-INF/Views/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+    </bean>
+    <bean id="registerEntity" class="com.ths.service.Entity" init-method="init" />
+    <!--Persistence-->
+    <bean id="eventDao" class="com.ths.DAO.Example.ExampleDao" />
+    <bean id="orderDao" class="com.ths.DAO.Order.OrderDAO" />
+    <bean id="IdDAO" class="com.ths.DAO.Order.IdDAO" />
+    <bean id="ComponentIDDAO" class="com.ths.DAO.Component.ComponentIDDAO" />
+    <bean id="UserDAO" class="com.ths.DAO.User.UserDAO" />
+    <bean id="actorsListDao" class="com.ths.DAO.Configuration.ActorsListDAO" />
+    <bean id="sitesListDao" class="com.ths.DAO.Configuration.SitesListDAO" />
+    <bean id="customersListDao" class="com.ths.DAO.Configuration.CustomersListDAO" />
+    <bean id="incotermsListDao" class="com.ths.DAO.Configuration.IncotermsDAO" />
+    <bean id="placesListDao" class="com.ths.DAO.Configuration.PlacesDAO" />
+    <bean id="plateformListDao" class="com.ths.DAO.Configuration.PlateformDAO" />
+    <bean id="ProductTypeDAO" class="com.ths.DAO.Configuration.ProductTypeDAO" />
+    <bean id="PrototypistsDAO" class="com.ths.DAO.Configuration.PrototypistsDAO" />
+    <bean id="randManagerDAO" class="com.ths.DAO.Configuration.RandDDAO" />
+    <bean id="technologyDAO" class="com.ths.DAO.Configuration.TechnologyDAO" />
+    <bean id="AllocationTurnOverDAO" class="com.ths.DAO.Configuration.AllocationTurnOverDAO" />
+    <bean id="ClientLaboDAO" class="com.ths.DAO.Configuration.ClientLaboDAO" />
+    <bean id="ComponentCreationDAO" class="com.ths.DAO.Configuration.ComponentCreationDAO" />
+    <bean id="ComponentDescriptionDAO" class="com.ths.DAO.Configuration.ComponentDescriptionDAO" />
+    <bean id="EstimatiingCostandDelayDAO" class="com.ths.DAO.Configuration.EstimatiingCostandDelayDAO" />
+    <bean id="ForecastPlanningDAO" class="com.ths.DAO.Configuration.ForecastPlanningDAO" />
+    <bean id="PlanningCustomerDeliveryDAO" class="com.ths.DAO.Configuration.PlanningCustomerDeliveryDAO" />
+    <bean id="PlanofLabTestsDAO" class="com.ths.DAO.Configuration.PlanofLabTestsDAO" />
+    <bean id="ProcessValidationDAO" class="com.ths.DAO.Configuration.ProcessValidationDAO" />
+    <bean id="QualityDeliverableDAO" class="com.ths.DAO.Configuration.QualityDeliverableDAO" />
+    <bean id="ReminderDAO" class="com.ths.DAO.Configuration.ReminderDAO" />
+    <bean id="TechnicalDefinitionDAO" class="com.ths.DAO.Configuration.TechnicalDefinitionDAO" />
+    <bean id="AttachmentsDAO" class="com.ths.DAO.Attachment.AttachmentsDAO" />
+    
+</beans>

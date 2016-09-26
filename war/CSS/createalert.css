@@ -1,0 +1,33 @@
+textarea.form-control 
+{
+    height: 74px;
+}
+.error
+{
+	background-color:rgba(222, 11, 11, 0.08);
+	border-color : red;
+}
+.btn-primary{
+    border: none !important;
+    background-color: #97D045 !important;
+}
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control 
+{
+   background-color: rgba(128, 128, 128, 0.18);
+   opacity: 1;
+   cursor: not-allowed;
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 12px;
+    font-family: sans-serif;
+}
+input[type='radio'] 
+{
+	background-color :rgba(205, 199, 206, 0.71);
+}
