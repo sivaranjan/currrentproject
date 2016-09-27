@@ -1,9 +1,9 @@
 (function()
 {
-	saveOrder 						= 		function(callback)
+	saveOrder 						= 		function(saveOnNavigateComponent,callback)
     										{
 													showVoiceBox.configure("Saving your order",2000);
-											          if(currentPage.get().indexOf("orderdetails")!=-1)
+											          if(currentPage.get().indexOf("orderdetails")!=-1 || saveOnNavigateComponent)
 											          {
 											        	   var orderDetailsUpdateModelObject = getOrderModelUpdateObject();
 											        	   orderDetailsUpdateModelObject.save(
@@ -108,7 +108,7 @@
 										        for(var totalfiles=0;totalfiles<arrayItem.customerOrderAttachment.length;totalfiles++)
 										        {
 										        	attachmentIDArray=[];
-										        	actions_attach.pullAttachmentList(arrayItem.customerOrderAttachment[totalfiles]);
+										        	actions_attach.pullAttachmentList(false,arrayItem.customerOrderAttachment[totalfiles]);
 										        }	
 										        $('#Site_Address').val(arrayItem.site_Address);
 										        $('#Total_Order_Amount').val(arrayItem.total_Order_Amount);
@@ -644,7 +644,7 @@
 																                {
 																                	 validateOrder(function()
 																    				 {
-																                		 saveOrder(function()
+																                		 saveOrder(true,function()
 																                		 {
 																                			 var updatedPrototypeOrderID = $('#No_Prototype_Order').val();
 																                			 window.location.href = "/#componentdetails?orderid="+updatedPrototypeOrderID;

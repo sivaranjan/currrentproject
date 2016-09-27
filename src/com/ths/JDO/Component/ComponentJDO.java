@@ -1,11 +1,14 @@
 package com.ths.JDO.Component;
 
+import java.util.logging.Logger;
+
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
 
 @Entity
 public class ComponentJDO {
+	private static final Logger log = Logger.getLogger(ComponentJDO.class.getName());
 	@Id
 	@Index
 	private Long id;
@@ -28,11 +31,6 @@ public class ComponentJDO {
 	@Index
 	private String lastModifiedBy;
 	
-	public ComponentJDO()
-	{
-		//
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -112,5 +110,12 @@ public class ComponentJDO {
 	public void setLastModifiedBy(String lastModifiedBy) {
 		this.lastModifiedBy = lastModifiedBy;
 	}
+
+	public ComponentJDO()
+	{
+		//
+	}
+
+	
 	
 }

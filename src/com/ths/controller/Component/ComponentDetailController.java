@@ -75,10 +75,14 @@ public class ComponentDetailController {
         	 User user 				= 	UserServiceFactory.getUserService().getCurrentUser();
         	 if(componentCreationDao.findByComponentID(componentID).size()>0)
         	 {
+        		 log.info("the total amount received is this :: "+compObject.getTotalAmount());
+        		 log.info("the total amount received is this :: "+compObject.getTotalQuantity());
         		 updateComponent(componentID,compObject);
         	 }
         	 else
         	 {
+        		 log.info("the total amount receivedon save is this :: "+compObject.getTotalAmount());
+        		 log.info("the total amount received on save is this :: "+compObject.getTotalQuantity());
         		 SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
         		 Date date = new Date();
         		 compObject.setCreatedBy(user.toString());
@@ -155,8 +159,8 @@ public class ComponentDetailController {
     		obj.setComponentID(componentID);
     		obj.setComponentStatus(compObject.getComponentStatus());
     		obj.setOrderIDReference(compObject.getOrderIDReference());
-    		obj.setTotalAmount(obj.getTotalAmount());
-    		obj.setTotalQuantity(obj.getTotalQuantity());
+    		obj.setTotalAmount(compObject.getTotalAmount());
+    		obj.setTotalQuantity(compObject.getTotalQuantity());
     		obj.setModifiedDate(date.getTime());
     		obj.setLastModifiedBy(user.toString());
     		componentCreationDao.save(obj);

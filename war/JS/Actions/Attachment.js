@@ -27,14 +27,14 @@ var actions_attach =
 		$(document).on("click", ".editattachment", function(event) 
 		{
 			var attachID = $(this).attr('id').split("edit_")[1];
-			var hello = $(this).data('type');
+			var hello = $(this).data('label');
 			localStorage.setItem("currentfileuploader",hello );
 			actions_attach.editAttachment(attachID);
 		}),
 		$(document).on("click", ".deleteattachment", function(event) 
 		{
 			var attachID = $(this).attr('id').split("remove_")[1];
-			var hello = $(this).data('type');
+			var hello = $(this).data('label');
 			bootbox.confirm("Are you sure that you want to delete the attachment?", function(result)
 			{
 				if (result)
@@ -78,7 +78,7 @@ var actions_attach =
 			       $('#file_Title').val('');
 			       $('#file_Description').val('');
 			       $('#cancelattach').trigger('click');
-			       actions_attach.pullAttachmentList(attachmentID);
+			       actions_attach.pullAttachmentList(false,attachmentID);
 			   },
 			   error: function(data)
 			   {
@@ -94,7 +94,7 @@ var actions_attach =
 	{
 		
 	},
-	myUploadFunction : function()
+	myUploadFunction : function()  // Here we upload the file to Blobstore and get the uploadURL + uuid for the file
 	{   
 		if(actions_attach.validateForm())
 		{
@@ -119,7 +119,7 @@ var actions_attach =
 	{
 		
 	},
-	pullAttachmentList  : function(attachmentID)
+	pullAttachmentList  : function(isEditAttachment,attachmentID)
 	{
 		$.ajax({
 	           type: 'get',
@@ -136,36 +136,52 @@ var actions_attach =
 	                	if(currentPage.get().indexOf('orderdetails')!=-1)
 	                	{
 	                		localStorage.setItem("currentfileuploader","orderpage");
-	                	}	
+	                	}
+	                	// see here 
 	 			         var attachmentHTML = '<li>'+
 	 					'<i class="fa fa-file-text-o" aria-hidden="true"></i>'+
-	 					'<a class="editattachment" data-type='+localStorage.getItem("currentfileuploader")+' id="edit_'+arrayItem.attachment_Id+'">'+arrayItem.file_Name+'</a>'+
+	 					'<a class="editattachment" data-label='+localStorage.getItem("currentfileuploader")+' id="edit_'+arrayItem.attachment_Id+'">'+arrayItem.file_Name+'</a>'+
 	 					'<a class="pull-right fa fa-cloud-download" href='+arrayItem.upload_Link+'></a>'+
-	 					'<a class="deleteattachment pull-right fa fa-times" data-type='+localStorage.getItem("currentfileuploader")+' id="remove_'+arrayItem.attachment_Id+'"></a></li>';
+	 					'<a class="deleteattachment pull-right fa fa-times" data-label='+localStorage.getItem("currentfileuploader")+' id="remove_'+arrayItem.attachment_Id+'"></a></li>';
 	 			         if(localStorage.getItem("currentfileuploader")=="orderpage" || currentPage.get().indexOf('orderdetails')!=-1)
 	 			         {
-	 			        	$('#customer_order_list').append(attachmentHTML);
-	 			        	 attachmentIDArray.push(attachmentID);
+	 			        	 if(!isEditAttachment)
+	 			        	 {
+	 			        		$('#customer_order_list').append(attachmentHTML);
+		 			        	 attachmentIDArray.push(attachmentID);
+	 			        	 }	 
 	 			         }
 	 			         else if(localStorage.getItem("currentfileuploader")=="nomenclature" )
 	 			         {
-	 			        	$('#nomenclaturelist').append(attachmentHTML);
-	 			        	nomenIDArray.push(attachmentID);
+	 			        	 if(!isEditAttachment)
+	 			        	 {
+	 			        		$('#nomenclaturelist').append(attachmentHTML);
+		 			        	nomenIDArray.push(attachmentID);
+	 			        	 }	 
 	 			         }	 
 	 			         else if(localStorage.getItem("currentfileuploader")=="planmodal")
 	 			         {
-	 			        	$('#planfilelist').append(attachmentHTML);
-	 			        	 planIDArray.push(attachmentID);
+	 			        	 if(!isEditAttachment)
+	 			        	 {
+	 			        		$('#planfilelist').append(attachmentHTML);
+		 			        	 planIDArray.push(attachmentID);
+	 			        	 }	 
 	 			         }
 	 			         else if(localStorage.getItem("currentfileuploader")=="processmodal")
 	 			         {
-	 			        	$('#processdeliverablelist').append(attachmentHTML);
-	 			        	 processdeliverIDArray.push(attachmentID);
+	 			        	 if(!isEditAttachment)
+	 			        	 {
+	 			        		$('#processdeliverablelist').append(attachmentHTML);
+		 			        	 processdeliverIDArray.push(attachmentID);
+	 			        	 }	 
 	 			         }
 	 			         else if(localStorage.getItem("currentfileuploader")=="qualitymodal")
 	 			         {
-	 			        	$('#qualitydeliverablelist').append(attachmentHTML);
-	 			        	 qualityIDArray.push(attachmentID);
+	 			        	 if(!isEditAttachment)
+	 			        	 {
+	 			        		$('#qualitydeliverablelist').append(attachmentHTML);
+		 			        	 qualityIDArray.push(attachmentID);
+	 			        	 }	 
 	 			         }
 	 			        
 	 			         $('#filenameholder').val(arrayItem.file_Name);
@@ -241,6 +257,12 @@ var actions_attach =
 	},
 	editAttachment  : function(attachmentID)
 	{
+		if(Do.BackboneEncode($('#attachment-modal').html())=="")
+		{
+			var attachmentHTML = Build.attachmentModal();
+			$('#attachment-modal').html(attachmentHTML);
+		}
+		actions_attach.pullAttachmentList(true,attachmentID);
 		$('#attachment-modal').modal('show');
 		$('#attachmenth4').html('Edit Customer Order');
 		$('#createdbydiv').removeClass('hide');

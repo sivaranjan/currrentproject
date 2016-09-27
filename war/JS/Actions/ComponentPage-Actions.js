@@ -46,8 +46,8 @@
 														    },
 														    error: function(model, xhr, options)
 														    {    
-														       $('#customer_reference_txt').val(customerReference_txt);
-												        	   $('#product_type_component_txt').val(product_type_component_description_drpdwn);
+														    	$('#customer_reference_txt').val($('#customerReference_txt').val());
+													        	$('#product_type_component_txt').val($('#product_type_component_description_drpdwn').val());
 														       //showVoiceBox.configure("Component Description Saved Successfully",2000);
 														       Do.validateAndDoCallback(callback);
 														    }
@@ -65,9 +65,6 @@
 													    },
 													    error: function(model, xhr, options)
 													    {    
-													       $('#customer_reference_txt').val(customerReference_txt);
-											        	   $('#product_type_component_txt').val(product_type_component_description_drpdwn);
-													       //showVoiceBox.configure("Techinical Definition Saved Successfully",2000);
 													       Do.validateAndDoCallback(callback);
 													    }
 													});
@@ -84,9 +81,6 @@
 														    },
 														    error: function(model, xhr, options)
 														    {    
-														       $('#customer_reference_txt').val(customerReference_txt);
-												        	   $('#product_type_component_txt').val(product_type_component_description_drpdwn);
-														       //showVoiceBox.configure("Component saved successfully",2000);
 														       Do.validateAndDoCallback(callback);
 														    }
 														});
@@ -103,9 +97,6 @@
 													    },
 													    error: function(model, xhr, options)
 													    {    
-													       $('#customer_reference_txt').val(customerReference_txt);
-											        	   $('#product_type_component_txt').val(product_type_component_description_drpdwn);
-													       showVoiceBox.configure("Component saved successfully",2000);
 													       Do.validateAndDoCallback(callback);
 													    }
 													});
@@ -122,9 +113,6 @@
 													    },
 													    error: function(model, xhr, options)
 													    {    
-													       $('#customer_reference_txt').val(customerReference_txt);
-											        	   $('#product_type_component_txt').val(product_type_component_description_drpdwn);
-													       //showVoiceBox.configure("Component saved successfully",2000);
 													       Do.validateAndDoCallback(callback);
 													    }
 													});
@@ -519,73 +507,79 @@ buildPlanningCusDeliveryTable			=	function(componentID,done)
 									            	  								validateComponent(function()
 									            	  								{
 									            	  									saveComponentDescription();
+									            	  									checkCurrentTab(currentTab);
 									            	  								});
-//									            	  								else
-//									            	  								{
-//									            	  									$('#componentdesc-section').parent().addClass('active');
-//									            	  									$('#techdef-section').parent().removeClass('active');
-//									            	  									$('#processvalid-section').parent().removeClass('active');
-//									            	  									$('#costdelay-section').parent().removeClass('active');
-//									            	  									$('#qualdel-section').parent().removeClass('active');
-//									            	  								}	
 									            	  								break;
 									              case "Technical definition"    :
 									            	  								validateComponent(function()
 									            	  								{
 									            	  									saveTechnicalDefinition();
+									            	  									checkCurrentTab(currentTab);
 									            	  								});
-//									            	  								else
-//									            	  								{
-//									            	  									$('#techdef-section').parent().addClass('active');
-//									            	  									$('#componentdesc-section').parent().removeClass('active');
-//									            	  									$('#processvalid-section').parent().removeClass('active');
-//									            	  									$('#costdelay-section').parent().removeClass('active');
-//									            	  									$('#qualdel-section').parent().removeClass('active');
-//									            	  								}	
 									            	  								break;
 									              case "Process validation"      :
 									            	  								validateComponent(function()
 									            	  								{
 									            	  									saveProcessValidation();
+									            	  									checkCurrentTab(currentTab);
 									            	  								});
-//									            	  								else
-//									            	  								{
-//									            	  									$('#processvalid-section').parent().addClass('active');
-//									            	  									$('#techdef-section').parent().removeClass('active');
-//									            	  									$('#componentdesc-section').parent().removeClass('active');
-//									            	  									$('#costdelay-section').parent().removeClass('active');
-//									            	  									$('#qualdel-section').parent().removeClass('active');
-//									            	  								}
 									            	  								break;
 									              case "Estimation Costs and Delays"		:
 									            	  								validateComponent(function()
 									            	  								{ 
 									            	  									 saveEstimationDelays();
+									            	  									checkCurrentTab(currentTab);
 									            	  								});
-//									            	  								else
-//									            	  								{
-//									            	  									$('#costdelay-section').parent().addClass('active');
-//									            	  									$('#processvalid-section').parent().removeClass('active');
-//									            	  									$('#techdef-section').parent().removeClass('active');
-//									            	  									$('#componentdesc-section').parent().removeClass('active');
-//									            	  									$('#qualdel-section').parent().removeClass('active');
-//									            	  								}	
 									            	  								break;
 									              case "Qualities deliverables"		:
 									            	  								validateComponent(function()
 									            	  								{
 									            	  									saveQualityDeliverable();
+									            	  									checkCurrentTab(currentTab);
 									            	  								});
-//									            	  								else
-//									            	  								{
-//									            	  									$('#qualdel-section').parent().addClass('active');
-//									            	  									$('#costdelay-section').parent().removeClass('active');
-//									            	  									$('#processvalid-section').parent().removeClass('active');
-//									            	  									$('#techdef-section').parent().removeClass('active');
-//									            	  									$('#componentdesc-section').parent().removeClass('active');
-//									            	  								}	
 									            	  								break;
 									          }
    										};
+   	checkCurrentTab					= function(currentTab)
+   									  {
+									   		switch (currentTab)
+									        {
+									            case "Component description"  :
+																	            	$('#componentdesc-subtab').show();
+																		    		$('#techdef-subtab').hide();
+																		    		$('#processvalid-subtab').hide();
+																		    		$('#costdelay-subtab').hide();
+																		    		$('#qualdel-subtab').hide();
+									          	  									break;
+									            case "Technical definition"    :
+																	            	$('#techdef-subtab').show();
+																	    			$('#componentdesc-subtab').hide();
+																	    			$('#processvalid-subtab').hide();
+																	    			$('#costdelay-subtab').hide();
+																	    			$('#qualdel-subtab').hide();
+									          	  									break;
+									            case "Process validation"      :
+																	            	$('#processvalid-subtab').show(); 
+																	    			$('#componentdesc-subtab').hide();
+																	    			$('#techdef-subtab').hide();
+																	    			$('#costdelay-subtab').hide();
+																	    			$('#qualdel-subtab').hide();
+									          	  									break;
+									            case "Estimation Costs and Delays"		:
+																			            	$('#costdelay-subtab').show(); 
+																			    			$('#componentdesc-subtab').hide();
+																			    			$('#techdef-subtab').hide();
+																			    			$('#processvalid-subtab').hide();
+																			    			$('#qualdel-subtab').hide();
+																			    			break;
+									            case "Qualities deliverables"		:
+																			            	$('#qualdel-subtab').show();
+																			    			$('#componentdesc-subtab').hide();
+																			    			$('#techdef-subtab').hide();
+																			    			$('#processvalid-subtab').hide();
+																			    			$('#costdelay-subtab').hide();
+																			    			break;
+									        }
+   									  };	
    	
 })();

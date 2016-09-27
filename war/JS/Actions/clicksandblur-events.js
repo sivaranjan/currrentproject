@@ -130,6 +130,7 @@ $(document).ready(function()
 			         }		 
 			    	 else if(currentPage.get().indexOf("componentdetails")!=-1)
 			    	 {
+			    		 showVoiceBox.configure("Saving Component",15);
 			    		 validateComponent(function()
 						 {
 						   	saveComponent();
@@ -182,13 +183,16 @@ $(document).ready(function()
 					  total_quantity_txt = parseInt(total_quantity_txt*unit_selling_price_txt);
 		              $('#total_amount_txt').val(total_quantity_txt);
 				});
-		    	$(document).on("click", "#componentdesc-section", function(e)
+		    	/*$(document).on("click", "#componentdesc-section", function(e)
 				{
-		    		$('#componentdesc-subtab').show();
-		    		$('#techdef-subtab').hide();
-		    		$('#processvalid-subtab').hide();
-		    		$('#costdelay-subtab').hide();
-		    		$('#qualdel-subtab').hide();
+		    		validateComponent(function()
+					{
+		    			$('#componentdesc-subtab').show();
+			    		$('#techdef-subtab').hide();
+			    		$('#processvalid-subtab').hide();
+			    		$('#costdelay-subtab').hide();
+			    		$('#qualdel-subtab').hide();
+					});
 				});
 		    	$(document).on("click", "#techdef-section", function(e)
 				{
@@ -227,13 +231,14 @@ $(document).ready(function()
 				{
 		    		validateComponent(function()
 					{
+		    			saveComponentDescription();
 		    			$('#qualdel-subtab').show();
 		    			$('#componentdesc-subtab').hide();
 		    			$('#techdef-subtab').hide();
 		    			$('#processvalid-subtab').hide();
 		    			$('#costdelay-subtab').hide();
 					});
-				});
+				});*/
 		    	
 		    	$(document).on("click", "#closenowbtn", function(e)
 				{

@@ -12,8 +12,8 @@
 															   orderIDReference		:	orderIDReference,
 															   componentID			: 	componentID,
 															   componentStatus		: 	componentStatus,
-															   totalQuantity		: 	TotalQuantity,
-															   totalAmount			: 	TotalAmount,
+															   totalQuantity		: 	parseInt(TotalQuantity),
+															   totalAmount			: 	parseInt(TotalAmount),
 														});
 														return componentcreationObject;
 													};
@@ -59,8 +59,24 @@
 														var processteamMember	 =  Do.BackboneEncode($('#processteammemberdrpdwn').val());
 														var nomenClatureList	 =	nomenIDArray;
 														var planTechDefList		 =	planIDArray;
+														if(planOfLabRadioBtn=="Yes")
+														{
+															planOfLabRadioBtn = true;
+														}	
+														else
+														{
+															planOfLabRadioBtn = false;
+														}
+														if(validationRadioBtn=="Yes")
+														{
+															validationRadioBtn = true;
+														}	
+														else
+														{
+															validationRadioBtn = false;
+														}
 														
-													  var technicalDefinitionModelObject   = new BackboneData.Models.ComponentDescriptionModel({
+													  var technicalDefinitionModelObject   = new BackboneData.Models.TechnicalDefinitionModel({
 													
 														    componentID			: 	componentID,
 															projectManager 		:   projectManagerComp,
@@ -72,10 +88,10 @@
 															beCode 				:   be_code,
 															mipPWACode 			:   mip_code,
 															validationProcess 	:   validationRadioBtn,
-															planofLabTests 		:	planTechDefList,
+															planofLabTests 		:	planOfLabRadioBtn,
 															processteamMember	:	processteamMember,
 															nomenClature 		:   nomenClatureList,
-															plan 				:   planOfLabRadioBtn,
+															plan 				:   planTechDefList,
 															comment				:	comment_techdef
 													  });
 														return technicalDefinitionModelObject;
@@ -86,7 +102,7 @@
 													var processDeliverableIDList      =  processdeliverIDArray;
 													var processValidationComments	  =  Do.BackboneEncode($('#comment_process_validation_txtarea').val());
 													var yesISpecified				  =	 Do.BackboneEncode($('#yes_i_specified_process_req_checkbox').is(":checked"));
-											   		var processValidationModelObject  =  new BackboneData.Models.ComponentDescriptionModel({
+											   		var processValidationModelObject  =  new BackboneData.Models.ProcessValidationModel({
 														
 											   			componentID					: 	componentID,
 											   			processDeliverable 			:   processdeliverIDArray,
@@ -110,7 +126,7 @@
 													var fixed_costs_txt 					=	Do.BackboneEncode($('#fixed_costs_txt').val());
 													var total_cost_txt 						= 	Do.BackboneEncode($('#total_cost_txt').val());
 													
-											   		var estimationDelayModelObject   = new BackboneData.Models.ComponentDescriptionModel({
+											   		var estimationDelayModelObject   = new BackboneData.Models.EstimatingCostAndDelayModel({
 														
 											   			componentID						: 	componentID,
 											   			supportedBy 					:   supported_by_drpdwn,
@@ -132,7 +148,7 @@
 													var componentID 		 =  Do.BackboneEncode($('#componentID').val());
 													var comment_quality_deliverable = Do.BackboneEncode($('#comment_quality_deliverable').val());
 													var yes_i_specified_quality_req_checkbox =  Do.BackboneEncode($('#yes_i_specified_quality_req_checkbox').is(":checked"));
-											   		var qualityDeliverableModelObject   = new BackboneData.Models.ComponentDescriptionModel({
+											   		var qualityDeliverableModelObject   = new BackboneData.Models.QualityDeliverableModel({
 														
 												   			componentID						: 	componentID,
 												   			qualityDeliverable 				:   qualityIDArray,

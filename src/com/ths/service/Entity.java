@@ -6,6 +6,7 @@ import com.ths.JDO.Component.ComponentDescriptionJDO;
 import com.ths.JDO.Component.ComponentIDJDO;
 import com.ths.JDO.Component.ComponentJDO;
 import com.ths.JDO.Component.PlanningCustomerDeliveryJDO;
+import com.ths.JDO.Component.TechnicalDefinitionJDO;
 import com.ths.JDO.Configuration.ActorsListJDO;
 import com.ths.JDO.Configuration.AllocationTurnOverJDO;
 import com.ths.JDO.Configuration.ClientLaboJDO;
@@ -55,6 +56,7 @@ public class Entity {
         ObjectifyService.register(AllocationTurnOverJDO.class);
         ObjectifyService.register(ClientLaboJDO.class);
         ObjectifyService.register(AttachmentsJdo.class);
+        ObjectifyService.register(TechnicalDefinitionJDO.class);
     }
 
 }
